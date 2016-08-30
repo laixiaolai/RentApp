@@ -53,6 +53,9 @@ function I($array)
  */
 function L($str){
     $yuyan = getCookieLanguage();
+    if(!$yuyan){
+        $yuyan = "zh-cn";
+    }
     $path  = __DIR__."/App/Language/".$yuyan."/language.php";
     include(__DIR__."/App/Language/".$yuyan."/language.php");
     // dump($language_message);
