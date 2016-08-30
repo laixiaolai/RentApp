@@ -1,21 +1,5 @@
 <?php
 
-/**@
- * @author 
- * $Webscan = new \Common\Util\Webscan();
- // if ($Webscan->check()) {
- //    die('系统检测到有攻击行为存在');
- // }
- */
-// function I($str){
-//     $Webscan = new Webscan();
-//     if ($Webscan->check()) {
-//        die('系统检测到有攻击行为存在');
-//     }
-// }
-
-
-
  
 function gjj($str)
 {
