@@ -1,10 +1,27 @@
 <?php
 class IndexController extends BaseController {
 
+    // public function __construct(){
+    //     $_GET     = I($_GET);
+    //     $_REQUEST = I($_REQUEST);
+    //     $_POST    = I($_POST);
+    //     if(FALSE === empty($_GET['lang'])){
+    //         //设置语言cookie
+    //         setCookieLanguage($_GET['lang']);
+    //     }
+
+        
+    //     // dump($_GET);
+    // }
 
 
 
     public function IndexAction(){
+        //设置cookie
+        //setCookieLanguage("zh-cn");
+        // dump(getCookieLanguage());
+        // L("china");
+        // die;
         $this->assign('title', '首页');
         $this->display();
     }
@@ -33,8 +50,12 @@ class IndexController extends BaseController {
         $this->assign('title', '支付成功页面');
         $this->display();
     }
+
+
+
     public function TestAction(){
-         $ret = array(
+        
+        $ret = array(
             'result' => true,
             'data'   => 123,
         );

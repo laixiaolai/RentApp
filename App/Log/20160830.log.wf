@@ -26,3 +26,115 @@
     ),
   ),
 )
+[ 2016-08-30 13:05:15 ][FATAL]控制器;;;;;不存在 debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\SinglePHP.class.php',
+    'line' => 240,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => '控制器;;;;;不存在',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\index.php',
+    'line' => 4,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => ';;;;;',
+       'a' => 'test',
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2016-08-30 13:05:19 ][FATAL]控制器''不存在 debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\SinglePHP.class.php',
+    'line' => 240,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => '控制器\'\'不存在',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\index.php',
+    'line' => 4,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '\'\'',
+       'a' => 'test',
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2016-08-30 13:05:48 ][FATAL]控制器window不存在 debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\SinglePHP.class.php',
+    'line' => 240,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => '控制器window不存在',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\index.php',
+    'line' => 4,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'window',
+       'a' => 'test',
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2016-08-30 13:10:08 ][FATAL]控制器''不存在 debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\SinglePHP.class.php',
+    'line' => 273,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => '控制器\'\'不存在',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixn_html5_v3\\index.php',
+    'line' => 4,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '\'\'',
+       'a' => 'test',
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
