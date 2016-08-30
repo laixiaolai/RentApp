@@ -1,0 +1,28 @@
+[ 2016-08-30 09:45:22 ][FATAL]方法test不存在 debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixin_html5\\SinglePHP.class.php',
+    'line' => 168,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => '方法test不存在',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\myobj\\weixin_html5\\index.php',
+    'line' => 4,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'Index',
+       'a' => 'test',
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
