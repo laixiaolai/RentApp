@@ -21,7 +21,7 @@ View::tplInclude('Public/header', $data);
 <a href="./index.php?a=buyok">支付成功页面</a><br/>
 <a href="./index.php?a=test">测试列表数据</a><br/>
 
-<h1>这是<?php echo $title;?></h1>
+<h1>222这是<?php echo $title;?></h1>
 
 <?php 
 //载入底部
