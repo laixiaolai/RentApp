@@ -15,6 +15,11 @@ class IndexController extends BaseController {
     // }
 
 
+    public function GetCodeAction(){
+        // $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/";
+        // dump(urlencode($redirect_uri));
+        dump($_GET);
+    }
 
     public function IndexAction(){
 

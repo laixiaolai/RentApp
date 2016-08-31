@@ -67,6 +67,14 @@ class Jssdk {
     return $ticket;
   }
 
+  //获取code(用户授权时候使用)
+  private function getCode() {
+    $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?a=getcode";
+    $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->appId
+                ."&redirect_uri=".urlencode($redirect_uri)."&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+    header("Location:".$code_url);
+  }
+
   private function getAccessToken() {
     // access_token 应该全局存储与更新，以下代码以写入到文件中做示例
     $data = json_decode($this->get_php_file(__DIR__."/access_token.php"));
