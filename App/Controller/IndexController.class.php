@@ -44,10 +44,6 @@ class IndexController extends BaseController {
 
     public function IndexAction(){
 
-        //dump($_SESSION);
-        if(FALSE === empty($_SESSION["user_info"])){
-            dump($_SESSION["user_info"]);
-        }
         //设置cookie
         //setCookieLanguage("zh-cn");
         // dump(getCookieLanguage());
