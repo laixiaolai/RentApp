@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name='keywords' content=''>
+    <meta name='keywords' content="<?php echo $title;?>">
     <meta name='title' content=''>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- 为了让浏览器运行高速模式下 -->
     <meta name="renderer" content="webkit">
     <!-- 为了让 IE 浏览器运行最新的渲染模式下 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>吃饭</title>
+    <title><?php echo $title;?></title>
 
 
 
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id='logo' href='#' style="background:url('./Img/logo_list.png') no-repeat center center;">
+            <a id='logo' href='/' style="background:url('./Img/logo_list.png') no-repeat center center;">
                 <!-- <span class="hidden-xs hidden-sm">Authentic Food, Authentic People</span> -->
             </a>
         </div>

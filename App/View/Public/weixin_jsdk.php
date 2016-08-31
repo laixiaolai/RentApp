@@ -9,7 +9,6 @@
 	  var _imgUrl = _host+"/Img/0.png";//分享图标
 
 	  
-	  console.log(_url);
 	  /*
 	   * 注意：
 	   * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
@@ -22,7 +21,7 @@
 	   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
 	   */
 	  wx.config({
-	    debug: true,
+	    debug: false,
 	    appId: '<?php echo isset($_SESSION["signPackage"]) ? $_SESSION["signPackage"]["appId"]: ""; ?>',
 	    timestamp: <?php echo isset($_SESSION["signPackage"]) ? $_SESSION["signPackage"]["timestamp"]: ""; ?>,
 	    nonceStr: '<?php echo isset($_SESSION["signPackage"]) ? $_SESSION["signPackage"]["nonceStr"]: ""; ?>',
