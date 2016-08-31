@@ -24,8 +24,12 @@ class IndexController extends BaseController {
 
             //通过code获取access_token
             // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
-            $jssdk = new Jssdk("wxc4f17ee7dc946d0a", "03a7b4c63aa31ed4f141c23767cf212c");
-            $res = $jssdk->getAuthorizationCode();
+            $appId = "wxc4f17ee7dc946d0a"; 
+            $appSecret = "03a7b4c63aa31ed4f141c23767cf212c";
+
+            $authorization_code_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$appId
+                ."&secret=".$appSecret."&code=".$_GET['code']."&grant_type=authorization_code";
+            $res = json_decode(get_curl_contents($authorization_code_url));
 
             phpLog($res);
         }
