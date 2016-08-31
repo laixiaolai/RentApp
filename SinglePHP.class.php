@@ -272,7 +272,17 @@ class SinglePHP {
         if(!method_exists($controller, $this->a.'Action')){
             halt('方法'.$this->a.'不存在');
         }
+
+        //加载微信jsdk
+        $jssdk = new Jssdk("wxc4f17ee7dc946d0a", "03a7b4c63aa31ed4f141c23767cf212c");
+        $signPackage = $jssdk->GetSignPackage();
+        $_SESSION['signPackage'] = $signPackage;
+        // dump($signPackage);die;
+
         call_user_func(array($controller,$this->a.'Action'));
+
+
+
     }
 
     /**

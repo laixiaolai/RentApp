@@ -6,10 +6,12 @@ $data = array(
 	'js'         => array("./Js/jquery.min.js","./Js/vue.min.js","./Js/vue-resource.min.js","./Js/vue-router.min.js"),
 );
 
-//载入头部
-View::tplInclude('Public/header', $data); 
 
 ?>
+
+
+    <?php View::tplInclude('Public/css'); ?>
+    <?php View::tplInclude('Public/js'); ?>
 
 
 <a href="./index.php">首页</a><br/>
@@ -23,7 +25,5 @@ View::tplInclude('Public/header', $data);
 
 <h1>这是<?php echo $title;?></h1>
 
-<?php 
-//载入底部
-View::tplInclude('Public/footer'); 
-?>
+<!-- 微信jsdk引入 -->
+<?php View::tplInclude('Public/weixin_jsdk'); ?>

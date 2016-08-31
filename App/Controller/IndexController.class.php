@@ -17,6 +17,9 @@ class IndexController extends BaseController {
 
 
     public function IndexAction(){
+
+        // dump($_SESSION);
+
         //设置cookie
         //setCookieLanguage("zh-cn");
         // dump(getCookieLanguage());
@@ -31,6 +34,13 @@ class IndexController extends BaseController {
         $this->display();
     }
     public function InfoAction(){
+
+
+        // $jssdk = new Jssdk("wxc4f17ee7dc946d0a", "03a7b4c63aa31ed4f141c23767cf212c");
+        // $signPackage = $jssdk->GetSignPackage();
+        // dump($jssdk);
+        // dump($signPackage);
+        
         $this->assign('title', '产品详情页');
         $this->display();
     }
