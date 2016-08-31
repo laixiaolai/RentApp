@@ -71,7 +71,7 @@ class Jssdk {
   public function getCode() {
     $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?a=getcode";
     $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->appId
-                ."&redirect_uri=".urlencode($redirect_uri)."&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+                ."&redirect_uri=".urlencode($redirect_uri)."&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     header("Location:".$code_url);
   }
 
