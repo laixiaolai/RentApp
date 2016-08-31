@@ -282,7 +282,9 @@ class SinglePHP {
 
         //检测如果是微信客户端,让用户授权
         if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
-            $jssdk->getCode();
+            if(TRUE === empty($_SESSION["user_info"])){
+                $jssdk->getCode();
+            }
         }
 
         call_user_func(array($controller,$this->a.'Action'));
