@@ -29,11 +29,11 @@
 	    signature: '<?php echo isset($_SESSION["signPackage"]) ? $_SESSION["signPackage"]["signature"]: ""; ?>',
 	    jsApiList: [
 	      // 所有要调用的 API 都要加到这个列表中
-	      'onMenuShareTimeline',
-	      'onMenuShareAppMessage',
-	      'onMenuShareQQ',
-	      'onMenuShareWeibo',
-	      'onMenuShareQZone',
+	      // 'onMenuShareTimeline',
+	      // 'onMenuShareAppMessage',
+	      // 'onMenuShareQQ',
+	      // 'onMenuShareWeibo',
+	      // 'onMenuShareQZone',
 	      'startRecord',
 	      'stopRecord',
 	      'onVoiceRecordEnd',
