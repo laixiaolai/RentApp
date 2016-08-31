@@ -67,18 +67,10 @@ class Jssdk {
     return $ticket;
   }
 
-  //通过code获取access_token
-  public function getAuthorizationCode() {
-    $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?a=getcode";
-    $authorization_code_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appId
-                ."&secret=".$this->appSecret."&code=CODE&grant_type=authorization_code";
-    $res = json_decode($this->httpGet($authorization_code_url));
-    phpLog($res);
-  }
 
   //获取code(用户授权时候使用)
   public function getCode() {
-    $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?a=getcode";
+    $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?c=weixin&a=getcode";
     $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->appId
                 ."&redirect_uri=".urlencode($redirect_uri)."&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     header("Location:".$code_url);
