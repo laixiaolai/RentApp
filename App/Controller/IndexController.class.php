@@ -14,32 +14,27 @@ class IndexController extends BaseController {
     //     // dump($_GET);
     // }
 
-
+    //微信授权获取用户信息
     public function GetCodeAction(){
-        // $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/";
-        // dump(urlencode($redirect_uri));
-        // dump($_GET);
-        // phpLog($_GET);
         if(FALSE === empty($_GET['code'])){
-
             //通过code获取access_token
-            // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
-            $appId = "wxc4f17ee7dc946d0a"; 
+            $appId     = "wxc4f17ee7dc946d0a"; 
             $appSecret = "03a7b4c63aa31ed4f141c23767cf212c";
-
             $authorization_code_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$appId
                 ."&secret=".$appSecret."&code=".$_GET['code']."&grant_type=authorization_code";
             $res = get_curl_contents($authorization_code_url);
             $res = json_decode($res, true);
-            dump($res);
+            // dump($res);
             if(FALSE === empty($res['access_token'])){
+                //通过access_token获取用户信息
                 $userinfo_url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$res['access_token']."&openid=".$res['openid']."&lang=zh_CN";
                 $userinfo_res = get_curl_contents($userinfo_url);
                 $userinfo_res = json_decode($userinfo_res, true);
-                dump($userinfo_res);
+                // dump($userinfo_res);
                 if (FALSE === empty($userinfo_res["openid"])) {
                     $_SESSION["user_info"] = $userinfo_res;
-                    dump($_SESSION);
+                    header("Location:http://".$_SERVER['HTTP_HOST']);
+                    // dump($_SESSION);
                 }
             }
         }
@@ -48,7 +43,9 @@ class IndexController extends BaseController {
     public function IndexAction(){
 
         // dump($_SESSION);
-
+        if(FALSE === empty($_SESSION["user_info"])){
+            dump($_SESSION["user_info"]);
+        }
         //设置cookie
         //setCookieLanguage("zh-cn");
         // dump(getCookieLanguage());
