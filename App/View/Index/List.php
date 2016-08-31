@@ -18,7 +18,7 @@
 </head>
 <body class='home'>
     <!-- 导航 -->
-    <header id='header' class='navbar-static-top navbar'>
+    <header id='header' class='navbar-static-top navbar' style='position: fixed;border-bottom: 1px solid #e4e4e4;background-color: #fff;'>
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only"></span>
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id='logo' href='#'>
+            <a id='logo' href='#' style="background:url('./Img/logo_list.png') no-repeat center center;">
                 <!-- <span class="hidden-xs hidden-sm">Authentic Food, Authentic People</span> -->
             </a>
         </div>
@@ -38,325 +38,323 @@
             </ul>
         </div>
     </header>
-    <!-- 顶部背景图片 -->
-    <div class='image-area'>
-        <div class='title-text'>
-            <h1>游在异乡，吃在我家</h1>
-            <h3>COME，DINE WITH
-                <span>THE LOCAL</span>
-            </h3>
-            <!-- <div>搜索框</div> -->
-        </div>
-    </div>
     <!-- 内容 -->
-    <div class='content'>
-        <div class='container'>
-            <h2>热门目的地</h2>
-            <!-- 图片 -->
-            <div class='row'>
-                <a class='col-xs-12 col-sm-6' href='#'>
-                    <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
-                        <div class='destination-info'>
-                            <div class='collect'>
-                                <div class='location'>台湾</div>
-                                <div class='host-number'>
-                                    <span>20</span>
-                                    <span>Host</span>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class='col-xs-12 col-sm-6' href='#'>
-                    <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
-                        <div class='destination-info'>
-                            <div class='collect'>
-                                <div class='location'>清迈</div>
-                                <div class='host-number'>
-                                    <span>20</span>
-                                    <span>Host</span>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class='col-xs-12 col-sm-6' href='#'>
-                    <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
-                        <div class='destination-info'>
-                            <div class='collect'>
-                                <div class='location'>首尔</div>
-                                <div class='host-number'>
-                                    <span>20</span>
-                                    <span>Host</span>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class='col-xs-12 col-sm-6' href='#'>
-                    <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
-                        <div class='destination-info'>
-                            <div class='collect'>
-                                <div class='location'>东京</div>
-                                <div class='host-number'>
-                                    <span>20</span>
-                                    <span>Host</span>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div id='moreCities' class='hide'>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>台湾</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>清迈</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>首尔</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>东京</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>台湾</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>清迈</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>首尔</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>东京</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>台湾</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>清迈</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>首尔</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>东京</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>台湾</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>清迈</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>首尔</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a class='col-xs-12 col-sm-6' href='#'>
-                        <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
-                            <div class='destination-info'>
-                                <div class='collect'>
-                                    <div class='location'>东京</div>
-                                    <div class='host-number'>
-                                        <span>20</span>
-                                        <span>Host</span>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!--  -->
-            <div class='more-cities'>
-                <span class='btn-more' onclick='showCities()'>更多目的地···</span>
-            </div>
-        </div>
-    </div>
-    <!-- 体验指引 -->
-    <div class='how-it-works'>
-        <h2 class='title'>如何体验</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 text-center">
-                    <img src="./Img/search.png">                
-                    <h4 class="subtitle">
-                        搜索目的地               
-                    </h4>
-                    <p class="description">
-                        Durchstöbere unsere Events sowie Gastgeber und treffe Deine perfekte Wahl.              
-                    </p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img src="./Img/reserve.png">                
-                    <h4 class="subtitle">
-                        预定下单               
-                    </h4>
-                    <p class="description">
-                        Durchstöbere unsere Events sowie Gastgeber und treffe Deine perfekte Wahl.              
-                    </p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img src="./Img/cheer.png">               
-                    <h4 class="subtitle">
-                        赴约体验               
-                    </h4>
-                    <p class="description">
-                        Durchstöbere unsere Events sowie Gastgeber und treffe Deine perfekte Wahl.              
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div>
+    	<div class="container-fluid">
+    		<div id="search-page" class="row">
+    			<div class="col-md-12 inner-search-page">
+    				<!-- 导航下部的背景图片 -->
+    				<div id="top-page-container">
+				        <div class="row top-page-visual" style="background-image:url('./Img/list_Chiengmai.jpg')">
+				          <div class="top-page-text">
+				            <h1 class="col-md-12 text-center top-page-title">清迈</h1>
+				            <p class="text-center top-page-subtitle">清迈当地人家第一无二的美食体验</p>
+				          </div>
+				        </div>
+				    </div>
+				    <!-- /导航下部的背景图片 -->
+				    <!-- 搜索 -->
+				    <!-- <div style='background-color:#f8f8f8;' class='> -->
+						<div class='search-page-filters row'>
+							<div class="container">
+								<div class='row'>
+									<div class='col-md-4 col-sm-6 hidden-xs'>
+										<div class='host-number list-host-number'>
+		                                    共<span>20</span>个
+		                                    <span>Host</span>    
+		                                </div>
+									</div>
+									<div class='col-md-4'></div>
+									<div class='col-md-4 col-sm-6 col-xs-12'>
+										<div class='row'>
+											<span class='col-sm-4 hidden-xs intelligent-filter'>智能排序</span>
+											<div class="col-sm-8 col-xs-12">
+												<div class="col-xs-12">
+													<select class="form-control filter-option">
+													  <option>价格由高到低</option>
+													  <option>价格由低到高</option>
+													  <option>最新上架</option>
+													  <option>最受欢迎</option>
+													</select>
+												</div>
+
+											</div>
+											
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					<!-- </div> -->
+				    <!-- /搜索 -->
+				    <!-- 搜索结果 -->
+				    <div class='container'>
+				    	<div id='result-page' class="row all-research-results">
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
+				    		    <!-- <div class="hidden">
+					    		    <div class="event_price">20</div>
+					    		    <div class="event_place_latitude">48.858765</div>
+					    		    <div class="event_place_longitude">2.274574</div>
+					    		    <div class="event_title">Casual dinner in the 16th</div>
+					    		    <div class="event_thumbnail_url">https://s3-eu-west-1.amazonaws.com/import.assets.vizeat/uploads/56d6ba8d-1470-49a3-804d-75b4d453810c1456913037710x420.jpg</div>
+					    		    <div class="event_host_thumbnail_url">https://s3-eu-west-1.amazonaws.com/import.assets.vizeat/uploads/56e946c5-1018-459a-a241-688fd453810c1458128581120x120.jpg</div>
+					    		    <div class="event_host_name"> <a href="/users/profile/marie.astrid1">Marie Astrid</a></div>
+				    		  	</div> -->
+				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		  	</div>
+				    		  	<div class="media all-informations">
+									<div>
+										<div class='INFO-title'>
+											<a href="#">
+												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>夏风不热</span>
+											</a>
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											</span>
+										</div>
+										<div class='INFO-description'>
+											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+										</div>
+									</div>
+				    		    	<div class="clearfix border-bottom"></div>
+
+				    		    	<div class="media-secondary">
+				    		      		<div class="host-reviews">
+			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		            			<span class="reviews-stars">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_empty.png">
+			    		                        </span>
+			    		            			<span class='comment-number'>(135)</span>
+			    		          			</a>
+				    		            </div>
+				    		            <div class="meal-price">
+				    		            	<span class='symbol'>&yen;</span>
+				    		            	<span class='price'>96</span>
+				    		            </div>
+				    		      		<div class="clearfix"></div>
+				    		    	</div>
+				    		  	</div>
+				    		</div>
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
+				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		  	</div>
+				    		  	<div class="media all-informations">
+									<div>
+										<div class='INFO-title'>
+											<a href="#">
+												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>夏风不热</span>
+											</a>
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											</span>
+										</div>
+										<div class='INFO-description'>
+											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+										</div>
+									</div>
+				    		    	<div class="clearfix border-bottom"></div>
+
+				    		    	<div class="media-secondary">
+				    		      		<div class="host-reviews">
+			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		            			<span class="reviews-stars">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_empty.png">
+			    		                        </span>
+			    		            			<span class='comment-number'>(135)</span>
+			    		          			</a>
+				    		            </div>
+				    		            <div class="meal-price">
+				    		            	<span class='symbol'>&yen;</span>
+				    		            	<span class='price'>96</span>
+				    		            </div>
+				    		      		<div class="clearfix"></div>
+				    		    	</div>
+				    		  	</div>
+				    		</div>
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
+				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		  	</div>
+				    		  	<div class="media all-informations">
+									<div>
+										<div class='INFO-title'>
+											<a href="#">
+												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>夏风不热</span>
+											</a>
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											</span>
+										</div>
+										<div class='INFO-description'>
+											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+										</div>
+									</div>
+				    		    	<div class="clearfix border-bottom"></div>
+
+				    		    	<div class="media-secondary">
+				    		      		<div class="host-reviews">
+			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		            			<span class="reviews-stars">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_empty.png">
+			    		                        </span>
+			    		            			<span class='comment-number'>(135)</span>
+			    		          			</a>
+				    		            </div>
+				    		            <div class="meal-price">
+				    		            	<span class='symbol'>&yen;</span>
+				    		            	<span class='price'>96</span>
+				    		            </div>
+				    		      		<div class="clearfix"></div>
+				    		    	</div>
+				    		  	</div>
+				    		</div>
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
+				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		  	</div>
+				    		  	<div class="media all-informations">
+									<div>
+										<div class='INFO-title'>
+											<a href="#">
+												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>夏风不热</span>
+											</a>
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											</span>
+										</div>
+										<div class='INFO-description'>
+											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+										</div>
+									</div>
+				    		    	<div class="clearfix border-bottom"></div>
+
+				    		    	<div class="media-secondary">
+				    		      		<div class="host-reviews">
+			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		            			<span class="reviews-stars">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_empty.png">
+			    		                        </span>
+			    		            			<span class='comment-number'>(135)</span>
+			    		          			</a>
+				    		            </div>
+				    		            <div class="meal-price">
+				    		            	<span class='symbol'>&yen;</span>
+				    		            	<span class='price'>96</span>
+				    		            </div>
+				    		      		<div class="clearfix"></div>
+				    		    	</div>
+				    		  	</div>
+				    		</div>
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
+				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		  	</div>
+				    		  	<div class="media all-informations">
+									<div>
+										<div class='INFO-title'>
+											<a href="#">
+												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>夏风不热</span>
+											</a>
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											</span>
+										</div>
+										<div class='INFO-description'>
+											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+										</div>
+									</div>
+				    		    	<div class="clearfix border-bottom"></div>
+
+				    		    	<div class="media-secondary">
+				    		      		<div class="host-reviews">
+			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		            			<span class="reviews-stars">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_empty.png">
+			    		                        </span>
+			    		            			<span class='comment-number'>(135)</span>
+			    		          			</a>
+				    		            </div>
+				    		            <div class="meal-price">
+				    		            	<span class='symbol'>&yen;</span>
+				    		            	<span class='price'>96</span>
+				    		            </div>
+				    		      		<div class="clearfix"></div>
+				    		    	</div>
+				    		  	</div>
+				    		</div>
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
+				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		  	</div>
+				    		  	<div class="media all-informations">
+									<div>
+										<div class='INFO-title'>
+											<a href="#">
+												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>夏风不热</span>
+											</a>
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											</span>
+										</div>
+										<div class='INFO-description'>
+											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+										</div>
+									</div>
+				    		    	<div class="clearfix border-bottom"></div>
+
+				    		    	<div class="media-secondary">
+				    		      		<div class="host-reviews">
+			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		            			<span class="reviews-stars">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_full.png">
+		    		                                <img src="./Img/star_empty.png">
+			    		                        </span>
+			    		            			<span class='comment-number'>(135)</span>
+			    		          			</a>
+				    		            </div>
+				    		            <div class="meal-price">
+				    		            	<span class='symbol'>&yen;</span>
+				    		            	<span class='price'>96</span>
+				    		            </div>
+				    		      		<div class="clearfix"></div>
+				    		    	</div>
+				    		  	</div>
+				    		</div>
+				    	</div>
+				    	<div class='more-cities' style='padding-top: 0'>
+				    	    <span class='btn-more' onclick='showCities()'>更多目的地···</span>
+				    	</div>
+				    </div>
+				    <!-- /搜索结果 -->
+    			</div>
+    		</div>
+    	</div>
     </div>
     <!-- 底部 -->
     <div class="footer">
