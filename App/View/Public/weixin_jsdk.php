@@ -4,8 +4,8 @@
 
 	  var _title =  "55KM"; //分享标题
 	  var _desc =  "55KM"; //分享描述
-	  var _host =  window.location.host;//网站域名
-	  var _url = window.location.href;//当前完整url
+	  var _host =  "http://"+window.location.host;//网站域名
+	  var _url = "http://"+window.location.href;//当前完整url
 	  var _imgUrl = _host+"/Img/0.png";//分享图标
 
 	  
