@@ -328,7 +328,7 @@
         <h2 class='title'>如何体验</h2>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-4 text-center work-step">
                     <img src="./Img/search.png">                
                     <h4 class="subtitle">
                         搜索目的地               
@@ -337,7 +337,7 @@
                         Durchstöbere unsere Events sowie Gastgeber und treffe Deine perfekte Wahl.              
                     </p>
                 </div>
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-4 text-center work-step">
                     <img src="./Img/reserve.png">                
                     <h4 class="subtitle">
                         预定下单               
@@ -346,7 +346,7 @@
                         Durchstöbere unsere Events sowie Gastgeber und treffe Deine perfekte Wahl.              
                     </p>
                 </div>
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-4 text-center work-step">
                     <img src="./Img/cheer.png">               
                     <h4 class="subtitle">
                         赴约体验               
