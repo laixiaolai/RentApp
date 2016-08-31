@@ -35,11 +35,13 @@ class IndexController extends BaseController {
             if(FALSE === empty($res['access_token'])){
                 $userinfo_url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$res['access_token']."&openid=".$res['openid']."&lang=zh_CN";
                 $userinfo_res = get_curl_contents($userinfo_url);
+                $userinfo_res = json_decode($userinfo_res, true);
                 dump($userinfo_res);
+                if (FALSE === empty($userinfo_res["openid"])) {
+                    $_SESSION["user_info"] = $userinfo_res;
+                    dump($_SESSION);
+                }
             }
-
-
-            
         }
     }
 
