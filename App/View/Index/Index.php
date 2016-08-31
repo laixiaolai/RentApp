@@ -10,14 +10,11 @@
     <!-- 为了让 IE 浏览器运行最新的渲染模式下 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>吃饭</title>
-    <script src="./Js/jquery.min.js"></script>
-    <script src="./Js/vue.min.js"></script>
-    <script src="./Js/vue-resource.min.js"></script>
-    <script src="./Js/vue-router.min.js"></script>
-    <script src="./Js/bootstrap.min.js"></script>
-    <script src="./Js/host.js"></script>
-    <link rel="stylesheet" href="./Css/bootstrap.min.css">
-    <link rel="stylesheet" href="./Css/host.css">
+    
+   
+
+    <?php View::tplInclude('Public/css'); ?>
+    <?php View::tplInclude('Public/js'); ?>
 </head>
 <body class='home'>
     <!-- 导航 -->
