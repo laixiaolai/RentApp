@@ -31,7 +31,7 @@ class IndexController extends BaseController {
                 ."&secret=".$appSecret."&code=".$_GET['code']."&grant_type=authorization_code";
             $res = json_decode(get_curl_contents($authorization_code_url));
 
-            phpLog($res);
+            dump($res);
         }
     }
 
