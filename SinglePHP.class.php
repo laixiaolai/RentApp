@@ -278,11 +278,10 @@ class SinglePHP {
         $signPackage = $jssdk->GetSignPackage();
         $_SESSION['signPackage'] = $signPackage;
         // dump($signPackage);die;
-        
 
         //检测如果是微信客户端,让用户授权
-        if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
-            // dump('微信');die;
+        if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
+            dump('微信');die;
             $jssdk->getCode();
         }
 
