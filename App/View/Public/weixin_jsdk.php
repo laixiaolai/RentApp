@@ -6,7 +6,7 @@
 	  var _desc =  "55KM"; //分享描述
 	  var _host =  window.location.host;//网站域名
 	  var _url = window.location.href;//当前完整url
-	  var _imgUrl = window.location.href;//分享图标
+	  var _imgUrl = _host+"/Img/0.png";//分享图标
 
 	  
 	  console.log(_url);
@@ -72,7 +72,7 @@
 	        title: _title, // 分享标题
 	        desc: _desc, // 分享描述
 	        link: _host, // 分享链接
-	        imgUrl: '<?php echo isset($title) ? $title: "分享标题"; ?>', // 分享图标
+	        imgUrl: _imgUrl, // 分享图标
 	        type: '', // 分享类型,music、video或link，不填默认为link
 	        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 	        success: function () { 
