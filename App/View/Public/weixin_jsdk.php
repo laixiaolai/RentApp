@@ -69,8 +69,8 @@
 	  wx.ready(function () {
 	    // 在这里调用 API
 	    wx.onMenuShareAppMessage({
-	        title: '<?php echo isset($title) ? $title: "分享标题"; ?>', // 分享标题
-	        desc: '<?php echo isset($title) ? $title: "分享描述"; ?>', // 分享描述
+	        title: _title, // 分享标题
+	        desc: _desc, // 分享描述
 	        link: _host, // 分享链接
 	        imgUrl: '<?php echo isset($title) ? $title: "分享标题"; ?>', // 分享图标
 	        type: '', // 分享类型,music、video或link，不填默认为link
