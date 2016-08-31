@@ -18,8 +18,16 @@ class IndexController extends BaseController {
     public function GetCodeAction(){
         // $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/";
         // dump(urlencode($redirect_uri));
-        dump($_GET);
-        phpLog($_GET);
+        // dump($_GET);
+        // phpLog($_GET);
+        if(FALSE === empty($_GET['code'])){
+
+            //通过code获取access_token
+            // https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+            $res = $jssdk->getAuthorizationCode();
+
+            phpLog($res);
+        }
     }
 
     public function IndexAction(){
