@@ -264,6 +264,7 @@ class SinglePHP {
                 $this->a = 'Index';
             }
         }
+        dump($this->c.'Controller');die;
         if(!class_exists($this->c.'Controller')){
             halt('控制器'.$this->c.'不存在');
         }
