@@ -1,10 +1,10 @@
 <?php
-class WeixinController {
+class WeixinController extends BaseController {
 
 
     //微信授权获取用户信息
     public function GetCodeAction(){
-
+        
         // dump($_GET);
         if(FALSE === empty($_GET['code'])){
             //通过code获取access_token
