@@ -29,7 +29,8 @@ class IndexController extends BaseController {
 
             $authorization_code_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$appId
                 ."&secret=".$appSecret."&code=".$_GET['code']."&grant_type=authorization_code";
-            $res = json_decode(get_curl_contents($authorization_code_url));
+            $res = get_curl_contents($authorization_code_url);
+            $res = json_decode($res, true);
 
             dump($res);
         }
