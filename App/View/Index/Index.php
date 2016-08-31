@@ -29,14 +29,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id='logo' href='/'>
+            <a id='logo' href='#'>
                 <!-- <span class="hidden-xs hidden-sm">Authentic Food, Authentic People</span> -->
             </a>
         </div>
         <div class='navbar-collapse collapse'>
             <ul class='header-list pull-right nav'>
                 <li>
-                    <a href="/" class='host'>成为Host</a>
+                    <a href="#" class='host'>成为Host</a>
                 </li>
             </ul>
         </div>
@@ -57,7 +57,7 @@
             <h2>热门目的地</h2>
             <!-- 图片 -->
             <div class='row'>
-                <a class='col-xs-12 col-sm-6' href='/'>
+                <a class='col-xs-12 col-sm-6' href='#'>
                     <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </a>
-                <a class='col-xs-12 col-sm-6' href='/'>
+                <a class='col-xs-12 col-sm-6' href='#'>
                     <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </a>
-                <a class='col-xs-12 col-sm-6' href='/'>
+                <a class='col-xs-12 col-sm-6' href='#'>
                     <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </a>
-                <a class='col-xs-12 col-sm-6' href='/'>
+                <a class='col-xs-12 col-sm-6' href='#'>
                     <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -110,7 +110,7 @@
                     </div>
                 </a>
                 <div id='moreCities' class='hide'>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -162,7 +162,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -175,7 +175,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -188,7 +188,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -214,7 +214,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -227,7 +227,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -240,7 +240,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -253,7 +253,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -266,7 +266,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -292,7 +292,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -305,7 +305,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='/'>
+                    <a class='col-xs-12 col-sm-6' href='#'>
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -379,10 +379,10 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-9 col-md-7">
                                     <select class="form-control" id="select-language">
-                                        <option value="//it.vizeat.com/">中文</option>
-                                        <option value="//fr.vizeat.com/">英文</option>
-                                        <option value="//es.vizeat.com/">日文</option>
-                                        <option value="//www.vizeat.com/">德语</option>
+                                        <option value="">中文</option>
+                                        <option value="">英文</option>
+                                        <option value="">日文</option>
+                                        <option value="">德语</option>
                                         <option selected="" value="de">法语</option>                                  
                                     </select>
                                 </div>
@@ -410,33 +410,33 @@
                     <div class="row">
                         <ul class="col-xs-6 menu">
                             <li>
-                                <a href="https://de.vizeat.com/pages/wie-es-funktioniert">关于我们</a>
+                                <a href="#">关于我们</a>
                             </li>
                             <li>
-                                <a href="https://de.vizeat.com/pages/vertrauen">条件条款</a>
+                                <a href="#">条件条款</a>
                             </li>
                             <li>
-                                <a href="https://de.vizeat.com/pages/about">隐私政策</a>
+                                <a href="#">隐私政策</a>
                             </li>
                             <li>
-                                <a href="https://de.vizeat.com/pages/faq">联系我们</a>
+                                <a href="#">联系我们</a>
                             </li>
                         </ul>
                         <ul class="col-xs-6 menu">
                             <li>
-                                <a href="https://de.vizeat.com/pages/in-der-presse">信任机制</a>
+                                <a href="#">信任机制</a>
                             </li>
                             <li>
-                                <a href="https://de.vizeat.com/pages/jobs">工作机会</a>
+                                <a href="#">工作机会</a>
                             </li>
                             <li>
-                                <a href="https://de.vizeat.com/pages/kontakt">媒体报道</a>
+                                <a href="#">媒体报道</a>
                             </li>
                             <li>
-                                <a href="https://de.vizeat.com/pages/privacy-policy">FAQ</a>
+                                <a href="#">FAQ</a>
                             </li>
                             <!-- <li>
-                                <a href="https://de.vizeat.com/pages/geschaeftsbedingungen">Geschäftsbedingungen</a>
+                                <a href="#https://de.vizeat.com/pages/geschaeftsbedingungen">Geschäftsbedingungen</a>
                             </li> -->
                         </ul>
                         <ul class="col-xs-6 menu"></ul>
@@ -452,10 +452,10 @@
                             <div class="row">
                                 <ul class="col-xs-12 menu">
                                     <li style="font-size:16px; font-weight: 300; color: rgb(108, 123, 138); opacity: 0.7; font-family: 'Open Sans'">
-                                        <a href="https://de.vizeat.com/pages/privacy-policy">成为Host的好处和机遇</a>
+                                        <a href="#">成为Host的好处和机遇</a>
                                     </li>
                                     <li style="font-size:16px; font-weight: 300; color: rgb(108, 123, 138); opacity: 0.7; font-family: 'Open Sans'">
-                                        <a href="https://de.vizeat.com/pages/privacy-policy">如何成为Host</a>
+                                        <a href="#">如何成为Host</a>
                                     </li>
                                 </ul>
                             </div>
