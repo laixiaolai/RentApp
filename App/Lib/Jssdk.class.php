@@ -70,7 +70,7 @@ class Jssdk {
 
   //获取code(用户授权时候使用)
   public function getCode() {
-    $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?c=weixin&a=getcode";
+    $redirect_uri = "http://".$_SERVER['HTTP_HOST']."/index.php?c=Weixin&a=getcode";
     $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->appId
                 ."&redirect_uri=".urlencode($redirect_uri)."&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     header("Location:".$code_url);
