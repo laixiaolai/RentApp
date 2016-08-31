@@ -479,7 +479,7 @@
         </div>
     </div>
        
-    <!-- 微信jsdk引入 -->
+    <!-- 微信jsdk引入 -->   
     <?php View::tplInclude('Public/weixin_jsdk'); ?>
 </body>
 
