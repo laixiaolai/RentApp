@@ -24,7 +24,7 @@ class IndexController extends BaseController {
                 ."&secret=".$appSecret."&code=".$_GET['code']."&grant_type=authorization_code";
             $res = get_curl_contents($authorization_code_url);
             $res = json_decode($res, true);
-            // dump($res);
+            // dump($res);die;
             if(FALSE === empty($res['access_token'])){
                 //通过access_token获取用户信息
                 $userinfo_url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$res['access_token']."&openid=".$res['openid']."&lang=zh_CN";

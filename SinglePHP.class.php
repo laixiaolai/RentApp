@@ -264,7 +264,7 @@ class SinglePHP {
                 $this->a = 'Index';
             }
         }
-        
+
         if(!class_exists($this->c.'Controller')){
             halt('控制器'.$this->c.'不存在');
         }
@@ -281,7 +281,7 @@ class SinglePHP {
         // dump($signPackage);die;
 
         //检测如果是微信客户端,让用户授权
-        if(($this->c != "weixin") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
+        if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
             $jssdk->getCode();
         }
 
