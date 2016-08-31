@@ -280,7 +280,7 @@ class SinglePHP {
         // dump($signPackage);die;
 
         //检测如果是微信客户端,让用户授权
-        if(($this->c != "Weixin") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
+        if(($this->c != "weixin") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
             $jssdk->getCode();
         }
 
