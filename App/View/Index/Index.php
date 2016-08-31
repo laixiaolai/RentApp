@@ -10,8 +10,8 @@
     <!-- 为了让 IE 浏览器运行最新的渲染模式下 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>吃饭</title>
-    
-   
+
+
 
     <?php View::tplInclude('Public/css'); ?>
     <?php View::tplInclude('Public/js'); ?>
@@ -329,7 +329,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 text-center">
-                    <img src="Img/search.png">                
+                    <img src="./Img/search.png">                
                     <h4 class="subtitle">
                         搜索目的地               
                     </h4>
@@ -338,7 +338,7 @@
                     </p>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="Img/reserve.png">                
+                    <img src="./Img/reserve.png">                
                     <h4 class="subtitle">
                         预定下单               
                     </h4>
@@ -347,7 +347,7 @@
                     </p>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="Img/cheer.png">               
+                    <img src="./Img/cheer.png">               
                     <h4 class="subtitle">
                         赴约体验               
                     </h4>
@@ -464,7 +464,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-6 copyright">
                     <div class='row'>
                         <div class="col-md-11 col-md-offset-1">
-                            <img src="Img/logo_gray.png" alt="Vizeat" width="121" height="35">
+                            <img src="./Img/logo_gray.png" alt="Vizeat" width="121" height="35">
                             <span>Copyright2016</span>
                         </div>
                         
