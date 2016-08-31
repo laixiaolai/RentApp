@@ -16,6 +16,8 @@ class IndexController extends BaseController {
 
     //微信授权获取用户信息
     public function GetCodeAction(){
+        //$_SESSION["user_info"] = 1111;
+        //dump($_SESSION);
         if(FALSE === empty($_GET['code'])){
             //通过code获取access_token
             $appId     = "wxc4f17ee7dc946d0a"; 
@@ -42,7 +44,7 @@ class IndexController extends BaseController {
 
     public function IndexAction(){
 
-        // dump($_SESSION);
+        //dump($_SESSION);
         if(FALSE === empty($_SESSION["user_info"])){
             dump($_SESSION["user_info"]);
         }

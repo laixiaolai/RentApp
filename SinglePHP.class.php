@@ -239,9 +239,9 @@ class SinglePHP {
             setCookieLanguage($_GET['lang']);
         }
 
-        if(C('USE_SESSION') == true){
+        //if(C('USE_SESSION') == true){
             session_start();
-        }
+        //}
         C('APP_FULL_PATH', getcwd().'/'.C('APP_PATH').'/');
         includeIfExist( C('APP_FULL_PATH').'/common.php');
         $pathMod = C('PATH_MOD');
@@ -280,12 +280,14 @@ class SinglePHP {
         $_SESSION['signPackage'] = $signPackage;
         // dump($signPackage);die;
 
+
         //检测如果是微信客户端,让用户授权
-        if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
-            if(TRUE === empty($_SESSION["user_info"])){
+        if(TRUE === empty($_SESSION["user_info"])){
+            if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
                 $jssdk->getCode();
             }
         }
+       
 
         call_user_func(array($controller,$this->a.'Action'));
 
