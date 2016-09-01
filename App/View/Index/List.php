@@ -302,19 +302,19 @@
 	                    .then((response) => {
 	                    	var _arr = response.json();
 	                    	debug.log(_arr);
-	      //               	if(!!_arr && _arr.length == 0){
-	      //               		console.log('wu')
-	      //               		//提示
-							// 	layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
-							// }else{
-	      //               		console.log(_arr)
-		     //                	var _thistree = this.tree;
+	                    	if(!!_arr && _arr.length == 0){
+	                    		console.log('wu');
+	                    		//提示
+								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
+							}else{
+	                    		console.log(_arr)
+		                    	var _thistree = this.tree;
 		                    	
-							// 	$.each(_arr, function(index, value) {
-							// 		_thistree.push(value);
-							// 	});
-							// 	this.$set('page_p',this.page_p+1);
-	      //               	}
+								$.each(_arr, function(index, value) {
+									_thistree.push(value);
+								});
+								this.$set('page_p',this.page_p+1);
+	                    	}
 	                    	
 	                    }).catch(this.requestError);
 
