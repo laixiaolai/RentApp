@@ -90,23 +90,23 @@
 				    <!-- /搜索 -->
 				    <!-- 搜索结果 -->
 				    <div class='container'>
-				    	<div id='result-page' class="row all-research-results"  v-for="items in tree">
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
-				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+				    	<div id='result-page' class="row all-research-results" >
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree">
+				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}')">
 				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
 				    		  	</div>
 				    		  	<div class="media all-informations">
 									<div>
 										<div class='INFO-title'>
 											<a href="#">
-												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>{{items.groupTour.id}}夏风不热</span>
+												<img src="{{items.author.avatarUrl}}" alt="" width='50' class='INFO-avatar'>
+												<span class='INFO-username'>{{items.author.nickname}}</span>
 											</a>
-											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
+											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>{{items.groupTour.transportation}}
 											</span>
 										</div>
 										<div class='INFO-description'>
-											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
+											{{items.groupTour.title}}
 										</div>
 									</div>
 				    		    	<div class="clearfix border-bottom"></div>
@@ -121,12 +121,12 @@
 		    		                                <img src="./Img/star_full.png">
 		    		                                <img src="./Img/star_empty.png">
 			    		                        </span>
-			    		            			<span class='comment-number'>(135)</span>
+			    		            			<span class='comment-number'>({{items.groupTour.price}})</span>
 			    		          			</a>
 				    		            </div>
 				    		            <div class="meal-price">
 				    		            	<span class='symbol'>&yen;</span>
-				    		            	<span class='price'>96</span>
+				    		            	<span class='price'>{{items.groupTour.actualPrice}}</span>
 				    		            </div>
 				    		      		<div class="clearfix"></div>
 				    		    	</div>
@@ -166,7 +166,7 @@
                                         <option value="">中文</option>
                                         <option value="">英文</option>
                                         <option value="">日文</option>
-                                        <option value="">德语</option>
+                                        <option value=-"">德语</option>
                                         <option selected="" value="de">法语</option>                                  
                                     </select>
                                 </div>
