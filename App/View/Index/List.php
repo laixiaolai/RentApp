@@ -301,7 +301,7 @@
 							if(!!_arr && _arr.length == 0){
 								//console.log('wu');
 								//提示
-								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 200  }); 
+								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
 							}else{
 								//console.log(_arr)
 						    	var _thistree = this.tree;
