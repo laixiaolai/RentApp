@@ -297,10 +297,10 @@
 	                    var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
 	                    
 	                    this.$http.get(grouptour_url, {
-	                        headers: headers
+	                        headers: headers;
 	                    })
 	                    .then((response) => {
-	                    	var _arr = response.json()
+	                    	var _arr = response.json();
 	                    	debug.log(_arr);
 	      //               	if(!!_arr && _arr.length == 0){
 	      //               		console.log('wu')
@@ -316,9 +316,9 @@
 							// 	this.$set('page_p',this.page_p+1);
 	      //               	}
 	                    	
-	                    }).catch(this.requestError)
+	                    }).catch(this.requestError);
 
-	                    layer.closeAll()
+	                    layer.closeAll();
 	                }
 	            },
 	            ready: function() { //初始化执行的方法
