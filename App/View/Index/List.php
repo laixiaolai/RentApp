@@ -115,7 +115,7 @@
 				    		      		<div class="host-reviews">
 			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
 			    		            			<span class="reviews-stars">
-		    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:0px;">
+		    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{items.groupTour.price / 500 * 100 - 98.5}}px;">
 			    		                        </span>
 			    		            			<span class='comment-number'>({{items.groupTour.price}})</span>
 			    		          			</a>
