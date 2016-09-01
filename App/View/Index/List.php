@@ -286,7 +286,6 @@
 	                },
 	            	//列表渲染
 	                fetchUser: function () { 
-
 	                	layer.open({type: 2});
 
 	                    var headers = {
@@ -295,54 +294,27 @@
 	                    	"X-Auth-Token":this.Token
 	                    }
 	                    var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
-	                    
-
-
-this.$http.get(grouptour_url, {headers: headers}).then(function(response){
-	// 响应成功回调
-	var _arr = response.json();
-	debug.log(_arr);
-	if(!!_arr && _arr.length == 0){
-		console.log('wu');
-		//提示
-		layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
-	}else{
-		console.log(_arr)
-    	var _thistree = this.tree;
-    	
-		$.each(_arr, function(index, value) {
-			_thistree.push(value);
-		});
-		this.$set('page_p',this.page_p+1);
-	}
-}, function(response){
-	// 响应错误回调
-});
- layer.closeAll();
-
-	      //               this.$http.get(grouptour_url, {
-	      //                   headers: headers
-	      //               })
-	      //               .then((response) => {
-	      //               	var _arr = response.json();
-	      //               	debug.log(_arr);
-	      //               	if(!!_arr && _arr.length == 0){
-	      //               		console.log('wu');
-	      //               		//提示
-							// 	layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
-							// }else{
-	      //               		console.log(_arr)
-		     //                	var _thistree = this.tree;
-		                    	
-							// 	$.each(_arr, function(index, value) {
-							// 		_thistree.push(value);
-							// 	});
-							// 	this.$set('page_p',this.page_p+1);
-	      //               	}
-	                    	
-	      //               }).catch(this.requestError);
-
-	      //               layer.closeAll();
+						this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+							// 响应成功回调
+							var _arr = response.json();
+							// debug.log(_arr);
+							if(!!_arr && _arr.length == 0){
+								//console.log('wu');
+								//提示
+								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 200  }); 
+							}else{
+								//console.log(_arr)
+						    	var _thistree = this.tree;
+						    	
+								$.each(_arr, function(index, value) {
+									_thistree.push(value);
+								});
+								this.$set('page_p',this.page_p+1);
+							}
+						}, function(response){
+							// 响应错误回调
+						});
+						 layer.closeAll();
 	                }
 	               /* fetchUser: function () { 
 
@@ -362,11 +334,11 @@ this.$http.get(grouptour_url, {headers: headers}).then(function(response){
 	                    	var _arr = response.json();
 	                    	debug.log(_arr);
 	                    	if(!!_arr && _arr.length == 0){
-	                    		console.log('wu');
+	                    		//console.log('wu');
 	                    		//提示
 								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
 							}else{
-	                    		console.log(_arr)
+	                    		//console.log(_arr)
 		                    	var _thistree = this.tree;
 		                    	
 								$.each(_arr, function(index, value) {
