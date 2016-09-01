@@ -20,10 +20,8 @@ class IndexController extends BaseController {
         //dump($_SESSION);
         if(FALSE === empty($_GET['code'])){
             //通过code获取access_token
-            $appId     = "wxc4f17ee7dc946d0a"; 
-            $appSecret = "03a7b4c63aa31ed4f141c23767cf212c";
-            $authorization_code_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$appId
-                ."&secret=".$appSecret."&code=".$_GET['code']."&grant_type=authorization_code";
+            $authorization_code_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".WX_APPID
+                ."&secret=".WX_APPSECRET."&code=".$_GET['code']."&grant_type=authorization_code";
             $res = get_curl_contents($authorization_code_url);
             $res = json_decode($res, true);
             // dump($res);die;
@@ -43,7 +41,6 @@ class IndexController extends BaseController {
     }
 
     public function IndexAction(){
-
         //设置cookie
         //setCookieLanguage("zh-cn");
         // dump(getCookieLanguage());

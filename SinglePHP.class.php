@@ -244,6 +244,7 @@ class SinglePHP {
         //}
         C('APP_FULL_PATH', getcwd().'/'.C('APP_PATH').'/');
         includeIfExist( C('APP_FULL_PATH').'/common.php');
+        includeIfExist( C('APP_FULL_PATH').'/config.php');
         $pathMod = C('PATH_MOD');
         $pathMod = empty($pathMod)?'NORMAL':$pathMod;
         spl_autoload_register(array('SinglePHP', 'autoload'));
@@ -274,17 +275,39 @@ class SinglePHP {
             halt('方法'.$this->a.'不存在');
         }
 
+
+
         //加载微信jsdk
-        $jssdk = new Jssdk("wxc4f17ee7dc946d0a", "03a7b4c63aa31ed4f141c23767cf212c");
+        // $jssdk = new Jssdk("wxc4f17ee7dc946d0a", "03a7b4c63aa31ed4f141c23767cf212c");
+        $jssdk = new Jssdk(WX_APPID, WX_APPSECRET);
         $signPackage = $jssdk->GetSignPackage();
         $_SESSION['signPackage'] = $signPackage;
         // dump($signPackage);die;
-
 
         //检测如果是微信客户端,让用户授权
         if(TRUE === empty($_SESSION["user_info"])){
             if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
                 $jssdk->getCode();
+            }
+        }
+
+
+
+
+        //检测是否获取过后端API的token
+        if(TRUE === empty($_SESSION["api_info"])){
+            $_Get_Url   = API_URL."signin";
+            $_Form_Data = '{"mobileNum": "'.API_MOBILENUM.'", "password": "'.API_PASSWORD.'"}';
+            $_Headers   = array("Content-Type: application/json","X-Api-Key: web-app","Datetime: ".date("Y-m-d H:i:s",time()));
+            $api_res    = Get_Web_Contents($_Get_Url, "POST", $_Form_Data, $_Headers);
+            // dump($api_res);
+            if(FALSE === empty($api_res['Body'])){
+                $api_info    = json_decode($api_res['Body'], true);
+                // dump($api_info);
+                if(FALSE === empty($api_info['token'])){
+                    $_SESSION["api_info"] = $api_info;
+                }
+                
             }
         }
        

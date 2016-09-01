@@ -39,7 +39,7 @@
         </div>
     </header>
     <!-- 内容 -->
-    <div>
+    <div id="app">
     	<div class="container-fluid">
     		<div id="search-page" class="row">
     			<div class="col-md-12 inner-search-page">
@@ -90,57 +90,7 @@
 				    <!-- /搜索 -->
 				    <!-- 搜索结果 -->
 				    <div class='container'>
-				    	<div id='result-page' class="row all-research-results">
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
-				    		    <!-- <div class="hidden">
-					    		    <div class="event_price">20</div>
-					    		    <div class="event_place_latitude">48.858765</div>
-					    		    <div class="event_place_longitude">2.274574</div>
-					    		    <div class="event_title">Casual dinner in the 16th</div>
-					    		    <div class="event_thumbnail_url">https://s3-eu-west-1.amazonaws.com/import.assets.vizeat/uploads/56d6ba8d-1470-49a3-804d-75b4d453810c1456913037710x420.jpg</div>
-					    		    <div class="event_host_thumbnail_url">https://s3-eu-west-1.amazonaws.com/import.assets.vizeat/uploads/56e946c5-1018-459a-a241-688fd453810c1458128581120x120.jpg</div>
-					    		    <div class="event_host_name"> <a href="/users/profile/marie.astrid1">Marie Astrid</a></div>
-				    		  	</div> -->
-				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
-				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
-				    		  	</div>
-				    		  	<div class="media all-informations">
-									<div>
-										<div class='INFO-title'>
-											<a href="#">
-												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>夏风不热</span>
-											</a>
-											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
-											</span>
-										</div>
-										<div class='INFO-description'>
-											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
-										</div>
-									</div>
-				    		    	<div class="clearfix border-bottom"></div>
-
-				    		    	<div class="media-secondary">
-				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
-			    		            			<span class="reviews-stars">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_empty.png">
-			    		                        </span>
-			    		            			<span class='comment-number'>(135)</span>
-			    		          			</a>
-				    		            </div>
-				    		            <div class="meal-price">
-				    		            	<span class='symbol'>&yen;</span>
-				    		            	<span class='price'>96</span>
-				    		            </div>
-				    		      		<div class="clearfix"></div>
-				    		    	</div>
-				    		  	</div>
-				    		</div>
+				    	<div id='result-page' class="row all-research-results"  v-for="items in tree">
 				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
 				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
 				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
@@ -150,171 +100,7 @@
 										<div class='INFO-title'>
 											<a href="#">
 												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>夏风不热</span>
-											</a>
-											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
-											</span>
-										</div>
-										<div class='INFO-description'>
-											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
-										</div>
-									</div>
-				    		    	<div class="clearfix border-bottom"></div>
-
-				    		    	<div class="media-secondary">
-				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
-			    		            			<span class="reviews-stars">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_empty.png">
-			    		                        </span>
-			    		            			<span class='comment-number'>(135)</span>
-			    		          			</a>
-				    		            </div>
-				    		            <div class="meal-price">
-				    		            	<span class='symbol'>&yen;</span>
-				    		            	<span class='price'>96</span>
-				    		            </div>
-				    		      		<div class="clearfix"></div>
-				    		    	</div>
-				    		  	</div>
-				    		</div>
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
-				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
-				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
-				    		  	</div>
-				    		  	<div class="media all-informations">
-									<div>
-										<div class='INFO-title'>
-											<a href="#">
-												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>夏风不热</span>
-											</a>
-											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
-											</span>
-										</div>
-										<div class='INFO-description'>
-											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
-										</div>
-									</div>
-				    		    	<div class="clearfix border-bottom"></div>
-
-				    		    	<div class="media-secondary">
-				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
-			    		            			<span class="reviews-stars">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_empty.png">
-			    		                        </span>
-			    		            			<span class='comment-number'>(135)</span>
-			    		          			</a>
-				    		            </div>
-				    		            <div class="meal-price">
-				    		            	<span class='symbol'>&yen;</span>
-				    		            	<span class='price'>96</span>
-				    		            </div>
-				    		      		<div class="clearfix"></div>
-				    		    	</div>
-				    		  	</div>
-				    		</div>
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
-				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
-				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
-				    		  	</div>
-				    		  	<div class="media all-informations">
-									<div>
-										<div class='INFO-title'>
-											<a href="#">
-												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>夏风不热</span>
-											</a>
-											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
-											</span>
-										</div>
-										<div class='INFO-description'>
-											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
-										</div>
-									</div>
-				    		    	<div class="clearfix border-bottom"></div>
-
-				    		    	<div class="media-secondary">
-				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
-			    		            			<span class="reviews-stars">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_empty.png">
-			    		                        </span>
-			    		            			<span class='comment-number'>(135)</span>
-			    		          			</a>
-				    		            </div>
-				    		            <div class="meal-price">
-				    		            	<span class='symbol'>&yen;</span>
-				    		            	<span class='price'>96</span>
-				    		            </div>
-				    		      		<div class="clearfix"></div>
-				    		    	</div>
-				    		  	</div>
-				    		</div>
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
-				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
-				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
-				    		  	</div>
-				    		  	<div class="media all-informations">
-									<div>
-										<div class='INFO-title'>
-											<a href="#">
-												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>夏风不热</span>
-											</a>
-											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
-											</span>
-										</div>
-										<div class='INFO-description'>
-											贴心的服务加上色香味俱全的菜肴，让你恍如在家的梦境中。
-										</div>
-									</div>
-				    		    	<div class="clearfix border-bottom"></div>
-
-				    		    	<div class="media-secondary">
-				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
-			    		            			<span class="reviews-stars">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_full.png">
-		    		                                <img src="./Img/star_empty.png">
-			    		                        </span>
-			    		            			<span class='comment-number'>(135)</span>
-			    		          			</a>
-				    		            </div>
-				    		            <div class="meal-price">
-				    		            	<span class='symbol'>&yen;</span>
-				    		            	<span class='price'>96</span>
-				    		            </div>
-				    		      		<div class="clearfix"></div>
-				    		    	</div>
-				    		  	</div>
-				    		</div>
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box">
-				    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
-				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
-				    		  	</div>
-				    		  	<div class="media all-informations">
-									<div>
-										<div class='INFO-title'>
-											<a href="#">
-												<img src="./Img/list_user.jpg" alt="" width='50' class='INFO-avatar'>
-												<span class='INFO-username'>夏风不热</span>
+												<span class='INFO-username'>{{items.groupTour.id}}夏风不热</span>
 											</a>
 											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海市
 											</span>
@@ -348,13 +134,16 @@
 				    		</div>
 				    	</div>
 				    	<div class='more-cities' style='padding-top: 0'>
-				    	    <span class='btn-more' onclick='showCities()'>更多目的地···</span>
+				    	    <span class='btn-more' @click='show_list'>加载更多···</span>
 				    	</div>
 				    </div>
 				    <!-- /搜索结果 -->
     			</div>
     		</div>
     	</div>
+    	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
+        <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
+        <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
     </div>
     <!-- 底部 -->
     <div class="footer">
@@ -475,8 +264,72 @@
                 </div>
             </div>
         </div>
+
     </div>
     
-</body>
+	
+	<script>
 
+	    $(function(){
+	       
+	        var vm = new Vue({
+	            el: '#app', //绑定id盒子
+	            data: {  //初始化内容值
+	                page_size: 2,
+	                page_p: 1,
+	                api_url: '',
+	                Datetime: '',
+	                Token: '',
+	                tree: []
+	            },
+	            methods: {
+
+	            	//加载更多
+	                show_list: function () { 
+	                	this.fetchUser();
+	                },
+	            	//列表渲染
+	                fetchUser: function () { 
+	                	layer.open({type: 2});
+
+	                    var headers = {
+	                    	"Content-Type":"application/json",
+	                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
+	                    	"X-Auth-Token":this.Token
+	                    }
+	                    var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
+	                    
+	                    this.$http.get(grouptour_url, {
+	                        headers: headers
+	                    })
+	                    .then((response) => {
+	                    	var _arr = response.json()
+	                    	if(!!_arr && _arr.length == 0){
+	                    		console.log('wu')
+	                    		//提示
+								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
+							}else{
+	                    		console.log(_arr)
+		                    	var _thistree = this.tree;
+		                    	
+								$.each(_arr, function(index, value) {
+									_thistree.push(value);
+								});
+								this.$set('page_p',this.page_p+1);
+	                    	}
+	                    	
+	                    }).catch(this.requestError)
+
+	                    layer.closeAll()
+	                }
+	            },
+	            ready: function() { //初始化执行的方法
+	                this.fetchUser();
+	            }
+	        })
+
+	    });
+	</script>
+
+</body>
 </html>
