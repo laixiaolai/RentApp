@@ -99,7 +99,7 @@
 									<div>
 										<div class='INFO-title'>
 											<a href="#">
-												<img src="{{items.author.avatarUrl}}" alt="" width='50' class='INFO-avatar'>
+												<img src="{{items.author.avatarUrl}}" alt="" width='50' height='50' class='INFO-avatar'>
 												<span class='INFO-username'>{{items.author.nickname}}</span>
 											</a>
 											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>{{items.groupTour.transportation}}
