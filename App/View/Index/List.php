@@ -286,37 +286,38 @@
 	                },
 	            	//列表渲染
 	                fetchUser: function () { 
-	                	layer.open({type: 2});
+	                	debug.log(this.Datetime);
+	      //           	layer.open({type: 2});
 
-	                    var headers = {
-	                    	"Content-Type":"application/json",
-	                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
-	                    	"X-Auth-Token":this.Token
-	                    }
-	                    var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
+	      //               var headers = {
+	      //               	"Content-Type":"application/json",
+	      //               	"X-Api-Key":"web-app","Datetime":this.Datetime,
+	      //               	"X-Auth-Token":this.Token
+	      //               }
+	      //               var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
 	                    
-	                    this.$http.get(grouptour_url, {
-	                        headers: headers
-	                    })
-	                    .then((response) => {
-	                    	var _arr = response.json()
-	                    	if(!!_arr && _arr.length == 0){
-	                    		console.log('wu')
-	                    		//提示
-								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
-							}else{
-	                    		console.log(_arr)
-		                    	var _thistree = this.tree;
+	      //               this.$http.get(grouptour_url, {
+	      //                   headers: headers
+	      //               })
+	      //               .then((response) => {
+	      //               	var _arr = response.json()
+	      //               	if(!!_arr && _arr.length == 0){
+	      //               		console.log('wu')
+	      //               		//提示
+							// 	layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
+							// }else{
+	      //               		console.log(_arr)
+		     //                	var _thistree = this.tree;
 		                    	
-								$.each(_arr, function(index, value) {
-									_thistree.push(value);
-								});
-								this.$set('page_p',this.page_p+1);
-	                    	}
+							// 	$.each(_arr, function(index, value) {
+							// 		_thistree.push(value);
+							// 	});
+							// 	this.$set('page_p',this.page_p+1);
+	      //               	}
 	                    	
-	                    }).catch(this.requestError)
+	      //               }).catch(this.requestError)
 
-	                    layer.closeAll()
+	      //               layer.closeAll()
 	                }
 	            },
 	            ready: function() { //初始化执行的方法

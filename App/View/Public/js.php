@@ -5,3 +5,4 @@
  	<script src="./Js/vue.min.js"></script>
  	<script src="./Js/vue-resource.min.js"></script>
  	<script src="./Js/vue-router.min.js"></script>
+ 	<script src="./Js/debug.min.js"></script>
