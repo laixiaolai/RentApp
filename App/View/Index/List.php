@@ -163,7 +163,7 @@
                                         <option value="">英文</option>
                                         <option value="">日文</option>
                                         <option value=-"">德语</option>
-                                        <option selected="" value="de">法语</option>                                  
+                                        <option selected="selected" value="de">法语</option>                                  
                                     </select>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-9 col-md-7">
                                     <select class="form-control" id="select-currency">
-                                        <option selected="" value="EUR">人民币</option>
+                                        <option selected="selected" value="EUR">人民币</option>
                                         <option value="USD">美元</option>
                                         <option value="GBP">欧元</option>                                    
                                     </select>
