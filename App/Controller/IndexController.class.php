@@ -143,12 +143,16 @@ class IndexController extends BaseController {
         $jsApiParameters = $tools->GetJsApiParameters($order);
 
 
-dump($order);
-dump($jsApiParameters);
-        die;
+
 
         //获取共享收货地址js函数参数
         $editAddress = $tools->GetEditAddressParameters();
+
+
+dump($order);
+dump($jsApiParameters);
+dump($editAddress);
+        die;
 
         $this->assign('title', '支付页面');
         $this->display();
