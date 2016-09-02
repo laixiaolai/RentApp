@@ -104,7 +104,7 @@ class IndexController extends BaseController {
 
         //②、统一下单
         $input = new WxPayUnifiedOrder();
-        $input->SetBody("55公里-旅游产品");
+        $input->SetBody("55公里-测试");
         $input->SetAttach("test");
         $input->SetOut_trade_no(WxPayConfig::MCHID.date("YmdHis"));
         $input->SetTotal_fee("1");
