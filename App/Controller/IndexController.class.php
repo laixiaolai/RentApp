@@ -111,8 +111,9 @@ class IndexController extends BaseController {
         $input->SetTrade_type("JSAPI");
         $input->SetOpenid($openId);
         $order = WxPayApi::unifiedOrder($input);
-        echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
-        $this->printf_info($order);
+        //echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
+        // $this->printf_info($order);
+        dump($order);
         die;
         $jsApiParameters = $tools->GetJsApiParameters($order);
 
