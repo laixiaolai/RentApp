@@ -209,7 +209,7 @@
 	    // });
 		wx.chooseWXPay(<?php echo $jsApiParameters; ?>);
 	  };
-
+	});  
 
 
 
