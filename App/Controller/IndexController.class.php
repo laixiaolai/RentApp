@@ -81,6 +81,7 @@ class IndexController extends BaseController {
 
     public function NotifyAction(){  
         // phpLog($_GET);
+        dump($_POST);
         phpLog($_POST);
     }
 
