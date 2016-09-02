@@ -92,7 +92,7 @@ class IndexController extends BaseController {
         //初始化日志
         $logHandler= new CLogFileHandler(ROOT_PATH."/Log/weixin_".date('Y-m-d').'.log');
         $log = WxLog::Init($logHandler, 15);
-dump($_SESSSION);die;
+dump($_SESSION);die;
         //①、获取用户openid
         $tools = new JsApiPay();
         $openId = $tools->GetOpenid();
