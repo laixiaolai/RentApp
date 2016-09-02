@@ -81,6 +81,7 @@ class IndexController extends BaseController {
 
     public function BuyAction(){
         ini_set('date.timezone','Asia/Shanghai');
+        
         //error_reporting(E_ERROR);
         require_once ROOT_PATH."/Lib/weixin/WxPay.Api.php";
         require_once ROOT_PATH."/Lib/weixin/WxPay.JsApiPay.php";
@@ -91,7 +92,7 @@ class IndexController extends BaseController {
         //初始化日志
         $logHandler= new CLogFileHandler(ROOT_PATH."/Log/weixin_".date('Y-m-d').'.log');
         $log = WxLog::Init($logHandler, 15);
-
+dump($_SESSSION);die;
         //①、获取用户openid
         $tools = new JsApiPay();
         $openId = $tools->GetOpenid();
