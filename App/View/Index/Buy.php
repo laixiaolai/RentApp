@@ -11,8 +11,13 @@
 			'getBrandWCPayRequest',
 			<?php echo $jsApiParameters; ?>,
 			function(res){
-				WeixinJSBridge.log(res.err_msg);
-				alert(res.err_code+res.err_desc+res.err_msg);
+				if(res.err_msg == "get_brand_wcpay_request:ok"){ //成功跳转
+					alert("支付成功");
+				}else{
+					WeixinJSBridge.log(res.err_msg);
+					alert(res.err_code+res.err_desc+res.err_msg);
+				}
+				
 			}
 		);
 	}
