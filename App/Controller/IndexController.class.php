@@ -149,10 +149,10 @@ class IndexController extends BaseController {
         $editAddress = $tools->GetEditAddressParameters();
 
 
-// dump($order);
-// dump($jsApiParameters);
-dump($editAddress);
-        die;
+        // dump($order);
+        // dump($jsApiParameters);
+        // dump($editAddress);
+        // die;
 
         $this->assign('title', '支付页面');
         $this->display();
