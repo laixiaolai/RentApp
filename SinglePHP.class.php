@@ -284,7 +284,7 @@ class SinglePHP {
         $_SESSION['signPackage'] = $signPackage;
         // dump($signPackage);die;
 
-        检测如果是微信客户端,让用户授权
+        // 检测如果是微信客户端,让用户授权
         if(TRUE === empty($_SESSION["user_info"])){
             if(($this->a != "getcode") && strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
                 $jssdk->getCode();
