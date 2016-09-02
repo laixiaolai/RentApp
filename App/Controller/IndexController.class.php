@@ -150,9 +150,9 @@ class IndexController extends BaseController {
 
 
         // dump($order);
-        // dump($jsApiParameters);
+        dump($jsApiParameters);
         // dump($editAddress);
-        // die;
+        die;
 
         $this->assign('jsApiParameters', $jsApiParameters);
         $this->assign('editAddress', $editAddress);
