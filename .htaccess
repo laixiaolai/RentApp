@@ -9,6 +9,6 @@
   #RewriteRule ^/index?([^a]+)/([^/]+) /index.php?a=$1
   #RewriteRule list$ /index.php?a=List
 
-  #RewriteRule jsapi$ /index.php?a=Jsapi
+  RewriteRule notify$ /index.php?a=Notify
 
 </IfModule>
