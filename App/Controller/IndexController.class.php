@@ -154,6 +154,8 @@ class IndexController extends BaseController {
         // dump($editAddress);
         // die;
 
+        $this->assign('jsApiParameters', $jsApiParameters);
+        $this->assign('editAddress', $editAddress);
         $this->assign('title', '支付页面');
         $this->display();
     }
