@@ -31,7 +31,7 @@
 		}
 	}
 	</script>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	//获取共享地址
 	function editAddress()
 	{
@@ -63,7 +63,7 @@
 		}
 	};
 	
-	</script>
+	</script> -->
 </head>
 <body>
     <br/>

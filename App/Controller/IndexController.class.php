@@ -80,7 +80,8 @@ class IndexController extends BaseController {
     } 
 
     public function NotifyAction(){  
-        phpLog($_GET);
+        // phpLog($_GET);
+        phpLog($_POST);
     }
 
     public function BuyAction(){
