@@ -149,8 +149,8 @@ class IndexController extends BaseController {
         $editAddress = $tools->GetEditAddressParameters();
 
 
-dump($order);
-dump($jsApiParameters);
+// dump($order);
+// dump($jsApiParameters);
 dump($editAddress);
         die;
 
