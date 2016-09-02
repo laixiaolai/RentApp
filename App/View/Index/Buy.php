@@ -117,7 +117,7 @@
       -->
       <h3 id="menu-pay">微信支付接口</h3>
       <span class="desc">发起一个微信支付请求</span>
-      <button class="btn btn_primary" id="chooseWXPay">chooseWXPay</button>
+      <button class="btn btn_primary" id="chooseWXPay" onclick="callpay()">chooseWXPay</button>
     </div>
   </div>
 </body>
@@ -181,7 +181,7 @@
   });
 </script>
 <script src="http://203.195.235.76/jssdk/js/zepto.min.js"></script>
-<script> 
+<script type="text/javascript"> 
 	/*
 	 * 注意：
 	 * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
@@ -193,24 +193,26 @@
 	 * 邮件主题：【微信JS-SDK反馈】具体问题
 	 * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
 	 */
-	wx.ready(function () {
+	// wx.ready(function () {
 	 
 
-	  // 10 微信支付接口
-	  // 10.1 发起一个支付请求
-	  document.querySelector('#chooseWXPay').onclick = function () {
-	    // 注意：此 Demo 使用 2.7 版本支付接口实现，建议使用此接口时参考微信支付相关最新文档。
-	    // wx.chooseWXPay({
-	    //   timestamp: 1414723227,
-	    //   nonceStr: 'noncestr',
-	    //   package: 'addition=action_id%3dgaby1234%26limit_pay%3d&bank_type=WX&body=innertest&fee_type=1&input_charset=GBK&notify_url=http%3A%2F%2F120.204.206.246%2Fcgi-bin%2Fmmsupport-bin%2Fnotifypay&out_trade_no=1414723227818375338&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=432B647FE95C7BF73BCD177CEECBEF8D',
-	    //   signType: 'SHA1', // 注意：新版支付接口使用 MD5 加密
-	    //   paySign: 'bd5b1933cda6e9548862944836a9b52e8c9a2b69'
-	    // });
-		wx.chooseWXPay(<?php echo $jsApiParameters; ?>);
-	  };
-	});  
+	//   // 10 微信支付接口
+	//   // 10.1 发起一个支付请求
+	//   document.querySelector('#chooseWXPay').onclick = function () {
+	//     // 注意：此 Demo 使用 2.7 版本支付接口实现，建议使用此接口时参考微信支付相关最新文档。
+	//     // wx.chooseWXPay({
+	//     //   timestamp: 1414723227,
+	//     //   nonceStr: 'noncestr',
+	//     //   package: 'addition=action_id%3dgaby1234%26limit_pay%3d&bank_type=WX&body=innertest&fee_type=1&input_charset=GBK&notify_url=http%3A%2F%2F120.204.206.246%2Fcgi-bin%2Fmmsupport-bin%2Fnotifypay&out_trade_no=1414723227818375338&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=432B647FE95C7BF73BCD177CEECBEF8D',
+	//     //   signType: 'SHA1', // 注意：新版支付接口使用 MD5 加密
+	//     //   paySign: 'bd5b1933cda6e9548862944836a9b52e8c9a2b69'
+	//     // });
+	// 	wx.chooseWXPay(<?php echo $jsApiParameters; ?>);
+	//   };
+	// });  
 
+
+	 
 
 
 	wx.error(function (res) {
@@ -219,5 +221,67 @@
 
 
 
+</script>
+
+<script type="text/javascript">
+	//调用微信JS api 支付
+	function jsApiCall()
+	{
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			<?php echo $jsApiParameters; ?>,
+			function(res){
+				WeixinJSBridge.log(res.err_msg);
+				alert(res.err_code+res.err_desc+res.err_msg);
+			}
+		);
+	}
+
+	function callpay()
+	{
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		    }
+		}else{
+		    jsApiCall();
+		}
+	}
+	</script>
+	<script type="text/javascript">
+	//获取共享地址
+	function editAddress()
+	{
+		WeixinJSBridge.invoke(
+			'editAddress',
+			<?php echo $editAddress; ?>,
+			function(res){
+				var value1 = res.proviceFirstStageName;
+				var value2 = res.addressCitySecondStageName;
+				var value3 = res.addressCountiesThirdStageName;
+				var value4 = res.addressDetailInfo;
+				var tel = res.telNumber;
+				
+				alert(value1 + value2 + value3 + value4 + ":" + tel);
+			}
+		);
+	}
+	
+	window.onload = function(){
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', editAddress, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', editAddress); 
+		        document.attachEvent('onWeixinJSBridgeReady', editAddress);
+		    }
+		}else{
+			editAddress();
+		}
+	};
+	
 </script>
 </html>
