@@ -120,6 +120,8 @@ function phpLog($str){
     fwrite($fs, '================'.date('Y-m-d H:i:s',time()).' 日志记录 开始 ==============='.PHP_EOL.PHP_EOL);
     
     if(is_array($str)){
+        dump('11111111');
+        dump($str);
         fwrite($fs, print_r($str, true).PHP_EOL);
     }else{
         fwrite($fs, $str.PHP_EOL);
