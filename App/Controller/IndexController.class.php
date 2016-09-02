@@ -142,14 +142,14 @@ class IndexController extends BaseController {
         
         $jsApiParameters = $tools->GetJsApiParameters($order);
 
-{
-    "appId":"wxc4f17ee7dc946d0a",
-    "nonceStr":"4ns23q80ffn5xbtc9v1k4qwq0akojn7z",
-    "package":"prepay_id=wx20160902141316abd4839a690127723464",
-    "signType":"MD5",
-    "timeStamp":"1472796796",
-    "paySign":"9005DC8C781649815206127AC7086A5B"
-}
+        // {
+        //     "appId":"wxc4f17ee7dc946d0a",
+        //     "nonceStr":"4ns23q80ffn5xbtc9v1k4qwq0akojn7z",
+        //     "package":"prepay_id=wx20160902141316abd4839a690127723464",
+        //     "signType":"MD5",
+        //     "timeStamp":"1472796796",
+        //     "paySign":"9005DC8C781649815206127AC7086A5B"
+        // }
 
 
 
