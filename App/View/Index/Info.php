@@ -1,29 +1,477 @@
-<?php
-$data = array(
-	'title'      => $title,
-	'body_class' => 'bs-docs-home',
-	'css'        => array(),
-	'js'         => array("./Js/jquery.min.js","./Js/vue.min.js","./Js/vue-resource.min.js","./Js/vue-router.min.js"),
-);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name='keywords' content="<?php echo $title;?>">
+    <meta name='title' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 为了让浏览器运行高速模式下 -->
+    <meta name="renderer" content="webkit">
+    <!-- 为了让 IE 浏览器运行最新的渲染模式下 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?php echo $title;?></title>
 
-
-?>
 
 
     <?php View::tplInclude('Public/css'); ?>
     <?php View::tplInclude('Public/js'); ?>
+</head>
+<body class='home'>
+    <!-- 导航 -->
+    <header id='header' class='navbar-static-top navbar' style='position: relative;border-bottom: 1px solid #e4e4e4;background-color: #fff;'>
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a id='logo' href='/' style="background:url('./Img/logo_list.png') no-repeat center center;">
+                <!-- <span class="hidden-xs hidden-sm">Authentic Food, Authentic People</span> -->
+            </a>
+        </div>
+        <div class='navbar-collapse collapse'>
+            <ul class='header-list pull-right nav'>
+                <li>
+                    <a href="#" class='host'>成为Host</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- 图片轮播 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel1.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel2.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel3.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel4.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel5.jpg" width="100%">
+            </div>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+    </div>
+    <!-- 关于host的信息 -->
+    <!-- 名称、地点 -->
+    <div class="titleContainer_1hsf5im" >
+        <div class="container" >
+            <div class="row" >
+                <div class="col-md-12" >
+                    <h1 class="title_s8ugf4" >东半球第二好吃的清迈米粉大餐</h1>
+                    <div class="subtitle_axjhr0" >
+                        <a class="reviews_12ulor" >
+                            <div class="container_evm7h4" >
+                                <span class="reviews-stars">
+                                    <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:-96px;margin-right: 16px;">
+                                </span>
+                            </div>
+                            <span class='total-comments'>(135条评论)</span>
+                        </a>
+                        <a class="location_lk74px" style="background: url('./Img/list_location.png') no-repeat center left;vertical-align: sub;">上海</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 简介 -->
+    <div class="evenRowContainer_1sb29nh" >
+        <div class="container" >
+            <div class="row" >
+                <!-- 选择日期，小屏幕显示 -->
+                <div class="hidden-lg hidden-md col-sm-12" >
+                    <div class="container_nr3uoy container-fluid" style="margin-bottom:22px;" >
+                        <div class="row_jx4vea row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                                <div class="pricePerGuestContainer_7bzx9b" >
+                                    <span >
+                                        <span class="price_1pnuu1y">&yen;
+                                        </span>
+                                        <span class='price_number'>96</span>
+                                        <span class='price_per'>/人</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <form >
+                            <div class="row" >
+                                <div class="col-md-8" >
+                                    <label class="control-label">
+                                        选择日期
+                                    </label>
+                                    <div aria-describedby="calendar" class="form-group" >
+                                        <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4" >
+                                    <label class="control-label">选择数量</label>
+                                    <div class="Select Select--single has-value" >
+                                        <div class="Select-control" style="font-size:16px;" >
+                                            <div class="Select-value">
+                                                <span class="Select-value-label" >2</span>
+                                            </div>
+                                            <div class="Select-input" tabindex="0" style="border:0;width:1px;display:inline-block;" >
+                                            </div>
+                                            <span class="Select-arrow-zone" >
+                                                <span class="Select-arrow" ></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"  >
+                                <div class="col-md-12" >
+                                    <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" >立即预定</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 亮点等 -->
+                <div class="col-md-8 col-sm-12" >
+                    <!-- 四个项目 -->
+                    <div class='row info4'>
+                        <div class='text-center col-sm-3 col-xs-6 info_time'>
+                            <div style="background: url('./Img/info_time.png') no-repeat top center;" class='info_title'>时间</div>
+                            <div class='info_content'>19:00-21:30</div>
+                        </div>
+                        <div  class='text-center col-sm-3 col-xs-6 info_person'>
+                            <div style="background: url('./Img/info_number.png') no-repeat top center;" class='info_title'>可接待人数</div>
+                            <div  class='info_content'>2-6人</div>
+                        </div>
+                        <div  class='text-center col-sm-3 col-xs-6 info_language'>
+                            <div style="background: url('./Img/info_language.png') no-repeat top center;" class='info_title'>语言</div>
+                            <div class='info_content'>英文</div>
+                        </div>
+                        <div class='text-center col-sm-3 col-xs-6 info_type'>
+                            <div style="background: url('./Img/info_type.png') no-repeat top center;" class='info_title'>餐饮类型</div>
+                            <div class='info_content'>晚餐</div>
+                        </div>
+                    </div>
+                    <!-- 亮点 -->
+                    <div class='shine'>
+                        <div class="rowTitle_ese0tp shine-point">亮点</div>
+                        <span class='shine-content'>草莓的果实是球形或椭圆球形。成熟的果实红艳艳的，表面疙疙瘩瘩，附有许多小种子，小时候我还以为那是很多的芝麻粘在上面呢。草莓的果实鲜艳红嫩，柔软多汁，甜酸可口，含有丰富的维生素C，此外还含胡萝卜素、多种维生素、葡萄糖、蛋白质、脂肪、铁钙、磷等，所以有人管草莓又叫“美容果”，拿起一个放到口中轻轻的嚼动，那粉红色的汁液伴随着鲜嫩的果肉在嘴里有一种甜滋滋、酸溜溜、凉爽爽的美妙感觉，唯一感到遗憾的就是那附在草莓表面上的小种子吃起来没有什么味道</span>
+                    </div>
+                    <hr class="separator_1u1psom" >
+                    <!-- 菜单 -->
+                    <div>
+                        <div class="rowTitle_ese0tp menu">菜单</div>
+                        <div class='menu-list'>
+                            <ul>
+                                <li>
+                                    <img src="./Img/info_blackCircle.png" width='15px'>
+                                    <span>12 hour roasted tomatoes and blistered shisito roasted tomatoes and blistered pepers</span> 
+                                </li>
+                                <li>
+                                    <img src="./Img/info_blackCircle.png" width='15px'>
+                                    <span>12 hour roasted tomatoes and </span> 
+                                </li>
+                                <li>
+                                    <img src="./Img/info_blackCircle.png" width='15px'>
+                                    <span>12 hour roasted/span> 
+                                </li>
+                                <li>
+                                    <img src="./Img/info_blackCircle.png" width='15px'>
+                                    <span>12 hour roasted tomatoes and blistered shisito </span> 
+                                </li>
+                                <li>
+                                    <img src="./Img/info_blackCircle.png" width='15px'>
+                                    <span>12 hour roasted tomatoes and blistered shisito pepers</span> 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="separator_1u1psom" >
+                    <!-- 关于host -->
+                    <div  style='margin-bottom: 96px;'>
+                        <div class="rowTitle_ese0tp about-host">关于Host</div>
+                        <div >
+                            <div class="text-center" style="margin-bottom:25px;">
+                                <img src="./Img/list_user.jpg" alt="" width="116px" style="border-radius:50%;">
+                                <div class='host-name'>用户名</div>
+                            </div>
+                            <div class='host-content'>正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介</div>
+                        </div>
+                    </div>
+                    <!-- 评价 -->
+                    <div class="rowTitle_ese0tp all-comments">10条评价</div>
+                    <hr class="separator_1u1psom">
+                    <div  style="margin-top:34px;">
+                        <div class="row" >
+                            <div class="col-md-2 text-center" >
+                                <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>用户名</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+                                    <div class='info-content-time'>2016年8月</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  style="margin-top:34px;">
+                        <div class="row" >
+                            <div class="col-md-2 text-center" >
+                                <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>用户名</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+                                    <div class='info-content-time'>2016年8月</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  style="margin-top:34px;">
+                        <div class="row" >
+                            <div class="col-md-2 text-center" >
+                                <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>用户名</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+                                    <div class='info-content-time'>2016年8月</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='more-cities col-md-6 col-md-offset-6' style='margin-top: 30px;padding: 0'>
+                        <span class='comment-more'>加载更多···</span>
+                    </div>
+                </div>
+                <div style="margin-top:-107.5px;" class="col-md-4 hidden-sm hidden-xs">
+                    <div class="sticky-outer-wrapper">
+                        <div class="sticky-inner-wrapper" style="position: relative; z-index: 1000; transform: translate3d(0px, 0px, 0px);">
+                            <div class="container_nr3uoy container-fluid" style="box-shadow:0px 0px 15px -10px;" >
+                                <div class="row_jx4vea row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                                        <div class="pricePerGuestContainer_7bzx9b" >
+                                            <span >
+                                                <span class="price_1pnuu1y">&yen;
+                                                </span>
+                                                <span class='price_number'>96</span>
+                                                <span class='price_per'>/人</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="row" >
+                                        <div class="col-md-8" >
+                                            <label class="control-label">
+                                                选择日期
+                                            </label>
+                                            <div aria-describedby="calendar" class="form-group" >
+                                                <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" >
+                                            <label class="control-label">选择数量</label>
+                                            <div class="Select Select--single has-value" >
+                                                <div class="Select-control">
+                                                    <div class="Select-value" >
+                                                        <span class="Select-value-label" >2</span>
+                                                    </div>
+                                                    <div class="Select-input" tabindex="0" style="border:0;width:1px;display:inline-block;" >
+                                                    </div>
+                                                    <span class="Select-arrow-zone" >
+                                                        <span class="Select-arrow" ></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="display:none;" class="row" >
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                                            <span >Kein Datum verfügbar?</span>
+                                            <span > </span>
+                                            <span >
+                                                <noscript ></noscript>
+                                                <a href="#" >Datum anfragen</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-md-12" >
+                                            <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" >立即预定</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="container">
+            <div class="pt60 visible-xs"></div>
+            <div class="pt100 hidden-xs"></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 widget">
+                    <div class="row">
+                        <div class="col-md-11 col-md-offset-1">
+                            <h4 class="title hidden-xs">
+                                选项                           
+                            </h4>
+                            <p class="title">
+                                语言                             
+                            </p>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-9 col-md-7">
+                                    <select class="form-control" id="select-language">
+                                        <option value="">中文</option>
+                                        <option value="">英文</option>
+                                        <option value="">日文</option>
+                                        <option value=-"">德语</option>
+                                        <option selected="selected" value="de">法语</option>                                  
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="title">
+                                货币                             
+                            </p>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-9 col-md-7">
+                                    <select class="form-control" id="select-currency">
+                                        <option selected="selected" value="EUR">人民币</option>
+                                        <option value="USD">美元</option>
+                                        <option value="GBP">欧元</option>                                    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-md-4 col-sm-4 widget">
+                    <h4 class="title hidden-xs">
+                        关于我们                    
+                    </h4>
+                    <div class="row">
+                        <ul class="col-xs-6 menu">
+                            <li>
+                                <a href="#">关于我们</a>
+                            </li>
+                            <li>
+                                <a href="#">条件条款</a>
+                            </li>
+                            <li>
+                                <a href="#">隐私政策</a>
+                            </li>
+                            <li>
+                                <a href="#">联系我们</a>
+                            </li>
+                        </ul>
+                        <ul class="col-xs-6 menu">
+                            <li>
+                                <a href="#">信任机制</a>
+                            </li>
+                            <li>
+                                <a href="#">工作机会</a>
+                            </li>
+                            <li>
+                                <a href="#">媒体报道</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#https://de.vizeat.com/pages/geschaeftsbedingungen">Geschäftsbedingungen</a>
+                            </li> -->
+                        </ul>
+                        <ul class="col-xs-6 menu"></ul>
+                    </div>
+                </div>
 
-<a href="./index.php">首页</a><br/>
-<a href="./index.php?a=list">产品列表页</a><br/>
-<a href="./index.php?a=info">产品详情页</a><br/>
-<a href="./index.php?a=pin">添加评论页</a><br/>
-<a href="./index.php?a=yudin">产品预定页面</a><br/>
-<a href="./index.php?a=buy">支付页面</a><br/>
-<a href="./index.php?a=buyok">支付成功页面</a><br/>
-<a href="./index.php?a=test">测试列表数据</a><br/>
+                <div class="col-md-4 col-sm-4 widget">
+                    <div class="row hidden-xs">
+                        <div class="col-md-8 col-sm-12">
+                            <h4 class="title">
+                                成为Host                             
+                            </h4>
+                            <div class="row">
+                                <ul class="col-xs-12 menu">
+                                    <li style="font-size:16px; font-weight: 300; color: rgb(108, 123, 138); opacity: 0.7; font-family: 'Open Sans'">
+                                        <a href="#">成为Host的好处和机遇</a>
+                                    </li>
+                                    <li style="font-size:16px; font-weight: 300; color: rgb(108, 123, 138); opacity: 0.7; font-family: 'Open Sans'">
+                                        <a href="#">如何成为Host</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-6 copyright">
+                    <div class='row'>
+                        <div class="col-md-11 col-md-offset-1">
+                            <img src="./Img/logo_gray.png" alt="Vizeat" width="121" height="35">
+                            <span>Copyright2016</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-2 hidden-xs copyright">
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 copyright">
+                    <span class='record'>沪ICP备xxxxxx号</span>
+                </div>
+            </div>
+        </div>
 
-<h1>这是<?php echo $title;?></h1>
+    </div>
+    <script>        
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: 1000,
+            autoplayDisableOnInteraction: false,//用户触碰后不会停止
+            // 如果需要分页器
+            // pagination: '.swiper-pagination',
+            // paginationClickable: true,//点击分页会自动切换。
+            
+            // 如果需要前进后退按钮
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            
+            // 如果需要滚动条
+            // scrollbar: '.swiper-scrollbar',
+            // 设置slider容器能够同时显示的slides数量(carousel模式)
+            slidesPerView: 3
+        });
+        window.onscroll = function(){
+            if(document.body.scrollWidth>991){
+                //滚动条的滚动距离
+                var distance =document.documentElement.scrollTop||document.body.scrollTop;
+                //最顶部的高度
+                var headerHeight = 85;
+                //背景图片高度
+                var swiperHeight = $('.swiper-container').height();
 
-<!-- 微信jsdk引入 -->
-<?php View::tplInclude('Public/weixin_jsdk'); ?>
+                if(distance>(swiperHeight+85)){
+                    $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 1000; top: 0px;');
+                } else {
+                    $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 1000;top: 0px;');
+                }
+            }
+            
+        };   
+      </script>
+</body>
+</html>

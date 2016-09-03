@@ -1,6 +1,7 @@
  	<script src="./Js/jquery.min.js"></script>
  	<script src="./Js/bootstrap.min.js"></script>
  	<script src="./Js/layer.js"></script>
+ 	<script src="./Js/swiper-3.3.1.jquery.min.js"></script>
  	<script src="./Js/host.js"></script>
  	<script src="./Js/vue.min.js"></script>
  	<script src="./Js/vue-resource.min.js"></script>

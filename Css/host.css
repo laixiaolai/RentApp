@@ -596,3 +596,374 @@ img {
 }
 
 /*************************搜索结果end******************************/
+/***********************************************************详情页start****************************************************/
+.swiper-pagination-bullet {
+    background-color: white;
+}
+.swiper-pagination-bullet-active {
+    background: white;
+}
+.titleContainer_1hsf5im {
+    padding-bottom: 40px;
+    background-color: white !important;
+    box-shadow: 0 1px 0 0 #e3e3e3 !important;
+}
+.title_s8ugf4 {
+    margin-top: 37px;
+    margin-bottom: 12px;
+    width: 100% !important;
+    font-size: 30px !important;
+    font-weight: normal !important;
+    color: rgb(74, 74, 74);
+}
+.subtitle_axjhr0 {
+    height: 19px !important;
+    line-height: 19px !important;
+    font-size: 15px !important;
+    font-weight: normal !important;
+    color: #aaaaaa !important;
+}
+.location_lk74px {
+    font-size: 16px;
+    margin-left: 22px;
+    padding-left: 20px;
+    cursor: pointer;
+    color: rgb(132, 132, 132);
+}
+.reviews_12ulor {
+    color: #aaaaaa !important;
+    cursor: pointer !important;
+}
+.container_evm7h4 {
+    display: inline-block !important;
+    height: 15px !important;
+    position: relative !important;
+    top: 2px !important;
+}
+.icon_1pbk6tv-o_O-active_1w9cnza:not(:last-child) {
+    width: 20px !important;
+}
+
+/****************************简介start****************************/
+.total-comments {
+    font-size: 16px;
+    vertical-align: sub;    
+}
+.evenRowContainer_1sb29nh {
+    padding-top: 47px;
+    padding-bottom: 30px !important;
+}
+.price_1pnuu1y {
+    font-size: 20px;
+}
+.price_number {
+    font-size: 30px;
+}
+.price_per {
+    font-size: 20px;
+}
+.control-label {
+    font-size:16px
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.form-control.multiple-date-picker-input[readonly] {
+    cursor: pointer;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fafafa;
+    opacity: 1;
+}
+.Select-control {
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: default;
+    display: table;
+    height: 36px;
+    outline: 0;
+    overflow: hidden;
+    width: 100%;
+    font-size: 16px;
+}
+.Select, .Select-control {
+    position: relative;
+}
+.Select--single>.Select-control .Select-value, .Select-placeholder {
+    bottom: 0;
+    color: #aaa;
+    left: 0;
+    line-height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.has-value.Select--single>.Select-control>.Select-value .Select-value-label, .has-value.is-pseudo-focused.Select--single>.Select-control>.Select-value .Select-value-label {
+    color: #333;
+}
+.Select-control:not(.is-searchable)>.Select-input {
+    outline: 0;
+}
+.Select-input {
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+.Select-arrow-zone {
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    width: 25px;
+    padding-right: 5px;
+}
+.Select-arrow-zone, .Select-clear-zone, .Select-loading-zone {
+    text-align: center;
+    cursor: pointer;
+}
+.Select-arrow {
+    border-color: #999 transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 2.5px;
+    display: inline-block;
+    height: 0;
+    width: 0;
+}
+@media (min-width: 992px) {
+    body .info4{
+        padding-bottom:36px;
+    }
+}
+.info4 {
+    border-bottom: 1px solid rgb(197, 198, 199);
+    margin: 0;
+    padding-bottom: 22px;
+}
+.info4 .info_title {
+    padding-top: 46px ;
+    border-bottom: 1px solid rgb(197, 198, 199);
+    font-size: 16px;
+    color: rgb(178, 178 ,178)
+}
+.info4 .info_content {
+    padding-top: 12px;
+    font-size: 16px;
+    color: rgb(225, 112 ,114);
+}
+.info_time, .info_person, .info_language, .info_type {
+    margin-bottom: 10px; 
+}
+.shine {
+    padding: 40px 0 0 0;
+}
+.description_1f7c72g {
+    position: relative !important;
+    white-space: pre-line !important;
+}
+.separator_1u1psom {
+    border-color: black;
+    margin: 20px 0 0 0;
+}
+.comment-name {
+    margin-top: 10px;
+    font-size: 16px;
+    color: rgb(151, 151, 151)
+}
+.rowTitle_ese0tp {
+    font-size: 18px;
+    font-weight: bold !important;
+    color: #575757;
+    margin-bottom: 10px;
+}
+.shine-point {
+    margin-bottom: 22px;
+    font-size: 30px;
+    color: rgb(74, 74, 74);
+}
+.shine-content {
+    font-size: 16px; 
+    color: rgb(74, 74, 74)
+}
+.menu {
+    margin-bottom: 22px;
+    font-size: 30px;
+    color: rgb(74, 74, 74);
+    padding-top: 40px;
+}
+.menu-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menu-list span {
+    font-size: 16px;
+}
+.about-host {
+    margin-bottom: 24px;
+    font-size: 30px;
+    color: rgb(74, 74, 74);
+    padding-top: 40px;
+}
+.host-content {
+    font-size:16px;
+}
+.host-name {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.all-comments {
+    margin-bottom: 24px;
+    font-size: 30px;
+    color: rgb(74, 74, 74)
+}
+.container_nr3uoy {
+    background-color: #fff !important;
+    padding: 0 15px 32px 15px;
+    color: #575757 !important;
+    border: 1px solid #e3e3e3 !important;
+    font-size: 13px !important;
+}
+.row_jx4vea {
+    margin-bottom: 10px;
+    background-color: rgb(225, 112, 114);
+    color: #fff;
+}
+.pricePerGuestContainer_7bzx9b {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+.form-control.multiple-date-picker-input[readonly] {
+    cursor: pointer;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fafafa;
+    opacity: 1;
+}
+.Select, .Select div, .Select input, .Select span {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.bookNowButton_1vtsfvn {
+    margin-top: 20px !important;
+    width: 100% !important;
+    font-size: 18px !important;
+    background-color:rgb(225, 112, 114);
+    border: none;
+    padding: 14px 0;
+}
+.text-capitalize {
+    text-transform: capitalize;
+}
+.container_evm7h4 {
+    display: inline-block !important;
+    height: 15px !important;
+    position: relative !important;
+    top: 2px !important;
+}
+
+
+@media (min-width: 1200px){
+    .avatar {
+    max-width: 70px;
+    max-height: 70px;
+}
+}
+
+@media (min-width: 992px){
+    .avatar {
+    max-width: 70px;
+    max-height: 70px;
+}
+}
+
+@media (min-width: 768px){
+    .avatar {
+    max-width: 60px;
+    max-height: 60px;
+}
+}
+
+.avatar {
+    max-width: 50px;
+    max-height: 50px;
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img-circle {
+    border-radius: 50%;
+}
+@media (min-width: 992px) {
+    .info-comment {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media (min-width: 992px) {
+    .info-comment .info-content{
+        margin-right:15px;
+    }
+}
+.info-content {
+    padding-bottom: 40px;
+    border-bottom: 1px solid black;
+}
+.info-content-text {
+    text-align: justify;
+    max-height: 68px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: rgb(74, 74, 74)
+}
+.info-content-time {
+    float: right;
+    font-size: 14px;
+    color: rgb(151, 151, 151)
+}
+.info_time {
+    display:inline-block;
+}
+@media (min-width: 768px) {
+    .info_time {
+        padding-left:0
+    }
+}
+.info_type {
+    display:inline-block;
+}
+@media (min-width: 768px) {
+    .info_type {
+        padding-right:0
+    }
+}
+.comment-more {
+    display: block;
+    padding: 20px 17%;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(214, 109, 110);
+    border: 1px solid rgb(214, 109, 110);
+    line-height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/****************************简介end****************************/
+/***********************************************************详情页end***************************************************
