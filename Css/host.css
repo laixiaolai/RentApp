@@ -674,10 +674,6 @@ label {
 .form-control.multiple-date-picker-input[readonly] {
     cursor: pointer;
 }
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-    background-color: #fafafa;
-    opacity: 1;
-}
 .Select-control {
     background-color: #fff;
     border-radius: 4px;
@@ -847,10 +843,6 @@ label {
     cursor: pointer;
 }
 
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-    background-color: #fafafa;
-    opacity: 1;
-}
 .Select, .Select div, .Select input, .Select span {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -983,6 +975,10 @@ label {
     height: 50px;
     padding-top: 17px;
     padding-bottom: 17px;
+    padding-right: 16px;
+}
+.ui-icon, .ui-widget-content .ui-icon {
+    background-image: url(../Img/ui-icons_222222_256x240.png);
 }
 /****************************简介end****************************/
 /***********************************************************详情页end***************************************************

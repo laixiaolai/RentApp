@@ -107,7 +107,7 @@
                                         选择日期
                                     </label>
                                     <div  class="form-group" >
-                                        <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerSmall'>
+                                        <input placeholder="2006/09/01" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerSmall' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
                                     </div>
                                 </div>
                                 <div class="col-md-4" >
@@ -271,8 +271,8 @@
                                             <label class="control-label">
                                                 选择日期
                                             </label>
-                                            <div aria-describedby="calendar" class="form-group" >
-                                                <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerBig'>
+                                            <div class="form-group" >
+                                                <input placeholder="2006/09/01" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerBig' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
                                             </div>
                                         </div>
                                         <div class="col-md-4" >
