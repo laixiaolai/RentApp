@@ -979,11 +979,10 @@ label {
 #datepickerBig, #datepickerSmall {
     height: 50px;
 }
-#numberSmall, #numberBig {
-    height: 50px;
-}
 #numberBig-button, #numberSmall-button  {
-    padding-top, padding-bottom: 17px;
+    height: 50px;
+    padding-top: 17px;
+    padding-bottom: 17px;
 }
 /****************************简介end****************************/
 /***********************************************************详情页end***************************************************
