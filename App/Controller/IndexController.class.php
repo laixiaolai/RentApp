@@ -221,6 +221,7 @@ class IndexController extends BaseController {
         // dump($editAddress);
         // die;
 
+        $this->assign('notify_url', "http://".$_SERVER['HTTP_HOST']."notify");
         $this->assign('order', $order);
         $this->assign('jsApiParameters', $jsApiParameters);
         $this->assign('editAddress', $editAddress);
