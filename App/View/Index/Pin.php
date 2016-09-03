@@ -158,6 +158,9 @@
 	                	var timestamp = (new Date()).valueOf();
 	                	this.$set('add_arr.createAt',timestamp);
 
+	                	this.$set('add_arr.groupTourId',parseInt(this.add_arr.groupTourId));
+	                	this.$set('add_arr.createBy',parseInt(this.add_arr.createBy));
+
 
 	                	layer.open({type: 2});
 	                    var headers = {
