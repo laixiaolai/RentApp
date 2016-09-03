@@ -178,9 +178,9 @@
 								layer.open({content: '对不起,提交失败!',skin: 'msg',time: 2  }); 
 							}
 						}, function(response){
-							// debug.log(response.json());
+							//debug.log(response.json());
 							// 响应错误回调
-							layer.open({content: '对不起,系统错误!',skin: 'msg',time: 2  }); 
+							layer.open({content: response.json().message,skin: 'msg',time: 2  }); 
 						});
 						 layer.closeAll();
 	                }
