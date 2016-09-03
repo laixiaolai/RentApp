@@ -108,6 +108,8 @@ class BuyController extends BaseController {
         phpLog(2);
         $rest = $notify->Handle(false);
         phpLog(3);
+        
+        return "SUCCESS";
         // WxLog::DEBUG(dump($xml));
         // WxLog::DEBUG('9');
 
