@@ -75,9 +75,10 @@ class BuyController extends BaseController {
         $log = WxLog::Init($logHandler, 15);
 
         WxLog::DEBUG("1");
-
-        $notify = new WxPayNotify();
-        $rest = $notify->Handle(false);
+        $xml = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA']: '';
+        //$notify = new WxPayNotify();
+        //$rest = $notify->Handle(false);
+        WxLog::DEBUG($xml);
         WxLog::DEBUG('9');
 
 
