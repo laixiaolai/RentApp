@@ -115,11 +115,12 @@
                                     <div class="Select Select--single has-value" >
                                         <div class="Select-control" style="font-size:16px;" >
                                             <div>
-                                                <select class="form-control filter-option">
-                                                  <option>1</option>
-                                                  <option>2</option>
-                                                  <option>3</option>
-                                                  <option>4</option>
+                                                <select name="number2" id="numberSmall" class="form-control filter-option">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option selected="selected">5</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -281,11 +282,12 @@
                                             <div class="Select Select--single has-value" >
                                                 <div class="Select-control">
                                                     <div>
-                                                        <select class="form-control filter-option">
-                                                          <option>1</option>
-                                                          <option>2</option>
-                                                          <option>3</option>
-                                                          <option>4</option>
+                                                        <select name="number1" id="numberBig" class="form-control filter-option">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option selected="selected">5</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -465,15 +467,17 @@
                 var swiperHeight = $('.swiper-container').height();
 
                 if(distance>(swiperHeight+85)){
-                    $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 1000; top: 0px;');
+                    $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 10; top: 0px;');
                 } else {
-                    $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 1000;top: 0px;');
+                    $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 10;top: 0px;');
                 }
             }
             
         };
         $( "#datepickerBig" ).datepicker();
         $( "#datepickerSmall" ).datepicker();
+        $("#numberBig").selectmenu();
+        $("#numberSmall").selectmenu();
       </script>
 </body>
 </html>
