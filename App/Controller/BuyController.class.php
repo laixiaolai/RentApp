@@ -86,10 +86,12 @@ class BuyController extends BaseController {
                 // $return_code=$xmlObj->return_code;
 
 //禁止引用外部xml实体
-        libxml_disable_entity_loader(true);
-        $values = json_decode(json_encode(simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA'], 'SimpleXMLElement', LIBXML_NOCDATA)), true);    
-               phpLog($values);
-            echo "SUCCESS";  
+echo "SUCCESS";  
+        // libxml_disable_entity_loader(true);
+        // $values = json_decode(json_encode(simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA'], 'SimpleXMLElement', LIBXML_NOCDATA)), true);    
+        $arguments = file_get_contents('php://input');  
+               phpLog($arguments);
+            
 
         die;
 
