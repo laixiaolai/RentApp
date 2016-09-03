@@ -253,7 +253,7 @@
                 </div>
                 <div style="margin-top:-107.5px;" class="col-md-4 hidden-sm hidden-xs">
                     <div class="sticky-outer-wrapper">
-                        <div class="sticky-inner-wrapper" style="position: relative; z-index: 1000; transform: translate3d(0px, 0px, 0px);">
+                        <div class="sticky-inner-wrapper" style="position: relative; z-index: 10; transform: translate3d(0px, 0px, 0px);">
                             <div class="container_nr3uoy container-fluid" style="box-shadow:0px 0px 15px -10px;" >
                                 <div class="row_jx4vea row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
