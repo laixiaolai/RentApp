@@ -91,22 +91,22 @@ class BuyController extends BaseController {
         die;
 
 
-        //error_reporting(E_ERROR);
-        require_once ROOT_PATH."/Lib/weixin/WxPay.Api.php";
-        require_once ROOT_PATH."/Lib/weixin/WxPay.Notify.php";
-        require_once ROOT_PATH."/Lib/weixin/WxLog.php";
+        // //error_reporting(E_ERROR);
+        // require_once ROOT_PATH."/Lib/weixin/WxPay.Api.php";
+        // require_once ROOT_PATH."/Lib/weixin/WxPay.Notify.php";
+        // require_once ROOT_PATH."/Lib/weixin/WxLog.php";
 
-        //初始化日志
-        $logHandler= new CLogFileHandler(ROOT_PATH."/Log/weixin_notify_".date('Y-m-d').'.log');
-        $log = WxLog::Init($logHandler, 15);
+        // //初始化日志
+        // $logHandler= new CLogFileHandler(ROOT_PATH."/Log/weixin_notify_".date('Y-m-d').'.log');
+        // $log = WxLog::Init($logHandler, 15);
 
-        WxLog::DEBUG("1");
-        $xml = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA']: '';
-        dump($GLOBALS);
-        //$notify = new WxPayNotify();
-        //$rest = $notify->Handle(false);
-        WxLog::DEBUG(dump($xml));
-        WxLog::DEBUG('9');
+        // WxLog::DEBUG("1");
+        // $xml = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA']: '';
+        // dump($GLOBALS);
+        // //$notify = new WxPayNotify();
+        // //$rest = $notify->Handle(false);
+        // WxLog::DEBUG(dump($xml));
+        // WxLog::DEBUG('9');
 
 
         // $msg = "OK";
