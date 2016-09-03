@@ -66,7 +66,7 @@ class BuyController extends BaseController {
                 
                 
                 // $xmlObj=simplexml_load_string($GLOBALS); //解析回调数据
-                // $xmlObj=simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA']); //解析回调数据
+                $xmlObj=simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA']); //解析回调数据
                 // $appid=$xmlObj->appid;//微信appid
                 // $mch_id=$xmlObj->mch_id;  //商户号
                 // $nonce_str=$xmlObj->nonce_str;//随机字符串
@@ -85,10 +85,10 @@ class BuyController extends BaseController {
                 // $cash_fee=$xmlObj->cash_fee;
                 // $return_code=$xmlObj->return_code;
 
-               // phpLog($GLOBALS);
-               // echo "SUCCESS";
+               phpLog($xmlObj->appid);
+               echo "SUCCESS";
 
-        //die;
+        die;
 
 
         // //error_reporting(E_ERROR);
@@ -109,7 +109,7 @@ class BuyController extends BaseController {
         $rest = $notify->Handle(false);
         phpLog(3);
         
-        return "SUCCESS";
+        //return "SUCCESS";
         // WxLog::DEBUG(dump($xml));
         // WxLog::DEBUG('9');
 
