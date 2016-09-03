@@ -55,13 +55,10 @@ class IndexController extends BaseController {
         $this->display();
     }
     public function InfoAction(){
-
-
-        // $jssdk = new Jssdk("wxc4f17ee7dc946d0a", "03a7b4c63aa31ed4f141c23767cf212c");
-        // $signPackage = $jssdk->GetSignPackage();
-        // dump($jssdk);
-        // dump($signPackage);
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        // dump($id);
         
+        $this->assign('id', $id);
         $this->assign('title', '产品详情页');
         $this->display();
     }
@@ -79,7 +76,7 @@ class IndexController extends BaseController {
         dump("Jsapi");
     } 
 
-    public function NotifyAction(){  
+    /*public function NotifyAction(){  
         // phpLog($_GET);
         dump($_POST);
         phpLog($_POST);
@@ -111,7 +108,7 @@ class IndexController extends BaseController {
         //==商户根据实际情况设置相应的处理流程，此处仅作举例=======
         
         //以log文件形式记录回调信息
-//         $log_ = new Log_();
+        // $log_ = new Log_();
         $log_name= __ROOT__."/Public/notify_url.log";//log文件路径
         
         log_result($log_name,"【接收到的notify通知】:\n".$xml."\n");
@@ -136,12 +133,43 @@ class IndexController extends BaseController {
             //例如：数据库操作
             //例如：推送支付完成信息
         }
-
-
-
-    }
+    }*/
 
     public function BuyAction(){
+        
+
+
+        // dump($order);
+        //dump($jsApiParameters);
+        // dump($editAddress);
+        // die;
+        $is_weixin = 0;
+        $order = $jsApiParameters = $editAddress = '';
+
+        //检测如果是微信客户端,加载微信支付设置
+        if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
+            $is_weixin = 1;
+            $res_arr = $this->weixin_buy();
+            if(FALSE === empty($res_arr['jsApiParameters'])){
+                $order = $res_arr['order'];
+                $jsApiParameters = $res_arr['jsApiParameters'];
+                $editAddress = $res_arr['editAddress'];
+            }
+        }
+        
+        $this->assign('notify_url', "http://".$_SERVER['HTTP_HOST']."/notify");
+        $this->assign('order', $order);
+        $this->assign('jsApiParameters', $jsApiParameters);
+        $this->assign('editAddress', $editAddress);
+        $this->assign('is_weixin', $is_weixin);
+        $this->assign('title', '支付页面');
+        $this->display();
+    }
+
+
+
+    
+    public function weixin_buy($data = array()){
         ini_set('date.timezone','Asia/Shanghai');
         
         //error_reporting(E_ERROR);
@@ -149,10 +177,8 @@ class IndexController extends BaseController {
         require_once ROOT_PATH."/Lib/weixin/WxPay.JsApiPay.php";
         require_once ROOT_PATH."/Lib/weixin/WxLog.php";
 
-
-
         //初始化日志
-        $logHandler= new CLogFileHandler(ROOT_PATH."/Log/weixin_".date('Y-m-d').'.log');
+        $logHandler = new CLogFileHandler(ROOT_PATH."/Log/weixin_".date('Y-m-d').'.log');
         $log = WxLog::Init($logHandler, 15);
 
         //①、获取用户openid
@@ -172,33 +198,34 @@ class IndexController extends BaseController {
         $input->SetNotify_url("http://".$_SERVER['HTTP_HOST']."/notify");
         $input->SetTrade_type("JSAPI");
         $input->SetOpenid($openId);
-        $order = WxPayApi::unifiedOrder($input);
+        $res_arr = array();
+        $res_arr['order'] = WxPayApi::unifiedOrder($input);
         //echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
         // $this->printf_info($order);
         
-// array(9) {
-//   ["appid"]=>
-//   string(18) "wxc4f17ee7dc946d0a"
-//   ["mch_id"]=>
-//   string(10) "1385539402"
-//   ["nonce_str"]=>
-//   string(16) "iy8CWkEuZAUsXpzs"
-//   ["prepay_id"]=>
-//   string(36) "wx2016090213381375e9a931880412373390"
-//   ["result_code"]=>
-//   string(7) "SUCCESS"
-//   ["return_code"]=>
-//   string(7) "SUCCESS"
-//   ["return_msg"]=>
-//   string(2) "OK"
-//   ["sign"]=>
-//   string(32) "2CAAA2A183770C2A71466953EFFBDA93"
-//   ["trade_type"]=>
-//   string(5) "JSAPI"
-// }
+        // array(9) {
+        //   ["appid"]=>
+        //   string(18) "wxc4f17ee7dc946d0a"
+        //   ["mch_id"]=>
+        //   string(10) "1385539402"
+        //   ["nonce_str"]=>
+        //   string(16) "iy8CWkEuZAUsXpzs"
+        //   ["prepay_id"]=>
+        //   string(36) "wx2016090213381375e9a931880412373390"
+        //   ["result_code"]=>
+        //   string(7) "SUCCESS"
+        //   ["return_code"]=>
+        //   string(7) "SUCCESS"
+        //   ["return_msg"]=>
+        //   string(2) "OK"
+        //   ["sign"]=>
+        //   string(32) "2CAAA2A183770C2A71466953EFFBDA93"
+        //   ["trade_type"]=>
+        //   string(5) "JSAPI"
+        // }
 
         
-        $jsApiParameters = $tools->GetJsApiParameters($order);
+        $res_arr['jsApiParameters'] = $tools->GetJsApiParameters($res_arr['order']);
 
         // {
         //     "appId":"wxc4f17ee7dc946d0a",
@@ -209,25 +236,13 @@ class IndexController extends BaseController {
         //     "paySign":"9005DC8C781649815206127AC7086A5B"
         // }
 
-
-
-
         //获取共享收货地址js函数参数
-        $editAddress = $tools->GetEditAddressParameters();
+        $res_arr['editAddress'] = $tools->GetEditAddressParameters();
 
-
-        // dump($order);
-        //dump($jsApiParameters);
-        // dump($editAddress);
-        // die;
-
-        $this->assign('notify_url', "http://".$_SERVER['HTTP_HOST']."/notify");
-        $this->assign('order', $order);
-        $this->assign('jsApiParameters', $jsApiParameters);
-        $this->assign('editAddress', $editAddress);
-        $this->assign('title', '支付页面');
-        $this->display();
+        return $res_arr;
     }
+
+
     public function BuyOkAction(){
         $this->assign('title', '支付成功页面');
         $this->display();
