@@ -85,15 +85,15 @@ class BuyController extends BaseController {
                 // $cash_fee=$xmlObj->cash_fee;
                 // $return_code=$xmlObj->return_code;
 
-                phpLog($GLOBALS);
-                echo "SUCCESS";
+               // phpLog($GLOBALS);
+               // echo "SUCCESS";
 
-        die;
+        //die;
 
 
         // //error_reporting(E_ERROR);
-        // require_once ROOT_PATH."/Lib/weixin/WxPay.Api.php";
-        // require_once ROOT_PATH."/Lib/weixin/WxPay.Notify.php";
+        require_once ROOT_PATH."/Lib/weixin/WxPay.Api.php";
+        require_once ROOT_PATH."/Lib/weixin/WxPay.Notify.php";
         // require_once ROOT_PATH."/Lib/weixin/WxLog.php";
 
         // //初始化日志
@@ -103,8 +103,11 @@ class BuyController extends BaseController {
         // WxLog::DEBUG("1");
         // $xml = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA']: '';
         // dump($GLOBALS);
-        // //$notify = new WxPayNotify();
-        // //$rest = $notify->Handle(false);
+        phpLog(1);
+        $notify = new WxPayNotify();
+        phpLog(2);
+        $rest = $notify->Handle(false);
+        phpLog(3);
         // WxLog::DEBUG(dump($xml));
         // WxLog::DEBUG('9');
 
