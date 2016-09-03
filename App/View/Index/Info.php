@@ -106,22 +106,22 @@
                                     <label class="control-label">
                                         选择日期
                                     </label>
-                                    <div aria-describedby="calendar" class="form-group" >
-                                        <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" >
+                                    <div  class="form-group" >
+                                        <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerSmall'>
                                     </div>
                                 </div>
                                 <div class="col-md-4" >
                                     <label class="control-label">选择数量</label>
                                     <div class="Select Select--single has-value" >
                                         <div class="Select-control" style="font-size:16px;" >
-                                            <div class="Select-value">
-                                                <span class="Select-value-label" >2</span>
+                                            <div>
+                                                <select class="form-control filter-option">
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                </select>
                                             </div>
-                                            <div class="Select-input" tabindex="0" style="border:0;width:1px;display:inline-block;" >
-                                            </div>
-                                            <span class="Select-arrow-zone" >
-                                                <span class="Select-arrow" ></span>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -273,21 +273,21 @@
                                                 选择日期
                                             </label>
                                             <div aria-describedby="calendar" class="form-group" >
-                                                <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" >
+                                                <input placeholder="Wähle ein Datum aus" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerBig'>
                                             </div>
                                         </div>
                                         <div class="col-md-4" >
                                             <label class="control-label">选择数量</label>
                                             <div class="Select Select--single has-value" >
                                                 <div class="Select-control">
-                                                    <div class="Select-value" >
-                                                        <span class="Select-value-label" >2</span>
+                                                    <div>
+                                                        <select class="form-control filter-option">
+                                                          <option>1</option>
+                                                          <option>2</option>
+                                                          <option>3</option>
+                                                          <option>4</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="Select-input" tabindex="0" style="border:0;width:1px;display:inline-block;" >
-                                                    </div>
-                                                    <span class="Select-arrow-zone" >
-                                                        <span class="Select-arrow" ></span>
-                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -471,7 +471,9 @@
                 }
             }
             
-        };   
+        };
+        $( "#datepickerBig" ).datepicker();
+        $( "#datepickerSmall" ).datepicker();
       </script>
 </body>
 </html>
