@@ -84,15 +84,24 @@ class BuyController extends BaseController {
                 // $time_end=$xmlObj->time_end;//支付完成时间
                 // $cash_fee=$xmlObj->cash_fee;
                 // $return_code=$xmlObj->return_code;
-
+        require_once ROOT_PATH."/Lib/weixin/WxPay.Data.php";
 //禁止引用外部xml实体
 echo "SUCCESS";  
         // libxml_disable_entity_loader(true);
         // $values = json_decode(json_encode(simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA'], 'SimpleXMLElement', LIBXML_NOCDATA)), true);    
-        $arguments = file_get_contents('php://input');  
-               phpLog($arguments);
+        $xml = file_get_contents('php://input');  
+        phpLog($xml);
             
-
+        try {
+            $result = WxPayResults::Init($xml);
+            phpLog('成功');
+            phpLog($result);
+        } catch (WxPayException $e){
+            $msg = $e->errorMessage();
+            phpLog('失败');
+            phpLog($msg);
+        }
+ehco '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';
         die;
 
 
