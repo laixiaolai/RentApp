@@ -113,7 +113,7 @@
                                 <div class="col-md-4" >
                                     <label class="control-label">选择数量</label>
                                     <div class="Select Select--single has-value" >
-                                        <div class="Select-control" style="font-size:16px;" >
+                                        <div style="font-size:16px;" >
                                             <select name="number2" id="numberSmall" class="form-control filter-option">
                                                 <option>1</option>
                                                 <option>2</option>
@@ -278,7 +278,7 @@
                                         <div class="col-md-4" >
                                             <label class="control-label">选择数量</label>
                                             <div class="Select Select--single has-value" >
-                                                <div class="Select-control" style="font-size:16px;">
+                                                <div style="font-size:16px;">
                                                     <select name="number1" id="numberBig" class="form-control filter-option">
                                                         <option>1</option>
                                                         <option>2</option>
