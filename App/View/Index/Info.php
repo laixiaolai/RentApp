@@ -16,7 +16,7 @@
     <?php View::tplInclude('Public/css'); ?>
     <?php View::tplInclude('Public/js'); ?>
 </head>
-<body class='home'>
+<body class='home' id="app">
     <!-- 导航 -->
     <header id='header' class='navbar-static-top navbar' style='position: relative;border-bottom: 1px solid #e4e4e4;background-color: #fff;'>
         <div class="navbar-header">
@@ -65,17 +65,17 @@
         <div class="container" >
             <div class="row" >
                 <div class="col-md-12" >
-                    <h1 class="title_s8ugf4" >东半球第二好吃的清迈米粉大餐</h1>
+                    <h1 class="title_s8ugf4" >{{info.groupTour.title}}</h1>
                     <div class="subtitle_axjhr0" >
                         <a class="reviews_12ulor" >
                             <div class="container_evm7h4" >
                                 <span class="reviews-stars">
-                                    <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:-96px;margin-right: 16px;">
+                                    <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{info.groupTour.price / 500 * 100 - 98.5}}px;margin-right: 16px;">
                                 </span>
                             </div>
-                            <span class='total-comments'>(135条评论)</span>
+                            <span class='total-comments'>({{info.groupTour.price}}条评论)</span>
                         </a>
-                        <a class="location_lk74px" style="background: url('./Img/list_location.png') no-repeat center left;vertical-align: sub;">上海</a>
+                        <a class="location_lk74px" style="background: url('./Img/list_location.png') no-repeat center left;vertical-align: sub;">{{info.groupTour.actualPrice}}</a>
                     </div>
                 </div>
             </div>
@@ -436,6 +436,11 @@
         </div>
 
     </div>
+
+	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
+	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
+    <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
+    <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
     <script>        
         var mySwiper = new Swiper ('.swiper-container', {
             direction: 'horizontal',
@@ -476,6 +481,68 @@
         $( "#datepickerSmall" ).datepicker();
         $("#numberBig").selectmenu();
         $("#numberSmall").selectmenu();
+
+
+        $(function(){
+           
+            var vm = new Vue({
+                el: '#app', //绑定id盒子
+                data: {  //初始化内容值
+                    page_size: 2,
+                    page_p: 1,
+                    info_id: 0,
+                    api_url: '',
+                    Datetime: '',
+                    Token: '',
+                    info: {},
+                    tree: []
+                },
+                methods: {
+
+                	//列表渲染
+                    fetchUser: function () { 
+                    	
+                    	layer.open({type: 2});
+
+                        var headers = {
+                        	"Content-Type":"application/json",
+                        	"X-Api-Key":"web-app","Datetime":this.Datetime,
+                        	"X-Auth-Token":this.Token
+                        }
+                        var grouptour_url = this.api_url+"grouptour/"+this.info_id;
+    					this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+    						// 响应成功回调
+    						var _arr = response.json();
+    						
+    						// debug.log(response);
+    						if(!!_arr && _arr.length == 0){
+    							//console.log('wu');
+    							//提示
+    							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
+    						}else{
+    							//console.log(_arr)
+    					    	// var _thistree = this.tree;
+    					    	
+    							// $.each(_arr, function(index, value) {
+    							// 	_thistree.push(value);
+    							// });
+    							// this.$set('page_p',this.page_p+1);
+    							this.$set('info',response.json());
+    							// console.log(this.info.author);
+
+    						}
+    					}, function(response){
+    						// 响应错误回调
+    					});
+    					 layer.closeAll();
+                    }
+                },
+                ready: function() { //初始化执行的方法
+                    this.fetchUser();
+                }
+            });
+
+        });
       </script>
 </body>
 </html>

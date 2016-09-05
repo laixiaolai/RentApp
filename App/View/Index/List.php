@@ -93,7 +93,7 @@
 				    	<div id='result-page' class="row all-research-results" >
 				    		<div class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree">
 				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}')">
-				    		    	<a href="/events/consult/casual-dinner-in-the-16th"></a>
+				    		    	<a href="/index.php?a=Info&id={{items.groupTour.id}}"></a>
 				    		  	</div>
 				    		  	<div class="media all-informations">
 									<div>
