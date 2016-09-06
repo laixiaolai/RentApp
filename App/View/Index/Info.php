@@ -40,12 +40,12 @@
     </header>
     <!-- 图片轮播 -->
     <div class="swiper-container">
-        <div class="swiper-wrapper" >
-            <div class="swiper-slide"  v-for="items in info.photo">
-                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}" width="710" height="420">
-            </div>
-        </div>
-       <!--  <div class="swiper-wrapper">
+       <div class="swiper-wrapper" >
+           <div class="swiper-slide"  v-for="items in info.photo">
+               <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}" width="710" height="420">
+           </div>
+       </div>
+       <!-- <div class="swiper-wrapper">
            <div class="swiper-slide">
                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel1.jpg" width="100%">
            </div>
@@ -223,7 +223,7 @@
                             <div class="col-md-10 col-md-offset-null info-comment" >
                                 <div class='info-content'>
                                     <p class='info-content-text'>{{items.content}}</p>
-                                    <div class='info-content-time'>{{items.createAt}}</div>
+                                    <div class='info-content-time'>{{items.createAt| time}}</div>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +236,7 @@
                             <div class="col-md-10 col-md-offset-null info-comment" >
                                 <div class='info-content'>
                                     <p class='info-content-text'>{{items.content}}</p>
-                                    <div class='info-content-time'>{{items.createAt}}</div>
+                                    <div class='info-content-time'>{{items.createAt | time}}</div>
                                 </div>
                             </div>
                         </div>
@@ -506,8 +506,10 @@
         $("#numberSmall").selectmenu();
 
 
+
+
         $(function(){
-           
+
             var vm = new Vue({
                 el: '#app', //绑定id盒子
                 data: {  //初始化内容值
@@ -526,7 +528,7 @@
                     comment_2: []
                 },
                 methods: {
-
+                	
                 	//显示隐藏评论
                     comment: function () { 
 						this.$set('comment_show',1);	                    	

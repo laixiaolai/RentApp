@@ -1,6 +1,25 @@
 <?php
 
+/**
+ * PHP发送Json对象数据
+ *
+ * @param $url 请求url
+ * @param $jsonStr 发送的json字符串
+ * @return array
+ */
+function http_post_json($url, $jsonStr,$header)
+{
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonStr);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_HTTPHEADER,$header );
+  $response = curl_exec($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
+  return array($httpCode, $response);
+}
 
 
 function testFunction(){

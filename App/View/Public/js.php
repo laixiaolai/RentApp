@@ -8,3 +8,11 @@
  	<script src="./Js/vue-resource.min.js"></script>
  	<script src="./Js/vue-router.min.js"></script>
  	<script src="./Js/debug.min.js"></script>
+ 	<script src="./Js/moment.min.js"></script>
+ 	<script>
+	    //格式化时间
+		Vue.filter('time', function (value, formatString) {
+		    formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
+		    return moment(value).format(formatString);
+		});
+ 	</script>
