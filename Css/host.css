@@ -1,5 +1,28 @@
 /***********************************************************首页start********************************************************/
 /*************************顶部start****************************/
+/**字体**/
+.font-size-16 {
+    font-size: 16px;
+}
+.font-size-30 {
+    font-size: 30px;
+}
+.inline-block {
+    display: inline-block;
+}
+.rgb132 {
+    color: rgb(132, 132, 132);
+}
+.rgb152 {
+    color: rgb(152, 152, 152);
+}
+.rgb74 {
+    color: rgb(74, 74, 74);
+}
+.rgb246 {
+    background-color: rgb(246, 246, 246); 
+}
+
 .image-area {
 	background: url('../Img/header_background.jpg') no-repeat center center;
 	background-size: cover;
@@ -980,5 +1003,75 @@ label {
 .ui-icon, .ui-widget-content .ui-icon {
     background-image: url(../Img/ui-icons_222222_256x240.png);
 }
+.swiper-lazy {
+    width: 710px;
+    height: 420px;
+}
+@media (max-width: 768px) {
+    .swiper-lazy {
+        width: 546px;
+        height: 155px;
+    }
+}
 /****************************简介end****************************/
-/***********************************************************详情页end***************************************************
+/***********************************************************详情页end***************************************************/
+/***********************************************************预定页start***************************************************/
+.reserve-header {
+    padding: 34px 30px 40px 30px; 
+    border-bottom: 1px solid #ddd;
+}
+.reserve-header-content {
+    margin-bottom: 10px;
+}
+.reserve-content {
+    margin-top: 24px;
+    margin-bottom: 80px;
+}
+.active-step {
+    background: rgb(225, 112, 114);
+    height: 100%;
+    border-radius: 9px;
+    
+}
+.active-step-text {
+    color: rgb(225, 112, 114);
+}
+.active-step1 {
+    width: 25%;
+}
+.active-step2 {
+    width: 50%;
+}
+.active-step3 {
+    width: 75%;
+}
+.active-step4 {
+    width: 100%;
+}
+.reserve-step  {
+    background-color: #fff; 
+    padding-top: 26px;
+    padding-bottom: 60px;
+}
+.container-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.reserve-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgb(152, 152, 152);
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 12px;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+.step-header {
+    margin-bottom: 30px;
+}
+/***********************************************************预定页end***************************************************/

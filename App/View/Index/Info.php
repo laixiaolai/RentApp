@@ -40,29 +40,13 @@
     </header>
     <!-- 图片轮播 -->
     <div class="swiper-container">
-       <div class="swiper-wrapper" >
-           <div class="swiper-slide"  v-for="items in info.photo">
-               <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}" width="710" height="420">
-           </div>
-       </div>
-       <!-- <div class="swiper-wrapper">
-           <div class="swiper-slide">
-               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel1.jpg" width="100%">
-           </div>
-           <div class="swiper-slide">
-               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel2.jpg" width="100%">
-           </div>
-           <div class="swiper-slide">
-               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel3.jpg" width="100%">
-           </div>
-           <div class="swiper-slide">
-               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel4.jpg" width="100%">
-           </div>
-           <div class="swiper-slide">
-               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel5.jpg" width="100%">
-           </div>
-       </div> -->
-        <!-- <div class="swiper-pagination"></div> -->
+      
+       <div class="swiper-wrapper">
+            <div class="swiper-slide"  v-for="items in info.photo">
+                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}">
+            </div>
+        </div>
+      
     </div>
     <!-- 关于host的信息 -->
     <!-- 名称、地点 -->
@@ -180,22 +164,7 @@
                                     <img src="./Img/info_blackCircle.png" width='15px'>
                                     <span>{{items.title}}</span> 
                                 </li>
-                                <!-- <li>
-                                    <img src="./Img/info_blackCircle.png" width='15px'>
-                                    <span>12 hour roasted tomatoes and </span> 
-                                </li>
-                                <li>
-                                    <img src="./Img/info_blackCircle.png" width='15px'>
-                                    <span>12 hour roasted</span> 
-                                </li>
-                                <li>
-                                    <img src="./Img/info_blackCircle.png" width='15px'>
-                                    <span>12 hour roasted tomatoes and blistered shisito </span> 
-                                </li>
-                                <li>
-                                    <img src="./Img/info_blackCircle.png" width='15px'>
-                                    <span>12 hour roasted tomatoes and blistered shisito pepers</span> 
-                                </li> -->
+                               
                             </ul>
                         </div>
                     </div>
@@ -241,34 +210,7 @@
                             </div>
                         </div>
                     </div>
-             <!--        <div  style="margin-top:34px;">
-                        <div class="row" >
-                            <div class="col-md-2 text-center" >
-                                <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
-                                <div class='comment-name'>用户名</div>
-                            </div>
-                            <div class="col-md-10 col-md-offset-null info-comment" >
-                                <div class='info-content'>
-                                    <p class='info-content-text'>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
-                                    <div class='info-content-time'>2016年8月</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div  style="margin-top:34px;">
-                        <div class="row" >
-                            <div class="col-md-2 text-center" >
-                                <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
-                                <div class='comment-name'>用户名</div>
-                            </div>
-                            <div class="col-md-10 col-md-offset-null info-comment" >
-                                <div class='info-content'>
-                                    <p class='info-content-text'>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
-                                    <div class='info-content-time'>2016年8月</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+            
                     <div @click="comment" v-show="comment_but"class='more-cities col-md-6 col-md-offset-6' style='margin-top: 30px;padding: 0'>
                         <span class='comment-more' >加载更多···</span>
                     </div>
@@ -412,9 +354,6 @@
                             <li>
                                 <a href="#">FAQ</a>
                             </li>
-                            <!-- <li>
-                                <a href="#https://de.vizeat.com/pages/geschaeftsbedingungen">Geschäftsbedingungen</a>
-                            </li> -->
                         </ul>
                         <ul class="col-xs-6 menu"></ul>
                     </div>

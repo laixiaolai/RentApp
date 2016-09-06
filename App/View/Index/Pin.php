@@ -77,6 +77,14 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="col-xs-12  ">
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								<input type="text"  class="form-control" placeholder="请输入:createAt 格式 2016-10-10 22:30:30" v-model="add_arr.createAt">
+							</div>
+						</div>
+					</div>
 					<div class="form-group form-actions">
 						<div class="col-xs-4 col-xs-offset-4 ">
 							<button type="button" class="btn btn-sm btn-default" @click="fetchUser()"><span class="glyphicon glyphicon-off"></span> 提交</button>
@@ -98,6 +106,21 @@
 
 	    $(function(){
 	       
+	    	function CheckDateTime(str){ 
+	    	    var reg=/^(\d+)-(\d{ 1,2})-(\d{ 1,2})(\d{ 1,2}):(\d{1,2}):(\d{1,2})$/; 
+	    	    var r=str.match(reg); 
+	    	    if(r==null) return false; 
+	    	    r[2]=r[2]-1; 
+	    	    var d= new Date(r[1],r[2],r[3],r[4],r[5],r[6]); 
+	    	    if(d.getFullYear()!=r[1]) return false; 
+	    	    if(d.getMonth()!=r[2]) return false; 
+	    	    if(d.getDate()!=r[3]) return false; 
+	    	    if(d.getHours()!=r[4]) return false; 
+	    	    if(d.getMinutes()!=r[5]) return false; 
+	    	    if(d.getSeconds()!=r[6]) return false; 
+	    	    return true; 
+	    	}
+
 	        var vm = new Vue({
 	            el: '#app', //绑定id盒子
 	            data: {  //初始化内容值
@@ -108,7 +131,7 @@
 						"location": "",
 						"nickname": "",
 						"avatarUrl": "",
-						"createAt": "", //需要毫秒级
+						"createAt": "" //需要毫秒级
 	                },
 	                api_url: '',
 	                Datetime: '',
@@ -119,6 +142,8 @@
 
 	            	//列表渲染
 	                fetchUser: function () { 
+	                	
+
 	                	var z= /^[0-9]*$/;
 						
 	                	if (!this.add_arr.groupTourId) {
@@ -155,8 +180,18 @@
 	                		return false; 
 	                	};
 
-	                	var timestamp = (new Date()).valueOf();
-	                	this.$set('add_arr.createAt',timestamp);
+
+	                	var m = /(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/;
+	                	if (!m.test(this.add_arr.createAt)) {
+	                		layer.open({content: '请输入:createAt 格式 2016-10-10 22:30:30',skin: 'msg',time: 2  });
+	                		return false;
+	                	}else{
+	                		// 获取某个时间格式的时间戳
+							var timestamp2 = Date.parse(new Date(this.add_arr.createAt));
+							timestamp2 = timestamp2;
+							this.$set('add_arr.createAt',timestamp2);
+	                	}
+
 
 	                	this.$set('add_arr.groupTourId',parseInt(this.add_arr.groupTourId));
 	                	this.$set('add_arr.createBy',parseInt(this.add_arr.createBy));
