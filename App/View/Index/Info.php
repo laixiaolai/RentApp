@@ -181,7 +181,7 @@
                                 </li>
                                 <li>
                                     <img src="./Img/info_blackCircle.png" width='15px'>
-                                    <span>12 hour roasted/span> 
+                                    <span>12 hour roasted</span> 
                                 </li>
                                 <li>
                                     <img src="./Img/info_blackCircle.png" width='15px'>
