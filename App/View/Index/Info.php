@@ -42,7 +42,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper" >
             <div class="swiper-slide"  v-for="items in info.photo">
-                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}" width="710" height="420">
+                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}">
             </div>
         </div>
        <!--  <div class="swiper-wrapper">
