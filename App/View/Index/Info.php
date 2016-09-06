@@ -62,7 +62,7 @@
                                     <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{info.groupTour.price / 500 * 100 - 98.5}}px;margin-right: 16px;">
                                 </span>
                             </div>
-                            <span class='total-comments'>({{info.groupTour.price}}条评论)</span>
+                            <span class='total-comments'>({{comment_num}}条评论)</span>
                         </a>
                         <a class="location_lk74px" style="background: url('./Img/list_location.png') no-repeat center left;vertical-align: sub;">{{info.groupTour.transportation}}</a>
                     </div>
