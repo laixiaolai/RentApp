@@ -941,7 +941,7 @@ label {
 }
 .info-content-text {
     text-align: justify;
-    max-height: 68px;
+   /* max-height: 68px;*/
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 14px;
