@@ -183,8 +183,8 @@
                     <!-- 评价 -->
                     <div class="rowTitle_ese0tp all-comments">{{comment_num}}条评价</div>
                     <hr class="separator_1u1psom">
-                    <div  style="margin-top:34px;">
-                        <div class="row" v-for="items in comment_1" >
+                    <div  >
+                        <div class="row" v-for="items in comment_1" style="margin-top:34px;">
                             <div class="col-md-2 text-center" >
                                 <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
                                 <div class='comment-name'>{{items.nickname}}</div>
@@ -197,7 +197,7 @@
                             </div>
                         </div>
 
-                         <div class="row" v-for="items in comment_2" v-show="comment_show">
+                         <div class="row" v-for="items in comment_2" v-show="comment_show" style="margin-top:34px;">
                             <div class="col-md-2 text-center" >
                                 <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
                                 <div class='comment-name'>{{items.nickname}}</div>

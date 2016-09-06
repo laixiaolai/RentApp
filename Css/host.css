@@ -937,6 +937,7 @@ label {
 .info-content {
     padding-bottom: 40px;
     border-bottom: 1px solid black;
+    min-height: 82px;
 }
 .info-content-text {
     text-align: justify;
@@ -1074,4 +1075,7 @@ label {
 .step-header {
     margin-bottom: 30px;
 }
+/*#ui-datepicker-div {
+    width: 100%;
+}*/
 /***********************************************************预定页end***************************************************/
