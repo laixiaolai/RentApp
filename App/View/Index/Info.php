@@ -40,23 +40,28 @@
     </header>
     <!-- 图片轮播 -->
     <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel1.jpg" width="100%">
-            </div>
-            <div class="swiper-slide">
-                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel2.jpg" width="100%">
-            </div>
-            <div class="swiper-slide">
-                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel3.jpg" width="100%">
-            </div>
-            <div class="swiper-slide">
-                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel4.jpg" width="100%">
-            </div>
-            <div class="swiper-slide">
-                <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel5.jpg" width="100%">
+        <div class="swiper-wrapper" >
+            <div class="swiper-slide"  v-for="items in info.photo">
+                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}" width="710" height="420">
             </div>
         </div>
+       <!--  <div class="swiper-wrapper">
+           <div class="swiper-slide">
+               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel1.jpg" width="100%">
+           </div>
+           <div class="swiper-slide">
+               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel2.jpg" width="100%">
+           </div>
+           <div class="swiper-slide">
+               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel3.jpg" width="100%">
+           </div>
+           <div class="swiper-slide">
+               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel4.jpg" width="100%">
+           </div>
+           <div class="swiper-slide">
+               <img class="swiper-goods-list-img swiper-lazy" src="./Img/info_carousel5.jpg" width="100%">
+           </div>
+       </div> -->
         <!-- <div class="swiper-pagination"></div> -->
     </div>
     <!-- 关于host的信息 -->
@@ -75,7 +80,7 @@
                             </div>
                             <span class='total-comments'>({{info.groupTour.price}}条评论)</span>
                         </a>
-                        <a class="location_lk74px" style="background: url('./Img/list_location.png') no-repeat center left;vertical-align: sub;">{{info.groupTour.actualPrice}}</a>
+                        <a class="location_lk74px" style="background: url('./Img/list_location.png') no-repeat center left;vertical-align: sub;">{{info.groupTour.transportation}}</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +99,7 @@
                                     <span >
                                         <span class="price_1pnuu1y">&yen;
                                         </span>
-                                        <span class='price_number'>96</span>
+                                        <span class='price_number'>{{info.groupTour.actualPrice}}</span>
                                         <span class='price_per'>/人</span>
                                     </span>
                                 </div>
@@ -140,37 +145,37 @@
                     <div class='row info4'>
                         <div class='text-center col-sm-3 col-xs-6 info_time'>
                             <div style="background: url('./Img/info_time.png') no-repeat top center;" class='info_title'>时间</div>
-                            <div class='info_content'>19:00-21:30</div>
+                            <div class='info_content'>{{info.groupTour.startDatePromotion}}</div>
                         </div>
                         <div  class='text-center col-sm-3 col-xs-6 info_person'>
                             <div style="background: url('./Img/info_number.png') no-repeat top center;" class='info_title'>可接待人数</div>
-                            <div  class='info_content'>2-6人</div>
+                            <div  class='info_content'>{{info.groupTour.availableUnit}}人</div>
                         </div>
                         <div  class='text-center col-sm-3 col-xs-6 info_language'>
                             <div style="background: url('./Img/info_language.png') no-repeat top center;" class='info_title'>语言</div>
-                            <div class='info_content'>英文</div>
+                            <div class='info_content'>{{info.groupTour.language}}</div>
                         </div>
                         <div class='text-center col-sm-3 col-xs-6 info_type'>
                             <div style="background: url('./Img/info_type.png') no-repeat top center;" class='info_title'>餐饮类型</div>
-                            <div class='info_content'>晚餐</div>
+                            <div class='info_content'>{{info.groupTour.refundRule}}</div>
                         </div>
                     </div>
                     <!-- 亮点 -->
                     <div class='shine'>
                         <div class="rowTitle_ese0tp shine-point">亮点</div>
-                        <span class='shine-content'>草莓的果实是球形或椭圆球形。成熟的果实红艳艳的，表面疙疙瘩瘩，附有许多小种子，小时候我还以为那是很多的芝麻粘在上面呢。草莓的果实鲜艳红嫩，柔软多汁，甜酸可口，含有丰富的维生素C，此外还含胡萝卜素、多种维生素、葡萄糖、蛋白质、脂肪、铁钙、磷等，所以有人管草莓又叫“美容果”，拿起一个放到口中轻轻的嚼动，那粉红色的汁液伴随着鲜嫩的果肉在嘴里有一种甜滋滋、酸溜溜、凉爽爽的美妙感觉，唯一感到遗憾的就是那附在草莓表面上的小种子吃起来没有什么味道</span>
+                        <span class='shine-content'>{{info.groupTour.subtitle}}</span>
                     </div>
                     <hr class="separator_1u1psom" >
                     <!-- 菜单 -->
                     <div>
                         <div class="rowTitle_ese0tp menu">菜单</div>
                         <div class='menu-list'>
-                            <ul>
-                                <li>
+                            <ul >
+                                <li v-for="items in info.introduction">
                                     <img src="./Img/info_blackCircle.png" width='15px'>
-                                    <span>12 hour roasted tomatoes and blistered shisito roasted tomatoes and blistered pepers</span> 
+                                    <span>{{items.title}}</span> 
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <img src="./Img/info_blackCircle.png" width='15px'>
                                     <span>12 hour roasted tomatoes and </span> 
                                 </li>
@@ -185,7 +190,7 @@
                                 <li>
                                     <img src="./Img/info_blackCircle.png" width='15px'>
                                     <span>12 hour roasted tomatoes and blistered shisito pepers</span> 
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -195,16 +200,43 @@
                         <div class="rowTitle_ese0tp about-host">关于Host</div>
                         <div >
                             <div class="text-center" style="margin-bottom:25px;">
-                                <img src="./Img/list_user.jpg" alt="" width="116px" style="border-radius:50%;">
-                                <div class='host-name'>用户名</div>
+                                <img src="{{info.author.avatarUrl}}" alt="" width="116px" style="border-radius:50%;">
+                                <div class='host-name'>{{info.author.nickname}}</div>
                             </div>
-                            <div class='host-content'>正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介正文简介</div>
+                            <div class='host-content'>{{info.author.personalSignature}}</div>
                         </div>
                     </div>
                     <!-- 评价 -->
-                    <div class="rowTitle_ese0tp all-comments">10条评价</div>
+                    <div class="rowTitle_ese0tp all-comments">{{comment_num}}条评价</div>
                     <hr class="separator_1u1psom">
                     <div  style="margin-top:34px;">
+                        <div class="row" v-for="items in comment_1" >
+                            <div class="col-md-2 text-center" >
+                                <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>{{items.nickname}}</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>{{items.content}}</p>
+                                    <div class='info-content-time'>{{items.createAt}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="row" v-for="items in comment_2" v-show="comment_show">
+                            <div class="col-md-2 text-center" >
+                                <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>{{items.nickname}}</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>{{items.content}}</p>
+                                    <div class='info-content-time'>{{items.createAt}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+             <!--        <div  style="margin-top:34px;">
                         <div class="row" >
                             <div class="col-md-2 text-center" >
                                 <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
@@ -231,23 +263,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div  style="margin-top:34px;">
-                        <div class="row" >
-                            <div class="col-md-2 text-center" >
-                                <img src="./Img/list_user.jpg" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
-                                <div class='comment-name'>用户名</div>
-                            </div>
-                            <div class="col-md-10 col-md-offset-null info-comment" >
-                                <div class='info-content'>
-                                    <p class='info-content-text'>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
-                                    <div class='info-content-time'>2016年8月</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='more-cities col-md-6 col-md-offset-6' style='margin-top: 30px;padding: 0'>
-                        <span class='comment-more'>加载更多···</span>
+                    </div> -->
+                    <div @click="comment" v-show="comment_but"class='more-cities col-md-6 col-md-offset-6' style='margin-top: 30px;padding: 0'>
+                        <span class='comment-more' >加载更多···</span>
                     </div>
                 </div>
                 <div style="margin-top:-107.5px;" class="col-md-4 hidden-sm hidden-xs">
@@ -488,6 +506,9 @@
             var vm = new Vue({
                 el: '#app', //绑定id盒子
                 data: {  //初始化内容值
+                    comment_num: 0,
+                    comment_but: 1,
+                    comment_show: 0,
                     page_size: 2,
                     page_p: 1,
                     info_id: 0,
@@ -495,10 +516,17 @@
                     Datetime: '',
                     Token: '',
                     info: {},
-                    tree: []
+                    tree: [],
+                    comment_1: [],
+                    comment_2: []
                 },
                 methods: {
 
+                	//显示隐藏评论
+                    comment: function () { 
+						this.$set('comment_show',1);	                    	
+						this.$set('comment_but',0);	                    	
+                    },
                 	//列表渲染
                     fetchUser: function () { 
                     	
@@ -516,20 +544,28 @@
     						
     						// debug.log(response);
     						if(!!_arr && _arr.length == 0){
-    							//console.log('wu');
     							//提示
     							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
     						}else{
-    							//console.log(_arr)
-    					    	// var _thistree = this.tree;
-    					    	
-    							// $.each(_arr, function(index, value) {
-    							// 	_thistree.push(value);
-    							// });
-    							// this.$set('page_p',this.page_p+1);
     							this.$set('info',response.json());
-    							// console.log(this.info.author);
 
+    							//重设评论列表
+    							var _comment_1 = this.comment_1;
+    							var _comment_2 = this.comment_2;
+    							
+    							var _comment_num = 0;
+    							$.each(this.info.comment, function(index, value) {
+    								_comment_num++;
+    								if(index < 3){
+    									_comment_1.push(value);
+    								}else{
+    									_comment_2.push(value);
+    								}
+    							});
+    							
+    							this.$set('comment_num',_comment_num);
+    							this.$set('comment_1',_comment_1);
+    							this.$set('comment_2',_comment_2);
     						}
     					}, function(response){
     						// 响应错误回调
