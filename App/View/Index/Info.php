@@ -43,7 +43,7 @@
       
        <div class="swiper-wrapper">
             <div class="swiper-slide"  v-for="items in info.photo">
-                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}">
+                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
             </div>
         </div>
       
