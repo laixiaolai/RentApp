@@ -249,7 +249,7 @@
 	    						</div>
 	    						<!-- 确认提交 -->
 	    						<div class='text-center col-xs-12'>
-	    						    <span class='comment-more' style='background-color: rgb(225, 112, 114);color:white'>确认提交</span>
+	    						    <span class='comment-more' style='background-color: rgb(225, 112, 114);color:white' @click="add_yudin">确认提交</span>
 	    						</div>
 	    					</div>
 	    				</div>
@@ -482,6 +482,11 @@
 	            },
 	            methods: {
 	            	
+	            	
+	            	//列表渲染
+	                add_yudin: function () { 
+	                	debug.log();
+	                },	
 	            	
 	            	//列表渲染
 	                fetchUser: function () { 
