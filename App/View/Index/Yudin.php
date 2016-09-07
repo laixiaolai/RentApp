@@ -158,7 +158,7 @@
 	    									<!-- 选择的日期 -->
 	    									<div class='col-md-6'>
 	    										<span class='font-size-16'>您选择的日期:</span>
-	    										<div class='font-size-24 rgb225 checked-time'>2016年07月17日(星期三)</div>
+	    										<div class='font-size-24 rgb225 checked-time' id='showTime'>2016年07月17日(星期三)</div>
 	    									</div>
 	    								</div>
 	    								
@@ -421,90 +421,95 @@
     <script>  
     	//初始化选择好的时间
     	var _xz_time = $("#xz_time").val();
+    	var _xz_time = 1477969871000;
     	$( "#showDate" ).datepicker({
     		
     		defaultDate: new Date(_xz_time),//获取毫秒数
     		onSelect: function(dateText, inst){
-    			console.log(dateText)
-    		}
-    	});      
-      
+    			var a = new Array("日", "一", "二", "三", "四", "五", "六");
+    			var week = new Date(dateText).getDay();
+    			var str = "(星期"+ a[week] + ")";
+    			var newDate = dateText.replace(/-/, '年').replace(/-/, '月') + '日';
+    			var chooseValue = newDate + str;
+    			$('#showTime').text(chooseValue);
+    		},
+    		dateFormat: 'yy-mm-dd',
+    	});
 
-        $(function(){
+	    $(function(){
 
-            var vm = new Vue({
-                el: '#app', //绑定id盒子
-                data: {  //初始化内容值
-                    comment_num: 0,
-                    comment_but: 1,
-                    comment_show: 0,
-                    page_size: 2,
-                    page_p: 1,
-                    info_id: 0,
-                    api_url: '',
-                    Datetime: '',
-                    Token: '',
-                    info: {},
-                    tree: [],
-                    comment_1: [],
-                    comment_2: []
-                },
-                methods: {
-                	
-                	
-                	//列表渲染
-                    fetchUser: function () { 
-                    	
-                    	layer.open({type: 2});
+	        var vm = new Vue({
+	            el: '#app', //绑定id盒子
+	            data: {  //初始化内容值
+	                comment_num: 0,
+	                comment_but: 1,
+	                comment_show: 0,
+	                page_size: 2,
+	                page_p: 1,
+	                info_id: 0,
+	                api_url: '',
+	                Datetime: '',
+	                Token: '',
+	                info: {},
+	                tree: [],
+	                comment_1: [],
+	                comment_2: []
+	            },
+	            methods: {
+	            	
+	            	
+	            	//列表渲染
+	                fetchUser: function () { 
+	                	
+	                	layer.open({type: 2});
 
-                        var headers = {
-                        	"Content-Type":"application/json",
-                        	"X-Api-Key":"web-app","Datetime":this.Datetime,
-                        	"X-Auth-Token":this.Token
-                        }
-                        var grouptour_url = this.api_url+"grouptour/"+this.info_id;
-    					this.$http.get(grouptour_url, {headers: headers}).then(function(response){
-    						// 响应成功回调
-    						var _arr = response.json();
-    						
-    						// debug.log(response);
-    						if(!!_arr && _arr.length == 0){
-    							//提示
-    							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
-    						}else{
-    							this.$set('info',response.json());
+	                    var headers = {
+	                    	"Content-Type":"application/json",
+	                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
+	                    	"X-Auth-Token":this.Token
+	                    }
+	                    var grouptour_url = this.api_url+"grouptour/"+this.info_id;
+						this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+							// 响应成功回调
+							var _arr = response.json();
+							
+							// debug.log(response);
+							if(!!_arr && _arr.length == 0){
+								//提示
+								layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
+							}else{
+								this.$set('info',response.json());
 
-    							//重设评论列表
-    							var _comment_1 = this.comment_1;
-    							var _comment_2 = this.comment_2;
-    							
-    							var _comment_num = 0;
-    							$.each(this.info.comment, function(index, value) {
-    								_comment_num++;
-    								if(index < 3){
-    									_comment_1.push(value);
-    								}else{
-    									_comment_2.push(value);
-    								}
-    							});
-    							
-    							this.$set('comment_num',_comment_num);
-    							this.$set('comment_1',_comment_1);
-    							this.$set('comment_2',_comment_2);
-    						}
-    					}, function(response){
-    						// 响应错误回调
-    					});
-    					 layer.closeAll();
-                    }
-                },
-                ready: function() { //初始化执行的方法
-                    this.fetchUser();
-                }
-            });
+								//重设评论列表
+								var _comment_1 = this.comment_1;
+								var _comment_2 = this.comment_2;
+								
+								var _comment_num = 0;
+								$.each(this.info.comment, function(index, value) {
+									_comment_num++;
+									if(index < 3){
+										_comment_1.push(value);
+									}else{
+										_comment_2.push(value);
+									}
+								});
+								
+								this.$set('comment_num',_comment_num);
+								this.$set('comment_1',_comment_1);
+								this.$set('comment_2',_comment_2);
+							}
+						}, function(response){
+							// 响应错误回调
+						});
+						 layer.closeAll();
+	                }
+	            },
+	            ready: function() { //初始化执行的方法
+	                this.fetchUser();
+	            }
+	        });
 
-        });
-      </script>
-   
+	    });
+    </script>
 </body>
 </html>
