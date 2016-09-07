@@ -55,7 +55,7 @@ class IndexController extends BaseController {
         $this->display();
     }
     public function InfoAction(){
-        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         // dump($id);
         
         $this->assign('id', $id);
@@ -67,6 +67,14 @@ class IndexController extends BaseController {
         $this->display();
     }
     public function YudinAction(){
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
+        $time = isset($_GET['time']) ? trim($_GET['time']) : getMillisecond();
+        $num  = isset($_GET['num']) ? intval($_GET['num']) : 0;
+
+
+        $this->assign('id', $id);
+        $this->assign('time', $time);
+        $this->assign('num', $num);
         $this->assign('title', '产品预定页面');
         $this->display();
     }
@@ -79,11 +87,8 @@ class IndexController extends BaseController {
 
     //获取微信prepayid
     public function PrepayidAction(){  
-        $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req";
-        $jsonStr = array(
-           "orderId" => 17,
-           "openId"  => "o6dctwc7rSoW6PO54J6AtL3MoEv0"
-        );
+        $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
+        $jsonStr = array();
 
         $header = array(
             "Content-Type: application/json; charset=utf-8",

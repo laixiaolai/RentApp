@@ -41,13 +41,13 @@
     <!-- 预定头部信息 -->
 	<div class='reserve-header'>
 		<div class='container'>
-	    	<div class='font-size-30 rgb74 reserve-header-content'>东半球第二好吃的清迈米粉大餐——预定</div>
+	    	<div class='font-size-30 rgb74 reserve-header-content'>{{info.groupTour.title}}——预定</div>
 	    	<div>
 				<span class="reviews-stars" style='margin-right: 14px;'>
-	                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:-96px;">
+	                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{info.groupTour.price / 500 * 100 - 98.5}}px;">
 	            </span>
-	            <span class='font-size-16 rgb132' style='margin-right: 24px;'>(共135条评论)</span>
-	    		<span style="background: url('./Img/list_location.png') no-repeat center left;padding-right:0;padding-left:20px;height:15px;" class='INFO-location font-size-16 inline-block rgb132'>上海
+	            <span class='font-size-16 rgb132' style='margin-right: 24px;'>(共{{comment_num}}条评论)</span>
+	    		<span style="background: url('./Img/list_location.png') no-repeat center left;padding-right:0;padding-left:20px;height:15px;" class='INFO-location font-size-16 inline-block rgb132'>{{info.groupTour.transportation}}
 	    		</span>
 	    	</div>
 		</div>
@@ -209,7 +209,7 @@
 	    									<input type="text" class='col-xs-9' placeholder="1234567890">
 	    								</div>
 	    								<div class='step3-content'>
-	    									<span class='col-xs-3 text-center'">邮箱</span>
+	    									<span class='col-xs-3 text-center'>邮箱</span>
 	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com">
 	    								</div>
 	    							</div>
@@ -280,6 +280,12 @@
 	    		</div>
 	    	</div>
 	    </div>
+    	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
+    	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' v-model="time" >
+    	<input type="hidden" value='<?php echo $num; ?>' v-model="num">
+    	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
+        <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
+        <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
 	</div>
     
     <!-- 第一步 -->
@@ -409,13 +415,96 @@
         </div>
 
     </div>
-    <script>
+
+	
+	
+    <script>  
+    	//初始化选择好的时间
+    	var _xz_time = $("#xz_time").val();
     	$( "#showDate" ).datepicker({
-    		defaultDate: new Date(1137075575000),//获取毫秒数
+    		
+    		defaultDate: new Date(_xz_time),//获取毫秒数
     		onSelect: function(dateText, inst){
     			console.log(dateText)
     		}
-    	});
-    </script>
+    	});      
+      
+
+        $(function(){
+
+            var vm = new Vue({
+                el: '#app', //绑定id盒子
+                data: {  //初始化内容值
+                    comment_num: 0,
+                    comment_but: 1,
+                    comment_show: 0,
+                    page_size: 2,
+                    page_p: 1,
+                    info_id: 0,
+                    api_url: '',
+                    Datetime: '',
+                    Token: '',
+                    info: {},
+                    tree: [],
+                    comment_1: [],
+                    comment_2: []
+                },
+                methods: {
+                	
+                	
+                	//列表渲染
+                    fetchUser: function () { 
+                    	
+                    	layer.open({type: 2});
+
+                        var headers = {
+                        	"Content-Type":"application/json",
+                        	"X-Api-Key":"web-app","Datetime":this.Datetime,
+                        	"X-Auth-Token":this.Token
+                        }
+                        var grouptour_url = this.api_url+"grouptour/"+this.info_id;
+    					this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+    						// 响应成功回调
+    						var _arr = response.json();
+    						
+    						// debug.log(response);
+    						if(!!_arr && _arr.length == 0){
+    							//提示
+    							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
+    						}else{
+    							this.$set('info',response.json());
+
+    							//重设评论列表
+    							var _comment_1 = this.comment_1;
+    							var _comment_2 = this.comment_2;
+    							
+    							var _comment_num = 0;
+    							$.each(this.info.comment, function(index, value) {
+    								_comment_num++;
+    								if(index < 3){
+    									_comment_1.push(value);
+    								}else{
+    									_comment_2.push(value);
+    								}
+    							});
+    							
+    							this.$set('comment_num',_comment_num);
+    							this.$set('comment_1',_comment_1);
+    							this.$set('comment_2',_comment_2);
+    						}
+    					}, function(response){
+    						// 响应错误回调
+    					});
+    					 layer.closeAll();
+                    }
+                },
+                ready: function() { //初始化执行的方法
+                    this.fetchUser();
+                }
+            });
+
+        });
+      </script>
+   
 </body>
 </html>
