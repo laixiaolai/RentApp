@@ -440,8 +440,8 @@
     		var chooseValue = year + month + date + str;
     		$('#showTime').text(chooseValue);
     	}
-    	var _xz_time = $("#xz_time").val();
-    		getSelectDate(_xz_time);
+    	var _xz_time = $("#xz_time").val();console.log(_xz_time)
+    	getSelectDate(_xz_time);
 
     	$( "#showDate" ).datepicker({
     		
