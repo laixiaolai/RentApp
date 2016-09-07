@@ -69,7 +69,7 @@ class IndexController extends BaseController {
     public function YudinAction(){
         $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
         $time = isset($_GET['time']) ? trim($_GET['time']) : getMillisecond();
-        $num  = isset($_GET['num']) ? intval($_GET['num']) : 0;
+        $num  = isset($_GET['num']) ? intval($_GET['num']) : 1;
 
 
         $this->assign('id', $id);

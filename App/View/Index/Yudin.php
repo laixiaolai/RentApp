@@ -60,22 +60,22 @@
 	    				<div>
 	    					<div class='your-reserve'>您预定的host</div>
 		    				<div class='your-reserve-content'>
-		    					<div class="single-meal event-result-box"  v-for="items in tree">
-					    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
-					    		    	<a href="/index.php?a=Info&id={{items.groupTour.id}}"></a>
+		    					<div class="single-meal event-result-box"  >
+					    		  	<div class="screenshot-single-item" style="background-image:url('{{info.photo[0].photoPath}}')">
+					    		    	<a href="/index.php?a=Info&id={{info.groupTour.id}}"></a>
 					    		  	</div>
 					    		  	<div class="media all-informations">
 										<div>
 											<div class='INFO-title'>
 												<a href="#">
-													<img src="./Img/list_user.jpg" alt="" width='50' height='50' class='INFO-avatar'>
-													<span class='INFO-username'>秋风之至</span>
+													<img src="{{info.author.avatarUrl}}" alt="" width='50' height='50' class='INFO-avatar'>
+													<span class='INFO-username'>{{info.author.nickname}}</span>
 												</a>
-												<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海
+												<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>{{info.groupTour.transportation}}
 												</span>
 											</div>
 											<div class='INFO-description'>
-												杭州的美食
+												{{info.groupTour.title}}
 											</div>
 										</div>
 					    		    	<div class="clearfix border-bottom"></div>
@@ -84,14 +84,14 @@
 					    		      		<div class="host-reviews">
 				    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
 				    		            			<span class="reviews-stars">
-			    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{items.groupTour.price / 500 * 100 - 98.5}}px;">
+			    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{info.groupTour.price / 500 * 100 - 98.5}}px;">
 				    		                        </span>
-				    		            			<span class='comment-number'>(150)</span>
+				    		            			<span class='comment-number'>({{comment_num}})</span>
 				    		          			</a>
 					    		            </div>
 					    		            <div class="meal-price">
 					    		            	<span class='symbol'>&yen;</span>
-					    		            	<span class='price'>95</span>
+					    		            	<span class='price'>{{info.groupTour.actualPrice}}</span>
 					    		            </div>
 					    		      		<div class="clearfix"></div>
 					    		    	</div>
@@ -180,15 +180,22 @@
 	    								</div>
 	    								<div class='text-center font-size-16' style="line-height: 36px;">
 	    									<div class='col-xs-6'>
-	    										<select name="" id=""class="number-select">
-	    											<option value="">1</option>
-	    											<option value="">2</option>
-	    											<option value="">3</option>
+	    										<select name="" id="" class="number-select" v-model="info_num">
+	    											<option value="1">1</option>
+	    											<option value="2">2</option>
+	    											<option value="3">3</option>
+	    											<option value="4">4</option>
+	    											<option value="5">5</option>
+	    											<option value="6">6</option>
+	    											<option value="7">7</option>
+	    											<option value="8">8</option>
+	    											<option value="9">9</option>
+	    											<option value="10">10</option>
 	    										</select>
 	    									</div>
 	    									
-	    									<span class='col-xs-3'>&yen;96</span>
-	    									<span class='col-xs-3 font-size-30 rgb225 total-price'>&yen;192</span>
+	    									<span class='col-xs-3'>&yen;{{info.groupTour.actualPrice}}</span>
+	    									<span class='col-xs-3 font-size-30 rgb225 total-price'>&yen;{{info.groupTour.actualPrice * this.info_num}}</span>
 	    								</div>
 	    							</div>
 	    						</div>
@@ -201,16 +208,16 @@
 	    							</div>
 	    							<div class='col-xs-12  step-article'>
 	    								<div class='step3-content'>
-	    									<span class='col-xs-3 text-center'">姓名</span>
-	    									<input type="text" class='col-xs-9' placeholder="xiaowang">
+	    									<span class='col-xs-3 text-center'>姓名</span>
+	    									<input type="text" class='col-xs-9' placeholder="xiaowang" v-model="info_xm">
 	    								</div>
 	    								<div class='step3-content'>
-	    									<span class='col-xs-3 text-center'">电话</span>
-	    									<input type="text" class='col-xs-9' placeholder="1234567890">
+	    									<span class='col-xs-3 text-center'>电话</span>
+	    									<input type="text" class='col-xs-9' placeholder="1234567890" v-model="info_dh">
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>邮箱</span>
-	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com">
+	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx">
 	    								</div>
 	    							</div>
 	    						</div>
@@ -281,8 +288,9 @@
 	    	</div>
 	    </div>
     	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
-    	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' v-model="time" >
-    	<input type="hidden" value='<?php echo $num; ?>' v-model="num">
+    	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' v-model="info_time" >
+    	<input type="hidden" id="new_xz_time" value='' v-model="info_new_time" >
+    	<input type="hidden" value='<?php echo $num; ?>' v-model="info_num">
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
         <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
@@ -447,6 +455,8 @@
 	                page_size: 2,
 	                page_p: 1,
 	                info_id: 0,
+	                info_time: 0,
+	                info_num: 0,
 	                api_url: '',
 	                Datetime: '',
 	                Token: '',
