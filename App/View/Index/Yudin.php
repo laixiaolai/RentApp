@@ -455,6 +455,7 @@
     			var newDate = dateText.replace(/-/, '年').replace(/-/, '月') + '日';
     			var chooseValue = newDate + str;
     			$('#showTime').text(chooseValue);
+    			$('#new_xz_time').val(chooseValue);
     		},
     		dateFormat: 'yy-mm-dd',
     	});
