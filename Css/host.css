@@ -828,7 +828,7 @@ label {
 }
 .separator_1u1psom {
     border-color: rgb(197, 198, 199);
-    margin: 20px 0 0 0;
+    margin: 40px 0 0 0;
 }
 .comment-name {
     margin-top: 10px;
@@ -854,7 +854,7 @@ label {
     margin-bottom: 22px;
     font-size: 30px;
     color: rgb(74, 74, 74);
-    /*padding-top: 40px;*/
+    padding-top: 40px;
 }
 .menu-list ul {
     margin: 0;
