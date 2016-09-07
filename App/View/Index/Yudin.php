@@ -428,7 +428,7 @@
     <script>  
     	//初始化选择好的时间
     	function getSelectDate(time){
-    		var initTime = new Date(Number(time));console.log(initTime);console.log(initTime.getFullYear())
+    		var initTime = new Date(time);
     		var year = initTime.getFullYear() + '年';
     		var month = initTime.getMonth() + 1;
     		month = month < 10 ? '0' + month + '月' : month + '月';
@@ -440,7 +440,7 @@
     		var chooseValue = year + month + date + str;
     		$('#showTime').text(chooseValue);
     	}
-    	var _xz_time = $("#xz_time").val();console.log(_xz_time)
+    	var _xz_time = Number($("#xz_time").val());
     	getSelectDate(_xz_time);
 
     	$( "#showDate" ).datepicker({
