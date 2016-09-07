@@ -56,13 +56,85 @@
 		<div class='container'>
 	    	<div class='reserve-content'>
 	    		<div class="row">
-	    			<div class='col-md-8 col-xs-12'>
+	    			<div class='col-sm-4 col-sm-push-8 col-xs-12'>
+	    				<div>
+	    					<div class='your-reserve'>您预定的host</div>
+		    				<div class='your-reserve-content'>
+		    					<div class="single-meal event-result-box"  v-for="items in tree">
+					    		  	<div class="screenshot-single-item" style="background-image:url('./Img/list_host1.jpg')">
+					    		    	<a href="/index.php?a=Info&id={{items.groupTour.id}}"></a>
+					    		  	</div>
+					    		  	<div class="media all-informations">
+										<div>
+											<div class='INFO-title'>
+												<a href="#">
+													<img src="./Img/list_user.jpg" alt="" width='50' height='50' class='INFO-avatar'>
+													<span class='INFO-username'>秋风之至</span>
+												</a>
+												<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>上海
+												</span>
+											</div>
+											<div class='INFO-description'>
+												杭州的美食
+											</div>
+										</div>
+					    		    	<div class="clearfix border-bottom"></div>
+
+					    		    	<div class="media-secondary">
+					    		      		<div class="host-reviews">
+				    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+				    		            			<span class="reviews-stars">
+			    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{items.groupTour.price / 500 * 100 - 98.5}}px;">
+				    		                        </span>
+				    		            			<span class='comment-number'>(150)</span>
+				    		          			</a>
+					    		            </div>
+					    		            <div class="meal-price">
+					    		            	<span class='symbol'>&yen;</span>
+					    		            	<span class='price'>95</span>
+					    		            </div>
+					    		      		<div class="clearfix"></div>
+					    		    	</div>
+					    		  	</div>
+					    		</div>
+		    				</div>
+	    				</div>
+	    				<div class='service hidden-xs'>
+	    					<div class='pre-email'>
+	    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
+	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+	    					</div>
+	    					<div class='after-email'>
+	    						<div class='font-size-16 email-title'>售后服务邮箱</div>
+	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+	    					</div>
+	    					<div class='pre-weixin'>
+	    						<div class='weixin-content'>
+	    							<div class='font-size-16 weixin-number'>售前咨询微信号</div>
+	    							<div class='font-size-12 weixin-text'>
+	    								如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
+	    							</div>
+	    						</div>
+	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
+	    					</div>
+	    					<div>
+	    						<div class='weixin-content'>
+	    							<div class='font-size-16 weixin-number'>售后服务微信号</div>
+	    							<div class='font-size-12 weixin-text'>
+	    								如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+	    							</div>
+	    						</div>
+	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
+	    					</div>
+	    				</div>
+	    			</div>
+	    			<div class='col-sm-8 col-sm-pull-4 col-xs-12 '>
 	    				<!-- 进度条 -->
 	    				<div>
 	    					<div style="height:18px;background:rgb(152, 152, 152);border-radius:9px;">
 	    						<div class='active-step active-step3'></div>
-	    					</div>
-	    					<div class='row font-size-16 rgb152 container-padding' style="margin-top: 12px;">
+	    					</div>	
+	    					<div class='row font-size-16 rgb152 container-padding' style="margin-top: 12px;margin-bottom: 30px;">
 	    						<div class='col-xs-3 '>选择预定日期</div>
 	    						<div class='col-xs-3 active-step-text'>选择预定人数</div>
 	    						<div class='col-xs-3'>填写联络人资料</div>
@@ -79,16 +151,129 @@
 	    								<span class='reserve-circle'>1</span>
 	    								<span class='font-size-16 rgb74'>选择预定日期</span>
 	    							</div>
-	    							<div>
+	    							<div class='col-xs-12 step-article'>
 	    								<!-- 日历展示 -->
-	    								<div class='col-xs-6' id='showDate'></div>
-	    								<!-- 选择的日期 -->
-	    								<div class='col-xs-6'>
-	    									<span>您选择的日期:</span>
-	    									<span>2016年07月17日(星期三)</span>
+	    								<div class='row'>
+	    									<div class='col-md-6' id='showDate'></div>
+	    									<!-- 选择的日期 -->
+	    									<div class='col-md-6'>
+	    										<span class='font-size-16'>您选择的日期:</span>
+	    										<div class='font-size-24 rgb225 checked-time'>2016年07月17日(星期三)</div>
+	    									</div>
+	    								</div>
+	    								
+	    							</div>
+	    						</div>
+	    						<!-- 第二步 -->
+	    						<div>
+	    							<!-- 顶部 -->
+	    							<div class='col-xs-12 step-header'>
+	    								<span class='reserve-circle'>2</span>
+	    								<span class='font-size-16 rgb74'>选择预定人数</span>
+	    							</div>
+	    							<div class='col-xs-12 step-article'>
+	    								<div class='font-size-16 step2-title'>
+	    									<span class='col-xs-3'>数量</span>
+	    									<span class='col-xs-3'></span>
+	    									<span class='col-xs-3'>单价</span>
+	    									<span class='col-xs-3 total-price'>总价</span>
+	    								</div>
+	    								<div class='text-center font-size-16' style="line-height: 36px;">
+	    									<div class='col-xs-6'>
+	    										<select name="" id=""class="number-select">
+	    											<option value="">1</option>
+	    											<option value="">2</option>
+	    											<option value="">3</option>
+	    										</select>
+	    									</div>
+	    									
+	    									<span class='col-xs-3'>&yen;96</span>
+	    									<span class='col-xs-3 font-size-30 rgb225 total-price'>&yen;192</span>
 	    								</div>
 	    							</div>
 	    						</div>
+	    						<!-- 第三步 -->
+	    						<div>
+	    							<!-- 顶部 -->
+	    							<div class='col-xs-12 step-header'>
+	    								<span class='reserve-circle'>3</span>
+	    								<span class='font-size-16 rgb74'>填写联络人资料</span>
+	    							</div>
+	    							<div class='col-xs-12  step-article'>
+	    								<div class='step3-content'>
+	    									<span class='col-xs-3 text-center'">姓名</span>
+	    									<input type="text" class='col-xs-9' placeholder="xiaowang">
+	    								</div>
+	    								<div class='step3-content'>
+	    									<span class='col-xs-3 text-center'">电话</span>
+	    									<input type="text" class='col-xs-9' placeholder="1234567890">
+	    								</div>
+	    								<div class='step3-content'>
+	    									<span class='col-xs-3 text-center'">邮箱</span>
+	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com">
+	    								</div>
+	    							</div>
+	    						</div>
+	    						<!-- 第四步 -->
+	    						<div>
+	    							<!-- 顶部 -->
+	    							<div class='col-xs-12 step-header'>
+	    								<span class='reserve-circle'>4</span>
+	    								<span class='font-size-16 rgb74'>选择付款方式</span>
+	    							</div>
+	    							<div class='col-xs-12 step-article'>
+	    								<div class='row'>
+		    								<div class='col-md-6' style="margin-bottom: 5px;">
+		    									<div class="radio eating-pay" style="background-image:url('./Img/weixin.png');background-repeat:no-repeat;background-position:48px center;">
+		    										<label for="pay_way">
+		    											<input type="radio" name='pay_way'>
+		    										</label>
+		    									</div>
+		    								</div>
+		    								<div class='col-md-6 ' >
+		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:48px center;">
+		    										<label for="pay_way">
+		    											<input type="radio" name='pay_way'>
+		    										</label>
+		    									</div>
+		    								</div>
+	    								</div>
+	    							</div>
+	    						</div>
+	    						<!-- 确认提交 -->
+	    						<div class='text-center col-xs-12'>
+	    						    <span class='comment-more' style='background-color: rgb(225, 112, 114);color:white'>确认提交</span>
+	    						</div>
+	    					</div>
+	    				</div>
+	    			</div>
+	    			<div class='col-xs-12 visible-xs-block' style="margin-top: 20px;">
+	    				<div class='service'>
+	    					<div class='pre-email'>
+	    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
+	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+	    					</div>
+	    					<div class='after-email'>
+	    						<div class='font-size-16 email-title'>售后服务邮箱</div>
+	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+	    					</div>
+	    					<div class='pre-weixin'>
+	    						<div class='weixin-content'>
+	    							<div class='font-size-16 weixin-number'>售前咨询微信号</div>
+	    							<div class='font-size-12 weixin-text'>
+	    								如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
+	    							</div>
+	    						</div>
+	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
+	    					</div>
+	    					<div>
+	    						<div class='weixin-content'>
+	    							<div class='font-size-16 weixin-number'>售后服务微信号</div>
+	    							<div class='font-size-12 weixin-text'>
+	    								如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+	    							</div>
+	    						</div>
+	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
 	    					</div>
 	    				</div>
 	    			</div>
