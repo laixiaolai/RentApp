@@ -917,7 +917,8 @@ label {
     color: #fff;
 }
 .bookNowButton_1vtsfvn:hover {
-    background-color: #c96466;  
+    background-color: #c96466;
+    color: #fff;
 }
 .text-capitalize {
     text-transform: capitalize;
