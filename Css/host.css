@@ -142,6 +142,7 @@
 }
 .host:hover {
     background-color: #c96466!important;
+    color: white;
 }
 .title-text {
 	margin: 0 auto;
