@@ -428,7 +428,7 @@
     <script>  
     	//初始化选择好的时间
     	function getSelectDate(time){
-    		var initTime = new Date(time);console.log(initTime);console.log(initTime.getFullYear())
+    		var initTime = new Date(Number(time));console.log(initTime);console.log(initTime.getFullYear())
     		var year = initTime.getFullYear() + '年';
     		var month = initTime.getMonth() + 1;
     		month = month < 10 ? '0' + month + '月' : month + '月';
