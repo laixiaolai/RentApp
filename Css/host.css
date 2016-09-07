@@ -850,11 +850,13 @@ label {
     font-size: 16px; 
     color: rgb(74, 74, 74)
 }
+.rowTitle_ese0tp.menu {
+    padding-top: 40px;
+} 
 .menu {
     margin-bottom: 22px;
     font-size: 30px;
     color: rgb(74, 74, 74);
-    padding-top: 40px;
 }
 .menu-list ul {
     margin: 0;
