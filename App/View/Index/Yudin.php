@@ -158,7 +158,7 @@
 	    									<!-- 选择的日期 -->
 	    									<div class='col-md-6'>
 	    										<span class='font-size-16'>您选择的日期:</span>
-	    										<div class='font-size-24 rgb225 checked-time'>2016年07月17日(星期三)</div>
+	    										<div class='font-size-24 rgb225 checked-time' id='showTime'>2016年07月17日(星期三)</div>
 	    									</div>
 	    								</div>
 	    								
@@ -413,8 +413,14 @@
     	$( "#showDate" ).datepicker({
     		defaultDate: new Date(1137075575000),//获取毫秒数
     		onSelect: function(dateText, inst){
-    			console.log(dateText)
-    		}
+    			var a = new Array("日", "一", "二", "三", "四", "五", "六");
+    			var week = new Date(dateText).getDay();
+    			var str = "(星期"+ a[week] + ")";
+    			var newDate = dateText.replace(/-/, '年').replace(/-/, '月') + '日';
+    			var chooseValue = newDate + str;
+    			$('#showTime').text(chooseValue);
+    		},
+    		dateFormat: 'yy-mm-dd',
     	});
     </script>
 </body>
