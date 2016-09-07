@@ -233,14 +233,14 @@
 		    								<div class='col-md-6' style="margin-bottom: 5px;">
 		    									<div class="radio eating-pay" style="background-image:url('./Img/weixin.png');background-repeat:no-repeat;background-position:48px center;">
 		    										<label for="pay_way">
-		    											<input type="radio" name='pay_way'>
+		    											<input type="radio" name='pay_way' value="1" v-model="info_pay">
 		    										</label>
 		    									</div>
 		    								</div>
 		    								<div class='col-md-6 ' >
 		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:48px center;">
 		    										<label for="pay_way">
-		    											<input type="radio" name='pay_way'>
+		    											<input type="radio" name='pay_way' value="2" v-model="info_pay">
 		    										</label>
 		    									</div>
 		    								</div>
@@ -289,7 +289,6 @@
 	    </div>
     	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
     	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' v-model="info_time" >
-    	<input type="hidden" id="new_xz_time" value='' v-model="info_new_time" >
     	<input type="hidden" value='<?php echo $num; ?>' v-model="info_num">
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
@@ -442,8 +441,7 @@
     		$('#showTime').text(chooseValue);
     	}
     	var _xz_time = $("#xz_time").val();
-    	var _xz_time = 1477969871000;
-    	getSelectDate(_xz_time);
+    		getSelectDate(_xz_time);
 
     	$( "#showDate" ).datepicker({
     		
@@ -455,7 +453,13 @@
     			var newDate = dateText.replace(/-/, '年').replace(/-/, '月') + '日';
     			var chooseValue = newDate + str;
     			$('#showTime').text(chooseValue);
-    			$('#new_xz_time').val(chooseValue);
+
+    			var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
+    			$('#xz_time').val(timestamp2);
+    			
+    			//debug.log(timestamp2);
+    			//var formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
+    			//debug.log(moment(timestamp2).format(formatString));
     		},
     		dateFormat: 'yy-mm-dd',
     	});
@@ -470,9 +474,13 @@
 	                comment_show: 0,
 	                page_size: 2,
 	                page_p: 1,
+	                info_pay: 0,
 	                info_id: 0,
 	                info_time: 0,
 	                info_num: 0,
+	                info_xm: '',
+	                info_dh: '',
+	                info_yx: '',
 	                api_url: '',
 	                Datetime: '',
 	                Token: '',
@@ -486,7 +494,49 @@
 	            	
 	            	//列表渲染
 	                add_yudin: function () { 
-	                	debug.log();
+
+
+	                	var z= /^[0-9]*$/;
+	                	if (parseInt(this.info_id) < 1 || !z.test(this.info_id )) {
+	                		layer.open({content: '参数不正确groupTourId',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+	                	if (parseInt(this.info_num) < 1 || !z.test(this.info_num )) {
+	                		layer.open({content: '请选择预定人数',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+	                	if (!this.info_time) {
+	                		layer.open({content: '请选择预定日期',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+	                	if (!this.info_xm) {
+	                		layer.open({content: '请输入姓名',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+	                	if (!this.info_dh && !this.info_yx) {
+	                		layer.open({content: '电话跟邮箱至少输入一项',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+
+	                	if (!this.info_pay) {
+	                		layer.open({content: '请选择付款方式',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+	                	this.$set('info.userId',0);
+	                	this.$set('info.groupTourId',parseInt(this.info_id));
+	                	this.$set('info.numOfMember',parseInt(this.info_num));
+	                	this.$set('info.startDate',parseInt(this.info_time));
+	                	this.$set('info.totalAmount',parseInt(this.info_time));
+	                	this.$set('info.contactName',this.info_xm);
+	                	this.$set('info.contactTel',this.info_dh);
+
+	                	debug.log(this.info);
 	                },	
 	            	
 	            	//列表渲染

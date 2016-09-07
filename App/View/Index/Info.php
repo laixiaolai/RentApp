@@ -89,14 +89,14 @@
                                 </div>
                             </div>
                         </div>
-                        <form >
+                        <form action="./index.php" method="get">
                             <div class="row" >
                                 <div class="col-md-8" >
                                     <label class="control-label">
                                         选择日期
                                     </label>
                                     <div>
-                                        <input placeholder="2006/09/01" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerSmall' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
+                                        <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerSmall' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
                                         <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-33px;margin-right:16px;"></span>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                                     <label class="control-label">选择数量</label>
                                     <div class="Select Select--single has-value" >
                                         <div style="font-size:16px;" >
-                                            <select name="number2" id="numberSmall" class="form-control filter-option">
+                                            <select  id="numberSmall" name="num" class="form-control filter-option">
                                                 <option selected="selected">1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -121,7 +121,9 @@
                                 </div>
                             </div>
                             <div class="row"  >
-                                <div class="col-md-12" >
+                                <div class="col-md-12" >	
+                                	<input type="hidden" value="yudin" name="a">
+                                	<input type="hidden" value="<?php echo $id; ?>" name="id">
                                     <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" >立即预定</button>
                                 </div>
                             </div>
@@ -231,14 +233,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form>
+                                <form action="./index.php" method="get">
                                     <div class="row" >
                                         <div class="col-md-8" >
                                             <label class="control-label">
                                                 选择日期
                                             </label>
                                             <div>
-                                                <input placeholder="2006/09/01" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerBig' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
+                                                <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerBig' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
                                                 <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-33px;margin-right:16px;"></span>
                                             </div>
                                         </div>
@@ -246,12 +248,17 @@
                                             <label class="control-label">选择数量</label>
                                             <div class="Select Select--single has-value" >
                                                 <div style="font-size:16px;">
-                                                    <select name="number1" id="numberBig" class="form-control filter-option">
-                                                        <option>1</option>
+                                                    <select  name="num" id="numberBig" class="form-control filter-option">
+                                                        <option selected="selected">1</option>
                                                         <option>2</option>
-                                                        <option selected="selected">5</option>
                                                         <option>3</option>
                                                         <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -269,6 +276,8 @@
                                     </div>
                                     <div class="row" >
                                         <div class="col-md-12" >
+                                			<input type="hidden" value="yudin" name="a">
+                                			<input type="hidden" value="<?php echo $id; ?>" name="id">
                                             <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" >立即预定</button>
                                         </div>
                                     </div>

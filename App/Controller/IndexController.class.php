@@ -68,9 +68,18 @@ class IndexController extends BaseController {
     }
     public function YudinAction(){
         $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
-        $time = isset($_GET['time']) ? trim($_GET['time']) : getMillisecond();
         $num  = isset($_GET['num']) ? intval($_GET['num']) : 1;
-
+        if (isset($_GET['time'])) {
+            list($yue,$ri,$nian) = explode("/",trim($_GET['time']));
+            $time = $nian."-".$yue."-".$ri." 00:00:00";
+            $time = strtotime($time)*1000;
+        }else{
+            $time = getMillisecond();
+        }
+        
+        // dump($time);
+        // dump(getMillisecond());
+        // dump($_GET);
 
         $this->assign('id', $id);
         $this->assign('time', $time);
