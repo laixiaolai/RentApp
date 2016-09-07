@@ -138,6 +138,10 @@
 	/*width: 120px;*/
 	height: 48px;
 	border-radius: 3px;
+    font-size: 16px;
+}
+.host:hover {
+    background-color: #c96466!important;
 }
 .title-text {
 	margin: 0 auto;
@@ -802,7 +806,7 @@ label {
 }
 .info4 .info_title {
     padding-top: 46px ;
-    border-bottom: 1px solid rgb(197, 198, 199);
+    /*border-bottom: 1px solid rgb(197, 198, 199);*/
     font-size: 16px;
     color: rgb(178, 178 ,178)
 }
@@ -822,7 +826,7 @@ label {
     white-space: pre-line !important;
 }
 .separator_1u1psom {
-    border-color: black;
+    border-color: rgb(197, 198, 199);
     margin: 20px 0 0 0;
 }
 .comment-name {
@@ -832,7 +836,7 @@ label {
 }
 .rowTitle_ese0tp {
     font-size: 18px;
-    font-weight: bold !important;
+    /*font-weight: bold !important;*/
     color: #575757;
     margin-bottom: 10px;
 }
@@ -849,7 +853,7 @@ label {
     margin-bottom: 22px;
     font-size: 30px;
     color: rgb(74, 74, 74);
-    padding-top: 40px;
+    /*padding-top: 40px;*/
 }
 .menu-list ul {
     margin: 0;
@@ -905,10 +909,14 @@ label {
 .bookNowButton_1vtsfvn {
     margin-top: 30px;
     width: 100% !important;
-    font-size: 18px !important;
+    font-size: 16px;
     background-color:rgb(225, 112, 114);
     border: none;
     padding: 14px 0;
+    color: #fff;
+}
+.bookNowButton_1vtsfvn:hover {
+    background-color: #c96466;  
 }
 .text-capitalize {
     text-transform: capitalize;
@@ -967,7 +975,7 @@ label {
 }
 .info-content {
     padding-bottom: 40px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(197, 198, 199);
     min-height: 82px;
 }
 .info-content-text {
@@ -1034,6 +1042,9 @@ label {
 }
 .ui-icon, .ui-widget-content .ui-icon {
     background-image: url(../Img/ui-icons_222222_256x240.png);
+}
+.ui-widget {
+    font-size: 16px;
 }
 /*.swiper-lazy {
     width: 710px;

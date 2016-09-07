@@ -41,11 +41,13 @@
     <!-- 图片轮播 -->
     <div class="swiper-container">
       
-       <div class="swiper-wrapper">
+        <div class="swiper-wrapper">
             <div class="swiper-slide"  v-for="items in info.photo">
                 <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
             </div>
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       
     </div>
     <!-- 关于host的信息 -->
@@ -53,7 +55,7 @@
     <div class="titleContainer_1hsf5im" >
         <div class="container" >
             <div class="row" >
-                <div class="col-md-12" >
+                <div class="col-md-8" >
                     <h1 class="title_s8ugf4" >{{info.groupTour.title}}</h1>
                     <div class="subtitle_axjhr0" >
                         <a class="reviews_12ulor" >
@@ -96,7 +98,7 @@
                                         选择日期
                                     </label>
                                     <div>
-                                        <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerSmall' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
+                                        <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerSmall' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
                                         <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-33px;margin-right:16px;"></span>
                                     </div>
                                 </div>
@@ -176,7 +178,7 @@
                         <div class="rowTitle_ese0tp about-host">关于Host</div>
                         <div >
                             <div class="text-center" style="margin-bottom:25px;">
-                                <img src="{{info.author.avatarUrl}}" alt="" width="116px" style="border-radius:50%;">
+                                <img src="{{info.author.avatarUrl}}" alt="" width="116px" height='116px' style="border-radius:50%;">
                                 <div class='host-name'>{{info.author.nickname}}</div>
                             </div>
                             <div class='host-content'>{{info.author.personalSignature}}</div>
@@ -278,7 +280,7 @@
                                         <div class="col-md-12" >
                                 			<input type="hidden" value="yudin" name="a">
                                 			<input type="hidden" value="<?php echo $id; ?>" name="id">
-                                            <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" >立即预定</button>
+                                            <button type="submit" class="bookNowButton_1vtsfvn btn" >立即预定</button>
                                         </div>
                                     </div>
                                 </form>
