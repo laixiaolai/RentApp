@@ -148,7 +148,7 @@ class IndexController extends BaseController {
         if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
             $is_weixin = 1;
 
-            $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=".$order_id."&openId=".$openid;
+            $url     = "http://test.trip55.com:9002/wechat/prepay/req?orderId=".$order_id."&openId=".$openid;
             $jsonStr = array();
             $header = array(
                 "Content-Type: application/json; charset=utf-8",
