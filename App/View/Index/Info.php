@@ -73,7 +73,7 @@
         </div>
     </div>
     <!-- 简介 -->
-    <div class="evenRowContainer_1sb29nh" >
+    <div class="evenRowContainer_1sb29nh" style="box-shadow: 0 -1px 0 0 #e3e3e3;">
         <div class="container" >
             <div class="row" >
                 <!-- 选择日期，小屏幕显示 -->
@@ -126,7 +126,7 @@
                                 <div class="col-md-12" >	
                                 	<input type="hidden" value="yudin" name="a">
                                 	<input type="hidden" value="<?php echo $id; ?>" name="id">
-                                    <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" >立即预定</button>
+                                    <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" id='smallScreen'>立即预定</button>
                                 </div>
                             </div>
                         </form>
@@ -280,7 +280,7 @@
                                         <div class="col-md-12" >
                                 			<input type="hidden" value="yudin" name="a">
                                 			<input type="hidden" value="<?php echo $id; ?>" name="id">
-                                            <button type="submit" class="bookNowButton_1vtsfvn btn" >立即预定</button>
+                                            <button type="submit" class="bookNowButton_1vtsfvn btn" id='bigScreen'>立即预定</button>
                                         </div>
                                     </div>
                                 </form>
