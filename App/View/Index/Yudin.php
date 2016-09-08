@@ -99,32 +99,46 @@
 					    		</div>
 		    				</div>
 	    				</div>
-	    				<div class='service hidden-xs'>
-	    					<div class='pre-email'>
-	    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
-	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
-	    					</div>
-	    					<div class='after-email'>
-	    						<div class='font-size-16 email-title'>售后服务邮箱</div>
-	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
-	    					</div>
-	    					<div class='pre-weixin'>
-	    						<div class='weixin-content'>
-	    							<div class='font-size-16 weixin-number'>售前咨询微信号</div>
-	    							<div class='font-size-12 weixin-text'>
-	    								如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
+	    				<!-- 大屏幕显示，小屏幕隐藏 -->
+	    				<div class='service hidden-xs col-sm-12'>
+		    				<!-- 增加客服信息 -->
+		    				<div class='pre-email'>
+		    				    <div class='font-size-16 email-title'>客服信息</div>
+		    				    <div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    				</div>
+		    				<div class='row'>
+		    					<div class='pre-email col-md-6' >
+		    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
+		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    					</div>
+		    					<div class='after-email col-md-6' >
+		    						<div class='font-size-16 email-title'>售后服务邮箱</div>
+		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    					</div>
+		    				</div>
+	    					<div class='row'>
+	    						<div class='pre-weixin'>
+	    							<div class='weixin-content col-lg-6' style="margin-bottom:10px;">
+	    								<div class='font-size-16 weixin-number'>售前咨询微信号</div>
+	    								<div class='font-size-12 weixin-text'>
+	    									如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
+	    								</div>
+	    							</div>
+	    							<div class='col-lg-6' style="margin-bottom:32px;">
+	    								<img src="./Img/yudin_pre_sale.png" width='145' height='145' >
 	    							</div>
 	    						</div>
-	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
-	    					</div>
-	    					<div>
-	    						<div class='weixin-content'>
-	    							<div class='font-size-16 weixin-number'>售后服务微信号</div>
-	    							<div class='font-size-12 weixin-text'>
-	    								如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+	    						<div>
+	    							<div class='weixin-content col-lg-6' style="margin-bottom:10px;">
+	    								<div class='font-size-16 weixin-number'>售后服务微信号</div>
+	    								<div class='font-size-12 weixin-text'>
+	    									如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+	    								</div>
+	    							</div>
+	    							<div class='col-lg-6'>
+	    								<img src="./Img/yudin_pre_sale.png" width='145' height='145' >
 	    							</div>
 	    						</div>
-	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
 	    					</div>
 	    				</div>
 	    			</div>
@@ -255,32 +269,45 @@
 	    				</div>
 	    			</div>
 	    			<div class='col-xs-12 visible-xs-block' style="margin-top: 20px;">
-	    				<div class='service'>
-	    					<div class='pre-email'>
-	    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
-	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
-	    					</div>
-	    					<div class='after-email'>
-	    						<div class='font-size-16 email-title'>售后服务邮箱</div>
-	    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
-	    					</div>
-	    					<div class='pre-weixin'>
-	    						<div class='weixin-content'>
-	    							<div class='font-size-16 weixin-number'>售前咨询微信号</div>
-	    							<div class='font-size-12 weixin-text'>
-	    								如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
-	    							</div>
-	    						</div>
-	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
-	    					</div>
+	    				<div class='service row container-padding' style="margin-right: 0;margin-left: 0;padding-left: 5px;padding-right: 5px;">
+		    				<!-- 增加客服信息 -->
+		    				<div class='pre-email col-xs-12'>
+		    				    <div class='font-size-16 email-title'>客服信息</div>
+		    				    <div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    				</div>
+		    				<div>
+		    					<div class='pre-email col-xs-6' >
+		    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
+		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    					</div>
+		    					<div class='after-email col-xs-6' >
+		    						<div class='font-size-16 email-title'>售后服务邮箱</div>
+		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    					</div>
+		    				</div>
 	    					<div>
-	    						<div class='weixin-content'>
-	    							<div class='font-size-16 weixin-number'>售后服务微信号</div>
-	    							<div class='font-size-12 weixin-text'>
-	    								如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+	    						<div class='pre-weixin'>
+	    							<div class='weixin-content col-xs-6' style="margin-bottom:10px;">
+	    								<div class='font-size-16 weixin-number'>售前咨询微信号</div>
+	    								<div class='font-size-12 weixin-text'>
+	    									如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
+	    								</div>
+	    							</div>
+	    							<div class='col-xs-6 qr_code'>
+	    								<img src="./Img/yudin_pre_sale.png" class='qr_code_img'>
 	    							</div>
 	    						</div>
-	    						<img src="./Img/yudin_pre_sale.png" width='145' height='145'>
+	    						<div>
+	    							<div class='weixin-content col-xs-6' style="margin-bottom:10px;">
+	    								<div class='font-size-16 weixin-number'>售后服务微信号</div>
+	    								<div class='font-size-12 weixin-text'>
+	    									如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+	    								</div>
+	    							</div>
+	    							<div class='col-xs-6'>
+	    								<img src="./Img/yudin_pre_sale.png" class='qr_code_img'>
+	    							</div>
+	    						</div>
 	    					</div>
 	    				</div>
 	    			</div>
@@ -294,13 +321,6 @@
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
         <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
 	</div>
-    
-    <!-- 第一步 -->
-    <!-- 第二步 -->
-    <!-- 第三步 -->
-    <!-- 第四步 -->
-    <!-- 您预定的host -->
-    <!-- 售前咨询 -->
     <!-- 底部 -->
     <div class="footer">
         <div class="container">
@@ -348,7 +368,7 @@
                         关于我们                    
                     </h4>
                     <div class="row">
-                        <ul class="col-xs-6 menu">
+                        <ul class="col-md-4 col-xs-6 menu">
                             <li>
                                 <a href="#">关于我们</a>
                             </li>
@@ -362,7 +382,7 @@
                                 <a href="#">联系我们</a>
                             </li>
                         </ul>
-                        <ul class="col-xs-6 menu">
+                        <ul class="col-md-4 col-xs-6 menu">
                             <li>
                                 <a href="#">信任机制</a>
                             </li>
@@ -379,7 +399,6 @@
                                 <a href="#https://de.vizeat.com/pages/geschaeftsbedingungen">Geschäftsbedingungen</a>
                             </li> -->
                         </ul>
-                        <ul class="col-xs-6 menu"></ul>
                     </div>
                 </div>
 

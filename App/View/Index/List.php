@@ -188,7 +188,7 @@
                         关于我们                    
                     </h4>
                     <div class="row">
-                        <ul class="col-xs-6 menu">
+                        <ul class="col-md-4 col-xs-6 menu">
                             <li>
                                 <a href="#">关于我们</a>
                             </li>
@@ -202,7 +202,7 @@
                                 <a href="#">联系我们</a>
                             </li>
                         </ul>
-                        <ul class="col-xs-6 menu">
+                        <ul class="col-md-4 col-xs-6 menu">
                             <li>
                                 <a href="#">信任机制</a>
                             </li>
@@ -215,11 +215,7 @@
                             <li>
                                 <a href="#">FAQ</a>
                             </li>
-                            <!-- <li>
-                                <a href="#https://de.vizeat.com/pages/geschaeftsbedingungen">Geschäftsbedingungen</a>
-                            </li> -->
                         </ul>
-                        <ul class="col-xs-6 menu"></ul>
                     </div>
                 </div>
 
@@ -260,7 +256,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     
 	

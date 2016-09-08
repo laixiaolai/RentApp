@@ -140,7 +140,7 @@
 	border-radius: 3px;
     font-size: 16px;
 }
-.host:hover {
+.host:hover, .host:focus {
     background-color: #c96466!important;
     color: white;
 }
@@ -597,9 +597,6 @@ img {
 .media-object {
     display: block;
 }
-.img-circle {
-    border-radius: 50%;
-}
 .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
     max-width: 100%;
@@ -710,7 +707,8 @@ img {
 }
 .evenRowContainer_1sb29nh {
     padding-top: 47px;
-    padding-bottom: 30px !important;
+    padding-bottom: 55px !important;
+    background-color: rgb(246, 246, 246);
 }
 .price_1pnuu1y {
     font-size: 20px;
@@ -812,7 +810,7 @@ label {
     color: rgb(178, 178 ,178)
 }
 .info4 .info_content {
-    padding-top: 12px;
+    padding-top: 22px;
     font-size: 16px;
     color: rgb(225, 112 ,114);
 }
@@ -881,14 +879,14 @@ label {
 }
 .all-comments {
     margin-bottom: 24px;
+    margin-top: 40px;
     font-size: 30px;
-    color: rgb(74, 74, 74)
+    color: rgb(74, 74, 74);
 }
 .container_nr3uoy {
     background-color: #fff !important;
     padding: 0 15px 32px 15px;
     color: #575757 !important;
-    border: 1px solid #e3e3e3 !important;
     font-size: 13px !important;
 }
 .row_jx4vea {
@@ -922,6 +920,21 @@ label {
     background-color: #c96466;
     color: #fff;
 }
+
+/*.btn.focus, .btn:focus, .btn:hover {
+    color: #333;
+    text-decoration: none;
+}
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}*/
+
+.bookNowButton_1vtsfvn:focus {
+    color: #fff;
+    outline: none!important;
+}
 .text-capitalize {
     text-transform: capitalize;
 }
@@ -931,32 +944,27 @@ label {
     position: relative !important;
     top: 2px !important;
 }
-
-
-@media (min-width: 1200px){
-    .avatar {
-    max-width: 70px;
-    max-height: 70px;
-}
-}
-
-@media (min-width: 992px){
-    .avatar {
-    max-width: 70px;
-    max-height: 70px;
-}
-}
-
-@media (min-width: 768px){
-    .avatar {
-    max-width: 60px;
-    max-height: 60px;
-}
-}
-
 .avatar {
     max-width: 50px;
     max-height: 50px;
+}
+@media (min-width: 768px){
+    .avatar {
+        max-width: 60px;
+        max-height: 60px;
+    }
+}
+@media (min-width: 992px){
+    .avatar {
+        max-width: 70px;
+        max-height: 70px;
+    }
+}
+@media (min-width: 1200px){
+    .avatar {
+        max-width: 70px;
+        max-height: 70px;
+    }
 }
 .center-block {
     display: block;
@@ -980,7 +988,7 @@ label {
 .info-content {
     padding-bottom: 40px;
     border-bottom: 1px solid rgb(197, 198, 199);
-    min-height: 82px;
+    min-height: 102px;
 }
 .info-content-text {
     text-align: justify;
@@ -1232,7 +1240,8 @@ label {
 }
 .service {
     background-color: white;
-    padding: 48px 28px;
+    padding-top: 48px;
+    padding-bottom: 48px;
     box-shadow: 0 0px 10px 0 #e5e5e5;
 }
 .pre-email {
@@ -1249,12 +1258,12 @@ label {
     margin-bottom: 36px;
 }
 .pre-weixin  {
-    margin-bottom:32px;
+    /*margin-bottom:32px;*/
 }
 .weixin-content {
-    display: inline-block;
+    /*display: inline-block;
     width: 50%;
-    vertical-align: top;
+    vertical-align: top;*/
 }
 .weixin-number {
     margin-bottom:20px;
@@ -1291,5 +1300,27 @@ label {
     .font-size-30 {
         font-size: 16px;
     }
+}
+.qr_code_img {
+    width: 145px;
+    height: 145px;
+}
+.qr_code {
+   margin-bottom:32px; 
+}
+@media (max-width: 400px){
+    .qr_code_img {
+        width: 120px;
+        height: 120px;
+    }
+    .qr_code {
+       margin-bottom:70px; 
+    }
+}
+.swiper-button-prev {
+    background-image: url('../Img/prev.png');
+}
+.swiper-button-next {
+    background-image: url('../Img/next.png');
 }
 /***********************************************************预定页end***************************************************/

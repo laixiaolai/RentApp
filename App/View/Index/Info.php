@@ -98,8 +98,8 @@
                                         选择日期
                                     </label>
                                     <div>
-                                        <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerSmall' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
-                                        <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-33px;margin-right:16px;"></span>
+                                        <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerSmall'>
+                                        <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-52px;margin-right:16px;"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4" >
@@ -174,7 +174,7 @@
                     </div>
                     <hr class="separator_1u1psom" >
                     <!-- 关于host -->
-                    <div  style='margin-bottom: 96px;'>
+                    <div>
                         <div class="rowTitle_ese0tp about-host">关于Host</div>
                         <div >
                             <div class="text-center" style="margin-bottom:25px;">
@@ -185,9 +185,9 @@
                         </div>
                     </div>
                     <!-- 评价 -->
-                    <div class="rowTitle_ese0tp all-comments">{{comment_num}}条评价</div>
+                    <!-- <div class="rowTitle_ese0tp all-comments">{{comment_num}}条评价</div>
                     <hr class="separator_1u1psom">
-                    <div  >
+                    <div>
                         <div class="row" v-for="items in comment_1" style="margin-top:34px;">
                             <div class="col-md-2 text-center" >
                                 <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
@@ -217,12 +217,12 @@
             
                     <div @click="comment" v-show="comment_but"class='more-cities col-md-6 col-md-offset-6' style='margin-top: 30px;padding: 0'>
                         <span class='comment-more' >加载更多···</span>
-                    </div>
+                    </div> -->
                 </div>
                 <div style="margin-top:-107.5px;" class="col-md-4 hidden-sm hidden-xs">
                     <div class="sticky-outer-wrapper">
                         <div class="sticky-inner-wrapper" style="position: relative; z-index: 10; transform: translate3d(0px, 0px, 0px);">
-                            <div class="container_nr3uoy container-fluid" style="box-shadow:0px 0px 15px -10px;" >
+                            <div class="container_nr3uoy container-fluid" style="box-shadow: 0 0px 10px 0 #e5e5e5;margin-bottom:20px;" >
                                 <div class="row_jx4vea row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
                                         <div class="pricePerGuestContainer_7bzx9b" >
@@ -242,7 +242,7 @@
                                                 选择日期
                                             </label>
                                             <div>
-                                                <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control" id='datepickerBig' style="background-image:url('./Img/ui-icons_222222_256x240.png)');background-size: 16px 16px;background-repeat:no-repeat;background-position: center right;">
+                                                <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerBig'>
                                                 <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-33px;margin-right:16px;"></span>
                                             </div>
                                         </div>
@@ -285,7 +285,88 @@
                                     </div>
                                 </form>
                             </div>
+                            <div class='service hidden-xs col-sm-12'>
+                                <!-- 增加客服信息 -->
+                                <div class='pre-email'>
+                                    <div class='font-size-16 email-title'>客服信息</div>
+                                    <div class='font-size-14 email-site'>xxx@trip55.com</div>
+                                </div>
+                                <div class='row'>
+                                    <div class='pre-email col-md-6' >
+                                        <div class='font-size-16 email-title'>售前咨询邮箱</div>
+                                        <div class='font-size-14 email-site'>xxx@trip55.com</div>
+                                    </div>
+                                    <div class='after-email col-md-6' >
+                                        <div class='font-size-16 email-title'>售后服务邮箱</div>
+                                        <div class='font-size-14 email-site'>xxx@trip55.com</div>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='pre-weixin'>
+                                        <div class='weixin-content col-lg-6' style="margin-bottom:10px;">
+                                            <div class='font-size-16 weixin-number'>售前咨询微信号</div>
+                                            <div class='font-size-12 weixin-text'>
+                                                如果您在预定前有任何疑问请加该微信号咨询，很高兴为您解答问题。
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-6' style="margin-bottom:32px;">
+                                            <img src="./Img/yudin_pre_sale.png" width='145' height='145' >
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class='weixin-content col-lg-6' style="margin-bottom:10px;">
+                                            <div class='font-size-16 weixin-number'>售后服务微信号</div>
+                                            <div class='font-size-12 weixin-text'>
+                                                如果您在预定后有任何问题，例如需要更改预定信息，退订，投诉等请加该微信号处理。
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-6'>
+                                            <img src="./Img/yudin_pre_sale.png" width='145' height='145' >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 评价部分 -->
+    <div class='comment-part'>
+        <div class=container>
+            <div class='row'>
+                <div class='col-md-8'>
+                    <div class="rowTitle_ese0tp all-comments">{{comment_num}}条评价</div>
+                    <hr class="separator_1u1psom">
+                    <div style="margin-bottom: 30px;">
+                        <div class="row" v-for="items in comment_1" style="margin-top:34px;">
+                            <div class="col-md-2 text-center" >
+                                <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>{{items.nickname}}</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>{{items.content}}</p>
+                                    <div class='info-content-time'>{{items.createAt| time}}</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row" v-for="items in comment_2" v-show="comment_show" style="margin-top:34px;">
+                            <div class="col-md-2 text-center" >
+                                <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
+                                <div class='comment-name'>{{items.nickname}}</div>
+                            </div>
+                            <div class="col-md-10 col-md-offset-null info-comment" >
+                                <div class='info-content'>
+                                    <p class='info-content-text'>{{items.content}}</p>
+                                    <div class='info-content-time'>{{items.createAt | time}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div @click="comment" v-show="comment_but" class='more-cities col-md-6 col-md-offset-6' style='margin-bottom: 30px;padding: 0'>
+                        <span class='comment-more' >加载更多···</span>
                     </div>
                 </div>
             </div>
@@ -338,7 +419,7 @@
                         关于我们                    
                     </h4>
                     <div class="row">
-                        <ul class="col-xs-6 menu">
+                        <ul class="col-md-4 col-xs-6 menu">
                             <li>
                                 <a href="#">关于我们</a>
                             </li>
@@ -352,7 +433,7 @@
                                 <a href="#">联系我们</a>
                             </li>
                         </ul>
-                        <ul class="col-xs-6 menu">
+                        <ul class="col-md-4 col-xs-6 menu">
                             <li>
                                 <a href="#">信任机制</a>
                             </li>
@@ -366,7 +447,6 @@
                                 <a href="#">FAQ</a>
                             </li>
                         </ul>
-                        <ul class="col-xs-6 menu"></ul>
                     </div>
                 </div>
 
@@ -407,7 +487,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
@@ -433,23 +512,67 @@
             // 设置slider容器能够同时显示的slides数量(carousel模式)
             slidesPerView: 3
         });
-        window.onscroll = function(){
-            if(document.body.scrollWidth>991){
-                //滚动条的滚动距离
-                var distance =document.documentElement.scrollTop||document.body.scrollTop;
-                //最顶部的高度
-                var headerHeight = 85;
-                //背景图片高度
-                var swiperHeight = $('.swiper-container').height();
+        // window.onscroll = function(){
+        //     if(document.body.scrollWidth>991){
+        //         //滚动条的滚动距离
+        //         var distance =document.documentElement.scrollTop||document.body.scrollTop;
+        //         //最顶部的高度
+        //         var headerHeight = 85;
+        //         //背景图片高度
+        //         var swiperHeight = $('.swiper-container').height();
 
-                if(distance>(swiperHeight+85)){
-                    $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 10; top: 0px;');
-                } else {
-                    $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 10;top: 0px;');
-                }
-            }
+        //         if(distance>(swiperHeight+85)){
+        //             $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 10; top: 0px;');
+        //         } else {
+        //             $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 10;top: 0px;');
+        //         }
+        //     }
             
-        };
+        // };
+        // window.onscroll = function(){
+        //     if(document.body.scrollWidth>991){console.log(0)
+        //         var datepickerBigWidth = $('.sticky-inner-wrapper').width() + 'px';
+        //         //滚动条的滚动距离
+        //         var distance =document.documentElement.scrollTop||document.body.scrollTop;
+        //         //最顶部的高度
+        //         var headerHeight = 85;
+        //         //背景图片高度
+        //         var swiperHeight = $('.swiper-container').height();
+        //         //获取当前的高度和宽度
+        //         if(distance>(swiperHeight+85)){
+        //             $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 10; top: 0px;transform: translate3d(0px, 30px, 0px);width:' + datepickerBigWidth+';');
+        //         } else {
+        //             $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 10;transform: translate3d(0px, 0px, 0px);');
+        //         }
+        //     }
+            
+        // };
+        //1.当上下滚动的时候，要添加宽度和取消宽度。
+        //2.当屏幕缩小的时候，要改变宽度。
+        //3.宽度其实就是2个值。360px,293.33px;
+        // window.onresize = function () {
+        //     //当屏幕宽度在fixed状态下，变成1200的时候，宽度要变小
+        //     //滚动条的滚动距离
+        //     var distance =document.documentElement.scrollTop||document.body.scrollTop;
+        //     //最顶部的高度
+        //     var headerHeight = 85;
+        //     //背景图片高度
+        //     var swiperHeight = $('.swiper-container').height();
+
+        //     if(document.body.scrollWidth>=1200){
+        //         if(distance>(swiperHeight+85)){
+        //             $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 10; top: 0px;transform: translate3d(0px, 30px, 0px);width: 360px;');
+        //         } else {
+        //             $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 10;transform: translate3d(0px, 0px, 0px);');
+        //         }
+        //     } else if(document.body.scrollWidth>=992){
+        //         if(distance>(swiperHeight+85)){
+        //             $('.sticky-inner-wrapper').attr('style', 'position: fixed; z-index: 10; top: 0px;transform: translate3d(0px, 30px, 0px);width: 293px;');
+        //         } else {
+        //             $('.sticky-inner-wrapper').attr('style', 'position: relative; z-index: 10;transform: translate3d(0px, 0px, 0px);');
+        //         }
+        //     }
+        // }
         $( "#datepickerBig" ).datepicker();
         $( "#datepickerSmall" ).datepicker();
         $("#numberBig").selectmenu();
