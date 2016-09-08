@@ -32,6 +32,20 @@
 		<p>当前获取后端的prepay_id返回:</p>
 		<pre ><?php var_dump(json_decode($returnContent,true)); ?></pre>
 		<hr>
+
+
+		<?php if($type == 2){ ?>
+		<p>当前获取后端的paypal的url: </p>	
+		<pre ><?php echo($paypal_url); ?></pre>
+		<p>当前获取后端的paypal发送的头信息: </p>	
+		<pre ><?php var_dump($header); ?></pre>
+		<p>当前获取后端的paypal状态: <?php echo $paypal_returnCode; ?></p>	
+		<p>当前获取后端的paypal返回:</p>
+		<pre ><?php var_dump($paypal_returnContent); ?></pre>	
+		<?php } ?>
+		
+
+		<hr>
 		<p >订单创建后返回的信息:</p>
 		<pre >{{info | json}}</pre>
 
@@ -41,7 +55,9 @@
 			<p><button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >微信支付</button></p>
 			<?php } ?>
 			<br>
+			<?php if($type == 2){ ?>
 			<p><button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="call_paypal()" >paypal支付</button></p>
+			<?php } ?>
 		</div>
 
 
@@ -49,12 +65,12 @@
 		<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
 	    <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
 	    <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
+	    <input type="hidden" value='<?php echo isset($paypal_redirectUrl) ? $paypal_redirectUrl: ""; ?>' id="paypal_url">
 	</div>
 
 	
 	<script>
 	$(function(){
-
         var vm = new Vue({
             el: '#app', //绑定id盒子
             data: {  //初始化内容值
@@ -114,6 +130,12 @@
         });
 
     });
+
+
+	function call_paypal() {
+		var _paypal_url = $("#paypal_url").val();
+		location.href = _paypal_url;
+	}
 	</script>
 	
 	<?php if($is_weixin){ ?>
@@ -126,7 +148,8 @@
 					<?php echo $returnContent; ?>,
 					function(res){
 						if(res.err_msg == "get_brand_wcpay_request:ok"){ //成功跳转
-							alert("支付成功");
+							//alert("支付成功");
+							location.href = "./index.php?a=BuyOk";
 						}else{
 							WeixinJSBridge.log(res.err_msg);
 							alert(res.err_code+res.err_desc+res.err_msg);
@@ -151,6 +174,8 @@
 			}
 		</script>	
 	<?php } ?>
+
+
 	
 	
 

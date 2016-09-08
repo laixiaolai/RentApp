@@ -135,6 +135,9 @@ class IndexController extends BaseController {
         if(!$order_id){
             die('订单不存在');
         }
+        
+        
+
         // dump($order);
         //dump($jsApiParameters);
         // dump($editAddress);
@@ -144,24 +147,79 @@ class IndexController extends BaseController {
         $is_weixin     = 0;
         $header        = array();
         $url           = '';
+        $header = array(
+            "Content-Type: application/json; charset=utf-8",
+            "X-Api-Key: web-app",
+            "Accept-Language: en",
+            "Datetime: ".date("Y-m-d H:i:s",time()),
+            "X-Auth-Token: ".$token
+        );
+
+
+        //检测订单是否存在
+        $user_id       = 0;
+        $order_url     = API_URL."order/".$order_id;
+        $order_jsonStr = array();
+        // $order_res = http_post_json($order_url, json_encode($order_jsonStr),$header);
+        $order_res = Get_Web_Contents($order_url, "GET", "", $header);
+        if(FALSE === empty($order_res['Body'])){
+            $order_arr = json_decode($order_res['Body'],true);
+            if(FALSE === empty($order_arr['userId'])){
+                $user_id = $order_arr['userId'];
+            }
+        }
+        // dump($order_res);
+        // dump($user_id);
+        // die;
+
+
         //检测如果是微信客户端,加载微信支付设置
         if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
             $is_weixin = 1;
 
-            $url     = "http://test.trip55.com:9002/wechat/prepay/req?orderId=".$order_id."&openId=".$openid;
+            $url     = API_URL."wechat/prepay/req?orderId=".$order_id."&openId=".$openid;
             $jsonStr = array();
-            $header = array(
-                "Content-Type: application/json; charset=utf-8",
-                "X-Api-Key: web-app",
-                "Accept-Language: en",
-                "Datetime: ".date("Y-m-d H:i:s",time()),
-                "X-Auth-Token: ".$token
-            );
             list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
         }
+
+        //如果是paypal获取支付连接
+        $paypal_returnCode    = 0;
+        $paypal_returnContent = '';
+        $paypal_redirectUrl   = '';
+        $paypal_url           = '';
+        if($type == 2){
+            // POST http://localhost:9000/charge/paypal/account/1/pay/16
+            // X-Api-Key: web-app
+            // Accept-Language: en
+            // Datetime: 2016-08-29 17:16:00
+            // X-Auth-Token: a80fb4f4-4497-4807-9028-b5fc9258f6a5
+            // Content-Type: application/json
+            // {}
+            
+            // {"redirectUrl":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9L525473JT178463J"}
+            // 浏览器内输入redirectUrl 例如:
+            // https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9L525473JT178463J
+
+            $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
+            $paypal_jsonStr = array();
+            list($paypal_returnCode, $paypal_returnContent)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
+            if($paypal_returnContent){
+                $paypal_returnContent = json_decode($paypal_returnContent, true);
+                if(FALSE === empty($paypal_returnContent['redirectUrl'])){
+                    $paypal_redirectUrl = $paypal_returnContent['redirectUrl'];
+                }
+            }
+        }
+
+
+
         
+        $this->assign('paypal_url', $paypal_url);
         $this->assign('url', $url);
         $this->assign('header', $header);
+        $this->assign('paypal_returnCode', $paypal_returnCode);
+        $this->assign('paypal_returnContent', $paypal_returnContent);
+        $this->assign('paypal_redirectUrl', $paypal_redirectUrl);
         $this->assign('returnCode', $returnCode);
         $this->assign('returnContent', $returnContent);
         $this->assign('order_id', $order_id);
