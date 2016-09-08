@@ -34,6 +34,17 @@
 		<hr>
 		<p >订单创建后返回的信息:</p>
 		<pre >{{info | json}}</pre>
+
+		<hr>
+		<div align="center">
+			<?php if($is_weixin){ ?>
+			<p><button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >微信支付</button></p>
+			<?php } ?>
+			<br>
+			<p><button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="call_paypal()" >paypal支付</button></p>
+		</div>
+
+
 		<input type="hidden" value='<?php echo $order_id; ?>' v-model="info_id">
 		<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
 	    <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
@@ -104,6 +115,44 @@
 
     });
 	</script>
+	
+	<?php if($is_weixin){ ?>
+		<script>
+			//调用微信JS api 支付
+			function jsApiCall()
+			{
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					<?php echo $returnContent; ?>,
+					function(res){
+						if(res.err_msg == "get_brand_wcpay_request:ok"){ //成功跳转
+							alert("支付成功");
+						}else{
+							WeixinJSBridge.log(res.err_msg);
+							alert(res.err_code+res.err_desc+res.err_msg);
+						}
+						
+					}
+				);
+			}
+
+			function callpay()
+			{
+				if (typeof WeixinJSBridge == "undefined"){
+				    if( document.addEventListener ){
+				        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+				    }else if (document.attachEvent){
+				        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+				        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+				    }
+				}else{
+				    jsApiCall();
+				}
+			}
+		</script>	
+	<?php } ?>
+	
+	
 
 </body>
 </html>
