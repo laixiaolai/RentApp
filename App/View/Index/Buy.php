@@ -24,6 +24,8 @@
 		<p>登陆获得的token: <?php echo $token; ?></p>	
 		<p>当前是否微信中打开: <?php echo $is_weixin; ?></p>	
 		<p>当前是否微信使用微信支付: <?php echo $type; ?></p>	
+		<p>当前获取后端的prepay_id的url: </p>	
+		<pre ><?php echo($url); ?></pre>
 		<p>当前获取后端的prepay_id发送的头信息: </p>	
 		<pre ><?php var_dump($header); ?></pre>
 		<p>当前获取后端的prepay_id状态: <?php echo $returnCode; ?></p>	

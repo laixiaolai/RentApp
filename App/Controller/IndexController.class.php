@@ -142,8 +142,8 @@ class IndexController extends BaseController {
         $returnCode    = 0;
         $returnContent = '';
         $is_weixin     = 0;
-        $header       = array();
-        
+        $header        = array();
+        $url           = '';
         //检测如果是微信客户端,加载微信支付设置
         if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
             $is_weixin = 1;
@@ -160,6 +160,7 @@ class IndexController extends BaseController {
             list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
         }
         
+        $this->assign('url', $url);
         $this->assign('header', $header);
         $this->assign('returnCode', $returnCode);
         $this->assign('returnContent', $returnContent);
