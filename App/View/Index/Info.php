@@ -97,8 +97,8 @@
                                     <label class="control-label">
                                         选择日期
                                     </label>
-                                    <div>
-                                        <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerSmall'>
+                                    <div id='showDate2'>
+                                        <input name="time" placeholder="09/01/2006" value="<?php echo date('m/d/Y',strtotime('+1 day'));?>" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerSmall'>
                                         <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-52px;margin-right:16px;"></span>
                                     </div>
                                 </div>
@@ -241,8 +241,8 @@
                                             <label class="control-label">
                                                 选择日期
                                             </label>
-                                            <div>
-                                                <input name="time" placeholder="09/01/2006" value="" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerBig'>
+                                            <div id='showDate'>
+                                                <input name="time" placeholder="09/01/2006" value="<?php echo date('m/d/Y',strtotime('+1 day'));?>" readonly="" type="text" class="multiple-date-picker-input form-control font-size-16" id='datepickerBig'>
                                                 <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-33px;margin-right:16px;"></span>
                                             </div>
                                         </div>
@@ -492,6 +492,7 @@
 	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
 	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
     <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
+    <input type="hidden" id="xz_time" value='<?php echo strtotime("+2 day")*1000; ?>'>
     <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
     <script>        
         var mySwiper = new Swiper ('.swiper-container', {
@@ -579,6 +580,21 @@
         $("#numberSmall").selectmenu();
 
 
+        var _xz_time = Number($("#xz_time").val());
+
+    	// $( "#showDate" ).datepicker({
+    		
+    	// 	defaultDate: new Date(_xz_time),//获取毫秒数
+    		
+    	// 	dateFormat: 'yy-mm-dd',
+    	// });
+
+    	// $( "#showDate2" ).datepicker({
+    		
+    	// 	defaultDate: new Date(_xz_time),//获取毫秒数
+    		
+    	// 	dateFormat: 'yy-mm-dd',
+    	// });
 
 
         $(function(){
