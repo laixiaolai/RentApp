@@ -30,7 +30,7 @@
 		<pre ><?php var_dump($header); ?></pre>
 		<p>当前获取后端的prepay_id状态: <?php echo $returnCode; ?></p>	
 		<p>当前获取后端的prepay_id返回:</p>
-		<pre ><?php var_dump($returnContent); ?></pre>
+		<pre ><?php var_dump(json_decode($returnContent,true)); ?></pre>
 		<hr>
 		<p >订单创建后返回的信息:</p>
 		<pre >{{info | json}}</pre>
