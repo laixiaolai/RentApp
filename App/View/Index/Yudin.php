@@ -532,11 +532,43 @@
 	                	this.$set('info.groupTourId',parseInt(this.info_id));
 	                	this.$set('info.numOfMember',parseInt(this.info_num));
 	                	this.$set('info.startDate',parseInt(this.info_time));
-	                	this.$set('info.totalAmount',parseInt(this.info_time));
+	                	this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
 	                	this.$set('info.contactName',this.info_xm);
-	                	this.$set('info.contactTel',this.info_dh);
+	                	
+	                	if(this.info_dh){
+	                		this.$set('info.contactTel',this.info_dh);
+	                	}else{
+	                		this.$set('info.contactTel',this.info_yx);
+	                	}
+	                	
 
-	                	debug.log(this.info);
+	                	// debug.log(parseInt(this.info.groupTour.actualPrice * this.info_num));
+						// return false;
+						
+	                	layer.open({type: 2});
+	                    var headers = {
+	                    	"Content-Type":"application/json",
+	                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
+	                    	"X-Auth-Token":this.Token
+	                    }
+	                    var orderwithnewuser_url = this.api_url+"orderwithnewuser";
+						this.$http.post(orderwithnewuser_url, this.info,{headers: headers}).then(function(response){
+							// 响应成功回调
+							var _arr = response.json();
+						
+							//debug.log(_arr);
+							if(!!_arr && !_arr.orderId){
+								//提示
+								layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
+							}else{
+								layer.open({content: '订单创建'+_arr.orderId+'成功,正在跳转',skin: 'msg',time: 2  });
+								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay;
+							}
+						}, function(response){
+							// 响应错误回调
+						});
+						 layer.closeAll();
+
 	                },	
 	            	
 	            	//列表渲染

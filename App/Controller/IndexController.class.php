@@ -126,36 +126,84 @@ class IndexController extends BaseController {
 
     } 
 
+
     public function BuyAction(){
-        
-
-
+        $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
+        $type     = isset($_GET['type']) ? intval($_GET['type']) : 1;
+        $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
+        $openid   = isset($_SESSION["user_info"]["openid"]) ? $_SESSION["user_info"]["openid"]: '';
+        if(!$order_id){
+            die('订单不存在');
+        }
         // dump($order);
         //dump($jsApiParameters);
         // dump($editAddress);
         // die;
-        $is_weixin = 0;
-        $order = $jsApiParameters = $editAddress = '';
-
+        $returnCode    = 0;
+        $returnContent = '';
+        $is_weixin     = 0;
+        $header       = array();
+        
         //检测如果是微信客户端,加载微信支付设置
         if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
             $is_weixin = 1;
-            $res_arr = $this->weixin_buy();
-            if(FALSE === empty($res_arr['jsApiParameters'])){
-                $order = $res_arr['order'];
-                $jsApiParameters = $res_arr['jsApiParameters'];
-                $editAddress = $res_arr['editAddress'];
-            }
+
+            $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=".$order_id."&openId=".$openid;
+            $jsonStr = array();
+            $header = array(
+                "Content-Type: application/json; charset=utf-8",
+                "X-Api-Key: web-app",
+                "Accept-Language: en",
+                "Datetime: ".date("Y-m-d H:i:s",time()),
+                "X-Auth-Token: ".$token
+            );
+            list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
         }
         
-        $this->assign('notify_url', "http://".$_SERVER['HTTP_HOST']."/notify");
-        $this->assign('order', $order);
-        $this->assign('jsApiParameters', $jsApiParameters);
-        $this->assign('editAddress', $editAddress);
+        $this->assign('header', $header);
+        $this->assign('returnCode', $returnCode);
+        $this->assign('returnContent', $returnContent);
+        $this->assign('order_id', $order_id);
+        $this->assign('openid', $openid);
+        $this->assign('token', $token);
+        $this->assign('type', $type);
         $this->assign('is_weixin', $is_weixin);
         $this->assign('title', '支付页面');
         $this->display();
     }
+
+
+    //微信支付备份
+    // public function BuyAction(){
+        
+
+
+    //     // dump($order);
+    //     //dump($jsApiParameters);
+    //     // dump($editAddress);
+    //     // die;
+    //     $is_weixin = 0;
+    //     $order = $jsApiParameters = $editAddress = '';
+
+    //     //检测如果是微信客户端,加载微信支付设置
+    //     if(strpos($_SERVER["HTTP_USER_AGENT"],"MicroMessenger")){
+    //         $is_weixin = 1;
+    //         $res_arr = $this->weixin_buy();
+    //         if(FALSE === empty($res_arr['jsApiParameters'])){
+    //             $order = $res_arr['order'];
+    //             $jsApiParameters = $res_arr['jsApiParameters'];
+    //             $editAddress = $res_arr['editAddress'];
+    //         }
+    //     }
+        
+    //     $this->assign('notify_url', "http://".$_SERVER['HTTP_HOST']."/notify");
+    //     $this->assign('order', $order);
+    //     $this->assign('jsApiParameters', $jsApiParameters);
+    //     $this->assign('editAddress', $editAddress);
+    //     $this->assign('is_weixin', $is_weixin);
+    //     $this->assign('title', '支付页面');
+    //     $this->display();
+    // }
 
 
 
