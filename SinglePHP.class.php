@@ -240,6 +240,7 @@ class SinglePHP {
         }
 
         //if(C('USE_SESSION') == true){
+            session_save_path('.');
             session_start();
         //}
         C('APP_FULL_PATH', getcwd().'/'.C('APP_PATH').'/');
