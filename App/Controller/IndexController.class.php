@@ -130,6 +130,7 @@ class IndexController extends BaseController {
         //检测订单是否存在
         $user_id       = 0;
         $order_url     = API_URL."order/".$order_id;
+        $order_arr = array();
         $order_jsonStr = array();
         $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
         if(FALSE === empty($order_res['Body'])){
@@ -138,14 +139,19 @@ class IndexController extends BaseController {
                 $user_id = $order_arr['userId'];
             }
 
+            if(FALSE === empty($order_arr['startDate'])){
+                $order_arr['startDate'] = date("Y/m/d",$order_arr['startDate']/1000);
+            }
+            //dump($order_arr);
+
             //检测如果支付成功跳转支付成功页
             if(FALSE === empty($order_arr['paymentStatus'])){
                 if($order_arr['paymentStatus'] == "Paid"){
-                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
                 }
             }
         }
-        // dump($order_res);
+        
         // dump($user_id);
         // die;
 
@@ -189,6 +195,7 @@ class IndexController extends BaseController {
         $this->assign('paypal_redirectUrl', $paypal_redirectUrl);
         $this->assign('returnCode', $returnCode);
         $this->assign('returnContent', $returnContent);
+        $this->assign('order_arr', $order_arr);
         $this->assign('order_id', $order_id);
         $this->assign('openid', $openid);
         $this->assign('token', $token);
@@ -255,7 +262,7 @@ class IndexController extends BaseController {
             //检测如果支付成功跳转支付成功页
             if(FALSE === empty($order_arr['paymentStatus'])){
                 if($order_arr['paymentStatus'] == "Paid"){
-                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
                 }
             }else{
                 exit(json_encode(array('success'=>false,'msg'=>'订单不存在')));
@@ -293,12 +300,44 @@ class IndexController extends BaseController {
         }
 
 
-        header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+        header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
     }
 
 
     //支付成功
     public function BuyOkAction(){
+        $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
+        $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
+        if(!$order_id){
+            die('订单不存在');
+        }
+        
+        $header        = array(
+            "Content-Type: application/json; charset=utf-8",
+            "X-Api-Key: web-app",
+            "Accept-Language: en",
+            "Datetime: ".date("Y-m-d H:i:s",time()),
+            "X-Auth-Token: ".$token
+        );
+
+        //检测订单是否存在
+        $order_url     = API_URL."order/".$order_id;
+        $order_arr     = array();
+        $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
+        if(FALSE === empty($order_res['Body'])){
+            $order_arr = json_decode($order_res['Body'],true);
+            if(FALSE === empty($order_arr['startDate'])){
+                $order_arr['startDate'] = date("Y/m/d",$order_arr['startDate']/1000);
+            }else{
+                die('订单不存在');
+            }
+
+            $order_arr['info_url'] = "http://".$_SERVER['HTTP_HOST']."/index.php?a=Info&id=".$order_arr['groupTourId'];
+            //dump($order_arr);
+        }
+
+        $this->assign('order_arr', $order_arr);
+        $this->assign('host_url', "http://".$_SERVER['HTTP_HOST']);
         $this->assign('title', '支付成功页面');
         $this->display();
     }
