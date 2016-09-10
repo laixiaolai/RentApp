@@ -137,17 +137,12 @@ class IndexController extends BaseController {
         }
         
         
-
-        // dump($order);
-        //dump($jsApiParameters);
-        // dump($editAddress);
-        // die;
         $returnCode    = 0;
         $returnContent = '';
         $is_weixin     = 0;
         $header        = array();
         $url           = '';
-        $header = array(
+        $header        = array(
             "Content-Type: application/json; charset=utf-8",
             "X-Api-Key: web-app",
             "Accept-Language: en",
@@ -160,8 +155,7 @@ class IndexController extends BaseController {
         $user_id       = 0;
         $order_url     = API_URL."order/".$order_id;
         $order_jsonStr = array();
-        // $order_res = http_post_json($order_url, json_encode($order_jsonStr),$header);
-        $order_res = Get_Web_Contents($order_url, "GET", "", $header);
+        $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
         if(FALSE === empty($order_res['Body'])){
             $order_arr = json_decode($order_res['Body'],true);
             if(FALSE === empty($order_arr['userId'])){
@@ -188,18 +182,6 @@ class IndexController extends BaseController {
         $paypal_redirectUrl   = '';
         $paypal_url           = '';
         if($type == 2){
-            // POST http://localhost:9000/charge/paypal/account/1/pay/16
-            // X-Api-Key: web-app
-            // Accept-Language: en
-            // Datetime: 2016-08-29 17:16:00
-            // X-Auth-Token: a80fb4f4-4497-4807-9028-b5fc9258f6a5
-            // Content-Type: application/json
-            // {}
-            
-            // {"redirectUrl":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9L525473JT178463J"}
-            // 浏览器内输入redirectUrl 例如:
-            // https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9L525473JT178463J
-
             $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
             $paypal_jsonStr = array();
             list($paypal_returnCode, $paypal_returnContent)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
@@ -210,10 +192,12 @@ class IndexController extends BaseController {
                 }
             }
         }
-
-
+        
+        //微信支付2维码(pc)
+        $qrcode_url = API_URL."wechat/pay/qr?orderId=".$order_id;
 
         
+        $this->assign('qrcode_url', $qrcode_url);
         $this->assign('paypal_url', $paypal_url);
         $this->assign('url', $url);
         $this->assign('header', $header);

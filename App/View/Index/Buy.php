@@ -51,6 +51,10 @@
 
 		<hr>
 		<div align="center">
+			<?php if(!$is_weixin && $type == 1){ ?>
+			<p>请在微信扫码完成支付</p>
+			<p><img src="<?php echo $qrcode_url;?>" alt=""></p>
+			<?php } ?>
 			<?php if($is_weixin){ ?>
 			<p><button style="width:210px; height:50px; border-radius: 15px;background-color:#FE6714; border:0px #FE6714 solid; cursor: pointer;  color:white;  font-size:16px;" type="button" onclick="callpay()" >微信支付</button></p>
 			<?php } ?>
