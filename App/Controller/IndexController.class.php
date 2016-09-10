@@ -302,6 +302,12 @@ class IndexController extends BaseController {
         $this->assign('title', '支付成功页面');
         $this->display();
     }
+    
+    //信用卡支付
+    public function BuyKaAction(){
+        $this->assign('title', '信用卡支付');
+        $this->display();
+    }
 
 
     //微信支付备份

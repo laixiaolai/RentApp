@@ -43,38 +43,92 @@
 	    <!-- 中间确认框 -->
 	    <div style='background-color: rgb(246, 246, 246);'>
 		    <div class='font-size-16 container'>
-		    	<div style="margin-top: 40px;">
-		    		<div class='col-xs-12' style="background: white;padding-top: 46px;padding-bottom: 32px;">
-		    			<div class='text-center' style="margin-bottom:40px;">
-		    				<img src="./Img/done.png" alt="" width='71' height='80'>
-		    				<div style="margin-top:24px;margin-bottom:10px;" class="font-size-24">
-		    					支付成功，您已经成功付款
-		    					<span class='rgb225'>196元</span>！
-		    				</div>
-		    				<div class="font-size-16 rgb225">
-		    					<span>
-		    						订单号
-		    					</span>
-		    					<span style="margin-left:10px;">
-		    						20160910001 
-		    					</span>
-		    				</div>
-		    			</div>
-		    			<div style="margin-bottom:80px;" class="font-size-16"> 
-		    				我们将通过短信和邮件，把预订信息发送给您，请确保您的通信方式正常，并妥善保存预定信息。建议您添加我们的微信服务号，我们的客服人员将竭诚为你服务，感谢您的预定，祝您旅途愉快
-		    			</div>
-		    			<div class="row">
-		    				<div class='col-sm-6' style="margin-bottom:10px;">
-		    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more font-size-20">
-		    						确定
-		    					</div>
-		    				</div>
-		    				<div class='col-sm-6'>
-		    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more font-size-20" >
-		    						返回详情
-		    					</div>
-		    				</div>
-		    			</div>
+		    	<div class='row' style="margin-top: 40px;">
+		    		<div class='col-xs-12'>
+			    		<div class='bg-rgb225' style="padding:18px 24px;color:white;"> 
+			    			<div style="line-height:30px;">产品名：东半球第二好吃的清迈米粉大餐</div>
+			    			<div style="line-height:30px;">订单号：201609100001</div>
+			    		</div>
+			    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					预定时间
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>2016/09/20</span>
+			    					<span style="margin-left:14px">19:00</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item">
+			    				<div class='col-xs-6'>
+			    					预定姓名
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>xiaowang</span>
+			    				</div>
+			    			</li>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					联系电话
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>1234567890</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item">
+			    				<div class='col-xs-6'>
+			    					联系邮箱
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>xxxx@xxx.com</span>
+			    				</div>
+			    			</li>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					预定人数
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>2人</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item">
+			    				<div class='col-xs-6'>
+			    					单价
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>&yen;96/人</span>
+			    				</div>
+			    			</li>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					支付方式
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>微信支付</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item" style="line-height: 30px;">
+			    				<div class='col-xs-6'>
+			    					订单金额
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span class='font-size-30 rgb225'>&yen;192</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item" style="padding:24px 13px 44px;">
+			    				<div class='col-sm-6' style="margin-bottom:10px;">
+			    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more">
+			    						返回修改
+			    					</div>
+			    				</div>
+			    				<div class='col-sm-6'>
+			    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" >
+			    						立即支付
+			    					</div>
+			    				</div>
+			    				
+			    			</li>
+			    		</ul>
 		    		</div>
 		    	</div>
 		    	
@@ -201,5 +255,153 @@
 
 	    </div>
 	</div>
+	<!-- <div style="background-color: rgba(0, 0, 0, 0.5);width:100%;height:100%;position:fixed;top:0;left:0;z-index:20;"></div> -->
+	<!-- <div class='font-size-16 container' style="position:fixed;z-index:100;top:20%;height:76%;width:50%;left:25%"> -->
+	
+	
+	<script>
+	$(function(){
+        var vm = new Vue({
+            el: '#app', //绑定id盒子
+            data: {  //初始化内容值
+                comment_num: 0,
+                comment_but: 1,
+                comment_show: 0,
+                page_size: 2,
+                page_p: 1,
+                info_type: 0,
+                info_id: 0,
+                info_wait: 100,
+                api_url: '',
+                Datetime: '',
+                Token: '',
+                info: {},
+                tree: [],
+                comment_1: [],
+                comment_2: []
+            },
+            methods: {
+
+            	//轮询检测支付状态
+                lunxun: function () { 
+                	if(this.info_type == 1){
+            			var _this = this;
+            			setInterval(function(){ 
+            				_this.$options.methods.check_order(_this);
+            		    }, 3000);
+                	}
+                },
+
+                //检测订单状态
+                check_order: function (_this) { 
+                    var headers = {
+                    	"Content-Type":"application/json",
+                    	"X-Api-Key":"web-app","Datetime":_this.Datetime,
+                    	"X-Auth-Token":_this.Token
+                    }
+                    var grouptour_url = _this.api_url+"order/"+_this.info_id;
+					_this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+						// 响应成功回调
+						var _arr = response.json();
+						if(_arr && _arr.length != 0){
+						    if(_arr.paymentStatus == "Unpaid"){
+						        console.log("未支付");
+						    }else if(_arr.paymentStatus == "Paid"){
+						    	location.href = "./index.php?a=BuyOk";
+						    }
+						}
+					}, function(response){
+						// 响应错误回调
+					});
+                },
+            	//列表渲染
+                fetchUser: function () { 
+                	
+                	//计时器轮询
+                	// setTimeout(this.$options.methods.lunxun(), 1000);
+
+                	layer.open({type: 2});
+
+                    var headers = {
+                    	"Content-Type":"application/json",
+                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
+                    	"X-Auth-Token":this.Token
+                    }
+                    var grouptour_url = this.api_url+"order/"+this.info_id;
+					this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+						// 响应成功回调
+						var _arr = response.json();
+						
+						// debug.log(response);
+						if(!!_arr && _arr.length == 0){
+							//提示
+							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
+						}else{
+							this.$set('info',_arr);	  
+							// debug.log(_arr);
+						}
+					}, function(response){
+						// 响应错误回调
+					});
+					 layer.closeAll();
+                }
+            },
+            ready: function() { //初始化执行的方法
+                this.fetchUser();
+                this.lunxun();
+               
+            }
+        });
+
+    });
+
+
+	function call_paypal() {
+		var _paypal_url = $("#paypal_url").val();
+		location.href = _paypal_url;
+	}
+	</script>
+	
+	<?php if($is_weixin){ ?>
+		<script>
+			//调用微信JS api 支付
+			function jsApiCall()
+			{
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest',
+					<?php echo $returnContent; ?>,
+					function(res){
+						if(res.err_msg == "get_brand_wcpay_request:ok"){ //成功跳转
+							//alert("支付成功");
+							location.href = "./index.php?a=BuyOk";
+						}else{
+							WeixinJSBridge.log(res.err_msg);
+							alert(res.err_code+res.err_desc+res.err_msg);
+						}
+						
+					}
+				);
+			}
+
+			function callpay()
+			{
+				if (typeof WeixinJSBridge == "undefined"){
+				    if( document.addEventListener ){
+				        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+				    }else if (document.attachEvent){
+				        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+				        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+				    }
+				}else{
+				    jsApiCall();
+				}
+			}
+		</script>	
+	<?php } ?>
+
+
+	
+	
+
 </body>
 </html>
