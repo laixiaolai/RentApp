@@ -65,6 +65,7 @@
 		</div>
 
 
+		<input type="hidden" value='<?php echo $type; ?>' v-model="info_type">
 		<input type="hidden" value='<?php echo $order_id; ?>' v-model="info_id">
 		<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
 	    <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
@@ -83,7 +84,9 @@
                 comment_show: 0,
                 page_size: 2,
                 page_p: 1,
+                info_type: 0,
                 info_id: 0,
+                info_wait: 100,
                 api_url: '',
                 Datetime: '',
                 Token: '',
@@ -93,15 +96,45 @@
                 comment_2: []
             },
             methods: {
-            	
-            	//显示隐藏评论
-                comment: function () { 
-					this.$set('comment_show',1);	                    	
-					this.$set('comment_but',0);	                    	
+
+            	//轮询检测支付状态
+                lunxun: function () { 
+                	if(this.info_type == 1){
+            			var _this = this;
+            			setInterval(function(){ 
+            				_this.$options.methods.check_order(_this);
+            		    }, 3000);
+                	}
+                },
+
+                //检测订单状态
+                check_order: function (_this) { 
+                    var headers = {
+                    	"Content-Type":"application/json",
+                    	"X-Api-Key":"web-app","Datetime":_this.Datetime,
+                    	"X-Auth-Token":_this.Token
+                    }
+                    var grouptour_url = _this.api_url+"order/"+_this.info_id;
+					_this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+						// 响应成功回调
+						var _arr = response.json();
+						if(_arr && _arr.length != 0){
+						    if(_arr.paymentStatus == "Unpaid"){
+						        console.log("未支付");
+						    }else if(_arr.paymentStatus == "Paid"){
+						    	location.href = "./index.php?a=BuyOk";
+						    }
+						}
+					}, function(response){
+						// 响应错误回调
+					});
                 },
             	//列表渲染
                 fetchUser: function () { 
                 	
+                	//计时器轮询
+                	// setTimeout(this.$options.methods.lunxun(), 1000);
+
                 	layer.open({type: 2});
 
                     var headers = {
@@ -130,6 +163,8 @@
             },
             ready: function() { //初始化执行的方法
                 this.fetchUser();
+                this.lunxun();
+               
             }
         });
 
