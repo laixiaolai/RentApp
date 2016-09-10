@@ -625,7 +625,8 @@
                     },
                 	//列表渲染
                     fetchUser: function () { 
-                    	
+
+
                     	layer.open({type: 2});
 
                         var headers = {
@@ -662,11 +663,21 @@
     							this.$set('comment_num',_comment_num);
     							this.$set('comment_1',_comment_1);
     							this.$set('comment_2',_comment_2);
+
+
+    							 // debug.log(this.comment_num);
+		                    	//如果没有评论不显示加载更多
+		                    	if(!this.comment_num){
+		                    		this.$set('comment_but',0);
+		                    	}
     						}
     					}, function(response){
     						// 响应错误回调
     					});
     					 layer.closeAll();
+
+
+
                     }
                 },
                 ready: function() { //初始化执行的方法

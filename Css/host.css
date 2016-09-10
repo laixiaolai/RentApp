@@ -7,6 +7,9 @@
 .font-size-16 {
     font-size: 16px;
 }
+.font-size-20 {
+    font-size: 24px;
+}
 .font-size-24 {
     font-size: 24px;
 }
@@ -31,9 +34,23 @@
 .rgb246 {
     background-color: rgb(246, 246, 246); 
 }
+.rgb234 {
+    background-color: rgb(234, 234, 234)!important;
+}
 .rgb225 {
    color: rgb(225, 112, 114); 
 }
+.bg-rgb225 {
+   background-color: rgb(225, 112, 114); 
+}
+.text-right {
+    text-align: right;
+}
+/*@media (max-width: 767px){
+    .text-right {
+        text-align: left;
+    }
+}*/
 .image-area {
 	background: url('../Img/header_background.jpg') no-repeat center center;
 	background-size: cover;
@@ -1345,3 +1362,16 @@ label {
     }
 }
 /***********************************************************预定页end***************************************************/
+/***********************************************************确认页start*************************************************/
+.confirm-items li{
+    float: left;
+    width: 100%;
+    background-color: white;
+}
+.confirm-item {
+    padding:12px 13px;
+}
+.navbar-static-top {
+    z-index: 10;
+}
+/***********************************************************确认页end***************************************************/

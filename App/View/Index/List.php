@@ -137,6 +137,7 @@
     			</div>
     		</div>
     	</div>
+    	<input type="hidden" value='<?php echo $label; ?>' v-model="label">
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
         <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
@@ -269,6 +270,7 @@
 	                page_size: 6,
 	                page_p: 1,
 	                api_url: '',
+	                label: '',
 	                Datetime: '',
 	                Token: '',
 	                tree: []
@@ -288,7 +290,15 @@
 	                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
 	                    	"X-Auth-Token":this.Token
 	                    }
-	                    var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
+	                    // var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
+	                    
+	                    
+	                    var grouptour_url = this.api_url+"grouptour/search?p="+this.page_p+"&size="+this.page_size;
+	                    // debug.log(this.label);
+	                    if(this.label != ''){
+	                    	grouptour_url += "&label="+this.label;
+	                    }
+						
 						this.$http.get(grouptour_url, {headers: headers}).then(function(response){
 							// 响应成功回调
 							var _arr = response.json();
@@ -311,41 +321,7 @@
 						});
 						 layer.closeAll();
 	                }
-	               /* fetchUser: function () { 
-
-	                	layer.open({type: 2});
-
-	                    var headers = {
-	                    	"Content-Type":"application/json",
-	                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
-	                    	"X-Auth-Token":this.Token
-	                    }
-	                    var grouptour_url = this.api_url+"grouptour?p="+this.page_p+"&size="+this.page_size;
-	                    
-	                    this.$http.get(grouptour_url, {
-	                        headers: headers
-	                    })
-	                    .then((response) => {
-	                    	var _arr = response.json();
-	                    	debug.log(_arr);
-	                    	if(!!_arr && _arr.length == 0){
-	                    		//console.log('wu');
-	                    		//提示
-								layer.open({content: '对不起,没有更多了',skin: 'msg',time: 2  }); 
-							}else{
-	                    		//console.log(_arr)
-		                    	var _thistree = this.tree;
-		                    	
-								$.each(_arr, function(index, value) {
-									_thistree.push(value);
-								});
-								this.$set('page_p',this.page_p+1);
-	                    	}
-	                    	
-	                    }).catch(this.requestError);
-
-	                    layer.closeAll();
-	                }*/
+	               
 	            },
 	            ready: function() { //初始化执行的方法
 	                this.fetchUser();
