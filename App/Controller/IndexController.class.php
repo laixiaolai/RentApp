@@ -95,36 +95,23 @@ class IndexController extends BaseController {
 
 
     //获取微信prepayid
-    public function PrepayidAction(){  
-        $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
-        $jsonStr = array();
+    // public function PrepayidAction(){  
+    //     $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
+    //     $jsonStr = array();
 
-        $header = array(
-            "Content-Type: application/json; charset=utf-8",
-            "X-Api-Key: web-app",
-            "Accept-Language: en",
-            "Datetime: ".date("Y-m-d H:i:s",time()),
-            "X-Auth-Token: 745f855c-215e-4934-9ef0-bfae5a64bfba"
-        );
-        list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
+    //     $header = array(
+    //         "Content-Type: application/json; charset=utf-8",
+    //         "X-Api-Key: web-app",
+    //         "Accept-Language: en",
+    //         "Datetime: ".date("Y-m-d H:i:s",time()),
+    //         "X-Auth-Token: 745f855c-215e-4934-9ef0-bfae5a64bfba"
+    //     );
+    //     list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
 
 
-// X-Api-Key: web-app
-// Accept-Language: en
-// Datetime: 2016-08-29 17:16:00
-// X-Auth-Token: a80fb4f4-4497-4807-9028-b5fc9258f6a5
-//  -- response --
-// 200 OK
-// Datetime:  2016-09-05 14:44:18
-// Content-Type:  application/json; charset=utf-8
-// Content-Language:  en
-// Date:  Mon, 05 Sep 2016 14:44:18 GMT
-// Content-Length:  268
+    //     dump($returnContent);
 
-        // dump($returnCode);
-        dump($returnContent);
-
-    } 
+    // } 
 
 
     public function BuyAction(){

@@ -8,7 +8,8 @@
 //后端接口相关
 !defined('API_MOBILENUM') && define('API_MOBILENUM','13564411117');//默认登陆账号
 !defined('API_PASSWORD') && define('API_PASSWORD','123456');//默认登陆账号密码
-!defined('API_URL') && define('API_URL','http://test.trip55.com:9002/');//后端api接口域名
+// !defined('API_URL') && define('API_URL','http://test.trip55.com:9002/');//后端api接口域名
+!defined('API_URL') && define('API_URL','http://s.trip55.com:9002/');//后端api接口域名
 
 !defined('ROOT_PATH') && define('ROOT_PATH', __DIR__);
 
