@@ -1329,4 +1329,19 @@ label {
     font-weight: normal;
     color: #fff;
 }
+@media (max-width: 1200px){
+    .visa-pay {
+        background-size: 195px 36px;
+    }
+}
+@media (max-width: 992px){
+    .visa-pay {
+        background-size: 236px 36px;
+    }
+}
+@media (max-width: 400px){
+    .visa-pay {
+        background-size: 170px 36px;
+    }
+}
 /***********************************************************预定页end***************************************************/

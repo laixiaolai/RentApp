@@ -251,10 +251,17 @@
 		    										</label>
 		    									</div>
 		    								</div>
-		    								<div class='col-md-6 ' >
+		    								<div class='col-md-6 ' style="margin-bottom: 5px;">
 		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:48px center;">
 		    										<label for="pay_way">
 		    											<input type="radio" name='pay_way' value="2" v-model="info_pay">
+		    										</label>
+		    									</div>
+		    								</div>
+		    								<div class='col-md-6 ' >
+		    									<div class="radio eating-pay visa-pay" style="background-image:url('./Img/visa_pay.png');background-repeat:no-repeat;background-position:12px center;padding-left:14px;">
+		    										<label for="pay_way">
+		    											<input type="radio" name='pay_way' value="3" v-model="info_pay">
 		    										</label>
 		    									</div>
 		    								</div>
