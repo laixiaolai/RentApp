@@ -46,11 +46,11 @@
 .text-right {
     text-align: right;
 }
-@media (max-width: 767px){
+/*@media (max-width: 767px){
     .text-right {
         text-align: left;
     }
-}
+}*/
 .image-area {
 	background: url('../Img/header_background.jpg') no-repeat center center;
 	background-size: cover;

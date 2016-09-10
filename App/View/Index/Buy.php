@@ -39,7 +39,101 @@
 	            </ul>
 	        </div>
 	    </header>
-	    <div style="height:700px;width:100%;"></div>
+	    
+	    <!-- 中间确认框 -->
+	    <div style='background-color: rgb(246, 246, 246);'>
+		    <div class='font-size-16 container'>
+		    	<div class='row' style="margin-top: 40px;">
+		    		<div class='col-xs-12'>
+			    		<div class='bg-rgb225' style="padding:18px 24px;color:white;"> 
+			    			<div style="line-height:30px;">产品名：东半球第二好吃的清迈米粉大餐</div>
+			    			<div style="line-height:30px;">订单号：201609100001</div>
+			    		</div>
+			    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					预定时间
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>2016/09/20</span>
+			    					<span style="margin-left:14px">19:00</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item">
+			    				<div class='col-xs-6'>
+			    					预定姓名
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>xiaowang</span>
+			    				</div>
+			    			</li>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					联系电话
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>1234567890</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item">
+			    				<div class='col-xs-6'>
+			    					联系邮箱
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>xxxx@xxx.com</span>
+			    				</div>
+			    			</li>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					预定人数
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>2人</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item">
+			    				<div class='col-xs-6'>
+			    					单价
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>&yen;96/人</span>
+			    				</div>
+			    			</li>
+			    			<li class="rgb234 confirm-item">
+			    				<div class='col-xs-6'>
+			    					支付方式
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span>微信支付</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item" style="line-height: 30px;">
+			    				<div class='col-xs-6'>
+			    					订单金额
+			    				</div>
+			    				<div class='col-xs-6 text-right'>
+			    					<span class='font-size-30 rgb225'>&yen;192</span>
+			    				</div>
+			    			</li>
+			    			<li class="confirm-item" style="padding:24px 13px 44px;">
+			    				<div class='col-sm-6' style="margin-bottom:10px;">
+			    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more">
+			    						返回修改
+			    					</div>
+			    				</div>
+			    				<div class='col-sm-6'>
+			    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" >
+			    						立即支付
+			    					</div>
+			    				</div>
+			    				
+			    			</li>
+			    		</ul>
+		    		</div>
+		    	</div>
+		    	
+		    </div>
+	    </div>
 	    <!-- 底部 -->
 	    <div class="footer">
 	        <div class="container">
@@ -161,96 +255,9 @@
 
 	    </div>
 	</div>
-	<div style="background-color: rgba(0, 0, 0, 0.5);width:100%;height:100%;position:fixed;top:0;left:0;z-index:20;"></div>
-	<div class='font-size-16 container' style="position:fixed;z-index:100;top:20%;height:76%;width:50%;left:25%">
-		<div class='row' style="height:100%;overflow: scroll;">
-			<div class='bg-rgb225' style="padding:18px 24px;color:white;"> 
-				<div style="line-height:30px;">产品名：东半球第二好吃的清迈米粉大餐</div>
-				<div style="line-height:30px;">订单号：201609100001</div>
-			</div>
-			<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
-				<li class="rgb234 confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						预定时间
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>2016/09/20</span>
-						<span style="margin-left:14px">19:00</span>
-					</div>
-				</li>
-				<li class="confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						预定姓名
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>xiaowang</span>
-					</div>
-				</li>
-				<li class="rgb234 confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						联系电话
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>1234567890</span>
-					</div>
-				</li>
-				<li class="confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						联系邮箱
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>xxxx@xxx.com</span>
-					</div>
-				</li>
-				<li class="rgb234 confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						预定人数
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>2人</span>
-					</div>
-				</li>
-				<li class="confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						单价
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>&yen;96/人</span>
-					</div>
-				</li>
-				<li class="rgb234 confirm-item">
-					<div class='col-sm-6 col-xs-12'>
-						支付方式
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span>微信支付</span>
-					</div>
-				</li>
-				<li class="confirm-item" style="line-height: 30px;">
-					<div class='col-sm-6 col-xs-12'>
-						订单金额
-					</div>
-					<div class='col-sm-6 col-xs-12 text-right'>
-						<span class='font-size-30 rgb225'>&yen;192</span>
-					</div>
-				</li>
-				<li class="confirm-item" style="padding:24px 13px 44px;">
-					<div class='col-sm-6' style="margin-bottom:10px;">
-						<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more">
-							返回修改
-						</div>
-					</div>
-					<div class='col-sm-6'>
-						<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" >
-							立即支付
-						</div>
-					</div>
-					
-				</li>
-			</ul>
-		</div>
-		
-	</div>
+	<!-- <div style="background-color: rgba(0, 0, 0, 0.5);width:100%;height:100%;position:fixed;top:0;left:0;z-index:20;"></div> -->
+	<!-- <div class='font-size-16 container' style="position:fixed;z-index:100;top:20%;height:76%;width:50%;left:25%"> -->
+	
 	
 	<script>
 	$(function(){
