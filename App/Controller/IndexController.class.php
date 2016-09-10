@@ -95,36 +95,23 @@ class IndexController extends BaseController {
 
 
     //获取微信prepayid
-    public function PrepayidAction(){  
-        $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
-        $jsonStr = array();
+    // public function PrepayidAction(){  
+    //     $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
+    //     $jsonStr = array();
 
-        $header = array(
-            "Content-Type: application/json; charset=utf-8",
-            "X-Api-Key: web-app",
-            "Accept-Language: en",
-            "Datetime: ".date("Y-m-d H:i:s",time()),
-            "X-Auth-Token: 745f855c-215e-4934-9ef0-bfae5a64bfba"
-        );
-        list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
+    //     $header = array(
+    //         "Content-Type: application/json; charset=utf-8",
+    //         "X-Api-Key: web-app",
+    //         "Accept-Language: en",
+    //         "Datetime: ".date("Y-m-d H:i:s",time()),
+    //         "X-Auth-Token: 745f855c-215e-4934-9ef0-bfae5a64bfba"
+    //     );
+    //     list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
 
 
-// X-Api-Key: web-app
-// Accept-Language: en
-// Datetime: 2016-08-29 17:16:00
-// X-Auth-Token: a80fb4f4-4497-4807-9028-b5fc9258f6a5
-//  -- response --
-// 200 OK
-// Datetime:  2016-09-05 14:44:18
-// Content-Type:  application/json; charset=utf-8
-// Content-Language:  en
-// Date:  Mon, 05 Sep 2016 14:44:18 GMT
-// Content-Length:  268
+    //     dump($returnContent);
 
-        // dump($returnCode);
-        dump($returnContent);
-
-    } 
+    // } 
 
 
     public function BuyAction(){
@@ -137,17 +124,12 @@ class IndexController extends BaseController {
         }
         
         
-
-        // dump($order);
-        //dump($jsApiParameters);
-        // dump($editAddress);
-        // die;
         $returnCode    = 0;
         $returnContent = '';
         $is_weixin     = 0;
         $header        = array();
         $url           = '';
-        $header = array(
+        $header        = array(
             "Content-Type: application/json; charset=utf-8",
             "X-Api-Key: web-app",
             "Accept-Language: en",
@@ -160,12 +142,18 @@ class IndexController extends BaseController {
         $user_id       = 0;
         $order_url     = API_URL."order/".$order_id;
         $order_jsonStr = array();
-        // $order_res = http_post_json($order_url, json_encode($order_jsonStr),$header);
-        $order_res = Get_Web_Contents($order_url, "GET", "", $header);
+        $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
         if(FALSE === empty($order_res['Body'])){
             $order_arr = json_decode($order_res['Body'],true);
             if(FALSE === empty($order_arr['userId'])){
                 $user_id = $order_arr['userId'];
+            }
+
+            //检测如果支付成功跳转支付成功页
+            if(FALSE === empty($order_arr['paymentStatus'])){
+                if($order_arr['paymentStatus'] == "Paid"){
+                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+                }
             }
         }
         // dump($order_res);
@@ -188,18 +176,6 @@ class IndexController extends BaseController {
         $paypal_redirectUrl   = '';
         $paypal_url           = '';
         if($type == 2){
-            // POST http://localhost:9000/charge/paypal/account/1/pay/16
-            // X-Api-Key: web-app
-            // Accept-Language: en
-            // Datetime: 2016-08-29 17:16:00
-            // X-Auth-Token: a80fb4f4-4497-4807-9028-b5fc9258f6a5
-            // Content-Type: application/json
-            // {}
-            
-            // {"redirectUrl":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9L525473JT178463J"}
-            // 浏览器内输入redirectUrl 例如:
-            // https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9L525473JT178463J
-
             $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
             $paypal_jsonStr = array();
             list($paypal_returnCode, $paypal_returnContent)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
@@ -211,9 +187,11 @@ class IndexController extends BaseController {
             }
         }
 
-
+        //微信支付2维码(pc)
+        $qrcode_url = API_URL."wechat/pay/qr?orderId=".$order_id;
 
         
+        $this->assign('qrcode_url', $qrcode_url);
         $this->assign('paypal_url', $paypal_url);
         $this->assign('url', $url);
         $this->assign('header', $header);
