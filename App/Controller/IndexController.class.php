@@ -54,6 +54,8 @@ class IndexController extends BaseController {
 
     //列表页
     public function ListAction(){
+        $label  = isset($_GET['label']) ? trim($_GET['label']) : '';
+        $this->assign('label', $label);
         $this->assign('title', '产品列表页');
         $this->display();
     }

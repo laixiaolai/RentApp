@@ -54,20 +54,7 @@
             <h2>热门目的地</h2>
             <!-- 图片 -->
             <div class='row'>
-                <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
-                    <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
-                        <div class='destination-info'>
-                            <div class='collect'>
-                                <div class='location'>台湾</div>
-                                <div class='host-number'>
-                                    <span>20</span>
-                                    <span>Host</span>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=清迈">
                     <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -80,7 +67,21 @@
                         </div>
                     </div>
                 </a>
-                <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=台湾">
+                    <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
+                        <div class='destination-info'>
+                            <div class='collect'>
+                                <div class='location'>台湾</div>
+                                <div class='host-number'>
+                                    <span>20</span>
+                                    <span>Host</span>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+               
+                <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=首尔">
                     <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -93,7 +94,7 @@
                         </div>
                     </div>
                 </a>
-                <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=东京">
                     <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                         <div class='destination-info'>
                             <div class='collect'>
@@ -107,7 +108,7 @@
                     </div>
                 </a>
                 <div id='moreCities' class='hide'>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=台湾">
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -120,7 +121,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=清迈">
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -133,7 +134,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=首尔">
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -146,7 +147,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=东京">
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -159,7 +160,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=台湾">
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -172,7 +173,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=清迈">
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -185,7 +186,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=首尔">
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -198,7 +199,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=东京">
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -211,7 +212,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=台湾">
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -224,7 +225,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=清迈">
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -237,7 +238,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=首尔">
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -250,7 +251,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=东京">
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -263,7 +264,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=台湾">
                         <div class='discovery-card' style="background-image: url('./Img/taiwan.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -276,7 +277,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=清迈">
                         <div class='discovery-card' style="background-image: url('./Img/Chiengmai.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -289,7 +290,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=首尔">
                         <div class='discovery-card' style="background-image: url('./Img/Seoul.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
@@ -302,7 +303,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class='col-xs-12 col-sm-6' href='./index.php?a=List'>
+                    <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=东京">
                         <div class='discovery-card' style="background-image: url('./Img/Tokyo.jpg');">
                             <div class='destination-info'>
                                 <div class='collect'>
