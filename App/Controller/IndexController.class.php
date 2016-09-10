@@ -161,6 +161,13 @@ class IndexController extends BaseController {
             if(FALSE === empty($order_arr['userId'])){
                 $user_id = $order_arr['userId'];
             }
+
+            //检测如果支付成功跳转支付成功页
+            if(FALSE === empty($order_arr['paymentStatus'])){
+                if($order_arr['paymentStatus'] == "Paid"){
+                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+                }
+            }
         }
         // dump($order_res);
         // dump($user_id);
@@ -192,7 +199,7 @@ class IndexController extends BaseController {
                 }
             }
         }
-        
+
         //微信支付2维码(pc)
         $qrcode_url = API_URL."wechat/pay/qr?orderId=".$order_id;
 
