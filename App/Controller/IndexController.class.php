@@ -40,6 +40,7 @@ class IndexController extends BaseController {
         }
     }
 
+    //首页
     public function IndexAction(){
         //设置cookie
         //setCookieLanguage("zh-cn");
@@ -50,10 +51,14 @@ class IndexController extends BaseController {
         $this->display();
     }
 
+
+    //列表页
     public function ListAction(){
         $this->assign('title', '产品列表页');
         $this->display();
     }
+
+    //详情页
     public function InfoAction(){
         $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         // dump($id);
@@ -62,10 +67,16 @@ class IndexController extends BaseController {
         $this->assign('title', '产品详情页');
         $this->display();
     }
+
+
+    //添加评论页
     public function PinAction(){
         $this->assign('title', '添加评论页');
         $this->display();
     }
+
+
+    //预订页
     public function YudinAction(){
         $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
         $num  = isset($_GET['num']) ? intval($_GET['num']) : 1;
@@ -88,32 +99,8 @@ class IndexController extends BaseController {
         $this->display();
     }
 
-    //http://html5.3ddysj.com/index.php?a=Jsapi
-    public function JsapiAction(){  
-        dump("Jsapi");
-    } 
 
-
-    //获取微信prepayid
-    // public function PrepayidAction(){  
-    //     $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
-    //     $jsonStr = array();
-
-    //     $header = array(
-    //         "Content-Type: application/json; charset=utf-8",
-    //         "X-Api-Key: web-app",
-    //         "Accept-Language: en",
-    //         "Datetime: ".date("Y-m-d H:i:s",time()),
-    //         "X-Auth-Token: 745f855c-215e-4934-9ef0-bfae5a64bfba"
-    //     );
-    //     list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
-
-
-    //     dump($returnContent);
-
-    // } 
-
-
+    //支付页面
     public function BuyAction(){
         $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
         $type     = isset($_GET['type']) ? intval($_GET['type']) : 1;
@@ -206,6 +193,111 @@ class IndexController extends BaseController {
         $this->assign('type', $type);
         $this->assign('is_weixin', $is_weixin);
         $this->assign('title', '支付页面');
+        $this->display();
+    }
+
+
+    //paypal信用卡支付
+    public function BuyPaypalKaAction(){
+        $type     = isset($_POST['type']) ? trim($_POST['type']) : '';
+        $number   = isset($_POST['number']) ? trim($_POST['number']) : '';
+        $expMonth = isset($_POST['expMonth']) ? trim($_POST['expMonth']) : '';
+        $expYear  = isset($_POST['expYear']) ? trim($_POST['expYear']) : '';
+        $cvv      = isset($_POST['cvv']) ? trim($_POST['cvv']) : '';
+        $user_id  = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
+        $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
+        $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
+       
+        if(!$token){
+            exit(json_encode(array('success'=>false,'msg'=>'token不存在')));
+        } 
+        if(!$order_id){
+            exit(json_encode(array('success'=>false,'msg'=>'订单不存在')));
+        } 
+        if(!$user_id){
+            exit(json_encode(array('success'=>false,'msg'=>'用户不存在')));
+        }
+        if(!$type){
+            exit(json_encode(array('success'=>false,'msg'=>'请选择信用卡类型')));
+        }
+        if(!$number){
+            exit(json_encode(array('success'=>false,'msg'=>'请输入信用卡卡号')));
+        }
+        if(!$expMonth){
+            exit(json_encode(array('success'=>false,'msg'=>'请输入有效期月份')));
+        }
+        if(!$expYear){
+            exit(json_encode(array('success'=>false,'msg'=>'请输入有效期年份')));
+        }
+        if(!$cvv){
+            exit(json_encode(array('success'=>false,'msg'=>'请输入CVV')));
+        }
+
+        set_time_limit(60);
+        $header        = array(
+            "Content-Type: application/json; charset=utf-8",
+            "X-Api-Key: web-app",
+            "Accept-Language: en",
+            "Datetime: ".date("Y-m-d H:i:s",time()),
+            "X-Auth-Token: ".$token
+        );
+
+
+        //检测订单是否存在
+        $order_url     = API_URL."order/".$order_id;
+        $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
+        if(FALSE === empty($order_res['Body'])){
+            $order_arr = json_decode($order_res['Body'],true);
+            
+
+            //检测如果支付成功跳转支付成功页
+            if(FALSE === empty($order_arr['paymentStatus'])){
+                if($order_arr['paymentStatus'] == "Paid"){
+                    header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+                }
+            }else{
+                exit(json_encode(array('success'=>false,'msg'=>'订单不存在')));
+            }
+        }
+
+
+        
+        $paypal_jsonStr = array(
+            "type"     => $type,
+            "number"   => $number,
+            "expMonth" => $expMonth,
+            "expYear"  => $expYear,
+            "cvv"      => $cvv,
+        );
+
+        //创建信用卡
+        $creditcard_url     = API_URL."charge/paypal/".$user_id."/creditcard";
+        list($paypal_returnCode, $paypal_returnContent)  = http_post_json($creditcard_url, json_encode($paypal_jsonStr),$header);
+        // dump($paypal_returnCode);
+        // dump($paypal_returnContent);
+        // die;
+        if($paypal_returnCode != 200){
+            exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent)));
+        }
+
+        //用信用卡支付
+        $paypal_url = API_URL."charge/paypal/cc/".$user_id."/pay/".$order_id;
+        list($paypal_returnCode2, $paypal_returnContent2)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
+        // dump($paypal_returnCode2);
+        // dump($paypal_returnContent2);
+        // die;
+        if($paypal_returnCode2 != 200){
+            exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent2)));
+        }
+
+
+        header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk");
+    }
+
+
+    //支付成功
+    public function BuyOkAction(){
+        $this->assign('title', '支付成功页面');
         $this->display();
     }
 
@@ -319,62 +411,81 @@ class IndexController extends BaseController {
     }
 
 
-    public function BuyOkAction(){
-        $this->assign('title', '支付成功页面');
-        $this->display();
-    }
+    
 
 
 
-    public function TestAction(){
+    // public function TestAction(){
         
-        $ret = array(
-            'result' => true,
-            'data'   => 123,
-        );
-        $this->AjaxReturn($ret); 
-    }
+    //     $ret = array(
+    //         'result' => true,
+    //         'data'   => 123,
+    //     );
+    //     $this->AjaxReturn($ret); 
+    // }
 
 
 
-    public function UrlAction(){
-        echo 'url测试成功';
-    }
-    public function RedirectAction(){
-        $this->redirect('http://www.baidu.com'); //302跳转到百度
-    }
-    public function AjaxAction(){
-        $ret = array(
-            'result' => true,
-            'data'   => 123,
-        );
-        $this->AjaxReturn($ret);                //将$ret格式化为json字符串后输出到浏览器
-    }
-    public function CommonAction(){
-        echo testFunction();
-    }
-    public function AutoLoadAction(){
-        $t = new Test();
-        echo $t->hello();
-    }
-    public function WidgetAction(){
-        $this->display();
-    }
-    public function LogAction(){
-        Log::fatal('something');
-        Log::warn('something');
-        Log::notice('something');
-        Log::debug('something');
-        Log::sql('something');
-        echo '请到Log文件夹查看效果。如果是SAE环境，可以在日志中心的DEBUG日志查看。';
-    }
+    // public function UrlAction(){
+    //     echo 'url测试成功';
+    // }
+    // public function RedirectAction(){
+    //     $this->redirect('http://www.baidu.com'); //302跳转到百度
+    // }
+    // public function AjaxAction(){
+    //     $ret = array(
+    //         'result' => true,
+    //         'data'   => 123,
+    //     );
+    //     $this->AjaxReturn($ret);                //将$ret格式化为json字符串后输出到浏览器
+    // }
+    // public function CommonAction(){
+    //     echo testFunction();
+    // }
+    // public function AutoLoadAction(){
+    //     $t = new Test();
+    //     echo $t->hello();
+    // }
+    // public function WidgetAction(){
+    //     $this->display();
+    // }
+    // public function LogAction(){
+    //     Log::fatal('something');
+    //     Log::warn('something');
+    //     Log::notice('something');
+    //     Log::debug('something');
+    //     Log::sql('something');
+    //     echo '请到Log文件夹查看效果。如果是SAE环境，可以在日志中心的DEBUG日志查看。';
+    // }
 
 
     //打印输出数组信息
-    public function printf_info($data)
-    {
-        foreach($data as $key=>$value){
-            echo "<font color='#00ff55;'>$key</font> : $value <br/>";
-        }
-    }
+    // public function printf_info($data)
+    // {
+    //     foreach($data as $key=>$value){
+    //         echo "<font color='#00ff55;'>$key</font> : $value <br/>";
+    //     }
+    // }
+
+
+
+
+    //获取微信prepayid
+    // public function PrepayidAction(){  
+    //     $url     = "http://test.trip55.com:9002/charge/wechat/prepay/req?orderId=17&openId=o6dctwc7rSoW6PO54J6AtL3MoEv0";
+    //     $jsonStr = array();
+
+    //     $header = array(
+    //         "Content-Type: application/json; charset=utf-8",
+    //         "X-Api-Key: web-app",
+    //         "Accept-Language: en",
+    //         "Datetime: ".date("Y-m-d H:i:s",time()),
+    //         "X-Auth-Token: 745f855c-215e-4934-9ef0-bfae5a64bfba"
+    //     );
+    //     list($returnCode, $returnContent)  = http_post_json($url, json_encode($jsonStr),$header);
+
+
+    //     dump($returnContent);
+
+    // } 
 }
