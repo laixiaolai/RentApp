@@ -266,7 +266,7 @@
 	        var vm = new Vue({
 	            el: '#app', //绑定id盒子
 	            data: {  //初始化内容值
-	                page_size: 2,
+	                page_size: 6,
 	                page_p: 1,
 	                api_url: '',
 	                Datetime: '',
