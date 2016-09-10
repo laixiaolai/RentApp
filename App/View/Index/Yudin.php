@@ -561,12 +561,9 @@
 	                	this.$set('info.startDate',parseInt(this.info_time));
 	                	this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
 	                	this.$set('info.contactName',this.info_xm);
-	                	
-	                	if(this.info_dh){
-	                		this.$set('info.contactTel',this.info_dh);
-	                	}else{
-	                		this.$set('info.contactTel',this.info_yx);
-	                	}
+
+						this.$set('info.contactTel',this.info_dh);
+						this.$set('info.contactEmail',this.info_yx);
 	                	
 
 	                	// debug.log(parseInt(this.info.groupTour.actualPrice * this.info_num));
