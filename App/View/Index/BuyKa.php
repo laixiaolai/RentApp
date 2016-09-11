@@ -11,7 +11,7 @@
 	<!-- 为了让 IE 浏览器运行最新的渲染模式下 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?php echo $title;?></title>
-
+    
 	<?php View::tplInclude('Public/css'); ?>
 	<?php View::tplInclude('Public/js'); ?></head>
 
@@ -44,88 +44,74 @@
 	    <div style='background-color: rgb(246, 246, 246);'>
 		    <div class='font-size-16 container'>
 		    	<div class='row' style="margin-top: 40px;">
-		    		<div class='col-xs-12'>
-			    		<div class='bg-rgb225' style="padding:18px 24px;color:white;"> 
-			    			<div style="line-height:30px;">产品名：东半球第二好吃的清迈米粉大餐</div>
-			    			<div style="line-height:30px;">订单号：201609100001</div>
+		    		<div>
+			    		<div class='bg-rgb225' style="padding:37px 24px 12px 24px;color:white;"> 
+			    			<div style="line-height:30px;font-size:28px;">信用卡付款信息</div>
+			    			<div style="line-height:30px;font-size:20px;">使用信用卡安全支付</div>
+			    			<div style="font-size:17px;text-align: right;">Processed by Paypal</div>
 			    		</div>
 			    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
-			    			<li class="rgb234 confirm-item">
-			    				<div class='col-xs-6'>
-			    					预定时间
+			    			<li class="confirm-item" >
+			    				<div class='credits col-sm-2 col-xs-4 '>
+			    					<img src="./Img/credit_union.png?imageView2/1/w/114/h/60" alt="">
 			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>2016/09/20</span>
-			    					<span style="margin-left:14px">19:00</span>
+			    				<div style="border: 1px solid #ddd;" class='credits col-sm-2 col-xs-4'>
+			    					<img src="./Img/credit_visa.png?imageView2/1/w/114/h/60" alt="" width="100%">
 			    				</div>
-			    			</li>
-			    			<li class="confirm-item">
-			    				<div class='col-xs-6'>
-			    					预定姓名
+			    				<div class='credits col-sm-2 col-xs-4'>
+			    					<img src="./Img/credit_master.png?imageView2/1/w/114/h/60" alt="">
 			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>xiaowang</span>
+			    				<div class='credits col-sm-2 col-xs-4'>
+			    					<img src="./Img/credit_ae.png?imageView2/1/w/114/h/60" alt="">
 			    				</div>
-			    			</li>
-			    			<li class="rgb234 confirm-item">
-			    				<div class='col-xs-6'>
-			    					联系电话
-			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>1234567890</span>
+			    				<div class='credits col-sm-2 col-xs-4'>
+			    					<img src="./Img/credit_jcb.png?imageView2/1/w/114/h/60" alt="">
 			    				</div>
 			    			</li>
 			    			<li class="confirm-item">
-			    				<div class='col-xs-6'>
-			    					联系邮箱
-			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>xxxx@xxx.com</span>
-			    				</div>
-			    			</li>
-			    			<li class="rgb234 confirm-item">
-			    				<div class='col-xs-6'>
-			    					预定人数
-			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>2人</span>
-			    				</div>
+			    				<div class='step3-content'>
+									<span class='col-xs-3 text-center credit-num'>信用卡卡号</span>
+									<input type="text" class='col-xs-9' placeholder="请输入信用卡卡号">
+								</div>
 			    			</li>
 			    			<li class="confirm-item">
-			    				<div class='col-xs-6'>
-			    					单价
-			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>&yen;96/人</span>
-			    				</div>
-			    			</li>
-			    			<li class="rgb234 confirm-item">
-			    				<div class='col-xs-6'>
-			    					支付方式
-			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span>微信支付</span>
-			    				</div>
-			    			</li>
-			    			<li class="confirm-item" style="line-height: 30px;">
-			    				<div class='col-xs-6'>
-			    					订单金额
-			    				</div>
-			    				<div class='col-xs-6 text-right'>
-			    					<span class='font-size-30 rgb225'>&yen;192</span>
+			    				<div class='step3-content row'>
+			    					<div class='text-center col-sm-9 col-xs-12' style="margin-bottom: 24px;">
+			    						<span class='text-center col-xs-3 col-sm-4 credit-num'>有效期&nbsp;月/年</span>
+			    						<select name="month" class="col-xs-4 col-sm-4" style="height:56px;">
+											<option value="">01</option>
+											<option value="">02</option>
+											<option value="">03</option>
+											<option value="">04</option>
+										</select>
+										<select name="year" class="col-xs-5 col-sm-4" style="height:56px;">
+											<option value="">2016</option>
+											<option value="">2015</option>
+											<option value="">2014</option>
+											<option value="">2013</option>
+										</select>
+									</div>
+									<div class="col-sm-3 col-xs-12">
+										<span class='col-sm-6 text-center col-xs-3'>CVV</span>
+										<input type="text" class='col-xs-9 col-sm-6'>
+									</div>
 			    				</div>
 			    			</li>
 			    			<li class="confirm-item" style="padding:24px 13px 44px;">
-			    				<div class='col-sm-6' style="margin-bottom:10px;">
-			    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more">
-			    						返回修改
+			    				<div class='row'>
+			    					<div class='col-sm-6'>
+			    						<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;margin-bottom: 10px;" class="comment-more" >
+			    							确认支付
+			    						</div>
+			    					</div>
+			    					<div class='col-sm-6' style="margin-bottom:10px;">
+			    						<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more">
+			    							返回订单
+			    						</div>
 			    					</div>
 			    				</div>
-			    				<div class='col-sm-6'>
-			    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" >
-			    						立即支付
-			    					</div>
-			    				</div>
+			    				
+			    				
 			    				
 			    			</li>
 			    		</ul>
@@ -255,153 +241,5 @@
 
 	    </div>
 	</div>
-	<!-- <div style="background-color: rgba(0, 0, 0, 0.5);width:100%;height:100%;position:fixed;top:0;left:0;z-index:20;"></div> -->
-	<!-- <div class='font-size-16 container' style="position:fixed;z-index:100;top:20%;height:76%;width:50%;left:25%"> -->
-	
-	
-	<script>
-	$(function(){
-        var vm = new Vue({
-            el: '#app', //绑定id盒子
-            data: {  //初始化内容值
-                comment_num: 0,
-                comment_but: 1,
-                comment_show: 0,
-                page_size: 2,
-                page_p: 1,
-                info_type: 0,
-                info_id: 0,
-                info_wait: 100,
-                api_url: '',
-                Datetime: '',
-                Token: '',
-                info: {},
-                tree: [],
-                comment_1: [],
-                comment_2: []
-            },
-            methods: {
-
-            	//轮询检测支付状态
-                lunxun: function () { 
-                	if(this.info_type == 1){
-            			var _this = this;
-            			setInterval(function(){ 
-            				_this.$options.methods.check_order(_this);
-            		    }, 3000);
-                	}
-                },
-
-                //检测订单状态
-                check_order: function (_this) { 
-                    var headers = {
-                    	"Content-Type":"application/json",
-                    	"X-Api-Key":"web-app","Datetime":_this.Datetime,
-                    	"X-Auth-Token":_this.Token
-                    }
-                    var grouptour_url = _this.api_url+"order/"+_this.info_id;
-					_this.$http.get(grouptour_url, {headers: headers}).then(function(response){
-						// 响应成功回调
-						var _arr = response.json();
-						if(_arr && _arr.length != 0){
-						    if(_arr.paymentStatus == "Unpaid"){
-						        console.log("未支付");
-						    }else if(_arr.paymentStatus == "Paid"){
-						    	location.href = "./index.php?a=BuyOk";
-						    }
-						}
-					}, function(response){
-						// 响应错误回调
-					});
-                },
-            	//列表渲染
-                fetchUser: function () { 
-                	
-                	//计时器轮询
-                	// setTimeout(this.$options.methods.lunxun(), 1000);
-
-                	layer.open({type: 2});
-
-                    var headers = {
-                    	"Content-Type":"application/json",
-                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
-                    	"X-Auth-Token":this.Token
-                    }
-                    var grouptour_url = this.api_url+"order/"+this.info_id;
-					this.$http.get(grouptour_url, {headers: headers}).then(function(response){
-						// 响应成功回调
-						var _arr = response.json();
-						
-						// debug.log(response);
-						if(!!_arr && _arr.length == 0){
-							//提示
-							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
-						}else{
-							this.$set('info',_arr);	  
-							// debug.log(_arr);
-						}
-					}, function(response){
-						// 响应错误回调
-					});
-					 layer.closeAll();
-                }
-            },
-            ready: function() { //初始化执行的方法
-                this.fetchUser();
-                this.lunxun();
-               
-            }
-        });
-
-    });
-
-
-	function call_paypal() {
-		var _paypal_url = $("#paypal_url").val();
-		location.href = _paypal_url;
-	}
-	</script>
-	
-	<?php if($is_weixin){ ?>
-		<script>
-			//调用微信JS api 支付
-			function jsApiCall()
-			{
-				WeixinJSBridge.invoke(
-					'getBrandWCPayRequest',
-					<?php echo $returnContent; ?>,
-					function(res){
-						if(res.err_msg == "get_brand_wcpay_request:ok"){ //成功跳转
-							//alert("支付成功");
-							location.href = "./index.php?a=BuyOk";
-						}else{
-							WeixinJSBridge.log(res.err_msg);
-							alert(res.err_code+res.err_desc+res.err_msg);
-						}
-						
-					}
-				);
-			}
-
-			function callpay()
-			{
-				if (typeof WeixinJSBridge == "undefined"){
-				    if( document.addEventListener ){
-				        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-				    }else if (document.attachEvent){
-				        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
-				        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-				    }
-				}else{
-				    jsApiCall();
-				}
-			}
-		</script>	
-	<?php } ?>
-
-
-	
-	
-
 </body>
 </html>
