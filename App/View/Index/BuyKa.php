@@ -45,7 +45,7 @@
 		    <div class='font-size-16 container'>
 		    	<div class='row' style="margin-top: 40px;">
 		    		<div class="col-xs-12">
-		    			<div style="border:1px solid #ddd">
+		    			<div style="border: 1px solid #ddd;float: left;margin-bottom: 20px;">
 				    		<div class='bg-rgb225' style="padding:37px 24px 12px 24px;color:white;"> 
 				    			<div style="line-height:30px;font-size:28px;">信用卡付款信息</div>
 				    			<div style="line-height:30px;font-size:20px;">使用信用卡安全支付</div>
@@ -78,14 +78,14 @@
 				    			<li class="confirm-item">
 				    				<div class='step3-content row'>
 				    					<div class='text-center col-sm-9 col-xs-12' style="margin-bottom: 24px;">
-				    						<span class='text-center col-xs-3 col-sm-4 credit-num'>有效期&nbsp;月/年</span>
+				    						<span class='text-center col-xs-4 col-sm-4 credit-num'>有效期&nbsp;月/年</span>
 				    						<select name="month" class="col-xs-4 col-sm-4" style="height:56px;">
 												<option value="">01</option>
 												<option value="">02</option>
 												<option value="">03</option>
 												<option value="">04</option>
 											</select>
-											<select name="year" class="col-xs-5 col-sm-4" style="height:56px;">
+											<select name="year" class="col-xs-4 col-sm-4" style="height:56px;">
 												<option value="">2016</option>
 												<option value="">2015</option>
 												<option value="">2014</option>
@@ -98,7 +98,7 @@
 										</div>
 				    				</div>
 				    			</li>
-				    			<li class="confirm-item" style="padding:24px 13px 44px;">
+				    			<li class="confirm-item" style="padding:24px 13px 24px;">
 				    				<div class='row'>
 				    					<div class='col-sm-6'>
 				    						<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;margin-bottom: 10px;" class="comment-more" >
