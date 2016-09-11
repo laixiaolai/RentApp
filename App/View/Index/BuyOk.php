@@ -13,7 +13,8 @@
 	<title><?php echo $title;?></title>
 
 	<?php View::tplInclude('Public/css'); ?>
-	<?php View::tplInclude('Public/js'); ?></head>
+	<?php View::tplInclude('Public/js'); ?>
+</head>
 
 	
 
@@ -47,16 +48,16 @@
 		    		<div class='col-xs-12' style="background: white;padding-top: 46px;padding-bottom: 32px;">
 		    			<div class='text-center' style="margin-bottom:40px;">
 		    				<img src="./Img/done.png" alt="" width='71' height='80'>
-		    				<div style="margin-top:24px;margin-bottom:10px;" class="font-size-24">
+		    				<div style="margin-top:24px;margin-bottom:10px;" class="font-size-14">
 		    					支付成功，您已经成功付款
-		    					<span class='rgb225'>196元</span>！
+		    					<span class='rgb225'><?php echo isset($order_arr["totalAmount"]) ? $order_arr["totalAmount"]: ""; ?>元</span>！
 		    				</div>
 		    				<div class="font-size-16 rgb225">
 		    					<span>
 		    						订单号
 		    					</span>
 		    					<span style="margin-left:10px;">
-		    						20160910001 
+		    						<?php echo isset($order_arr["orderId"]) ? $order_arr["orderId"]: ""; ?>
 		    					</span>
 		    				</div>
 		    			</div>
@@ -64,13 +65,13 @@
 		    				我们将通过短信和邮件，把预订信息发送给您，请确保您的通信方式正常，并妥善保存预定信息。建议您添加我们的微信服务号，我们的客服人员将竭诚为你服务，感谢您的预定，祝您旅途愉快
 		    			</div>
 		    			<div class="row">
-		    				<div class='col-sm-6' style="margin-bottom:10px;">
+		    				<!-- <div class='col-sm-6' style="margin-bottom:10px;">
 		    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more font-size-20">
 		    						确定
 		    					</div>
-		    				</div>
+		    				</div> -->
 		    				<div class='col-sm-6'>
-		    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more font-size-20" >
+		    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more font-size-20" onclick="call_info()">
 		    						返回详情
 		    					</div>
 		    				</div>
@@ -79,6 +80,7 @@
 		    	</div>
 		    	
 		    </div>
+
 	    </div>
 	    <!-- 底部 -->
 	    <div class="footer">
@@ -201,5 +203,12 @@
 
 	    </div>
 	</div>
+
+	<script>
+		//paypal支付
+	function call_info() {
+		location.href = '<?php echo isset($order_arr["info_url"]) ? $order_arr["info_url"]:  $host_url; ?>';
+	}
+	</script>
 </body>
 </html>

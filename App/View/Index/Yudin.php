@@ -223,11 +223,11 @@
 	    							<div class='col-xs-12  step-article'>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>姓名</span>
-	    									<input type="text" class='col-xs-9' placeholder="xiaowang" v-model="info_xm">
+	    									<input type="text" class='col-xs-9' placeholder="xiaoming" v-model="info_xm">
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>电话</span>
-	    									<input type="text" class='col-xs-9' placeholder="1234567890" v-model="info_dh">
+	    									<input type="text" class='col-xs-9' placeholder="13000000000" v-model="info_dh">
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>邮箱</span>
@@ -323,7 +323,7 @@
 	    	</div>
 	    </div>
     	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
-    	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' v-model="info_time" >
+    	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' >
     	<input type="hidden" value='<?php echo $num; ?>' v-model="info_num">
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
@@ -485,8 +485,8 @@
     			$('#xz_time').val(timestamp2);
     			
     			//debug.log(timestamp2);
-    			//var formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
-    			//debug.log(moment(timestamp2).format(formatString));
+    			// var formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
+    			// debug.log(moment(timestamp2).format(formatString));
     		},
     		dateFormat: 'yy-mm-dd',
     	});
@@ -519,7 +519,7 @@
 	            methods: {
 	            	
 	            	
-	            	//列表渲染
+	            	//预订
 	                add_yudin: function () { 
 
 
@@ -534,6 +534,8 @@
 	                		return false; 
 	                	};
 
+	                	
+	                	this.$set('info_time',parseInt($('#xz_time').val()));
 	                	if (!this.info_time) {
 	                		layer.open({content: '请选择预定日期',skin: 'msg',time: 2  });
 	                		return false; 
@@ -544,8 +546,14 @@
 	                		return false; 
 	                	};
 
-	                	if (!this.info_dh && !this.info_yx) {
-	                		layer.open({content: '电话跟邮箱至少输入一项',skin: 'msg',time: 2  });
+	                	if (!this.info_dh) {
+	                		layer.open({content: '请输入电话',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+	                	var remail = /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i
+	                	if (!remail.test(this.info_yx )) {
+	                		layer.open({content: '邮箱格式不正确',skin: 'msg',time: 2  });
 	                		return false; 
 	                	};
 
@@ -555,19 +563,20 @@
 	                		return false; 
 	                	};
 
+
+
 	                	this.$set('info.userId',0);
 	                	this.$set('info.groupTourId',parseInt(this.info_id));
 	                	this.$set('info.numOfMember',parseInt(this.info_num));
 	                	this.$set('info.startDate',parseInt(this.info_time));
 	                	this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
 	                	this.$set('info.contactName',this.info_xm);
-
-						this.$set('info.contactTel',this.info_dh);
-						this.$set('info.contactEmail',this.info_yx);
+	                	this.$set('info.contactTel',this.info_dh);
+	                	this.$set('info.contactEmail',this.info_yx);
 	                	
 
 	                	// debug.log(parseInt(this.info.groupTour.actualPrice * this.info_num));
-						// return false;
+						//return false;
 						
 	                	layer.open({type: 2});
 	                    var headers = {
@@ -595,7 +604,7 @@
 
 	                },	
 	            	
-	            	//列表渲染
+	            	//商品详细数据
 	                fetchUser: function () { 
 	                	
 	                	layer.open({type: 2});

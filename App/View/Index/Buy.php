@@ -17,7 +17,7 @@
 
 	
 
-<body>
+<body  id="app">
 	<div>
 	    <header id='header' class='navbar-static-top navbar' style='position: relative;border-bottom: 1px solid #e4e4e4;background-color: #fff;'>
 	        <div class="navbar-header">
@@ -46,8 +46,8 @@
 		    	<div class='row' style="margin-top: 40px;">
 		    		<div class='col-xs-12'>
 			    		<div class='bg-rgb225' style="padding:18px 24px;color:white;"> 
-			    			<div style="line-height:30px;">产品名：东半球第二好吃的清迈米粉大餐</div>
-			    			<div style="line-height:30px;">订单号：201609100001</div>
+			    			<div style="line-height:30px;">产品名：{{info.groupTour.title}}</div>
+			    			<div style="line-height:30px;">订单号：<?php echo($order_arr['orderId']); ?></div>
 			    		</div>
 			    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
 			    			<li class="rgb234 confirm-item">
@@ -55,8 +55,8 @@
 			    					预定时间
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>2016/09/20</span>
-			    					<span style="margin-left:14px">19:00</span>
+			    					<span><?php echo($order_arr['startDate']); ?></span>
+			    					<!-- <span style="margin-left:14px">19:00</span> -->
 			    				</div>
 			    			</li>
 			    			<li class="confirm-item">
@@ -64,7 +64,7 @@
 			    					预定姓名
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>xiaowang</span>
+			    					<span><?php echo($order_arr['contactName']); ?></span>
 			    				</div>
 			    			</li>
 			    			<li class="rgb234 confirm-item">
@@ -72,7 +72,7 @@
 			    					联系电话
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>1234567890</span>
+			    					<span><?php echo($order_arr['contactTel']); ?></span>
 			    				</div>
 			    			</li>
 			    			<li class="confirm-item">
@@ -80,7 +80,7 @@
 			    					联系邮箱
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>xxxx@xxx.com</span>
+			    					<span><?php echo($order_arr['contactEmail']); ?></span>
 			    				</div>
 			    			</li>
 			    			<li class="rgb234 confirm-item">
@@ -88,7 +88,7 @@
 			    					预定人数
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>2人</span>
+			    					<span><?php echo($order_arr['numOfMember']); ?>人</span>
 			    				</div>
 			    			</li>
 			    			<li class="confirm-item">
@@ -96,7 +96,7 @@
 			    					单价
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>&yen;96/人</span>
+			    					<span>&yen;<?php echo($order_arr['totalAmount']/$order_arr['numOfMember']); ?>/人</span>
 			    				</div>
 			    			</li>
 			    			<li class="rgb234 confirm-item">
@@ -104,7 +104,12 @@
 			    					支付方式
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>微信支付</span>
+			    					<?php if ($type == 1){ ?>
+			    						<span>微信支付</span>
+			    					<?php }elseif($type == 2){ ?>	
+			    						<span>paypal支付</span>
+			    					<?php } ?>	
+			    					
 			    				</div>
 			    			</li>
 			    			<li class="confirm-item" style="line-height: 30px;">
@@ -112,19 +117,30 @@
 			    					订单金额
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span class='font-size-30 rgb225'>&yen;192</span>
+			    					<span class='font-size-30 rgb225'>&yen;<?php echo($order_arr['totalAmount']); ?></span>
 			    				</div>
 			    			</li>
+
+			    			<?php if(!$is_weixin && $type == 1){ ?>
+			    			<li class="confirm-item" style="line-height: 30px;text-align: center;font-size: 18px;">
+		    					<p>请用微信扫码完成支付</p>
+		    					<img src="<?php echo $qrcode_url;?>" alt="" width="100%">
+			    			</li>
+			    			<?php } ?>
+
 			    			<li class="confirm-item" style="padding:24px 13px 44px;">
 			    				<div class='col-sm-6' style="margin-bottom:10px;">
-			    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more">
+			    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more" onclick="javascript:history.back(-1);">
 			    						返回修改
 			    					</div>
 			    				</div>
 			    				<div class='col-sm-6'>
-			    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" >
-			    						立即支付
-			    					</div>
+				    				<?php if($type == 2 && isset($paypal_redirectUrl)){ ?>
+				    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" onclick="call_paypal()"> 立即支付 </div>
+				    				<?php }else if ($type == 1 && $is_weixin) { ?>
+				    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" onclick="callpay()"> 立即支付 </div>
+				    				<?php } ?>
+			    					
 			    				</div>
 			    				
 			    			</li>
@@ -255,8 +271,14 @@
 
 	    </div>
 	</div>
-	<!-- <div style="background-color: rgba(0, 0, 0, 0.5);width:100%;height:100%;position:fixed;top:0;left:0;z-index:20;"></div> -->
-	<!-- <div class='font-size-16 container' style="position:fixed;z-index:100;top:20%;height:76%;width:50%;left:25%"> -->
+	<input type="hidden" value='<?php echo $is_weixin; ?>' v-model="info_is_weixin">
+	<input type="hidden" value='<?php echo $type; ?>' v-model="info_type">
+	<input type="hidden" value='<?php echo($order_arr['groupTourId']); ?>' v-model="info_gid">
+	<input type="hidden" value='<?php echo $order_id; ?>' id="order_id" v-model="info_id">
+	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
+    <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
+    <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
+    <input type="hidden" value='<?php echo isset($paypal_redirectUrl) ? $paypal_redirectUrl: ""; ?>' id="paypal_url">
 	
 	
 	<script>
@@ -269,9 +291,10 @@
                 comment_show: 0,
                 page_size: 2,
                 page_p: 1,
+                info_gid: 0,
                 info_type: 0,
+                info_is_weixin: 0,
                 info_id: 0,
-                info_wait: 100,
                 api_url: '',
                 Datetime: '',
                 Token: '',
@@ -281,17 +304,15 @@
                 comment_2: []
             },
             methods: {
-
             	//轮询检测支付状态
                 lunxun: function () { 
-                	if(this.info_type == 1){
+                	if(this.info_type == "1" && this.info_is_weixin == "0"){
             			var _this = this;
             			setInterval(function(){ 
             				_this.$options.methods.check_order(_this);
             		    }, 3000);
                 	}
                 },
-
                 //检测订单状态
                 check_order: function (_this) { 
                     var headers = {
@@ -306,20 +327,44 @@
 						if(_arr && _arr.length != 0){
 						    if(_arr.paymentStatus == "Unpaid"){
 						        console.log("未支付");
-						    }else if(_arr.paymentStatus == "Paid"){
-						    	location.href = "./index.php?a=BuyOk";
+						    }else if(_arr.paymentStatus == "Paidid"){
+						    	location.href = "./index.php?a=BuyOk&order_id="+_this.info_id;
 						    }
 						}
 					}, function(response){
 						// 响应错误回调
 					});
                 },
+            	//商品详细数据
+                goods_info: function () { 
+                	
+                	layer.open({type: 2});
+
+                    var headers = {
+                    	"Content-Type":"application/json",
+                    	"X-Api-Key":"web-app","Datetime":this.Datetime,
+                    	"X-Auth-Token":this.Token
+                    }
+                    var grouptour_url = this.api_url+"grouptour/"+this.info_gid;
+					this.$http.get(grouptour_url, {headers: headers}).then(function(response){
+						// 响应成功回调
+						var _arr = response.json();
+						
+						// debug.log(response);
+						if(!!_arr && _arr.length == 0){
+							//提示
+							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
+						}else{
+							this.$set('info',response.json());
+						}
+					}, function(response){
+						// 响应错误回调
+					});
+					 layer.closeAll();
+                },
             	//列表渲染
                 fetchUser: function () { 
                 	
-                	//计时器轮询
-                	// setTimeout(this.$options.methods.lunxun(), 1000);
-
                 	layer.open({type: 2});
 
                     var headers = {
@@ -347,15 +392,14 @@
                 }
             },
             ready: function() { //初始化执行的方法
-                this.fetchUser();
+                this.goods_info();
                 this.lunxun();
-               
             }
         });
 
     });
 
-
+	//paypal支付
 	function call_paypal() {
 		var _paypal_url = $("#paypal_url").val();
 		location.href = _paypal_url;
@@ -373,7 +417,8 @@
 					function(res){
 						if(res.err_msg == "get_brand_wcpay_request:ok"){ //成功跳转
 							//alert("支付成功");
-							location.href = "./index.php?a=BuyOk";
+							var _order_id = $("#order_id").val();
+							location.href = "./index.php?a=BuyOk&order_id="+_order_id;
 						}else{
 							WeixinJSBridge.log(res.err_msg);
 							alert(res.err_code+res.err_desc+res.err_msg);
@@ -398,10 +443,6 @@
 			}
 		</script>	
 	<?php } ?>
-
-
-	
-	
 
 </body>
 </html>
