@@ -45,7 +45,7 @@
 		    <div class='font-size-16 container'>
 		    	<div class='row' style="margin-top: 40px;">
 		    		<div class="col-xs-12">
-		    			<div style="border: 1px solid #ddd;float: left;margin-bottom: 20px;">
+		    			<div style="box-shadow: 0 0px 10px 0 #e5e5e5;float: left;margin-bottom: 20px;">
 				    		<div class='bg-rgb225' style="padding:37px 24px 12px 24px;color:white;"> 
 				    			<div style="line-height:30px;font-size:28px;">信用卡付款信息</div>
 				    			<div style="line-height:30px;font-size:20px;">使用信用卡安全支付</div>
