@@ -42,8 +42,23 @@
     <div class="swiper-container">
       
         <div class="swiper-wrapper">
-            <div class="swiper-slide"  v-for="items in info.photo">
+            <!-- <div class="swiper-slide"  v-for="items in info.photo">
                 <img src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
+            </div> -->
+            <div class="swiper-slide">
+                <img src="./Img/info_carousel1.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img src="./Img/info_carousel2.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img src="./Img/info_carousel3.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img src="./Img/info_carousel4.jpg" width="100%">
+            </div>
+            <div class="swiper-slide">
+                <img src="./Img/info_carousel5.jpg" width="100%">
             </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -692,7 +707,7 @@
                 // updateOnImagesReady : true,
                 observer:true,
                 observeParents:true,
-                // loop: true,
+                loop: true,
             });
         })
         
