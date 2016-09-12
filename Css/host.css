@@ -501,6 +501,7 @@ img {
 }
 .INFO-location {
 	font-size: 12px;
+    line-height: 20px;
 	padding-right: 20px;
 	color:rgb(132, 132, 132)
 }
