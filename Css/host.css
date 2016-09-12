@@ -485,7 +485,8 @@ img {
 /*************************搜索end********************************/
 /*************************搜索结果start******************************/
 .INFO-title {
-	display: flex;
+	display: -webkit-flex;
+    display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 14px
@@ -500,6 +501,7 @@ img {
 }
 .INFO-location {
 	font-size: 12px;
+    line-height: 20px;
 	padding-right: 20px;
 	color:rgb(132, 132, 132)
 }
@@ -657,6 +659,7 @@ img {
     color: #313131;
 }
 #search-page .link-meal {
+    display: -webkit-inline-flex;
     display: inline-flex;
     max-height: 3.3em;
 }
@@ -1175,11 +1178,11 @@ label {
 .step3-content span {
     background-color: rgb(216,216,216);
 }
-.step3-content input {
+.step3-content input, .step3-content select{
     border: 1px solid #ddd;
     padding: 0;
     height: 56px;
-    padding: 20px 30px;
+    padding: 15px 30px;
     color: rgb(152, 152, 152);
     text-align: right;
 }
@@ -1382,8 +1385,12 @@ label {
     text-align: center;
     line-height: 62px;
     border: 1px solid #ddd;
+    cursor: pointer;
 }
-@media (max-width: 410px){
+.credits.active {
+    border-color: rgb(225, 112, 114);
+}
+@media (max-width: 420px){
     .credit-num {
         padding: 0;
     }

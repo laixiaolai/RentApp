@@ -197,6 +197,7 @@ class IndexController extends BaseController {
         $this->assign('returnContent', $returnContent);
         $this->assign('order_arr', $order_arr);
         $this->assign('order_id', $order_id);
+        $this->assign('user_id', $user_id);
         $this->assign('openid', $openid);
         $this->assign('token', $token);
         $this->assign('type', $type);
@@ -216,7 +217,7 @@ class IndexController extends BaseController {
         $user_id  = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
         $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
         $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
-       
+        
         if(!$token){
             exit(json_encode(array('success'=>false,'msg'=>'token不存在')));
         } 
@@ -255,10 +256,9 @@ class IndexController extends BaseController {
         //检测订单是否存在
         $order_url     = API_URL."order/".$order_id;
         $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
+       
         if(FALSE === empty($order_res['Body'])){
             $order_arr = json_decode($order_res['Body'],true);
-            
-
             //检测如果支付成功跳转支付成功页
             if(FALSE === empty($order_arr['paymentStatus'])){
                 if($order_arr['paymentStatus'] == "Paid"){
@@ -282,7 +282,7 @@ class IndexController extends BaseController {
         //创建信用卡
         $creditcard_url     = API_URL."charge/paypal/".$user_id."/creditcard";
         list($paypal_returnCode, $paypal_returnContent)  = http_post_json($creditcard_url, json_encode($paypal_jsonStr),$header);
-        // dump($paypal_returnCode);
+        // dump($paypal_jsonStr);
         // dump($paypal_returnContent);
         // die;
         if($paypal_returnCode != 200){
@@ -299,8 +299,8 @@ class IndexController extends BaseController {
             exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent2)));
         }
 
-
-        header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
+        exit(json_encode(array('success'=>true,'msg'=>"支付成功")));
+        //header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
     }
 
 

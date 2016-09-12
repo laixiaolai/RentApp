@@ -56,7 +56,7 @@
 				    				<div class='credits col-sm-2 col-xs-4 '>
 				    					<img src="./Img/credit_union.png?imageView2/1/w/114/h/60" alt="">
 				    				</div>
-				    				<div style="border: 1px solid #ddd;" class='credits col-sm-2 col-xs-4'>
+				    				<div class='credits col-sm-2 col-xs-4'>
 				    					<img src="./Img/credit_visa.png?imageView2/1/w/114/h/60" alt="" width="100%">
 				    				</div>
 				    				<div class='credits col-sm-2 col-xs-4'>
@@ -244,4 +244,13 @@
 	    </div>
 	</div>
 </body>
+<script>
+	$('.credits').click(function(e){
+		if($(e.currentTarget).hasClass('active')){
+			return false;
+		}
+		$('.credits').removeClass('active');
+		$(e.currentTarget).addClass('active');
+	});
+</script>
 </html>
