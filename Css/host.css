@@ -1343,6 +1343,11 @@ label {
 .swiper-button-next {
     background-image: url('../Img/next.png');
 }
+@media (max-width: 450px){
+    .swiper-button-next, .swiper-button-prev {
+        background-size: 50% 50%;
+    }
+}
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
     border: 1px solid #eee;
     background: rgb(225, 112, 114);
