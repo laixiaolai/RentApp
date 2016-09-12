@@ -809,13 +809,13 @@
 	                		return false; 
 	                	};
 
-	                	if (!this.info_dh) {
-	                		layer.open({content: '请输入电话',skin: 'msg',time: 2  });
+	                	if (!this.info_dh && !this.info_yx ) {
+	                		layer.open({content: '电话跟邮箱至少输入一个',skin: 'msg',time: 2  });
 	                		return false; 
 	                	};
 
 	                	var remail = /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i
-	                	if (!remail.test(this.info_yx )) {
+	                	if (this.info_yx && !remail.test(this.info_yx )) {
 	                		layer.open({content: '邮箱格式不正确',skin: 'msg',time: 2  });
 	                		return false; 
 	                	};

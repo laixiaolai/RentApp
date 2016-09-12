@@ -150,6 +150,135 @@
 		    	
 		    </div>
 	    </div>
+
+
+		<!-- 中间确认框 -->
+	    <?php if($type == 3){ ?>
+	    <div style='background-color: rgb(246, 246, 246);'>
+		    <div class='font-size-16 container'>
+		    	<div class='row' style="margin-top: 40px;">
+		    		<div class="col-xs-12">
+		    			<div style="box-shadow: 0 0px 10px 0 #e5e5e5;float: left;margin-bottom: 20px;">
+				    		<div class='bg-rgb225' style="padding:37px 24px 12px 24px;color:white;"> 
+				    			<div style="line-height:30px;font-size:28px;">信用卡付款信息</div>
+				    			<div style="line-height:30px;font-size:20px;">使用信用卡安全支付</div>
+				    			<div style="font-size:17px;text-align: right;">Processed by Paypal</div>
+				    		</div>
+				    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
+				    			<li class="confirm-item" >
+				    				<div class='credits col-sm-2 col-xs-4 ' data-type="unionpay">
+				    					<img src="./Img/credit_union.png?imageView2/1/w/114/h/60" alt="">
+				    				</div>
+				    				<div class='credits col-sm-2 col-xs-4' data-type="visa">
+				    					<img src="./Img/credit_visa.png?imageView2/1/w/114/h/60" alt="" width="100%">
+				    				</div>
+				    				<div class='credits col-sm-2 col-xs-4' data-type="mastercard">
+				    					<img src="./Img/credit_master.png?imageView2/1/w/114/h/60" alt="">
+				    				</div>
+				    				<div class='credits col-sm-2 col-xs-4' data-type="americanexpress">
+				    					<img src="./Img/credit_ae.png?imageView2/1/w/114/h/60" alt="">
+				    				</div>
+				    				<div class='credits col-sm-2 col-xs-4' data-type="jcb">
+				    					<img src="./Img/credit_jcb.png?imageView2/1/w/114/h/60" alt="">
+				    				</div>
+				    			</li>
+				    			<li class="confirm-item">
+				    				<div class='step3-content'>
+										<span class='col-xs-3 text-center credit-num'>信用卡卡号</span>
+										<input type="text" class='col-xs-9' placeholder="请输入信用卡卡号" v-model="addinfo.number">
+									</div>
+				    			</li>
+				    			<li class="confirm-item">
+				    				<div class='step3-content row'>
+				    					<div class='text-center col-sm-9 col-xs-12' style="margin-bottom: 24px;">
+				    						<span class='text-center col-xs-4 col-sm-4 credit-num'>有效期&nbsp;月/年</span>
+				    						<select name="month" class="col-xs-4 col-sm-4" style="height:56px;" v-model="addinfo.expMonth">
+												<option value="1" >1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9" selected="selected">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+											</select>
+											<select name="year" class="col-xs-4 col-sm-4" style="height:56px;" v-model="addinfo.expYear">
+												<option value="1986">1986</option>
+												<option value="1987">1987</option>
+												<option value="1988">1988</option>
+												<option value="1989">1989</option>
+												<option value="1990">1990</option>
+												<option value="1991">1991</option>
+												<option value="1992">1992</option>
+												<option value="1993">1993</option>
+												<option value="1994">1994</option>
+												<option value="1995">1995</option>
+												<option value="1996">1996</option>
+												<option value="1997">1997</option>
+												<option value="1998">1998</option>
+												<option value="1999">1999</option>
+												<option value="2000">2000</option>
+												<option value="2001">2001</option>
+												<option value="2002">2002</option>
+												<option value="2003">2003</option>
+												<option value="2004">2004</option>
+												<option value="2005">2005</option>
+												<option value="2006">2006</option>
+												<option value="2007">2007</option>
+												<option value="2008">2008</option>
+												<option value="2009">2009</option>
+												<option value="2010">2010</option>
+												<option value="2011">2011</option>
+												<option value="2012">2012</option>
+												<option value="2013">2013</option>
+												<option value="2014">2014</option>
+												<option value="2015">2015</option>
+												<option value="2016"  selected="selected">2016</option>
+												<option value="2017">2017</option>
+												<option value="2018">2018</option>
+												<option value="2019">2019</option>
+												<option value="2020">2020</option>
+												<option value="2021">2021</option>
+												<option value="2022">2022</option>
+												<option value="2023">2023</option>
+												<option value="2024">2024</option>
+												<option value="2025">2025</option>
+												<option value="2026">2026</option>
+												<option value="2027">2027</option>
+												<option value="2028">2028</option>
+												<option value="2029">2029</option>
+												<option value="2030">2030</option>
+											</select>
+										</div>
+										<div class="col-sm-3 col-xs-12">
+											<span class='col-sm-6 text-center col-xs-3'>CVV</span>
+											<input type="text" class='col-xs-9 col-sm-6' v-model="addinfo.cvv">
+										</div>
+				    				</div>
+				    			</li>
+				    			<li class="confirm-item" style="padding:24px 13px 24px;">
+				    				<div class='row'>
+				    					<div class='col-sm-6'>
+				    						<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;margin-bottom: 10px;" class="comment-more" @click="xyk_buy">
+				    							确认支付
+				    						</div>
+				    					</div>
+				    				</div>
+				    			</li>
+				    		</ul>
+		    			</div>
+		    		</div>
+		    	</div>
+		    	
+		    </div>
+	    </div>
+		<?php } ?>
+
+
 	    <!-- 底部 -->
 	    <div class="footer">
 	        <div class="container">
@@ -271,10 +400,11 @@
 
 	    </div>
 	</div>
-	<input type="hidden" value='<?php echo $is_weixin; ?>' v-model="info_is_weixin">
 	<input type="hidden" value='<?php echo $type; ?>' v-model="info_type">
+	<input type="hidden" value='' id="addinfo_type">
 	<input type="hidden" value='<?php echo($order_arr['groupTourId']); ?>' v-model="info_gid">
 	<input type="hidden" value='<?php echo $order_id; ?>' id="order_id" v-model="info_id">
+	<input type="hidden" value='<?php echo $user_id; ?>' id="user_id">
 	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
     <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
     <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
@@ -283,6 +413,16 @@
 	
 	<script>
 	$(function(){
+		$('.credits').click(function(e){
+			// debug.log($(this).attr("data-type"));
+			$("#addinfo_type").val($(this).attr("data-type"));
+			if($(e.currentTarget).hasClass('active')){
+				return false;
+			}
+			$('.credits').removeClass('active');
+			$(e.currentTarget).addClass('active');
+		});
+
         var vm = new Vue({
             el: '#app', //绑定id盒子
             data: {  //初始化内容值
@@ -299,14 +439,65 @@
                 Datetime: '',
                 Token: '',
                 info: {},
+                addinfo: {},
                 tree: [],
                 comment_1: [],
                 comment_2: []
             },
             methods: {
+            	//信用卡支付
+                xyk_buy: function () { 
+                	
+					
+                	this.$set('addinfo.type',$("#addinfo_type").val());
+					if(!this.addinfo.type){
+						layer.open({content: '请选择信用卡类型',skin: 'msg',time: 2  });
+						return false; 
+					}     
+					if(!this.addinfo.number){
+						layer.open({content: '请输入信用卡卡号',skin: 'msg',time: 2  });
+						return false; 
+					}     
+					if(!this.addinfo.expMonth){
+						layer.open({content: '请选择信用卡月份',skin: 'msg',time: 2  });
+						return false; 
+					}     
+					if(!this.addinfo.expYear){
+						layer.open({content: '请选择信用卡年份',skin: 'msg',time: 2  });
+						return false; 
+					}     
+  
+					if(!this.addinfo.cvv){
+						layer.open({content: '请输入信用卡CVV',skin: 'msg',time: 2  });
+						return false; 
+					}    
+
+					this.$set('addinfo.user_id',$("#user_id").val()); 
+					this.$set('addinfo.order_id',$("#order_id").val()); 
+
+
+					layer.open({type: 2});
+					//return false;
+                    var BuyPaypalKa_url = "http://www.html5.dev/index.php?a=BuyPaypalKa";
+                    $.ajax({
+                        // async : true,  
+                        url : BuyPaypalKa_url, //请求地址
+                        type : 'post', //POST或GET请求
+                        dataType : 'json',//json 或者 jsonp 默认是html
+                        data : this.addinfo,
+                        error : function() {
+                            debug.log('支付失败');
+                            layer.closeAll();
+                        },
+                        success : function(result) {
+                        	//debug.log(result);
+                        	layer.closeAll();
+                        }
+                    });
+                },
             	//轮询检测支付状态
                 lunxun: function () { 
-                	if(this.info_type == "1" && this.info_is_weixin == "0"){
+                	if((this.info_type == "1" && this.info_is_weixin == "0") || (this.info_type == "3")){
             			var _this = this;
             			setInterval(function(){ 
             				_this.$options.methods.check_order(_this);
@@ -327,7 +518,7 @@
 						if(_arr && _arr.length != 0){
 						    if(_arr.paymentStatus == "Unpaid"){
 						        console.log("未支付");
-						    }else if(_arr.paymentStatus == "Paidid"){
+						    }else if(_arr.paymentStatus == "Paid"){
 						    	location.href = "./index.php?a=BuyOk&order_id="+_this.info_id;
 						    }
 						}
