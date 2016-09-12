@@ -708,7 +708,7 @@
                     updateOnImagesReady : true,//当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化
                     observer:true,
                     observeParents:true,
-                    // loop: true,
+                    loop: true,
                 });
             }, 1000);
             // function(){
