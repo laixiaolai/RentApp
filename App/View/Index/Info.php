@@ -43,7 +43,7 @@
       
         <div class="swiper-wrapper">
             <div class="swiper-slide"  v-for="items in info.photo">
-                <img class="swiper-goods-list-img swiper-lazy" src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
+                <img src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
             </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -495,24 +495,7 @@
     <input type="hidden" id="xz_time" value='<?php echo strtotime("+2 day")*1000; ?>'>
     <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
     <script>        
-        var mySwiper = new Swiper ('.swiper-container', {
-            direction: 'horizontal',
-            loop: true,
-            autoplay: 1000,
-            autoplayDisableOnInteraction: false,//用户触碰后不会停止
-            // 如果需要分页器
-            // pagination: '.swiper-pagination',
-            // paginationClickable: true,//点击分页会自动切换。
-            
-            // 如果需要前进后退按钮
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            
-            // 如果需要滚动条
-            // scrollbar: '.swiper-scrollbar',
-            // 设置slider容器能够同时显示的slides数量(carousel模式)
-            slidesPerView: 3
-        });
+        
         // window.onscroll = function(){
         //     if(document.body.scrollWidth>991){
         //         //滚动条的滚动距离
@@ -690,6 +673,29 @@
             });
 
         });
+        $(function(){
+            var mySwiper = new Swiper ('.swiper-container', {
+                initialSlide: 0,
+                autoplay: 1500,
+                direction: 'horizontal',
+                autoplayDisableOnInteraction: false,//用户触碰后不会停止
+                autoplayStopOnLast: false,
+                // 如果需要分页器
+                // pagination: '.swiper-pagination',
+                // paginationClickable: true,//点击分页会自动切换。
+                
+                // 如果需要前进后退按钮
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                slidesPerView: 3,
+                // preventClicks : false,//自动播放的时候不允许手动滑动
+                // updateOnImagesReady : true,
+                observer:true,
+                observeParents:true,
+                // loop: true,
+            });
+        })
+        
       </script>
 </body>
 </html>
