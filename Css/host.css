@@ -489,8 +489,8 @@ img {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-	justify-content: space-between;
-	align-items: center;
+	-webkit-justify-content: space-between;
+	-webkit-align-items: center;
 	margin-bottom: 14px;
     /*position: relative;*/
 }
