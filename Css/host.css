@@ -1382,6 +1382,10 @@ label {
     text-align: center;
     line-height: 62px;
     border: 1px solid #ddd;
+    cursor: pointer;
+}
+.credits.active {
+    border-color: rgb(225, 112, 114);
 }
 @media (max-width: 420px){
     .credit-num {
