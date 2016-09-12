@@ -704,7 +704,7 @@
                 prevButton: '.swiper-button-prev',
                 slidesPerView: 3,
                 // preventClicks : false,//自动播放的时候不允许手动滑动
-                // updateOnImagesReady : true,
+                updateOnImagesReady : true,//当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化
                 observer:true,
                 observeParents:true,
                 // loop: true,
