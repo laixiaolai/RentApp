@@ -485,14 +485,14 @@ img {
 /*************************搜索end********************************/
 /*************************搜索结果start******************************/
 .INFO-title {
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 	-webkit-justify-content: space-between;
-	-webkit-align-items: center;
+	-webkit-align-items: center;*/
 	margin-bottom: 14px;
-    /*position: relative;*/
+    position: relative;
 }
 .INFO-username {
 	margin-left:16px;
@@ -507,7 +507,9 @@ img {
     line-height: 20px;
 	padding-right: 20px;
 	color:rgb(132, 132, 132);
-    /*position: */
+    position: absolute;
+    right: 0;
+    top: 15px;
 }
 .INFO-description {
 	margin-bottom: 20px;
