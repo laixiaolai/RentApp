@@ -478,7 +478,7 @@
 
 					layer.open({type: 2});
 					//return false;
-                    var BuyPaypalKa_url = "http://www.html5.dev/index.php?a=BuyPaypalKa";
+                    var BuyPaypalKa_url = "./index.php?a=BuyPaypalKa";
                     $.ajax({
                         // async : true,  
                         url : BuyPaypalKa_url, //请求地址
