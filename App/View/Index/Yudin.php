@@ -227,8 +227,9 @@
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>区号</span>
-	    									<select name="area" id="areaCode" class="col-xs-9">
+	    									<select name="area" id="areaCode" class="col-xs-9"  v-model="info_qh">
 	    										<!-- 第一页 -->
+	    										<option value="86" selected="selected">中国(China)</option>
 	    										<option value="93">阿富汗(Afghanistan)</option>
 	    										<option value="1907">阿拉斯加(Alaska(U.S.A))</option>
 	    										<option value="355">阿尔巴尼亚(Albania)</option>
@@ -484,7 +485,6 @@
 												<option value="259">桑给巴尔(Zanzibar)</option>
 	    										<option value="263">津巴布韦(Zimbabwe)</option>
 	    										<option value="86">中华人民共和国(P.R.C.)</option>
-	    										<option value="86">中国(China)</option>
 	    									</select>
 	    								</div>
 	    								<div class='step3-content'>
@@ -769,6 +769,7 @@
 	                info_time: 0,
 	                info_num: 0,
 	                info_xm: '',
+	                info_qh: '',
 	                info_dh: '',
 	                info_yx: '',
 	                api_url: '',
@@ -834,7 +835,8 @@
 	                	this.$set('info.startDate',parseInt(this.info_time));
 	                	this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
 	                	this.$set('info.contactName',this.info_xm);
-	                	this.$set('info.contactTel',this.info_dh);
+	                	this.$set('info.contactTel',this.info_qh+this.info_dh);
+	                	// this.$set('info.contactTel',this.info_dh);
 	                	this.$set('info.contactEmail',this.info_yx);
 	                	
 
