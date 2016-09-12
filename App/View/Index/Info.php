@@ -574,8 +574,12 @@
         //         }
         //     }
         // }
-        $( "#datepickerBig" ).datepicker();
-        $( "#datepickerSmall" ).datepicker();
+        $( "#datepickerBig" ).datepicker({
+            minDate: 0,
+        });
+        $( "#datepickerSmall" ).datepicker({
+            minDate: 0,
+        });
         $("#numberBig").selectmenu();
         $("#numberSmall").selectmenu();
 

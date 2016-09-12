@@ -489,6 +489,7 @@
     			// debug.log(moment(timestamp2).format(formatString));
     		},
     		dateFormat: 'yy-mm-dd',
+    		minDate: 0,
     	});
 
 	    $(function(){
