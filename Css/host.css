@@ -1383,7 +1383,7 @@ label {
     line-height: 62px;
     border: 1px solid #ddd;
 }
-@media (max-width: 410px){
+@media (max-width: 420px){
     .credit-num {
         padding: 0;
     }
