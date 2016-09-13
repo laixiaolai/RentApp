@@ -730,6 +730,8 @@
     		$('#showTime').text(chooseValue);
     	}
     	var _xz_time = Number($("#xz_time").val());
+    	debug.log($("#xz_time").val());
+    	debug.log(_xz_time);
     	getSelectDate(_xz_time);
 
     	$( "#showDate" ).datepicker({
