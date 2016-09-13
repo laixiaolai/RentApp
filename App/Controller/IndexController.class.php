@@ -214,6 +214,7 @@ class IndexController extends BaseController {
         $expMonth = isset($_POST['expMonth']) ? trim($_POST['expMonth']) : '';
         $expYear  = isset($_POST['expYear']) ? trim($_POST['expYear']) : '';
         $cvv      = isset($_POST['cvv']) ? trim($_POST['cvv']) : '';
+        $currencyCode      = isset($_POST['currencyCode']) ? trim($_POST['currencyCode']) : '';
         $user_id  = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
         $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
         $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
@@ -241,6 +242,9 @@ class IndexController extends BaseController {
         }
         if(!$cvv){
             exit(json_encode(array('success'=>false,'msg'=>'请输入CVV')));
+        }
+        if(!$currencyCode){
+            exit(json_encode(array('success'=>false,'msg'=>'请输入国家码')));
         }
 
         set_time_limit(60);
@@ -272,11 +276,12 @@ class IndexController extends BaseController {
 
         
         $paypal_jsonStr = array(
-            "type"     => $type,
-            "number"   => $number,
-            "expMonth" => $expMonth,
-            "expYear"  => $expYear,
-            "cvv"      => $cvv,
+            "type"         => $type,
+            "number"       => $number,
+            "expMonth"     => $expMonth,
+            "expYear"      => $expYear,
+            "cvv"          => $cvv,
+            "currencyCode" => $currencyCode,
         );
 
         //创建信用卡
@@ -290,7 +295,7 @@ class IndexController extends BaseController {
         }
 
         //用信用卡支付
-        $paypal_url = API_URL."charge/paypal/cc/".$user_id."/pay/".$order_id;
+        $paypal_url = API_URL."charge/paypal/cc/".$user_id."/pay/".$currencyCode."/".$order_id;
         list($paypal_returnCode2, $paypal_returnContent2)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
         // dump($paypal_returnCode2);
         // dump($paypal_returnContent2);

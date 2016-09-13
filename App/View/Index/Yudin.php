@@ -814,9 +814,9 @@
 	                		return false; 
 	                	};
 
-	                	debug.log($('#xz_time').val());
+	                	//debug.log($('#xz_time').val());
 	                	this.$set('info_time',$('#xz_time').val());
-	                	debug.log(this.info_time);
+	                	//debug.log(this.info_time);
 	                	if (!this.info_time) {
 	                		layer.open({content: '请选择预定日期',skin: 'msg',time: 2  });
 	                		return false; 
