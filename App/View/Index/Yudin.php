@@ -730,8 +730,8 @@
     		$('#showTime').text(chooseValue);
     	}
     	var _xz_time = Number($("#xz_time").val());
-    	debug.log($("#xz_time").val());
-    	debug.log(_xz_time);
+    	// debug.log($("#xz_time").val());
+    	// debug.log(_xz_time);
     	getSelectDate(_xz_time);
 
     	$( "#showDate" ).datepicker({
@@ -745,9 +745,17 @@
     			var chooseValue = newDate + str;
     			$('#showTime').text(chooseValue);
 
-    			var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
+
     			debug.log($("#xz_time").val());
+
+    			debug.log(dateText+" 00:00:00");
+    			
+    			var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
+    			
+    			debug.log(timestamp2);
+    			
     			$('#xz_time').val(timestamp2);
+    			
     			debug.log($("#xz_time").val());
     			//debug.log(timestamp2);
     			// var formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
