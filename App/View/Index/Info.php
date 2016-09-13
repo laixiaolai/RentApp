@@ -695,7 +695,7 @@
                     observeParents:true,
                     loop: true,
                 });
-            }, 1000);
+            }, 300);
         })
         
       </script>
