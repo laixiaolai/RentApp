@@ -49,7 +49,7 @@
       
         <div class="swiper-wrapper">
             <div class="swiper-slide"  v-for="items in info.photo">
-                <img src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
+                <img class='swiper-lazy' data-src="{{items.photoPath}}?imageView2/1/w/300/h/300">
             </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -679,30 +679,32 @@
             });
 
         });
-        // $(function(){
-        //     setTimeout(function(){
-        //         var mySwiper = new Swiper ('.swiper-container', {
-        //             initialSlide: 0,
-        //             autoplay: 1500,
-        //             direction: 'horizontal',
-        //             autoplayDisableOnInteraction: false,//用户触碰后不会停止
-        //             autoplayStopOnLast: false,
-        //             // 如果需要分页器
-        //             // pagination: '.swiper-pagination',
-        //             // paginationClickable: true,//点击分页会自动切换。
+        $(function(){
+            setTimeout(function(){
+                var mySwiper = new Swiper ('.swiper-container', {
+                    initialSlide: 0,
+                    autoplay: 1500,
+                    direction: 'horizontal',
+                    autoplayDisableOnInteraction: false,//用户触碰后不会停止
+                    autoplayStopOnLast: false,
+                    // 如果需要分页器
+                    // pagination: '.swiper-pagination',
+                    // paginationClickable: true,//点击分页会自动切换。
                     
-        //             // 如果需要前进后退按钮
-        //             nextButton: '.swiper-button-next',
-        //             prevButton: '.swiper-button-prev',
-        //             slidesPerView: 3,
-        //             // preventClicks : false,//自动播放的时候不允许手动滑动
-        //             updateOnImagesReady : true,//当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化
-        //             observer:true,
-        //             observeParents:true,
-        //             loop: true,
-        //         });
-        //     }, 1000);
-        // })
+                    // 如果需要前进后退按钮
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    slidesPerView: 3,
+                    // preventClicks : false,//自动播放的时候不允许手动滑动
+                    updateOnImagesReady : true,//当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化
+                    observer:true,
+                    observeParents:true,
+                    loop: true,
+                    // preloadImages: true,
+                    lazyLoading: true,
+                });
+            },300);
+        })
         
       </script>
 </body>
