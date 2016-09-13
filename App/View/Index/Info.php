@@ -49,7 +49,7 @@
       
         <div class="swiper-wrapper">
             <div class="swiper-slide"  v-for="items in info.photo">
-                <img src="{{items.photoPath}}?imageView2/1/w/300/h/300">
+                <img src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
             </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -701,7 +701,7 @@
                     observeParents:true,
                     loop: true,
                 });
-            },500);
+            }, 300);
         })
         
       </script>
