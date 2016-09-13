@@ -730,6 +730,8 @@
     		$('#showTime').text(chooseValue);
     	}
     	var _xz_time = Number($("#xz_time").val());
+    	// debug.log($("#xz_time").val());
+    	// debug.log(_xz_time);
     	getSelectDate(_xz_time);
 
     	$( "#showDate" ).datepicker({
@@ -743,9 +745,27 @@
     			var chooseValue = newDate + str;
     			$('#showTime').text(chooseValue);
 
+debug.log(dateText+" 00:00:00");
+			var _tt = dateText+" 00:00:00";
+    			//var d = new Date(_tt);
+   //debug.log(d); 			
+					//d = d.getFullYear() > 0 ? d : new Date(Date.parse(_tt.replace(/-/g, "/")));
+					var _new = _tt.replace(/-/g, "/");
+			debug.log(_new);
+					var bbb = Date.parse(_new);  
+debug.log(bbb);
+
+    			// debug.log($("#xz_time").val());
+
+    			// debug.log(dateText+" 00:00:00");
+    			
     			var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
+    			
+    			// debug.log(timestamp2);
+    			
     			$('#xz_time').val(timestamp2);
     			
+    			// debug.log($("#xz_time").val());
     			//debug.log(timestamp2);
     			// var formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
     			// debug.log(moment(timestamp2).format(formatString));
@@ -798,8 +818,9 @@
 	                		return false; 
 	                	};
 
-	                	
-	                	this.$set('info_time',parseInt($('#xz_time').val()));
+	                	debug.log($('#xz_time').val());
+	                	this.$set('info_time',$('#xz_time').val());
+	                	debug.log(this.info_time);
 	                	if (!this.info_time) {
 	                		layer.open({content: '请选择预定日期',skin: 'msg',time: 2  });
 	                		return false; 
