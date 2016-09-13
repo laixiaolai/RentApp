@@ -485,11 +485,14 @@
                         type : 'post', //POST或GET请求
                         dataType : 'json',//json 或者 jsonp 默认是html
                         data : this.addinfo,
-                        error : function() {
-                            debug.log('支付失败');
+                        error : function(result) {
+                            debug.log(result.msg);
                             layer.closeAll();
                         },
                         success : function(result) {
+                        	if(!result.success){
+                        		debug.log(result.msg);
+                        	}
                         	//debug.log(result);
                         	layer.closeAll();
                         }
