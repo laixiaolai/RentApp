@@ -746,12 +746,13 @@
     			$('#showTime').text(chooseValue);
 
 debug.log(dateText+" 00:00:00");
-var _tt = dateText+" 00:00:00";
+			var _tt = dateText+" 00:00:00";
     			//var d = new Date(_tt);
    //debug.log(d); 			
 					//d = d.getFullYear() > 0 ? d : new Date(Date.parse(_tt.replace(/-/g, "/")));
-
-					var bbb = Date.parse("2016/09/10 00:00:00");  
+					var _new = _tt.replace(/-/g, "/");
+			debug.log(_new);
+					var bbb = Date.parse(_new);  
 debug.log(bbb);
 
     			// debug.log($("#xz_time").val());
