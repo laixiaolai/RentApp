@@ -18,11 +18,11 @@
 </head>
 <body class='home' id="app">
     <!-- 预先加载图片 -->
-    <!-- <div style="display:none;">
+    <div style="display:none;">
         <div v-for="items in info.photo">
-            <img src="{{items.photoPath}}?imageView2/1/w/300/h/300" width="100%">
+            <img src="{{items.photoPath}}" width="100%">
         </div>
-    </div> -->
+    </div>
     <!-- 导航 -->
     <header id='header' class='navbar-static-top navbar' style='position: relative;border-bottom: 1px solid #e4e4e4;background-color: #fff;'>
         <div class="navbar-header">
