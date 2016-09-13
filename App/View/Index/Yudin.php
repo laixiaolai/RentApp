@@ -746,8 +746,9 @@
     			$('#showTime').text(chooseValue);
 
     			var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
+    			debug.log($("#xz_time").val());
     			$('#xz_time').val(timestamp2);
-    			
+    			debug.log($("#xz_time").val());
     			//debug.log(timestamp2);
     			// var formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
     			// debug.log(moment(timestamp2).format(formatString));
