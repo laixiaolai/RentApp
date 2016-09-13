@@ -745,25 +745,21 @@
     			var chooseValue = newDate + str;
     			$('#showTime').text(chooseValue);
 
-debug.log(dateText+" 00:00:00");
-			var _tt = dateText+" 00:00:00";
-    			//var d = new Date(_tt);
-   //debug.log(d); 			
-					//d = d.getFullYear() > 0 ? d : new Date(Date.parse(_tt.replace(/-/g, "/")));
-					var _new = _tt.replace(/-/g, "/");
-			debug.log(_new);
-					var bbb = Date.parse(_new);  
-debug.log(bbb);
+				var _tt = dateText+" 00:00:00";
+				var _new = _tt.replace(/-/g, "/");
+				var bbb = Date.parse(_new);  
 
     			// debug.log($("#xz_time").val());
 
     			// debug.log(dateText+" 00:00:00");
     			
-    			var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
-    			
+    			//var timestamp2 = Date.parse(new Date(dateText+" 00:00:00"));
+    			//debug.log(timestamp2);
+    			//debug.log(bbb);
     			// debug.log(timestamp2);
     			
-    			$('#xz_time').val(timestamp2);
+    			//$('#xz_time').val(timestamp2);
+    			$('#xz_time').val(bbb);
     			
     			// debug.log($("#xz_time").val());
     			//debug.log(timestamp2);

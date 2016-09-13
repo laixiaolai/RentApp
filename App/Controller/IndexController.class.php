@@ -140,7 +140,7 @@ class IndexController extends BaseController {
             }
 
             if(FALSE === empty($order_arr['startDate'])){
-                $order_arr['startDate'] = date("Y/m/d",$order_arr['startDate']/1000);
+                $order_arr['startDate'] = date("Y/m/d",($order_arr['startDate']/1000+86400));
             }
             //dump($order_arr);
 
