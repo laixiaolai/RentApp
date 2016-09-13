@@ -258,6 +258,39 @@
 											<span class='col-sm-6 text-center col-xs-3'>CVV</span>
 											<input type="text" class='col-xs-9 col-sm-6' v-model="addinfo.cvv">
 										</div>
+										<div class="col-sm-3 col-xs-12">
+											<span class='col-sm-6 text-center col-xs-3'>国家码</span>
+											<!-- <span class='text-center col-xs-4 col-sm-4 credit-num'>国家码</span> -->
+											<!-- <input type="text" class='col-xs-9 col-sm-6' v-model="addinfo.currencyCode"> -->
+
+											<select name="currencyCode" class="col-xs-9 col-sm-6" style="height:56px;" v-model="addinfo.currencyCode">
+												<option value="USD" selected="selected">USD</option>
+												<option value="AUD">AUD</option>
+												<option value="BRL">BRL</option>
+												<option value="CAD">CAD</option>
+												<option value="CZK">CZK</option>
+												<option value="DKK">DKK</option>
+												<option value="EUR">EUR</option>
+												<option value="HKD">HKD</option>
+												<option value="HUF">HUF</option>
+												<option value="ILS">ILS</option>
+												<option value="JPY">JPY</option>
+												<option value="MYR">MYR</option>
+												<option value="MXN">MXN</option>
+												<option value="TWD">TWD</option>
+												<option value="NZD">NZD</option>
+												<option value="NOK">NOK</option>
+												<option value="PHP">PHP</option>
+												<option value="GBP">GBP</option>
+												<option value="RUB">RUB</option>
+												<option value="SGD">SGD</option>
+												<option value="SEK">SEK</option>
+												<option value="CHF">CHF</option>
+												<option value="THB">THB</option>
+												<option value="PLN">PLN</option>
+												
+											</select>
+										</div>
 				    				</div>
 				    			</li>
 				    			<li class="confirm-item" style="padding:24px 13px 24px;">
@@ -469,6 +502,11 @@
   
 					if(!this.addinfo.cvv){
 						layer.open({content: '请输入信用卡CVV',skin: 'msg',time: 2  });
+						return false; 
+					}     
+  
+					if(!this.addinfo.currencyCode){
+						layer.open({content: '请输入国家码',skin: 'msg',time: 2  });
 						return false; 
 					}    
 
