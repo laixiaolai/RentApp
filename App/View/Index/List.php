@@ -58,7 +58,7 @@
 						<div class='search-page-filters row'>
 							<div class="container">
 								<div class='row'>
-									<div class='col-md-4 col-sm-6 hidden-xs padding-left'>
+									<div class='col-md-4 col-sm-6 hidden-xs'>
 										<div class='host-number list-host-number'>
 		                                    共<span>20</span>个
 		                                    <span>Host</span>    
