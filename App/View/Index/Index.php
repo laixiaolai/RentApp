@@ -48,8 +48,8 @@
             <!-- <div>搜索框</div> -->
         </div>
         <div class='title-text visible-xs'>
-            <h1 style="margin-bottom:0;">游在异乡</h1>
-            <h1 style="margin-bottom:0;">吃在我家</h1>
+            <h1 style="margin-bottom:0;font-size:54px;">游在异乡</h1>
+            <h1 style="margin-bottom:0;font-size:54px;">吃在我家</h1>
             <h3 style="font-size:24px;line-height:24px;margin-top:16px;">COME，DINE WITH</h3>
             <h3 style="margin-top:0;color: rgb(214,109,110);-webkit-font-smoothing: antialiased;font-size:24px;line-height:24px;">THE LOCAL</h3>
 
