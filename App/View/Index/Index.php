@@ -40,12 +40,19 @@
     </header>
     <!-- 顶部背景图片 -->
     <div class='image-area'>
-        <div class='title-text'>
+        <div class='title-text hidden-xs'>
             <h1>游在异乡，吃在我家</h1>
             <h3>COME，DINE WITH
                 <span>THE LOCAL</span>
             </h3>
             <!-- <div>搜索框</div> -->
+        </div>
+        <div class='title-text visible-xs'>
+            <h1 style="margin-bottom:0;">游在异乡</h1>
+            <h1>吃在我家</h1>
+            <h3>COME，DINE WITH</h3>
+            <h3 style="margin-top:0;">THE LOCAL</h3>
+
         </div>
     </div>
     <!-- 内容 -->
