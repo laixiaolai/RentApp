@@ -749,6 +749,7 @@
 	
     <script>  
     	$("#selectNumber").selectmenu();
+    	$("#areaCode").selectmenu();
     	//初始化选择好的时间
     	function getSelectDate(time){
     		var initTime = new Date(time);
