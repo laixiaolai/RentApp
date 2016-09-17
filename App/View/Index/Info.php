@@ -112,7 +112,7 @@
                                     <label class="control-label">选择数量</label>
                                     <div class="Select Select--single has-value" >
                                         <div style="font-size:16px;" >
-                                            <select  id="numberSmall" name="num" class="form-control filter-option" style="height:50px;-webkit-appearance: none;">
+                                            <select  id="numberSmall" name="num" class="form-control filter-option">
                                                 <option selected="selected">1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -124,7 +124,7 @@
                                                 <option>9</option>
                                                 <option>10</option>
                                             </select>
-                                            <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-32px;margin-right:16px;"></span>
+                                            <!-- <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-32px;margin-right:16px;"></span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -570,8 +570,8 @@
         $( "#datepickerSmall" ).datepicker({
             minDate: 0,
         });
-        // $("#numberBig").selectmenu();
-        // $("#numberSmall").selectmenu();
+        $("#numberBig").selectmenu();
+        $("#numberSmall").selectmenu();
 
 
         var _xz_time = Number($("#xz_time").val());
