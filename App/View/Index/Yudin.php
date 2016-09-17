@@ -57,7 +57,7 @@
 	    	<div class='reserve-content'>
 	    		<div class="row">
 	    			<div class='col-sm-4 col-sm-push-8 col-xs-12'>
-	    				<div>
+	    				<!-- <div>
 	    					<div class='your-reserve'>您预定的host</div>
 		    				<div class='your-reserve-content'>
 		    					<div class="single-meal event-result-box"  >
@@ -98,7 +98,7 @@
 					    		  	</div>
 					    		</div>
 		    				</div>
-	    				</div>
+	    				</div> -->
 	    				<!-- 大屏幕显示，小屏幕隐藏 -->
 	    				<div class='service hidden-xs col-sm-12'>
 		    				<!-- 增加客服信息 -->
