@@ -1,5 +1,20 @@
 **********************************************************首页start********************************************************/
 /*************************顶部start****************************/
+input:focus {
+    border-radius: none;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+　color: rgb(152, 152, 152);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+　color: rgb(152, 152, 152);
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+　color: rgb(152, 152, 152);
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+　color: rgb(152, 152, 152);
+}
 /**字体**/
 .font-size-12 {
     font-size: 12px;
@@ -1211,7 +1226,7 @@ label {
     padding: 0;
     height: 56px;
     padding: 15px 30px;
-    color: rgb(152, 152, 152);
+    color: black;
     text-align: right;
 }
 .step-article {

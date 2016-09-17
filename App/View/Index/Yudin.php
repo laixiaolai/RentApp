@@ -258,11 +258,11 @@
 	    							<div class='col-xs-12  step-article'>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>姓名</span>
-	    									<input type="text" class='col-xs-9' placeholder="xiaoming" v-model="info_xm">
+	    									<input type="text" class='col-xs-9' placeholder="xiaoming" v-model="info_xm" style="padding: 15px 30px;">
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>区号</span>
-	    									<select name="area" id="areaCode" class="col-xs-9"  v-model="info_qh">
+	    									<select name="area" id="areaCode" class="col-xs-9"  v-model="info_qh" style="padding: 15px 30px;">
 	    										<!-- 第一页 -->
 	    										<option value="86" selected="selected">中国(China)</option>
 	    										<option value="93">阿富汗(Afghanistan)</option>
@@ -524,11 +524,11 @@
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>电话</span>
-	    									<input type="text" class='col-xs-9' placeholder="13000000000" v-model="info_dh">
+	    									<input type="text" class='col-xs-9' placeholder="13000000000" v-model="info_dh" style="padding: 15px 30px;">
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>邮箱</span>
-	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx">
+	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx" style="padding: 15px 30px;">
 	    								</div>
 
 	    								<div class='step3-content' v-show="guojia">
