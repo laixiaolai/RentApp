@@ -58,18 +58,18 @@
 						<div class='search-page-filters row'>
 							<div class="container">
 								<div class='row'>
-									<div class='col-md-4 col-sm-6 hidden-xs'>
+									<div class='col-md-4 col-sm-6 hidden-xs padding-left'>
 										<div class='host-number list-host-number'>
 		                                    共<span>20</span>个
 		                                    <span>Host</span>    
 		                                </div>
 									</div>
 									<div class='col-md-4'></div>
-									<div class='col-md-4 col-sm-6 col-xs-12'>
+									<div class='col-md-4 col-sm-6 col-xs-12 padding-right'>
 										<div class='row'>
 											<span class='col-sm-4 hidden-xs intelligent-filter'>智能排序</span>
 											<div class="col-sm-8 col-xs-12">
-												<div class="col-xs-12">
+												<div class="col-xs-12 list-padding">
 													<select class="form-control filter-option">
 													  <option>价格由高到低</option>
 													  <option>价格由低到高</option>
@@ -89,7 +89,7 @@
 					<!-- </div> -->
 				    <!-- /搜索 -->
 				    <!-- 搜索结果 -->
-				    <div class='container'>
+				    <div class='container list-padding'>
 				    	<div id='result-page' class="row all-research-results" >
 				    		<div class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree">
 				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}')">
