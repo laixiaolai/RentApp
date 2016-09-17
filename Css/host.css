@@ -1,9 +1,9 @@
 **********************************************************首页start********************************************************/
 /*************************顶部start****************************/
-input[type=text]:active, input[type=text]:focus {
+/*input[type=text]:active, input[type=text]:focus {
     border-radius: none;
     background: red;
-}
+}*/
 ::-webkit-input-placeholder { /* WebKit browsers */
 　color: rgb(152, 152, 152);
 }
@@ -1137,6 +1137,7 @@ label {
 /***********************************************************预定页start***************************************************/
 #areaSelect .ui-selectmenu-button.ui-button {
     text-align: right;
+    border-color: #ddd;
 }
 .reserve-header {
     padding: 34px 30px 40px 30px; 
