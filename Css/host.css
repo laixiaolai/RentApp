@@ -1316,7 +1316,7 @@ label {
     padding-top: 48px;
     padding-bottom: 48px;
     box-shadow: 0 0px 10px 0 #e5e5e5;
-    margin-bottom: 102px;
+    margin-top: 102px;
 }
 .pre-email {
     margin-bottom:24px;
@@ -1354,7 +1354,7 @@ label {
         margin-bottom: 30px;
     }
     .service {
-        margin-bottom: 82px;
+        margin-top: 82px;
     }
 }
 @media (max-width: 767px){
