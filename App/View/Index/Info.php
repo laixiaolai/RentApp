@@ -569,8 +569,8 @@
         $( "#datepickerSmall" ).datepicker({
             minDate: 0,
         });
-        $("#numberBig").selectmenu();
-        $("#numberSmall").selectmenu();
+        // $("#numberBig").selectmenu();
+        // $("#numberSmall").selectmenu();
 
 
         var _xz_time = Number($("#xz_time").val());
