@@ -194,7 +194,7 @@
 	    								</div>
 	    								<div class='text-center font-size-16' style="line-height: 36px;">
 	    									<div class='col-xs-6'>
-	    										<select name="" id="" class="number-select" v-model="info_num">
+	    										<select name="" id="selectNumber" class="number-select" v-model="info_num">
 	    											<option value="1">1</option>
 	    											<option value="2">2</option>
 	    											<option value="3">3</option>
@@ -748,6 +748,7 @@
 	
 	
     <script>  
+    	$("#selectNumber").selectmenu();
     	//初始化选择好的时间
     	function getSelectDate(time){
     		var initTime = new Date(time);
