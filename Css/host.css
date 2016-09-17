@@ -1,6 +1,6 @@
 **********************************************************首页start********************************************************/
 /*************************顶部start****************************/
-input:focus {
+input:active, input:focus {
     border-radius: none;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
