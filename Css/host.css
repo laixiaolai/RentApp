@@ -539,6 +539,11 @@ img {
 #search-page .all-research-results {
     padding-bottom: 30px;
 }
+@media (max-width: 767px){
+    #search-page .all-research-results .single-meal {
+        border: 1px solid #f6f6f6;
+    }
+}
 #search-page .all-research-results .single-meal {
     margin-bottom: 30px;
 }
