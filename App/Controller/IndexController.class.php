@@ -297,12 +297,12 @@ class IndexController extends BaseController {
         //创建信用卡
         $creditcard_url     = API_URL."charge/paypal/".$user_id."/creditcard";
         list($paypal_returnCode, $paypal_returnContent)  = http_post_json($creditcard_url, json_encode($paypal_jsonStr),$header);
-        dump($creditcard_url);
-        dump($header);
-        dump(json_encode($paypal_jsonStr));
+        // dump($creditcard_url);
+        // dump($header);
+        // dump(json_encode($paypal_jsonStr));
         // dump($paypal_jsonStr);
-        dump($paypal_returnContent);
-        die;
+        // dump($paypal_returnContent);
+        // die;
         if($paypal_returnCode != 200){
             exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent)));
         }
@@ -310,11 +310,11 @@ class IndexController extends BaseController {
         //用信用卡支付 charge/cc/userId/pay/userId/pay/orderId
         $paypal_url = API_URL."charge/paypal/cc/".$user_id."/pay/".$order_id;
         list($paypal_returnCode2, $paypal_returnContent2)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
-        dump($paypal_url);
-        dump($header);
-        dump($paypal_returnCode2);
-        dump($paypal_returnContent2);
-        die;
+        // dump($paypal_url);
+        // dump($header);
+        // dump($paypal_returnCode2);
+        // dump($paypal_returnContent2);
+        // die;
         if($paypal_returnCode2 != 200){
             exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent2)));
         }
