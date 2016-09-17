@@ -16,7 +16,7 @@
     <?php View::tplInclude('Public/css'); ?>
     <?php View::tplInclude('Public/js'); ?>
 </head>
-<body class='home' id="app">
+<body class='home' id="app" v-cloak>
     <!-- 导航 -->
     <header id='header' class='navbar-static-top navbar' style='position: relative;border-bottom: 1px solid #e4e4e4;background-color: #fff;'>
         <div class="navbar-header">

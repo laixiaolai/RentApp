@@ -16,7 +16,7 @@
     <?php View::tplInclude('Public/css'); ?>
     <?php View::tplInclude('Public/js'); ?>
 </head>
-<body class='home' id="app">
+<body class='home' id="app" v-cloak>
     <!-- 预先加载图片 -->
     <!-- <div style="display:none;">
         <div v-for="items in info.photo">

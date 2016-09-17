@@ -15,6 +15,7 @@
 
     <?php View::tplInclude('Public/css'); ?>
     <?php View::tplInclude('Public/js'); ?>
+    
 </head>
 <body class='home'>
     <!-- 导航 -->
@@ -39,7 +40,7 @@
         </div>
     </header>
     <!-- 内容 -->
-    <div id="app">
+    <div id="app" v-cloak>
     	<div class="container-fluid">
     		<div id="search-page" class="row">
     			<div class="col-md-12 inner-search-page">
@@ -91,7 +92,7 @@
 				    <!-- 搜索结果 -->
 				    <div class='container list-padding'>
 				    	<div id='result-page' class="row all-research-results" >
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree">
+				    		<div class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree" >
 				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}')">
 				    		    	<a href="/index.php?a=Info&id={{items.groupTour.id}}"></a>
 				    		  	</div>
