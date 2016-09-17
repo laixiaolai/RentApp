@@ -150,9 +150,9 @@
 	    					</div>	
 	    					<div class='row font-size-16 rgb152 container-padding' style="margin-top: 12px;margin-bottom: 30px;">
 	    						<div class='col-xs-3 '>选择预定日期</div>
-	    						<div class='col-xs-3 active-step-text'>选择预定人数</div>
+	    						<div class='col-xs-3 '>选择预定人数</div>
+	    						<div class='col-xs-3 active-step-text'>选择付款方式支付</div>
 	    						<div class='col-xs-3'>填写联络人资料</div>
-	    						<div class='col-xs-3'>选择付款方式支付</div>
 	    					</div>
 	    				</div>
 	    				<!-- 第一步，第二步， 第三步， 第四步 -->
@@ -213,11 +213,46 @@
 	    								</div>
 	    							</div>
 	    						</div>
-	    						<!-- 第三步 -->
+
+	    						<!-- 第四步 -->
 	    						<div>
 	    							<!-- 顶部 -->
 	    							<div class='col-xs-12 step-header'>
 	    								<span class='reserve-circle'>3</span>
+	    								<span class='font-size-16 rgb74'>选择付款方式</span>
+	    							</div>
+	    							<div class='col-xs-12 step-article'>
+	    								<div class='row'>
+		    								<div class='col-md-6' style="margin-bottom: 5px;">
+		    									<div class="radio eating-pay" style="background-image:url('./Img/weixin.png');background-repeat:no-repeat;background-position:48px center;">
+		    										<label for="pay_way">
+		    											<input type="radio" name='pay_way' value="1" v-model="info_pay">
+		    										</label>
+		    									</div>
+		    								</div>
+		    								<div class='col-md-6 ' style="margin-bottom: 5px;">
+		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:48px center;">
+		    										<label for="pay_way">
+		    											<input type="radio" name='pay_way' value="2" v-model="info_pay">
+		    										</label>
+		    									</div>
+		    								</div>
+		    								<div class='col-md-6 ' >
+		    									<div class="radio eating-pay visa-pay" style="background-image:url('./Img/visa_pay.png');background-repeat:no-repeat;background-position:12px 2px;padding-left:14px;">
+		    										<label for="pay_way">
+		    											<input type="radio" name='pay_way' value="3" v-model="info_pay">
+		    										</label>
+		    										<span style="font-size: 8px;position: absolute;left: 14px;bottom: 4px;line-height: 8px;">Processed by Paypal</span>
+		    									</div>
+		    								</div>
+	    								</div>
+	    							</div>
+	    						</div>
+	    						<!-- 第三步 -->
+	    						<div>
+	    							<!-- 顶部 -->
+	    							<div class='col-xs-12 step-header'>
+	    								<span class='reserve-circle'>4</span>
 	    								<span class='font-size-16 rgb74'>填写联络人资料</span>
 	    							</div>
 	    							<div class='col-xs-12  step-article'>
@@ -495,42 +530,40 @@
 	    									<span class='col-xs-3 text-center'>邮箱</span>
 	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx">
 	    								</div>
-	    							</div>
-	    						</div>
-	    						<!-- 第四步 -->
-	    						<div>
-	    							<!-- 顶部 -->
-	    							<div class='col-xs-12 step-header'>
-	    								<span class='reserve-circle'>4</span>
-	    								<span class='font-size-16 rgb74'>选择付款方式</span>
-	    							</div>
-	    							<div class='col-xs-12 step-article'>
-	    								<div class='row'>
-		    								<div class='col-md-6' style="margin-bottom: 5px;">
-		    									<div class="radio eating-pay" style="background-image:url('./Img/weixin.png');background-repeat:no-repeat;background-position:48px center;">
-		    										<label for="pay_way">
-		    											<input type="radio" name='pay_way' value="1" v-model="info_pay">
-		    										</label>
-		    									</div>
-		    								</div>
-		    								<div class='col-md-6 ' style="margin-bottom: 5px;">
-		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:48px center;">
-		    										<label for="pay_way">
-		    											<input type="radio" name='pay_way' value="2" v-model="info_pay">
-		    										</label>
-		    									</div>
-		    								</div>
-		    								<div class='col-md-6 ' >
-		    									<div class="radio eating-pay visa-pay" style="background-image:url('./Img/visa_pay.png');background-repeat:no-repeat;background-position:12px 2px;padding-left:14px;">
-		    										<label for="pay_way">
-		    											<input type="radio" name='pay_way' value="3" v-model="info_pay">
-		    										</label>
-		    										<span style="font-size: 8px;position: absolute;left: 14px;bottom: 4px;line-height: 8px;">Processed by Paypal</span>
-		    									</div>
-		    								</div>
+
+	    								<div class='step3-content' v-show="guojia">
+	    									<span class='col-xs-3 text-center'>国家</span>
+	    									<select  class="col-xs-9 col-sm-6" style="height:56px;" v-model="info_gj">
+	    										<option value="USD" selected="selected">USD</option>
+	    										<option value="AUD">AUD</option>
+	    										<option value="BRL">BRL</option>
+	    										<option value="CAD">CAD</option>
+	    										<option value="CZK">CZK</option>
+	    										<option value="DKK">DKK</option>
+	    										<option value="EUR">EUR</option>
+	    										<option value="HKD">HKD</option>
+	    										<option value="HUF">HUF</option>
+	    										<option value="ILS">ILS</option>
+	    										<option value="JPY">JPY</option>
+	    										<option value="MYR">MYR</option>
+	    										<option value="MXN">MXN</option>
+	    										<option value="TWD">TWD</option>
+	    										<option value="NZD">NZD</option>
+	    										<option value="NOK">NOK</option>
+	    										<option value="PHP">PHP</option>
+	    										<option value="GBP">GBP</option>
+	    										<option value="RUB">RUB</option>
+	    										<option value="SGD">SGD</option>
+	    										<option value="SEK">SEK</option>
+	    										<option value="CHF">CHF</option>
+	    										<option value="THB">THB</option>
+	    										<option value="PLN">PLN</option>
+	    										
+	    									</select>
 	    								</div>
 	    							</div>
 	    						</div>
+	    						
 	    						<!-- 确认提交 -->
 	    						<div class='text-center col-xs-12'>
 	    						    <span class='comment-more' style='background-color: rgb(225, 112, 114);color:white' @click="add_yudin">确认提交</span>
@@ -775,6 +808,7 @@
 	        var vm = new Vue({
 	            el: '#app', //绑定id盒子
 	            data: {  //初始化内容值
+	                guojia: 0,
 	                comment_num: 0,
 	                comment_but: 1,
 	                comment_show: 0,
@@ -784,6 +818,7 @@
 	                info_id: 0,
 	                info_time: 0,
 	                info_num: 0,
+	                info_gj: '',
 	                info_xm: '',
 	                info_qh: '',
 	                info_dh: '',
@@ -844,6 +879,18 @@
 	                		return false; 
 	                	};
 
+	                	// if (this.info_pay === 3) {
+	                	// 	this.$set('guojia',1);
+	                	// };
+
+
+
+	                	if (this.info_pay == 2 && this.info_gj == "") {
+	                		layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
+	                		return false; 
+	                	};
+
+
 
 
 	                	this.$set('info.userId',0);
@@ -877,7 +924,7 @@
 								layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
 							}else{
 								layer.open({content: '订单创建'+_arr.orderId+'成功,正在跳转',skin: 'msg',time: 2  });
-								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay;
+								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay+"&guojia="+this.info_gj;
 							}
 						}, function(response){
 							// 响应错误回调
@@ -930,6 +977,15 @@
 							// 响应错误回调
 						});
 						 layer.closeAll();
+	                }
+	            },
+	            watch: { //监控指定值得改变 oldValue 旧值, newValue 新值
+	                info_pay: function(oldValue , newValue){
+	                    if(oldValue == 2){
+	                    	this.$set('guojia',1);
+	                    }else{
+	                    	this.$set('guojia',0);
+	                    }
 	                }
 	            },
 	            ready: function() { //初始化执行的方法

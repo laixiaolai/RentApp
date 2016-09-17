@@ -104,6 +104,7 @@ class IndexController extends BaseController {
 
     //支付页面
     public function BuyAction(){
+        $currencyCode = isset($_GET['guojia']) ? trim($_GET['guojia']) : "";
         $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
         $type     = isset($_GET['type']) ? intval($_GET['type']) : 1;
         $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
@@ -111,8 +112,14 @@ class IndexController extends BaseController {
         if(!$order_id){
             die('订单不存在');
         }
+
+        if(!$type == 2 && !$currencyCode){
+            die('缺少参数:国家码');
+        }
         
-        
+        // dump($type);
+        // dump($currencyCode);
+        // die();
         $returnCode    = 0;
         $returnContent = '';
         $is_weixin     = 0;
@@ -126,6 +133,7 @@ class IndexController extends BaseController {
             "X-Auth-Token: ".$token
         );
 
+            
 
         //检测订单是否存在
         $user_id       = 0;
@@ -171,7 +179,9 @@ class IndexController extends BaseController {
         $paypal_redirectUrl   = '';
         $paypal_url           = '';
         if($type == 2){
-            $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
+            // $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
+            //$paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
+            $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$currencyCode."/".$order_id;
             $paypal_jsonStr = array();
             list($paypal_returnCode, $paypal_returnContent)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
             if($paypal_returnContent){
@@ -287,19 +297,24 @@ class IndexController extends BaseController {
         //创建信用卡
         $creditcard_url     = API_URL."charge/paypal/".$user_id."/creditcard";
         list($paypal_returnCode, $paypal_returnContent)  = http_post_json($creditcard_url, json_encode($paypal_jsonStr),$header);
+        dump($creditcard_url);
+        dump($header);
+        dump(json_encode($paypal_jsonStr));
         // dump($paypal_jsonStr);
-        // dump($paypal_returnContent);
-        // die;
+        dump($paypal_returnContent);
+        die;
         if($paypal_returnCode != 200){
             exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent)));
         }
 
-        //用信用卡支付
-        $paypal_url = API_URL."charge/paypal/cc/".$user_id."/pay/".$currencyCode."/".$order_id;
+        //用信用卡支付 charge/cc/userId/pay/userId/pay/orderId
+        $paypal_url = API_URL."charge/paypal/cc/".$user_id."/pay/".$order_id;
         list($paypal_returnCode2, $paypal_returnContent2)  = http_post_json($paypal_url, json_encode($paypal_jsonStr),$header);
-        // dump($paypal_returnCode2);
-        // dump($paypal_returnContent2);
-        // die;
+        dump($paypal_url);
+        dump($header);
+        dump($paypal_returnCode2);
+        dump($paypal_returnContent2);
+        die;
         if($paypal_returnCode2 != 200){
             exit(json_encode(array('success'=>false,'msg'=>$paypal_returnContent2)));
         }
