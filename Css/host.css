@@ -1145,13 +1145,13 @@ label {
 #areaSelect .ui-selectmenu-button.ui-button, #buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button {
     text-align: right;
     border-color: #ddd;
-    padding: 15px 30px;
+    padding: 20px 30px;
     border-radius: 0;
     height: 56px;
     background-color: white;
 }
 #buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button {
-    padding: 15px 0px;
+    padding: 20px 0px;
 }
 .reserve-header {
     padding: 34px 30px 40px 30px; 
