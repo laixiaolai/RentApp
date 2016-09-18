@@ -526,11 +526,11 @@
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>电话</span>
-	    									<input type="text" class='col-xs-9' placeholder="13000000000" v-model="info_dh" style="padding: 15px 30px;">
+	    									<input type="text" class='col-xs-9' placeholder="13000000000" v-model="info_dh" style="padding: 15px 30px;display:block;">
 	    								</div>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>邮箱</span>
-	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx" style="padding: 15px 30px;">
+	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx" style="padding: 15px 30px;display:block;">
 	    								</div>
 
 	    								<div class='step3-content' v-show="guojia">
