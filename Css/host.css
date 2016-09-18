@@ -1150,6 +1150,14 @@ label {
     height: 56px;
     background-color: white;
 }
+#nationCode-button {
+    text-align: right;
+    border-color: #ddd;
+    padding: 20px 30px;
+    border-radius: 0;
+    height: 56px;
+    background-color: white; 
+}
 #buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button {
     padding: 20px 0px;
 }
