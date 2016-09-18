@@ -682,6 +682,11 @@
         });
         $(function(){
             setTimeout(function(){
+                if(document.body.scrollWidth > 768 ){
+                    var slidesNum = 3;
+                } else {
+                    var slidesNum = 1;
+                }
                 var mySwiper = new Swiper ('.swiper-container', {
                     initialSlide: 0,
                     autoplay: 1500,
@@ -695,7 +700,7 @@
                     // 如果需要前进后退按钮
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
-                    slidesPerView: 3,
+                    slidesPerView: slidesNum,
                     // preventClicks : false,//自动播放的时候不允许手动滑动
                     updateOnImagesReady : true,//当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化
                     observer:true,
@@ -704,6 +709,8 @@
                     // preloadImages: true,
                     lazyLoading: true,
                 });
+                
+
             },300);
         })
         

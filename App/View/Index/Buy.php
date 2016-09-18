@@ -227,7 +227,7 @@
 				    				<div class='step3-content row'>
 				    					<div class='text-center col-sm-9 col-xs-12' style="margin-bottom: 24px;">
 				    						<span class='text-center col-xs-4 col-sm-4 credit-num bg-rgb216'>有效期&nbsp;月/年</span>
-				    						<select name="month" class="col-xs-4 col-sm-4" style="height:56px;" v-model="addinfo.expMonth">
+				    						<select name="month" class="col-xs-4 col-sm-4" style="height:56px;padding:12px;" v-model="addinfo.expMonth">
 												<option value="1" >1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -241,7 +241,7 @@
 												<option value="11">11</option>
 												<option value="12">12</option>
 											</select>
-											<select name="year" class="col-xs-4 col-sm-4" style="height:56px;" v-model="addinfo.expYear">
+											<select name="year" class="col-xs-4 col-sm-4" style="height:56px;padding:12px;" v-model="addinfo.expYear">
 												<option value="1986">1986</option>
 												<option value="1987">1987</option>
 												<option value="1988">1988</option>
