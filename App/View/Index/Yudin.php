@@ -535,7 +535,7 @@
 
 	    								<div class='step3-content' id='nationCodeSelect' v-show='guojia'>
 	    									<span class='col-xs-3 text-center'>国家</span>
-	    									<div class="col-xs-9" style="padding:0;">
+	    									<!-- <div class="col-xs-9" style="padding:0;"> -->
 	    										<select style="height:56px;" v-model="info_gj" id='nationCode' class="col-xs-9">
 	    											<option value="USD" selected="selected">USD</option>
 	    											<option value="AUD">AUD</option>
@@ -562,7 +562,7 @@
 	    											<option value="THB">THB</option>
 	    											<option value="PLN">PLN</option>
 	    										</select>
-	    									</div>
+	    									<!-- </div> -->
 	    									
 	    								</div>
 	    							</div>
@@ -754,7 +754,7 @@
     <script>  
     	$("#selectNumber").selectmenu();
     	$("#areaCode").selectmenu();
-    	$("#nationCode").selectmenu();
+    	// $("#nationCode").selectmenu();
     	//初始化选择好的时间
     	function getSelectDate(time){
     		var initTime = new Date(time);
