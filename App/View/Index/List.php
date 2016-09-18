@@ -99,7 +99,7 @@
 				    		  	<div class="media all-informations">
 									<div>
 										<div class='INFO-title'>
-											<a href="#">
+											<a>
 												<img src="{{items.author.avatarUrl}}" alt="" width='50' height='50' class='INFO-avatar'>
 												<span class='INFO-username'>{{items.author.nickname}}</span>
 											</a>
@@ -114,7 +114,7 @@
 
 				    		    	<div class="media-secondary">
 				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" href="/users/profile/marie.astrid1">
+			    		                  	<a class="reviews-average" >
 			    		            			<span class="reviews-stars">
 		    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{items.groupTour.price / 500 * 100 - 98.5}}px;">
 			    		                        </span>

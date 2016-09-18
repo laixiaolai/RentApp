@@ -1299,7 +1299,7 @@ label {
 }
 .eating-pay {
     border: 1px solid rgb(234,234,234);
-    padding: 10px 55px 18px 48px;
+    padding: 10px 55px 18px 14px;
     text-align: right;
 }
 .your-reserve {
@@ -1372,7 +1372,7 @@ label {
         font-size: 20px;
     }
     .font-size-16 {
-        font-size: 12px;
+        font-size: 14px;
     }
     .font-size-30 {
         font-size: 16px;

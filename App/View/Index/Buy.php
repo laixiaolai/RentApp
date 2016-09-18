@@ -45,9 +45,9 @@
 		    <div class='font-size-16 container'>
 		    	<div class='row' style="margin-top: 40px;">
 		    		<div class='col-xs-12'>
-			    		<div class='bg-rgb225' style="padding:18px 24px;color:white;"> 
-			    			<div style="line-height:30px;">产品名：{{info.groupTour.title}}</div>
-			    			<div style="line-height:30px;">订单号：<?php echo($order_arr['orderId']); ?></div>
+			    		<div class='bg-rgb225' style="padding:10px 16px;color:white;font-size:16px;"> 
+			    			<div style="line-height:20px;">产品名：{{info.groupTour.title}}</div>
+			    			<div style="line-height:20px;">订单号：<?php echo($order_arr['orderId']); ?></div>
 			    		</div>
 			    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
 			    			<li class="rgb234 confirm-item">
@@ -124,7 +124,7 @@
 			    			<?php if(!$is_weixin && $type == 1){ ?>
 			    			<li class="confirm-item" style="line-height: 30px;text-align: center;font-size: 18px;">
 		    					<p>请用微信扫码完成支付</p>
-		    					<img src="<?php echo $qrcode_url;?>" alt="" width="100%">
+		    					<img src="<?php echo $qrcode_url;?>" alt="" width="200" height='200'>
 			    			</li>
 			    			<?php } ?>
 
@@ -295,7 +295,7 @@
 				    			</li>
 				    			<li class="confirm-item" style="padding:24px 13px 24px;">
 				    				<div class='row'>
-				    					<div class='col-sm-6'>
+				    					<div class='col-sm-12'>
 				    						<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;margin-bottom: 10px;" class="comment-more" @click="xyk_buy">
 				    							确认支付
 				    						</div>

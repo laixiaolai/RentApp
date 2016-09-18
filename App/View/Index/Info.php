@@ -133,7 +133,7 @@
                                 <div class="col-md-12" >	
                                 	<input type="hidden" value="yudin" name="a">
                                 	<input type="hidden" value="<?php echo $id; ?>" name="id">
-                                    <button type="submit" class="bookNowButton_1vtsfvn btn btn-primary" id='smallScreen'>立即预定</button>
+                                    <button type="submit" class="bookNowButton_1vtsfvn btn" id='smallScreen'>立即预定</button>
                                 </div>
                             </div>
                         </form>

@@ -47,7 +47,7 @@
 	                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{info.groupTour.price / 500 * 100 - 98.5}}px;">
 	            </span>
 	            <span class='font-size-16 rgb132' style='margin-right: 24px;'>(共{{comment_num}}条评论)</span>
-	    		<span style="background: url('./Img/list_location.png') no-repeat center left;padding-right:0;padding-left:20px;height:15px;" class='INFO-location font-size-16 inline-block rgb132'>{{info.groupTour.transportation}}
+	    		<span style="background: url('./Img/list_location.png') no-repeat center left;padding-right:0;padding-left:20px;height:15px;position:relative;top:0;margin-top:5px;" class='INFO-location font-size-16 inline-block rgb132'>{{info.groupTour.transportation}}
 	    		</span>
 	    	</div>
 		</div>
@@ -104,16 +104,16 @@
 		    				<!-- 增加客服信息 -->
 		    				<div class='pre-email'>
 		    				    <div class='font-size-16 email-title'>客服信息</div>
-		    				    <div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    				    <div class='font-size-12 email-site'>xxx@trip55.com</div>
 		    				</div>
 		    				<div class='row'>
 		    					<div class='pre-email col-md-6' >
 		    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
-		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    						<div class='font-size-12 email-site'>xxx@trip55.com</div>
 		    					</div>
 		    					<div class='after-email col-md-6' >
 		    						<div class='font-size-16 email-title'>售后服务邮箱</div>
-		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    						<div class='font-size-12 email-site'>xxx@trip55.com</div>
 		    					</div>
 		    				</div>
 	    					<div class='row'>
@@ -224,21 +224,21 @@
 	    							<div class='col-xs-12 step-article'>
 	    								<div class='row'>
 		    								<div class='col-md-6' style="margin-bottom: 5px;">
-		    									<div class="radio eating-pay" style="background-image:url('./Img/weixin.png');background-repeat:no-repeat;background-position:48px center;">
+		    									<div class="radio eating-pay" style="background-image:url('./Img/weixin.png');background-repeat:no-repeat;background-position:12px center;">
 		    										<label for="pay_way">
 		    											<input type="radio" name='pay_way' value="1" v-model="info_pay">
 		    										</label>
 		    									</div>
 		    								</div>
 		    								<div class='col-md-6 ' style="margin-bottom: 5px;">
-		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:48px center;">
+		    									<div class="radio eating-pay" style="background-image:url('./Img/pay_pal.png');background-repeat:no-repeat;background-position:14px center;">
 		    										<label for="pay_way">
 		    											<input type="radio" name='pay_way' value="2" v-model="info_pay">
 		    										</label>
 		    									</div>
 		    								</div>
 		    								<div class='col-md-6 ' >
-		    									<div class="radio eating-pay visa-pay" style="background-image:url('./Img/visa_pay.png');background-repeat:no-repeat;background-position:12px 2px;padding-left:14px;">
+		    									<div class="radio eating-pay visa-pay" style="background-image:url('./Img/visa_pay.png');background-repeat:no-repeat;background-position:12px 2px;">
 		    										<label for="pay_way">
 		    											<input type="radio" name='pay_way' value="3" v-model="info_pay">
 		    										</label>
@@ -578,16 +578,16 @@
 		    				<!-- 增加客服信息 -->
 		    				<div class='pre-email col-xs-12'>
 		    				    <div class='font-size-16 email-title'>客服信息</div>
-		    				    <div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    				    <div class='font-size-12 email-site'>xxx@trip55.com</div>
 		    				</div>
 		    				<div>
 		    					<div class='pre-email col-xs-6' >
 		    						<div class='font-size-16 email-title'>售前咨询邮箱</div>
-		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    						<div class='font-size-12 email-site'>xxx@trip55.com</div>
 		    					</div>
 		    					<div class='after-email col-xs-6' >
 		    						<div class='font-size-16 email-title'>售后服务邮箱</div>
-		    						<div class='font-size-14 email-site'>xxx@trip55.com</div>
+		    						<div class='font-size-12 email-site'>xxx@trip55.com</div>
 		    					</div>
 		    				</div>
 	    					<div>
