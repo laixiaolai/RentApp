@@ -59,6 +59,9 @@
 .bg-rgb225 {
    background-color: rgb(225, 112, 114); 
 }
+.bg-rgb216 {
+   background-color: rgb(216, 216, 216); 
+}
 .text-right {
     text-align: right;
 }
@@ -569,6 +572,9 @@ img {
     }
     .list-padding {
         padding: 0;
+    }
+    .credit-margin-bottom {
+        margin-bottom: 24px;
     }
 }
 #search-page .all-research-results .single-meal {
@@ -1459,5 +1465,8 @@ label {
 }
 .swiper-slide img {
     width: 100%;
+}    
+.credit-num {
+    background-color: rgb(216,216,216);
 }
 /***********************************************************信用卡end**************************************************
