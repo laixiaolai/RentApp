@@ -58,7 +58,7 @@
     <!-- 内容 -->
     <div class='content'>
         <div class='container'>
-            <h2>热门目的地</h2>
+            <h2 class='phone-half-padding'>热门目的地</h2>
             <!-- 图片 -->
             <div class='row'>
                 <a class='col-xs-12 col-sm-6' href="./index.php?a=List&label=清迈">

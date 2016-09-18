@@ -122,13 +122,13 @@
 			    			</li>
 
 			    			<?php if(!$is_weixin && $type == 1){ ?>
-			    			<li class="confirm-item" style="line-height: 30px;text-align: center;font-size: 18px;">
+			    			<li class="confirm-item" style="line-height: 30px;text-align: center;font-size: 18px;padding:0;">
 		    					<p>请用微信扫码完成支付</p>
 		    					<img src="<?php echo $qrcode_url;?>" alt="" width="200" height='200'>
 			    			</li>
 			    			<?php } ?>
 
-			    			<li class="confirm-item" style="padding:24px 13px 44px;">
+			    			<li class="confirm-item buy-button">
 			    				<div class='col-sm-6' style="margin-bottom:10px;">
 			    					<div style="border:1px solid rgb(225, 112, 114);color:rgb(225, 112, 114);padding:16px 16%;" class="comment-more" onclick="javascript:history.back(-1);">
 			    						返回修改

@@ -777,7 +777,7 @@ img {
 }
 .evenRowContainer_1sb29nh {
     padding-top: 47px;
-    padding-bottom: 55px !important;
+    padding-bottom: 55px;
     background-color: rgb(246, 246, 246);
 }
 .price_1pnuu1y {
@@ -948,7 +948,6 @@ label {
     font-size: 20px;
 }
 .all-comments {
-    margin-bottom: 24px;
     margin-top: 40px;
     font-size: 30px;
     color: rgb(74, 74, 74);
@@ -1209,7 +1208,7 @@ label {
     margin-bottom: 30px;
 }
 .checked-time {
-    line-height: 64px;
+    line-height: 40px;
 }
 .step2-title {
     background-color: rgb(216,216,216);
@@ -1321,7 +1320,7 @@ label {
     padding-top: 48px;
     padding-bottom: 48px;
     box-shadow: 0 0px 10px 0 #e5e5e5;
-    margin-top: 102px;
+    margin-top: 104px;
 }
 .pre-email {
     margin-bottom:24px;
@@ -1468,4 +1467,55 @@ label {
 .credit-num {
     background-color: rgb(216,216,216);
 }
-/***********************************************************信用卡end**************************************************
+.buy-button {
+    padding:0 13px 44px;
+}
+/***********************************************************信用卡end**************************************************/
+/***********************************************************手机端间距调整**************************************************/
+@media (max-width: 767px){
+    .content h2 {
+        padding: 21px 0;
+    }
+    #search-page .inner-search-page .search-page-filters {
+        margin-bottom: 30px;
+    }
+    .evenRowContainer_1sb29nh {
+        padding-top: 23px;
+        padding-bottom: 27px;
+    }
+    .all-comments {
+        margin-top: 20px;
+    }
+    .separator_1u1psom {
+        margin: 20px 0 0 0;
+    }
+    .step-article {
+        margin-bottom: 24px;
+    }
+    .step-header {
+        margin-bottom: 15px;
+    }
+    .shine {
+        padding: 20px 0 0 0;
+    }
+    .rowTitle_ese0tp.menu {
+        padding-top: 20px;
+    }
+    .about-host {
+        padding-top: 20px;
+    }
+    .reserve-step {
+        padding-bottom: 30px;
+    }
+    .service {
+        margin-top: 0;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    .reserve-content {
+        margin-bottom: 40px;
+    }
+    .buy-button {
+        padding:0 13px 22px;
+    }
+}

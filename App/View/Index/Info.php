@@ -344,11 +344,11 @@
         <div class=container>
             <div class='row'>
                 <div class='col-md-8'>
-                    <div class="rowTitle_ese0tp all-comments">{{comment_num}}条评价</div>
+                    <div class="rowTitle_ese0tp all-comments" style="margin-bottom:0;">{{comment_num}}条评价</div>
                     <hr class="separator_1u1psom">
                     <div style="margin-bottom: 30px;">
-                        <div class="row" v-for="items in comment_1" style="margin-top:34px;">
-                            <div class="col-md-2 text-center" >
+                        <div class="row" v-for="items in comment_1" >
+                            <div class="col-md-2 text-center" style="margin-top:34px;margin-bottom:34px;">
                                 <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
                                 <div class='comment-name'>{{items.nickname}}</div>
                             </div>
@@ -360,7 +360,7 @@
                             </div>
                         </div>
                          <div class="row" v-for="items in comment_2" v-show="comment_show" style="margin-top:34px;">
-                            <div class="col-md-2 text-center" >
+                            <div class="col-md-2 text-center" style="margin-top:34px;margin-bottom:34px;" >
                                 <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
                                 <div class='comment-name'>{{items.nickname}}</div>
                             </div>
