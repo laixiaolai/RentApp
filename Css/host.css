@@ -1144,6 +1144,10 @@ label {
 #areaSelect .ui-selectmenu-button.ui-button {
     text-align: right;
     border-color: #ddd;
+    padding: 15px 30px;
+    border-radius: 0;
+    height: 56px;
+    background-color: white;
 }
 .reserve-header {
     padding: 34px 30px 40px 30px; 
@@ -1242,11 +1246,6 @@ label {
 }
 .step-article {
     margin-bottom: 48px;
-}
-#areaSelect .ui-selectmenu-button.ui-button{
-    padding: 15px 30px;
-    border-radius: 0;
-    height: 56px;
 }
 .radio {
    margin: 0; 
