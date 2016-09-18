@@ -258,7 +258,7 @@
 	    							<div class='col-xs-12  step-article'>
 	    								<div class='step3-content'>
 	    									<span class='col-xs-3 text-center'>姓名</span>
-	    									<input type="text" class='col-xs-9' placeholder="xiaoming" v-model="info_xm" style="padding: 15px 30px;">
+	    									<input type="text" class='col-xs-9' placeholder="xiaoming" v-model="info_xm" style="padding: 15px 30px;line-height: 14px;">
 	    								</div>
 	    								<div class='step3-content' id="areaSelect">
 	    									<span class='col-xs-3 text-center'>区号</span>
