@@ -1150,6 +1150,9 @@ label {
     height: 56px;
     background-color: white;
 }
+#buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button {
+    padding: 15px 0px;
+}
 .reserve-header {
     padding: 34px 30px 40px 30px; 
     border-bottom: 1px solid #ddd;
