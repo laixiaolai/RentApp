@@ -1148,7 +1148,7 @@ label {
     padding: 20px 30px;
     border-radius: 0;
     height: 56px;
-    background-color: red;
+    background-color: white;
 }
 #nationCode-button {
     text-align: right;
@@ -1156,7 +1156,7 @@ label {
     padding: 20px 30px;
     border-radius: 0;
     height: 56px;
-    background-color: red; 
+    background-color: white; 
 }
 #buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button {
     padding: 20px 0px;
