@@ -533,10 +533,10 @@
 	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx" style="padding: 15px 30px;line-height: 14px;display:block;">
 	    								</div>
 
-	    								<div class='step3-content' id='nationCodeSelect' v-show='guojia'>
+	    								<div class='step3-content' id='nationCodeSelect' >
 	    									<span class='col-xs-3 text-center'>国家</span>
 	    									<div class="col-xs-9" style="padding:0;">
-	    										<select style="height:56px;" v-model="info_gj" id='nationCode'>
+	    										<select style="height:56px;" id='nationCode'>
 	    											<option value="USD" selected="selected">USD</option>
 	    											<option value="AUD">AUD</option>
 	    											<option value="BRL">BRL</option>
