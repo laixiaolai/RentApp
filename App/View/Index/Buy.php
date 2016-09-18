@@ -210,46 +210,47 @@
 				    						<span class='col-xs-4 text-center credit-num bg-rgb216'>信用卡卡号</span>
 				    						<input type="text" class='col-xs-8' placeholder="请输入信用卡卡号" v-model="addinfo.number" style='line-height: 14px;display: block;'>
 				    					</div>
-				    					<div class="col-sm-3 col-xs-12 padding-left">
+				    					<div class="col-sm-3 col-xs-12 padding-left" id='currencyCodeSelect'>
 				    						<span class='col-sm-6 text-center col-xs-4 bg-rgb216' style='padding: 0;'>国家码</span>
 				    						<!-- <span class='text-center col-xs-4 col-sm-4 credit-num'>国家码</span> -->
 				    						<!-- <input type="text" class='col-xs-9 col-sm-6' v-model="addinfo.currencyCode"> -->
-
-				    						<select name="currencyCode" class="col-xs-8 col-sm-6" style="height:56px;padding: 12px;" v-model="addinfo.currencyCode">
-				    							<option value="USD" selected="selected">USD</option>
-				    							<option value="AUD">AUD</option>
-				    							<option value="BRL">BRL</option>
-				    							<option value="CAD">CAD</option>
-				    							<option value="CZK">CZK</option>
-				    							<option value="DKK">DKK</option>
-				    							<option value="EUR">EUR</option>
-				    							<option value="HKD">HKD</option>
-				    							<option value="HUF">HUF</option>
-				    							<option value="ILS">ILS</option>
-				    							<option value="JPY">JPY</option>
-				    							<option value="MYR">MYR</option>
-				    							<option value="MXN">MXN</option>
-				    							<option value="TWD">TWD</option>
-				    							<option value="NZD">NZD</option>
-				    							<option value="NOK">NOK</option>
-				    							<option value="PHP">PHP</option>
-				    							<option value="GBP">GBP</option>
-				    							<option value="RUB">RUB</option>
-				    							<option value="SGD">SGD</option>
-				    							<option value="SEK">SEK</option>
-				    							<option value="CHF">CHF</option>
-				    							<option value="THB">THB</option>
-				    							<option value="PLN">PLN</option>
-				    							
-				    						</select>
+				    						<div class="col-xs-8 col-sm-6" style='padding: 0;'>
+				    							<select name="currencyCode"  currency-code" style="height:56px;padding: 12px;" v-model="addinfo.currencyCode" id='currencyCode'>
+				    								<option value="USD" selected="selected">USD</option>
+				    								<option value="AUD">AUD</option>
+				    								<option value="BRL">BRL</option>
+				    								<option value="CAD">CAD</option>
+				    								<option value="CZK">CZK</option>
+				    								<option value="DKK">DKK</option>
+				    								<option value="EUR">EUR</option>
+				    								<option value="HKD">HKD</option>
+				    								<option value="HUF">HUF</option>
+				    								<option value="ILS">ILS</option>
+				    								<option value="JPY">JPY</option>
+				    								<option value="MYR">MYR</option>
+				    								<option value="MXN">MXN</option>
+				    								<option value="TWD">TWD</option>
+				    								<option value="NZD">NZD</option>
+				    								<option value="NOK">NOK</option>
+				    								<option value="PHP">PHP</option>
+				    								<option value="GBP">GBP</option>
+				    								<option value="RUB">RUB</option>
+				    								<option value="SGD">SGD</option>
+				    								<option value="SEK">SEK</option>
+				    								<option value="CHF">CHF</option>
+				    								<option value="THB">THB</option>
+				    								<option value="PLN">PLN</option>
+				    							</select>
+				    						</div>
+				    						
 				    					</div>
 									</div>
 				    			</li>
 				    			<li class="confirm-item">
 				    				<div class='step3-content row'>
-				    					<div class='text-center col-sm-9 col-xs-12' style="margin-bottom: 24px;">
+				    					<div class='text-center col-sm-9 col-xs-12' style="margin-bottom: 24px;" id='buyMonthSelect'>
 				    						<span class='text-center col-xs-4 col-sm-4 credit-num bg-rgb216'>有效期&nbsp;月/年</span>
-				    						<select name="month" class="col-xs-4 col-sm-4" style="height:56px;padding:12px;" v-model="addinfo.expMonth">
+				    						<select name="month" class="col-xs-4 col-sm-4 currency-code" style="height:56px;padding:12px;" v-model="addinfo.expMonth" id='buyMonth'>
 												<option value="1" >1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -263,7 +264,7 @@
 												<option value="11">11</option>
 												<option value="12">12</option>
 											</select>
-											<select name="year" class="col-xs-4 col-sm-4" style="height:56px;padding:12px;" v-model="addinfo.expYear">
+											<select name="year" class="col-xs-4 col-sm-4" style="height:56px;padding:12px;" v-model="addinfo.expYear" id='buyYear'>
 												<option value="1986">1986</option>
 												<option value="1987">1987</option>
 												<option value="1988">1988</option>
@@ -469,6 +470,9 @@
 	
 	
 <script>
+	$('#currencyCode').selectmenu();
+	$('#buyMonth').selectmenu();
+	$('#buyYear').selectmenu();
 	$(function(){
 		$('.credits').click(function(e){
 			// debug.log($(this).attr("data-type"));
