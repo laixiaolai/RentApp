@@ -208,7 +208,7 @@
 				    				<div class='step3-content  row'>
 				    					<div class='col-sm-9 col-xs-12 credit-margin-bottom'>
 				    						<span class='col-xs-4 text-center credit-num bg-rgb216'>信用卡卡号</span>
-				    						<input type="text" class='col-xs-8' placeholder="请输入信用卡卡号" v-model="addinfo.number">
+				    						<input type="text" class='col-xs-8' placeholder="请输入信用卡卡号" v-model="addinfo.number" style='line-height: 14px;display: block;'>
 				    					</div>
 				    					<div class="col-sm-3 col-xs-12 padding-left">
 				    						<span class='col-sm-6 text-center col-xs-4 bg-rgb216' style='padding: 0;'>国家码</span>
@@ -313,7 +313,7 @@
 										</div>
 										<div class="col-sm-3 col-xs-12 padding-left">
 											<span class='col-sm-6 text-center col-xs-4 bg-rgb216' style='padding: 0;'>CVV</span>
-											<input type="text" class='col-xs-8 col-sm-6' v-model="addinfo.cvv" style='padding: 12px;'>
+											<input type="text" class='col-xs-8 col-sm-6' v-model="addinfo.cvv" style='padding: 12px;line-height: 14px;display: block;'>
 										</div>
 				    				</div>
 				    			</li>
