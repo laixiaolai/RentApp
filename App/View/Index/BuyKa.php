@@ -203,7 +203,7 @@
 	                    </div>
 	                </div>
 
-	                <div class="col-md-4 col-sm-4 widget">
+	                <div class="col-md-4 col-sm-4 widget padding-bottom">
 	                    <div class="row hidden-xs">
 	                        <div class="col-md-8 col-sm-12">
 	                            <h4 class="title">

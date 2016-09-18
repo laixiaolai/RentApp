@@ -1114,12 +1114,14 @@ label {
 }
 #datepickerBig, #datepickerSmall {
     height: 50px;
+    background-color: white;
 }
 #numberBig-button, #numberSmall-button  {
     height: 50px;
     padding-top: 17px;
     padding-bottom: 17px;
     padding-right: 16px;
+    background-color: white; 
 }
 .ui-icon, .ui-widget-content .ui-icon {
     background-image: url(../Img/ui-icons_222222_256x240.png);
@@ -1517,5 +1519,11 @@ label {
     }
     .buy-button {
         padding:0 13px 22px;
+    }
+    .padding-bottom {
+        padding-bottom: 0!important;
+    }
+    .more-cities {
+        padding-bottom: 24px;
     }
 }

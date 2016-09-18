@@ -92,17 +92,16 @@
 				    <!-- 搜索结果 -->
 				    <div class='container list-padding'>
 				    	<div id='result-page' class="row all-research-results" >
-				    		<div class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree" >
+				    		<a class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree" href='/index.php?a=Info&id={{items.groupTour.id}}'>
 				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}');border:1px solid #f6f6f6;border-bottom:none;">
-				    		    	<a href="/index.php?a=Info&id={{items.groupTour.id}}"></a>
 				    		  	</div>
 				    		  	<div class="media all-informations">
 									<div>
 										<div class='INFO-title'>
-											<a>
+											<span>
 												<img src="{{items.author.avatarUrl}}" alt="" width='50' height='50' class='INFO-avatar'>
 												<span class='INFO-username'>{{items.author.nickname}}</span>
-											</a>
+											</span>
 											<span style="background: url('./Img/list_location.png') no-repeat center right;" class='INFO-location'>{{items.groupTour.transportation}}
 											</span>
 										</div>
@@ -114,12 +113,12 @@
 
 				    		    	<div class="media-secondary">
 				    		      		<div class="host-reviews">
-			    		                  	<a class="reviews-average" >
+			    		                  	<span class="reviews-average" >
 			    		            			<span class="reviews-stars">
 		    		                                <img src="./Img/fiveStars_empty.png" style="background-image: url('./Img/fiveStars_full.png'); background-repeat:no-repeat;background-position:{{items.groupTour.price / 500 * 100 - 98.5}}px;">
 			    		                        </span>
 			    		            			<span class='comment-number'>({{items.groupTour.price}})</span>
-			    		          			</a>
+			    		          			</span>
 				    		            </div>
 				    		            <div class="meal-price">
 				    		            	<span class='symbol'>&yen;</span>
@@ -128,7 +127,7 @@
 				    		      		<div class="clearfix"></div>
 				    		    	</div>
 				    		  	</div>
-				    		</div>
+				    		</a>
 				    	</div>
 				    	<div class='more-cities' style='padding-top: 0'>
 				    	    <span class='btn-more' @click='show_list'>加载更多···</span>
@@ -221,7 +220,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-4 widget">
+                <div class="col-md-4 col-sm-4 widget padding-bottom">
                     <div class="row hidden-xs">
                         <div class="col-md-8 col-sm-12">
                             <h4 class="title">
