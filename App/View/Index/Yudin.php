@@ -533,35 +533,37 @@
 	    									<input type="email" class='col-xs-9' placeholder="xxxx@xxxx.com" v-model="info_yx" style="padding: 15px 30px;line-height: 14px;display:block;">
 	    								</div>
 
-	    								<div class='step3-content' v-show="guojia">
+	    								<div class='step3-content' id='nationCodeSelect' v-show='guojia'>
 	    									<span class='col-xs-3 text-center'>国家</span>
-	    									<select  class="col-xs-9 col-sm-6" style="height:56px;" v-model="info_gj">
-	    										<option value="USD" selected="selected">USD</option>
-	    										<option value="AUD">AUD</option>
-	    										<option value="BRL">BRL</option>
-	    										<option value="CAD">CAD</option>
-	    										<option value="CZK">CZK</option>
-	    										<option value="DKK">DKK</option>
-	    										<option value="EUR">EUR</option>
-	    										<option value="HKD">HKD</option>
-	    										<option value="HUF">HUF</option>
-	    										<option value="ILS">ILS</option>
-	    										<option value="JPY">JPY</option>
-	    										<option value="MYR">MYR</option>
-	    										<option value="MXN">MXN</option>
-	    										<option value="TWD">TWD</option>
-	    										<option value="NZD">NZD</option>
-	    										<option value="NOK">NOK</option>
-	    										<option value="PHP">PHP</option>
-	    										<option value="GBP">GBP</option>
-	    										<option value="RUB">RUB</option>
-	    										<option value="SGD">SGD</option>
-	    										<option value="SEK">SEK</option>
-	    										<option value="CHF">CHF</option>
-	    										<option value="THB">THB</option>
-	    										<option value="PLN">PLN</option>
-	    										
-	    									</select>
+	    									<div class="col-xs-9" style="padding:0;">
+	    										<select style="height:56px;" v-model="info_gj" id='nationCode'>
+	    											<option value="USD" selected="selected">USD</option>
+	    											<option value="AUD">AUD</option>
+	    											<option value="BRL">BRL</option>
+	    											<option value="CAD">CAD</option>
+	    											<option value="CZK">CZK</option>
+	    											<option value="DKK">DKK</option>
+	    											<option value="EUR">EUR</option>
+	    											<option value="HKD">HKD</option>
+	    											<option value="HUF">HUF</option>
+	    											<option value="ILS">ILS</option>
+	    											<option value="JPY">JPY</option>
+	    											<option value="MYR">MYR</option>
+	    											<option value="MXN">MXN</option>
+	    											<option value="TWD">TWD</option>
+	    											<option value="NZD">NZD</option>
+	    											<option value="NOK">NOK</option>
+	    											<option value="PHP">PHP</option>
+	    											<option value="GBP">GBP</option>
+	    											<option value="RUB">RUB</option>
+	    											<option value="SGD">SGD</option>
+	    											<option value="SEK">SEK</option>
+	    											<option value="CHF">CHF</option>
+	    											<option value="THB">THB</option>
+	    											<option value="PLN">PLN</option>
+	    										</select>
+	    									</div>
+	    									
 	    								</div>
 	    							</div>
 	    						</div>
@@ -752,6 +754,7 @@
     <script>  
     	$("#selectNumber").selectmenu();
     	$("#areaCode").selectmenu();
+    	$("#nationCode").selectmenu();
     	//初始化选择好的时间
     	function getSelectDate(time){
     		var initTime = new Date(time);

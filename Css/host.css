@@ -1142,7 +1142,7 @@ label {
 /****************************简介end****************************/
 /***********************************************************详情页end***************************************************/
 /***********************************************************预定页start***************************************************/
-#areaSelect .ui-selectmenu-button.ui-button, #buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button {
+#areaSelect .ui-selectmenu-button.ui-button, #buyMonthSelect .ui-selectmenu-button.ui-button, #currencyCodeSelect .ui-selectmenu-button.ui-button, #nationCodeSelect .ui-selectmenu-button.ui-button {
     text-align: right;
     border-color: #ddd;
     padding: 20px 30px;
