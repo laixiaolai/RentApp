@@ -613,7 +613,7 @@ img {
 #search-page .all-research-results .all-informations {
     padding: 15px;
     margin-top: 0;
-    border: solid 1px #f6f6f6;
+    border: solid 1px #ddd;
 }
 .all-informations {
     padding: 15px;
@@ -709,7 +709,7 @@ img {
 }
 #search-page .all-research-results .border-bottom, #search-page .map-container .border-bottom {
     margin-bottom: 15px;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #f6f6f6;
 }
 .border-bottom {
     margin-bottom: 15px;
@@ -1379,6 +1379,9 @@ label {
     .your-reserve {
         margin-bottom: 30px;
     }
+    .margin-left {
+       margin-left: 0px; 
+    }
 }
 @media (max-width: 991px){
     .hasDatepicker {
@@ -1540,6 +1543,11 @@ label {
     }
     .more-cities {
         padding-bottom: 24px;
+    }
+}
+@media (min-width: 768px){
+    .list-margin-left {
+       margin-left: 0px; 
     }
 }
 /***********************************************************手机端间距调整End**************************************************/

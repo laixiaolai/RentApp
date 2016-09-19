@@ -58,7 +58,7 @@
 				    <!-- <div style='background-color:#f8f8f8;' class='> -->
 						<div class='search-page-filters row'>
 							<div class="container">
-								<div class='row'>
+								<div class='row  list-margin-left'>
 									<div class='col-md-4 col-sm-6 hidden-xs'>
 										<div class='host-number list-host-number'>
 		                                    共<span>20</span>个
@@ -66,7 +66,7 @@
 		                                </div>
 									</div>
 									<div class='col-md-4'></div>
-									<div class='col-md-4 col-sm-6 col-xs-12 padding-right'>
+									<div class='col-md-4 col-sm-6 col-xs-12'>
 										<div class='row'>
 											<span class='col-sm-4 hidden-xs intelligent-filter'>智能排序</span>
 											<div class="col-sm-8 col-xs-12">
@@ -91,9 +91,9 @@
 				    <!-- /搜索 -->
 				    <!-- 搜索结果 -->
 				    <div class='container list-padding'>
-				    	<div id='result-page' class="row all-research-results" >
+				    	<div id='result-page' class="all-research-results" >
 				    		<a class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree" href='/index.php?a=Info&id={{items.groupTour.id}}'>
-				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}');border:1px solid #f6f6f6;border-bottom:none;">
+				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}');border:1px solid #ddd;border-bottom:none;">
 				    		  	</div>
 				    		  	<div class="media all-informations">
 									<div>
