@@ -1057,7 +1057,8 @@ label {
 .info-content {
     padding-bottom: 40px;
     border-bottom: 1px solid rgb(197, 198, 199);
-    min-height: 102px;
+    min-height: 170px;
+    padding-top: 20px;
 }
 .info-content-text {
     text-align: justify;

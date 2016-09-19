@@ -359,7 +359,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="row" v-for="items in comment_2" v-show="comment_show" style="margin-top:34px;">
+                         <div class="row" v-for="items in comment_2" v-show="comment_show">
                             <div class="col-md-2 text-center" style="margin-top:34px;margin-bottom:34px;" >
                                 <img src="{{items.avatarUrl}}" class="center-block avatar img-responsive img-circle" style="width:70px;height:70px;" >
                                 <div class='comment-name'>{{items.nickname}}</div>
