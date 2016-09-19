@@ -7880,7 +7880,7 @@ $.extend( Datepicker.prototype, {
 	 * @param  input  element - the input field attached to the date picker or
 	 *					event - if triggered by focus
 	 */
-	_showDatepicker: function( input ) {console.log('_showDatepicker')
+	_showDatepicker: function( input ) {
 		//获取当前input的宽度
 		var targetWidth = input.currentTarget.offsetWidth;
 		
@@ -7942,7 +7942,7 @@ $.extend( Datepicker.prototype, {
 		// fix width for dynamic number of date pickers
 		// and adjust position before showing
 		//根据屏幕的宽度获取按钮的宽度
-		var bodyWidth = document.body.clientWidth;console.log(bodyWidth)
+		var bodyWidth = document.body.clientWidth;
         if(bodyWidth >= 992){//获取大屏幕下按钮的宽度
         	var currectWidth = $('#bigScreen').width();
             // $('#ui-datepicker-div').width($('#bigScreen').width());
