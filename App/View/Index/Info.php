@@ -292,7 +292,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class='service hidden-xs col-sm-12'>
+                            <div class='service hidden-xs col-sm-12' style="margin-top:20px;">
                                 <!-- 增加客服信息 -->
                                 <div class='pre-email'>
                                     <div class='font-size-16 email-title'>客服信息</div>
