@@ -95,7 +95,7 @@
 				    		<a class="col-sm-6 col-md-4 single-meal event-result-box"  v-for="items in tree" href='/index.php?a=Info&id={{items.groupTour.id}}'>
 				    		  	<div class="screenshot-single-item" style="background-image:url('{{items.photo[0].photoPath}}');border:1px solid #ddd;border-bottom:none;">
 				    		  	</div>
-				    		  	<div class="media all-informations">
+				    		  	<div class="media all-informations" style="border-top:none;">
 									<div>
 										<div class='INFO-title'>
 											<span>
