@@ -166,27 +166,27 @@
 				    		</div>
 				    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
 				    			<li class="confirm-item" style='padding-bottom:7px;'>
-				    				<div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
+				    				<!-- <div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
 				    					<div>
 				    						<img src="./Img/credit_union.png?imageView2/1/w/114/h/60" alt="">
 				    					</div>
-				    				</div>
-				    				<div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
+				    				</div> -->
+				    				<div class='credits' data-type="visa" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
 				    					<div>
 				    						<img src="./Img/credit_visa.png?imageView2/1/w/114/h/60" alt="">
 				    					</div>
 				    				</div>
-				    				<div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
+				    				<div class='credits' data-type="mastercard" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
 				    					<div>
 				    						<img src="./Img/credit_master.png?imageView2/1/w/114/h/60" alt="">
 				    					</div>
 				    				</div>
-				    				<div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
+				    				<div class='credits' data-type="amex" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
 				    					<div>
 				    						<img src="./Img/credit_ae.png?imageView2/1/w/114/h/60" alt="">
 				    					</div>
 				    				</div>
-				    				<div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
+				    				<div class='credits' data-type="jcb" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
 				    					<div>
 				    						<img src="./Img/credit_jcb.png?imageView2/1/w/114/h/60" alt="">
 				    					</div>
