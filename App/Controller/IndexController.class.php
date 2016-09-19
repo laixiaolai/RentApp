@@ -368,6 +368,13 @@ class IndexController extends BaseController {
         $this->display();
     }
 
+    //支付失败
+    public function BuyNoAction(){
+        $this->assign('host_url', "http://".$_SERVER['HTTP_HOST']);
+        $this->assign('title', '支付失败');
+        $this->display();
+    }
+
 
     //微信支付备份
     // public function BuyAction(){
