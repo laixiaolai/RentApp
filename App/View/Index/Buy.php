@@ -96,7 +96,7 @@
 			    					单价
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>&yen;<?php echo($order_arr['totalAmount']/$order_arr['numOfMember']); ?>/人</span>
+			    					<span>&yen;<?php echo(round($order_arr['totalAmount']/$order_arr['numOfMember'],1)); ?>/人</span>
 			    				</div>
 			    			</li>
 			    			<li class="rgb234 confirm-item">

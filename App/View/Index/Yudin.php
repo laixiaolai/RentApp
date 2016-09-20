@@ -751,6 +751,8 @@
 		function jsNewJaGe(_str){
 			var _jiage = $("#jiage").val();
 		     var _num = $("#selectNumber").val();
+
+		    
 		    if(_str == "USD"){
 		    	var _new_jiage = _jiage*_num*6.6;
 		    }else{
