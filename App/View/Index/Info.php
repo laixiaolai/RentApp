@@ -113,18 +113,14 @@
                                     <div class="Select Select--single has-value" >
                                         <div style="font-size:16px;" >
                                             <select  id="numberSmall" name="num" class="form-control filter-option">
-                                                <option selected="selected">1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
+                                                <?php for ($i = 1; $i < 21; $i++) { 
+                                                    if ($i == 1) {
+                                                        echo '<option value="'.$i.'" selected="selected">'.$i.'</option>';
+                                                    }else{
+                                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                                    }
+                                                 } ?>
                                             </select>
-                                            <!-- <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s" style="margin-top:-32px;margin-right:16px;"></span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +128,8 @@
                             <div class="row"  >
                                 <div class="col-md-12" >	
                                 	<input type="hidden" value="yudin" name="a">
-                                	<input type="hidden" value="<?php echo $id; ?>" name="id">
+                                    <input type="hidden" value="<?php echo $id; ?>" name="id">
+                                	<input type="hidden" value="" name="jiage" v-model="jiage">
                                     <button type="submit" class="bookNowButton_1vtsfvn btn" id='smallScreen'>立即预定</button>
                                 </div>
                             </div>
@@ -602,6 +599,7 @@
                     page_size: 2,
                     page_p: 1,
                     info_id: 0,
+                    jiage: 0,
                     api_url: '',
                     Datetime: '',
                     Token: '',
@@ -638,7 +636,8 @@
     							//提示
     							layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
     						}else{
-    							this.$set('info',response.json());
+                                this.$set('info',response.json());
+    							this.$set('jiage',this.info.groupTour.actualPrice);
 
     							//重设评论列表
     							var _comment_1 = this.comment_1;
@@ -656,7 +655,7 @@
     							
     							this.$set('comment_num',_comment_num);
     							this.$set('comment_1',_comment_1);
-    							this.$set('comment_2',_comment_2);
+                                this.$set('comment_2',_comment_2);
 
 
     							 // debug.log(this.comment_num);

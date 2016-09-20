@@ -81,6 +81,7 @@ class IndexController extends BaseController {
     //预订页
     public function YudinAction(){
         $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
+        $jiage = isset($_GET['jiage']) ? sprintf("%.2f",$_GET['jiage']) : 0;
         $num  = isset($_GET['num']) ? intval($_GET['num']) : 1;
         if (isset($_GET['time'])) {
             list($yue,$ri,$nian) = explode("/",trim($_GET['time']));
@@ -90,13 +91,14 @@ class IndexController extends BaseController {
             $time = getMillisecond();
         }
         
-        // dump($time);
+        //dump($jiage);
         // dump(getMillisecond());
         // dump($_GET);
 
         $this->assign('id', $id);
         $this->assign('time', $time);
         $this->assign('num', $num);
+        $this->assign('jiage', $jiage);
         $this->assign('title', '产品预定页面');
         $this->display();
     }

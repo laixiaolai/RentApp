@@ -195,21 +195,18 @@
 	    								<div class='text-center font-size-16' style="line-height: 36px;">
 	    									<div class='col-xs-6'>
 	    										<select name="" id="selectNumber" class="number-select" v-model="info_num">
-	    											<option value="1">1</option>
-	    											<option value="2">2</option>
-	    											<option value="3">3</option>
-	    											<option value="4">4</option>
-	    											<option value="5">5</option>
-	    											<option value="6">6</option>
-	    											<option value="7">7</option>
-	    											<option value="8">8</option>
-	    											<option value="9">9</option>
-	    											<option value="10">10</option>
+													<?php for ($i = 1; $i < 21; $i++) { 
+														if ($num == $i) {
+															echo '<option value="'.$i.'" selected="selected">'.$i.'</option>';
+														}else{
+															echo '<option value="'.$i.'">'.$i.'</option>';
+														}
+													 } ?>
 	    										</select>
 	    									</div>
 	    									
 	    									<span class='col-xs-3'>&yen;{{info.groupTour.actualPrice}}</span>
-	    									<span class='col-xs-3 font-size-30 rgb225 total-price'>&yen;{{info.groupTour.actualPrice * this.info_num}}</span>
+	    									<span class='col-xs-3 font-size-30 rgb225 total-price' id="total-price-span">&yen;{{info.groupTour.actualPrice * this.info_num}}</span>
 	    								</div>
 	    							</div>
 	    						</div>
@@ -535,35 +532,10 @@
 
 	    								<div class='step3-content' id='nationCodeSelect' v-show='guojia'>
 	    									<span class='col-xs-3 text-center'>国家</span>
-	    									<!-- <div class="col-xs-9" style="padding:0;"> -->
 	    										<select style="height:56px;" v-model="info_gj" id='nationCode' class="col-xs-9">
-	    											<option value="USD" selected="selected">USD</option>
-	    											<option value="AUD">AUD</option>
-	    											<option value="BRL">BRL</option>
-	    											<option value="CAD">CAD</option>
-	    											<option value="CZK">CZK</option>
-	    											<option value="DKK">DKK</option>
-	    											<option value="EUR">EUR</option>
-	    											<option value="HKD">HKD</option>
-	    											<option value="HUF">HUF</option>
-	    											<option value="ILS">ILS</option>
-	    											<option value="JPY">JPY</option>
-	    											<option value="MYR">MYR</option>
-	    											<option value="MXN">MXN</option>
-	    											<option value="TWD">TWD</option>
-	    											<option value="NZD">NZD</option>
-	    											<option value="NOK">NOK</option>
-	    											<option value="PHP">PHP</option>
-	    											<option value="GBP">GBP</option>
-	    											<option value="RUB">RUB</option>
-	    											<option value="SGD">SGD</option>
-	    											<option value="SEK">SEK</option>
-	    											<option value="CHF">CHF</option>
-	    											<option value="THB">THB</option>
-	    											<option value="PLN">PLN</option>
+	    											<option value="RMB" selected="selected">RMB</option>
+	    											<option value="USD" >USD</option>
 	    										</select>
-	    									<!-- </div> -->
-	    									
 	    								</div>
 	    							</div>
 	    						</div>
@@ -623,7 +595,8 @@
 	    </div>
     	<input type="hidden" value='<?php echo $id; ?>' v-model="info_id">
     	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' >
-    	<input type="hidden" value='<?php echo $num; ?>' v-model="info_num">
+    	<input type="hidden" value='<?php echo $num; ?>' v-model="info_num" >
+    	<input type="hidden" value='<?php echo $jiage; ?>' id="jiage" >
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
         <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
@@ -752,9 +725,43 @@
 	
 	
     <script>  
-    	$("#selectNumber").selectmenu();
+    	//初始化下拉选中
     	$("#areaCode").selectmenu();
-    	// $("#nationCode").selectmenu();
+
+		$("#selectNumber").selectmenu({
+		    change:function(){
+		    	setNewJaGe($("#nationCode").val());
+		    }
+		});
+
+		$("#nationCode").selectmenu({
+		    change:function(){
+		    	setNewJaGe($(this).val());
+		    }
+		});
+
+		//根据汇率自动设置价格
+		function setNewJaGe(_str){
+		    $("#total-price-span").html("&yen;"+jsNewJaGe(_str));
+		}
+
+		//根据汇率自动计算价格
+		function jsNewJaGe(_str){
+			var _jiage = $("#jiage").val();
+		     var _num = $("#selectNumber").val();
+		    if(_str == "USD"){
+		    	var _new_jiage = _jiage*_num*6.6;
+		    }else{
+		    	var _new_jiage = _jiage*_num;
+		    }
+
+		    return _new_jiage.toFixed(2);
+		}
+
+
+
+
+
     	//初始化选择好的时间
     	function getSelectDate(time){
     		var initTime = new Date(time);
@@ -843,13 +850,15 @@
 	            	
 	            	//预订
 	                add_yudin: function () { 
-
+	                	
+	                	// debug.log($("#selectNumber").val());
+	                	// return false;
 	                	// //数量
-	                	// this.$set('this.info_num',);
-	                	// //区号
-	                	// this.$set('this.info_qh',);
-	                	// //国家码
-	                	// this.$set('this.info_gj',);
+	                	this.$set('info_num',$("#selectNumber").val());
+	                	// //区号 
+	                	this.$set('info_qh',$("#areaCode").val());
+	                	// //国家码 nationCode
+	                	this.$set('info_gj',$("#nationCode").val());
 
 
 	                	var z= /^[0-9]*$/;
@@ -904,25 +913,26 @@
 	                		return false; 
 	                	};
 
-
-
+	                	// parseInt(setNewJaGe($("#nationCode").val()));
+	                	//debug.log(parseInt(jsNewJaGe($("#nationCode").val())));
+						//return false;
 
 	                	this.$set('info.userId',0);
 	                	this.$set('info.groupTourId',parseInt(this.info_id));
 	                	this.$set('info.numOfMember',parseInt(this.info_num));
 	                	this.$set('info.startDate',parseInt(this.info_time));
-	                	this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
+	                	// this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
+	                	this.$set('info.totalAmount',jsNewJaGe($("#nationCode").val()));
 	                	this.$set('info.contactName',this.info_xm);
 	                	this.$set('info.contactTel',this.info_qh+this.info_dh);
-	                	// this.$set('info.contactTel',this.info_dh);
 	                	this.$set('info.contactEmail',this.info_yx);
 	                	
 
 	                	// debug.log(parseInt(this.info.groupTour.actualPrice * this.info_num));
-						debug.log(this.info_num);
-						debug.log(this.info_qh);
-						debug.log(this.info_gj);
-						return false;
+						// debug.log(this.info_num);
+						// debug.log(this.info_qh);
+						// debug.log(this.info.totalAmount);
+						// return false;
 						
 	                	layer.open({type: 2});
 	                    var headers = {
@@ -952,6 +962,9 @@
 	            	
 	            	//商品详细数据
 	                fetchUser: function () { 
+
+	                	
+	                	// this.$set('info_num',$("#cs_info_num").val());
 	                	
 	                	layer.open({type: 2});
 

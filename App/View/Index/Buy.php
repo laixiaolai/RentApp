@@ -212,34 +212,10 @@
 				    					</div>
 				    					<div class="col-sm-3 col-xs-12 padding-left" id='currencyCodeSelect'>
 				    						<span class='col-sm-6 text-center col-xs-4 bg-rgb216' style='padding: 0;'>国家码</span>
-				    						<!-- <span class='text-center col-xs-4 col-sm-4 credit-num'>国家码</span> -->
-				    						<!-- <input type="text" class='col-xs-9 col-sm-6' v-model="addinfo.currencyCode"> -->
 				    						<div class="col-xs-8 col-sm-6" style='padding: 0;'>
 				    							<select name="currencyCode" style="height:56px;padding: 12px;" v-model="addinfo.currencyCode" id='currencyCode'>
-				    								<option value="USD" selected="selected">USD</option>
-				    								<option value="AUD">AUD</option>
-				    								<option value="BRL">BRL</option>
-				    								<option value="CAD">CAD</option>
-				    								<option value="CZK">CZK</option>
-				    								<option value="DKK">DKK</option>
-				    								<option value="EUR">EUR</option>
-				    								<option value="HKD">HKD</option>
-				    								<option value="HUF">HUF</option>
-				    								<option value="ILS">ILS</option>
-				    								<option value="JPY">JPY</option>
-				    								<option value="MYR">MYR</option>
-				    								<option value="MXN">MXN</option>
-				    								<option value="TWD">TWD</option>
-				    								<option value="NZD">NZD</option>
-				    								<option value="NOK">NOK</option>
-				    								<option value="PHP">PHP</option>
-				    								<option value="GBP">GBP</option>
-				    								<option value="RUB">RUB</option>
-				    								<option value="SGD">SGD</option>
-				    								<option value="SEK">SEK</option>
-				    								<option value="CHF">CHF</option>
-				    								<option value="THB">THB</option>
-				    								<option value="PLN">PLN</option>
+				    								<option value="RMB" selected="selected">RMB</option>
+	    											<option value="USD" >USD</option>
 				    							</select>
 				    						</div>
 				    						
@@ -252,67 +228,24 @@
 				    						<span class='text-center col-xs-4 col-sm-4 credit-num bg-rgb216'>有效期&nbsp;月/年</span>
 				    						<div class="col-xs-4 col-sm-4" style='padding: 0;'>
 					    						<select name="month" class=" currency-code" style="height:56px;padding:12px;" v-model="addinfo.expMonth" id='buyMonth'>
-													<option value="1" >1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9" selected="selected">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
+					    							<?php for ($i = 1; $i < 13; $i++) { 
+														if ($i==1) {
+															echo '<option value="'.$i.'" selected="selected">'.$i.'</option>';
+														}else{
+															echo '<option value="'.$i.'">'.$i.'</option>';
+														}
+													 } ?>
 												</select>
 											</div>
 											<div class="col-xs-4 col-sm-4" style='padding: 0;'>
 												<select name="year" style="height:56px;padding:12px;" v-model="addinfo.expYear" id='buyYear'>
-													<option value="1986">1986</option>
-													<option value="1987">1987</option>
-													<option value="1988">1988</option>
-													<option value="1989">1989</option>
-													<option value="1990">1990</option>
-													<option value="1991">1991</option>
-													<option value="1992">1992</option>
-													<option value="1993">1993</option>
-													<option value="1994">1994</option>
-													<option value="1995">1995</option>
-													<option value="1996">1996</option>
-													<option value="1997">1997</option>
-													<option value="1998">1998</option>
-													<option value="1999">1999</option>
-													<option value="2000">2000</option>
-													<option value="2001">2001</option>
-													<option value="2002">2002</option>
-													<option value="2003">2003</option>
-													<option value="2004">2004</option>
-													<option value="2005">2005</option>
-													<option value="2006">2006</option>
-													<option value="2007">2007</option>
-													<option value="2008">2008</option>
-													<option value="2009">2009</option>
-													<option value="2010">2010</option>
-													<option value="2011">2011</option>
-													<option value="2012">2012</option>
-													<option value="2013">2013</option>
-													<option value="2014">2014</option>
-													<option value="2015">2015</option>
-													<option value="2016"  selected="selected">2016</option>
-													<option value="2017">2017</option>
-													<option value="2018">2018</option>
-													<option value="2019">2019</option>
-													<option value="2020">2020</option>
-													<option value="2021">2021</option>
-													<option value="2022">2022</option>
-													<option value="2023">2023</option>
-													<option value="2024">2024</option>
-													<option value="2025">2025</option>
-													<option value="2026">2026</option>
-													<option value="2027">2027</option>
-													<option value="2028">2028</option>
-													<option value="2029">2029</option>
-													<option value="2030">2030</option>
+													<?php for ($i = 1980; $i < 2031; $i++) { 
+														if ($i==2016) {
+															echo '<option value="'.$i.'" selected="selected">'.$i.'</option>';
+														}else{
+															echo '<option value="'.$i.'">'.$i.'</option>';
+														}
+													 } ?>
 												</select>
 											</div>
 										</div>
@@ -513,13 +446,13 @@
             	//信用卡支付
                 xyk_buy: function () { 
                 	
-                	// //月份
-                	// this.$set('this.addinfo.expMonth',);
-                	// //年份
-                	// this.$set('this.addinfo.expYear',);
-                	// //国家码
-                	// this.$set('this.addinfo.currencyCode',);
-                	
+                	//月份
+                	this.$set('addinfo.expMonth',$("#buyMonth").val());
+                	//年份
+                	this.$set('addinfo.expYear',$("#buyYear").val());
+                	//国家码
+                	this.$set('addinfo.currencyCode',$("#currencyCode").val());
+
 					
                 	this.$set('addinfo.type',$("#addinfo_type").val());
 					if(!this.addinfo.type){
@@ -552,10 +485,10 @@
 					this.$set('addinfo.user_id',$("#user_id").val()); 
 					this.$set('addinfo.order_id',$("#order_id").val()); 
 
-					debug.log(this.addinfo.expMonth);
-					debug.log(this.addinfo.expYear);
-					debug.log(this.addinfo.currencyCode);
-					return false;
+					// debug.log(this.addinfo.expMonth);
+					// debug.log(this.addinfo.expYear);
+					// debug.log(this.addinfo.currencyCode);
+					// return false;
 					layer.open({type: 2});
 					
                     var BuyPaypalKa_url = "./index.php?a=BuyPaypalKa";
