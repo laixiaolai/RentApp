@@ -532,10 +532,12 @@
 
 	    								<div class='step3-content' id='nationCodeSelect' v-show='guojia'>
 	    									<span class='col-xs-3 text-center'>国家</span>
+	    									<div class="col-xs-9" style="padding:0;">
 	    										<select style="height:56px;" v-model="info_gj" id='nationCode' class="col-xs-9">
 	    											<option value="RMB" selected="selected">RMB</option>
 	    											<option value="USD" >USD</option>
 	    										</select>
+	    									</div>
 	    								</div>
 	    							</div>
 	    						</div>
@@ -755,7 +757,7 @@
 		    	var _new_jiage = _jiage*_num;
 		    }
 
-		    return _new_jiage.toFixed(2);
+		    return _new_jiage.toFixed(0);
 		}
 
 
@@ -902,11 +904,6 @@
 	                		return false; 
 	                	};
 
-	                	// if (this.info_pay === 3) {
-	                	// 	this.$set('guojia',1);
-	                	// };
-
-
 
 	                	if (this.info_pay == 2 && this.info_gj == "") {
 	                		layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
@@ -922,7 +919,7 @@
 	                	this.$set('info.numOfMember',parseInt(this.info_num));
 	                	this.$set('info.startDate',parseInt(this.info_time));
 	                	// this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
-	                	this.$set('info.totalAmount',jsNewJaGe($("#nationCode").val()));
+	                	this.$set('info.totalAmount',parseInt(jsNewJaGe($("#nationCode").val())));
 	                	this.$set('info.contactName',this.info_xm);
 	                	this.$set('info.contactTel',this.info_qh+this.info_dh);
 	                	this.$set('info.contactEmail',this.info_yx);
