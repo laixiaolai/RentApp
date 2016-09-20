@@ -513,6 +513,13 @@
             	//信用卡支付
                 xyk_buy: function () { 
                 	
+                	// //月份
+                	// this.$set('this.addinfo.expMonth',);
+                	// //年份
+                	// this.$set('this.addinfo.expYear',);
+                	// //国家码
+                	// this.$set('this.addinfo.currencyCode',);
+                	
 					
                 	this.$set('addinfo.type',$("#addinfo_type").val());
 					if(!this.addinfo.type){
@@ -545,9 +552,12 @@
 					this.$set('addinfo.user_id',$("#user_id").val()); 
 					this.$set('addinfo.order_id',$("#order_id").val()); 
 
-
+					debug.log(this.addinfo.expMonth);
+					debug.log(this.addinfo.expYear);
+					debug.log(this.addinfo.currencyCode);
+					return false;
 					layer.open({type: 2});
-					//return false;
+					
                     var BuyPaypalKa_url = "./index.php?a=BuyPaypalKa";
                     $.ajax({
                         // async : true,  
