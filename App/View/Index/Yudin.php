@@ -752,7 +752,7 @@
 			var _jiage = $("#jiage").val();
 		     var _num = $("#selectNumber").val();
 
-		    
+
 		    if(_str == "USD"){
 		    	var _new_jiage = _jiage*_num*6.6;
 		    }else{
@@ -910,6 +910,9 @@
 	                	if (this.info_pay == 2 && this.info_gj == "") {
 	                		layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
 	                		return false; 
+	                	}else if(this.info_pay == 3 && this.info_gj == ""){
+	                		layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
+	                		return false; 
 	                	};
 
 	                	// parseInt(setNewJaGe($("#nationCode").val()));
@@ -1010,7 +1013,7 @@
 	            },
 	            watch: { //监控指定值得改变 oldValue 旧值, newValue 新值
 	                info_pay: function(oldValue , newValue){
-	                    if(oldValue == 2){
+	                    if(oldValue == 2 || oldValue == 3){
 	                    	this.$set('guojia',1);
 	                    }else{
 	                    	this.$set('guojia',0);

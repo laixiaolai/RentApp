@@ -117,6 +117,8 @@ class IndexController extends BaseController {
 
         if(!$type == 2 && !$currencyCode){
             die('缺少参数:国家码');
+        }elseif(!$type == 3 && !$currencyCode){
+            die('缺少参数:国家码');
         }
         
         // dump($type);
@@ -160,6 +162,8 @@ class IndexController extends BaseController {
                     header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
                 }
             }
+
+            $order_arr['danjia'] = round($order_arr['totalAmount']/$order_arr['numOfMember'],1);
         }
         
         // dump($user_id);
@@ -205,6 +209,7 @@ class IndexController extends BaseController {
         $this->assign('paypal_returnCode', $paypal_returnCode);
         $this->assign('paypal_returnContent', $paypal_returnContent);
         $this->assign('paypal_redirectUrl', $paypal_redirectUrl);
+        $this->assign('currencyCode', $currencyCode);
         $this->assign('returnCode', $returnCode);
         $this->assign('returnContent', $returnContent);
         $this->assign('order_arr', $order_arr);

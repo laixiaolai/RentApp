@@ -96,7 +96,7 @@
 			    					单价
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span>&yen;<?php echo(round($order_arr['totalAmount']/$order_arr['numOfMember'],1)); ?>/人</span>
+			    					<span id="price-span">&yen;<?php echo($order_arr['danjia']); ?>/人</span>
 			    				</div>
 			    			</li>
 			    			<li class="rgb234 confirm-item">
@@ -117,7 +117,7 @@
 			    					订单金额
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span class='font-size-30 rgb225'>&yen;<?php echo($order_arr['totalAmount']); ?></span>
+			    					<span class='font-size-30 rgb225' id="total-price-span">&yen;<?php echo($order_arr['totalAmount']); ?></span>
 			    				</div>
 			    			</li>
 
@@ -206,11 +206,11 @@
 				    			</li>
 				    			<li class="confirm-item">
 				    				<div class='step3-content  row'>
-				    					<div class='col-sm-9 col-xs-12 credit-margin-bottom'>
+				    					<div class='col-sm-9 col-xs-12 credit-margin-bottom' style="margin-bottom: 4px;">
 				    						<span class='col-xs-4 text-center credit-num bg-rgb216'>信用卡卡号</span>
 				    						<input type="text" class='col-xs-8' placeholder="请输入信用卡卡号" v-model="addinfo.number" style='line-height: 14px;display: block;'>
 				    					</div>
-				    					<div class="col-sm-3 col-xs-12 padding-left" id='currencyCodeSelect'>
+				    					<!-- <div class="col-sm-3 col-xs-12 padding-left" id='currencyCodeSelect'>
 				    						<span class='col-sm-6 text-center col-xs-4 bg-rgb216' style='padding: 0;'>国家码</span>
 				    						<div class="col-xs-8 col-sm-6" style='padding: 0;'>
 				    							<select name="currencyCode" style="height:56px;padding: 12px;" v-model="addinfo.currencyCode" id='currencyCode'>
@@ -219,7 +219,7 @@
 				    							</select>
 				    						</div>
 				    						
-				    					</div>
+				    					</div> -->
 									</div>
 				    			</li>
 				    			<li class="confirm-item">
@@ -398,6 +398,9 @@
 	<input type="hidden" value='<?php echo $type; ?>' v-model="info_type">
 	<input type="hidden" value='' id="addinfo_type">
 	<input type="hidden" value='<?php echo($order_arr['groupTourId']); ?>' v-model="info_gid">
+	<input type="hidden" value='<?php echo($order_arr['danjia']); ?>' id="inp_danjia">
+	<input type="hidden" value='<?php echo($order_arr['numOfMember']); ?>' id="inp_num">
+	<input type="hidden" value='<?php echo($currencyCode); ?>' id="currencyCode">
 	<input type="hidden" value='<?php echo $order_id; ?>' id="order_id" v-model="info_id">
 	<input type="hidden" value='<?php echo $user_id; ?>' id="user_id">
 	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
@@ -407,9 +410,37 @@
 	
 	
 <script>
-	$('#currencyCode').selectmenu();
+	// $('#currencyCode').selectmenu();
 	$('#buyMonth').selectmenu();
 	$('#buyYear').selectmenu();
+
+
+	// $("#currencyCode").selectmenu({
+	// 	    change:function(){
+	// 	    	setNewJaGe($(this).val());
+	// 	    }
+	// });
+
+	// //根据汇率自动设置价格
+	// function setNewJaGe(_str){
+	//     $("#total-price-span").html("&yen;"+jsNewJaGe(_str));
+	// }
+
+	// //根据汇率自动计算价格
+	// function jsNewJaGe(_str){
+	// 	var _jiage = $("#inp_danjia").val();
+	//      var _num = $("#inp_num").val();
+
+	    
+	//     if(_str == "USD"){
+	//     	var _new_jiage = _jiage*_num*6.6;
+	//     }else{
+	//     	var _new_jiage = _jiage*_num;
+	//     }
+
+	//     return _new_jiage.toFixed(0);
+	// }
+
 	$(function(){
 		$('.credits').click(function(e){
 			// debug.log($(this).attr("data-type"));
