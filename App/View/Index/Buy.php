@@ -96,7 +96,7 @@
 			    					单价
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span id="price-span">&yen;<?php echo($order_arr['danjia']); ?>/人</span>
+			    					<span id="price-span"><?php echo($fuhao); ?><?php echo($order_arr['danjia']); ?>/人</span>
 			    				</div>
 			    			</li>
 			    			<li class="rgb234 confirm-item">
@@ -108,6 +108,8 @@
 			    						<span>微信支付</span>
 			    					<?php }elseif($type == 2){ ?>	
 			    						<span>paypal支付</span>
+			    					<?php }elseif($type == 3){ ?>	
+			    						<span>信用卡支付</span>
 			    					<?php } ?>	
 			    					
 			    				</div>
@@ -117,7 +119,7 @@
 			    					订单金额
 			    				</div>
 			    				<div class='col-xs-6 text-right'>
-			    					<span class='font-size-30 rgb225' id="total-price-span">&yen;<?php echo($order_arr['totalAmount']); ?></span>
+			    					<span class='font-size-30 rgb225' id="total-price-span"><?php echo($fuhao); ?><?php echo($order_arr['totalAmount']); ?></span>
 			    				</div>
 			    			</li>
 

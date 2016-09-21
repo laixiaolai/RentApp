@@ -205,7 +205,7 @@
 	    										</select>
 	    									</div>
 	    									
-	    									<span class='col-xs-3'>&yen;{{info.groupTour.actualPrice}}</span>
+	    									<span class='col-xs-3' id="dan-price-span">&yen;{{info.groupTour.actualPrice}}</span>
 	    									<span class='col-xs-3 font-size-30 rgb225 total-price' id="total-price-span">&yen;{{info.groupTour.actualPrice * this.info_num}}</span>
 	    								</div>
 	    							</div>
@@ -599,6 +599,7 @@
     	<input type="hidden" id="xz_time" value='<?php echo $time; ?>' >
     	<input type="hidden" value='<?php echo $num; ?>' v-model="info_num" >
     	<input type="hidden" value='<?php echo $jiage; ?>' id="jiage" >
+    	<input type="hidden" value='<?php echo $jiage; ?>' id="danjia"  >
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
         <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
@@ -744,22 +745,44 @@
 
 		//根据汇率自动设置价格
 		function setNewJaGe(_str){
-		    $("#total-price-span").html("&yen;"+jsNewJaGe(_str));
+		    
+		    if(_str == "USD"){
+		    	$("#dan-price-span").html("$"+jsNewJaGeDan(_str));
+		    	$("#total-price-span").html("$"+jsNewJaGe(_str));
+		    }else{
+		    	$("#dan-price-span").html("&yen;"+jsNewJaGeDan(_str));
+		    	$("#total-price-span").html("&yen;"+jsNewJaGe(_str));
+		    }
+		    $("#danjia").val(jsNewJaGeDan(_str));
 		}
 
-		//根据汇率自动计算价格
+		//根据汇率自动计算总价格
 		function jsNewJaGe(_str){
 			var _jiage = $("#jiage").val();
 		     var _num = $("#selectNumber").val();
 
 
 		    if(_str == "USD"){
-		    	var _new_jiage = _jiage*_num*6.6;
+		    	var _new_jiage = _jiage*0.66*_num;
 		    }else{
 		    	var _new_jiage = _jiage*_num;
 		    }
 
 		    return _new_jiage.toFixed(0);
+		}
+
+		//根据汇率自动计算单价格
+		function jsNewJaGeDan(_str){
+			var _jiage = $("#jiage").val();
+		    var _num   = $("#selectNumber").val();
+		    if(_str == "USD"){
+		    	var _new_jiage = _jiage*0.66;
+		    	//console.log(_new_jiage);
+		    	return _new_jiage.toFixed(2);
+		    }else{
+		    	return parseInt(_jiage);
+		    }
+		    
 		}
 
 
@@ -836,6 +859,7 @@
 	                info_id: 0,
 	                info_time: 0,
 	                info_num: 0,
+	                info_danjia: 0,
 	                info_gj: '',
 	                info_xm: '',
 	                info_qh: '',
@@ -863,6 +887,8 @@
 	                	this.$set('info_qh',$("#areaCode").val());
 	                	// //国家码 nationCode
 	                	this.$set('info_gj',$("#nationCode").val());
+	                	//单价
+	                	this.$set('info_danjia',$("#danjia").val());
 
 
 	                	var z= /^[0-9]*$/;
@@ -953,7 +979,7 @@
 								layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
 							}else{
 								layer.open({content: '订单创建'+_arr.orderId+'成功,正在跳转',skin: 'msg',time: 2  });
-								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay+"&guojia="+this.info_gj;
+								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay+"&guojia="+this.info_gj+"&danjia="+this.info_danjia;
 							}
 						}, function(response){
 							// 响应错误回调

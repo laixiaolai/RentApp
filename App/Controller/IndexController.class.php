@@ -80,11 +80,12 @@ class IndexController extends BaseController {
 
     //预订页
     public function YudinAction(){
-        $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
-        $jiage = isset($_GET['jiage']) ? sprintf("%.2f",$_GET['jiage']) : 0;
-        $num  = isset($_GET['num']) ? intval($_GET['num']) : 1;
-        if (isset($_GET['time'])) {
-            list($yue,$ri,$nian) = explode("/",trim($_GET['time']));
+        //dump($_POST);
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 53;
+        $jiage = isset($_POST['jiage']) ? sprintf("%.2f",$_POST['jiage']) : 0;
+        $num  = isset($_POST['num']) ? intval($_POST['num']) : 1;
+        if (isset($_POST['time'])) {
+            list($yue,$ri,$nian) = explode("/",trim($_POST['time']));
             $time = $nian."-".$yue."-".$ri." 00:00:00";
             $time = strtotime($time)*1000;
         }else{
@@ -93,7 +94,7 @@ class IndexController extends BaseController {
         
         //dump($jiage);
         // dump(getMillisecond());
-        // dump($_GET);
+        // dump($_POST);
 
         $this->assign('id', $id);
         $this->assign('time', $time);
@@ -106,7 +107,8 @@ class IndexController extends BaseController {
 
     //支付页面
     public function BuyAction(){
-        $currencyCode = isset($_GET['guojia']) ? trim($_GET['guojia']) : "";
+        $danjia = isset($_GET['danjia']) ? trim($_GET['danjia']) : 0;
+        $currencyCode = isset($_GET['guojia']) ? trim($_GET['guojia']) : "RMB";
         $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
         $type     = isset($_GET['type']) ? intval($_GET['type']) : 1;
         $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
@@ -163,7 +165,8 @@ class IndexController extends BaseController {
                 }
             }
 
-            $order_arr['danjia'] = round($order_arr['totalAmount']/$order_arr['numOfMember'],1);
+            $order_arr['danjia'] = $danjia;
+            
         }
         
         // dump($user_id);
@@ -201,7 +204,7 @@ class IndexController extends BaseController {
         //微信支付2维码(pc)
         $qrcode_url = API_URL."wechat/pay/qr?orderId=".$order_id;
 
-        
+        $fuhao = ($currencyCode == "RMB") ? "&yen;" : "$";
         $this->assign('qrcode_url', $qrcode_url);
         $this->assign('paypal_url', $paypal_url);
         $this->assign('url', $url);
@@ -210,6 +213,7 @@ class IndexController extends BaseController {
         $this->assign('paypal_returnContent', $paypal_returnContent);
         $this->assign('paypal_redirectUrl', $paypal_redirectUrl);
         $this->assign('currencyCode', $currencyCode);
+        $this->assign('fuhao', $fuhao);
         $this->assign('returnCode', $returnCode);
         $this->assign('returnContent', $returnContent);
         $this->assign('order_arr', $order_arr);
