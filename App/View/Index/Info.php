@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="./index.php?a=Yudin" method="post">
+                        <form action="./index.php" method="get">
                             <div class="row" >
                                 <div class="col-md-8" >
                                     <label class="control-label">
@@ -128,7 +128,7 @@
                             <div class="row"  >
                                 <div class="col-md-12" >	
                                 	<input type="hidden" value="yudin" name="a">
-                                    <input type="hidden" value="<?php echo $id; ?>" name="goods_id">
+                                    <input type="hidden" value="<?php echo $id; ?>" name="id">
                                 	<input type="hidden" value="" name="jiage" v-model="jiage">
                                     <button type="submit" class="bookNowButton_1vtsfvn btn" id='smallScreen'>立即预定</button>
                                 </div>
