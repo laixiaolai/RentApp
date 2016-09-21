@@ -763,7 +763,7 @@
 
 
 		    if(_str == "USD"){
-		    	var _new_jiage = _jiage*0.66*_num;
+		    	var _new_jiage = _jiage*0.15*_num;
 		    }else{
 		    	var _new_jiage = _jiage*_num;
 		    }
@@ -776,7 +776,7 @@
 			var _jiage = $("#jiage").val();
 		    var _num   = $("#selectNumber").val();
 		    if(_str == "USD"){
-		    	var _new_jiage = _jiage*0.66;
+		    	var _new_jiage = _jiage*0.15;
 		    	//console.log(_new_jiage);
 		    	return _new_jiage.toFixed(2);
 		    }else{
