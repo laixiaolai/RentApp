@@ -80,12 +80,11 @@ class IndexController extends BaseController {
 
     //预订页
     public function YudinAction(){
-        //dump($_POST);
-        $id = isset($_POST['id']) ? intval($_POST['id']) : 53;
-        $jiage = isset($_POST['jiage']) ? sprintf("%.2f",$_POST['jiage']) : 0;
-        $num  = isset($_POST['num']) ? intval($_POST['num']) : 1;
-        if (isset($_POST['time'])) {
-            list($yue,$ri,$nian) = explode("/",trim($_POST['time']));
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 53;
+        $jiage = isset($_GET['jiage']) ? sprintf("%.2f",$_GET['jiage']) : 0;
+        $num  = isset($_GET['num']) ? intval($_GET['num']) : 1;
+        if (isset($_GET['time'])) {
+            list($yue,$ri,$nian) = explode("/",trim($_GET['time']));
             $time = $nian."-".$yue."-".$ri." 00:00:00";
             $time = strtotime($time)*1000;
         }else{
@@ -94,7 +93,7 @@ class IndexController extends BaseController {
         
         //dump($jiage);
         // dump(getMillisecond());
-        // dump($_POST);
+        // dump($_GET);
 
         $this->assign('id', $id);
         $this->assign('time', $time);
@@ -164,7 +163,7 @@ class IndexController extends BaseController {
                     header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
                 }
             }
-
+            
             $order_arr['danjia'] = $danjia;
             
         }
