@@ -753,7 +753,7 @@
 		    	$("#dan-price-span").html("&yen;"+jsNewJaGeDan(_str));
 		    	$("#total-price-span").html("&yen;"+jsNewJaGe(_str));
 		    }
-		    $("#danjia").val(jsNewJaGeDan(_str));
+		    
 		}
 
 		//根据汇率自动计算总价格
@@ -764,11 +764,13 @@
 
 		    if(_str == "USD"){
 		    	var _new_jiage = _jiage*0.15*_num;
+
+
 		    }else{
 		    	var _new_jiage = _jiage*_num;
 		    }
-
-		    return _new_jiage.toFixed(0);
+		    var _zong = (_new_jiage.toFixed(0) == 0) ? 1 : _new_jiage.toFixed(0);
+		    return _zong;
 		}
 
 		//根据汇率自动计算单价格
@@ -778,8 +780,14 @@
 		    if(_str == "USD"){
 		    	var _new_jiage = _jiage*0.15;
 		    	//console.log(_new_jiage);
-		    	return _new_jiage.toFixed(2);
+		    	
+
+		    	var _dan = (_new_jiage.toFixed(0) == 0) ? 1 : _new_jiage.toFixed(0);
+
+		    	$("#danjia").val(_dan);
+		    	return _dan;
 		    }else{
+		    	$("#danjia").val(parseInt(_jiage));
 		    	return parseInt(_jiage);
 		    }
 		    
