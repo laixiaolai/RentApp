@@ -137,7 +137,11 @@
 			    					</div>
 			    				</div>
 			    				<div class='col-sm-6'>
-				    				<?php if($type == 2 && isset($paypal_redirectUrl)){ ?>
+			    					<?php if($type == 3 && isset($paypal_ka_redirectUrl)){ ?>
+			    						<form action="<?php echo $paypal_ka_redirectUrl; ?>" method="POST">
+				    					<button type="submit" style="width: 100%;background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" > 立即支付 </button>
+				    					</form>
+				    				<?php } else if($type == 2 && isset($paypal_redirectUrl)){ ?>
 				    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" onclick="call_paypal()"> 立即支付 </div>
 				    				<?php }else if ($type == 1 && $is_weixin) { ?>
 				    					<div style="background-color: rgb(225, 112, 114);color:white;padding:16px 16%;" class="comment-more" onclick="callpay()"> 立即支付 </div>
@@ -156,7 +160,7 @@
 
 		<!-- 中间确认框 -->
 	    <?php if($type == 3){ ?>
-	    <div style='background-color: rgb(246, 246, 246);'>
+	    <div style='background-color: rgb(246, 246, 246);' v-show="xinyongka">
 		    <div class='font-size-16 container'>
 		    	<div class='row' style="margin-top: 40px;">
 		    		<div class="col-xs-12">
@@ -168,11 +172,6 @@
 				    		</div>
 				    		<ul style="list-style: none;padding:0;margin:0;color: rgb(125,125,125);" class='confirm-items'>
 				    			<li class="confirm-item" style='padding-bottom:7px;'>
-				    				<!-- <div class='credits' data-type="unionpay" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
-				    					<div>
-				    						<img src="./Img/credit_union.png?imageView2/1/w/114/h/60" alt="">
-				    					</div>
-				    				</div> -->
 				    				<div class='credits' data-type="visa" style='float: left;margin-right:5px;width: 120px;height: 64px;margin-bottom: 6px;'>
 				    					<div>
 				    						<img src="./Img/credit_visa.png?imageView2/1/w/114/h/60" alt="">
@@ -193,18 +192,6 @@
 				    						<img src="./Img/credit_jcb.png?imageView2/1/w/114/h/60" alt="">
 				    					</div>
 				    				</div>
-				    				<!-- <div class='credits col-sm-2 col-xs-4' data-type="visa">
-				    					<img src="./Img/credit_visa.png?imageView2/1/w/114/h/60" alt="" width="100%">
-				    				</div>
-				    				<div class='credits col-sm-2 col-xs-4' data-type="mastercard">
-				    					<img src="./Img/credit_master.png?imageView2/1/w/114/h/60" alt="">
-				    				</div>
-				    				<div class='credits col-sm-2 col-xs-4' data-type="americanexpress">
-				    					<img src="./Img/credit_ae.png?imageView2/1/w/114/h/60" alt="">
-				    				</div>
-				    				<div class='credits col-sm-2 col-xs-4' data-type="jcb">
-				    					<img src="./Img/credit_jcb.png?imageView2/1/w/114/h/60" alt="">
-				    				</div>-->
 				    			</li>
 				    			<li class="confirm-item">
 				    				<div class='step3-content  row'>
@@ -212,16 +199,6 @@
 				    						<span class='col-xs-4 text-center credit-num bg-rgb216'>信用卡卡号</span>
 				    						<input type="text" class='col-xs-8' placeholder="请输入信用卡卡号" v-model="addinfo.number" style='line-height: 14px;display: block;'>
 				    					</div>
-				    					<!-- <div class="col-sm-3 col-xs-12 padding-left" id='currencyCodeSelect'>
-				    						<span class='col-sm-6 text-center col-xs-4 bg-rgb216' style='padding: 0;'>国家码</span>
-				    						<div class="col-xs-8 col-sm-6" style='padding: 0;'>
-				    							<select name="currencyCode" style="height:56px;padding: 12px;" v-model="addinfo.currencyCode" id='currencyCode'>
-				    								<option value="RMB" selected="selected">RMB</option>
-	    											<option value="USD" >USD</option>
-				    							</select>
-				    						</div>
-				    						
-				    					</div> -->
 									</div>
 				    			</li>
 				    			<li class="confirm-item">
@@ -409,39 +386,13 @@
     <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
     <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
     <input type="hidden" value='<?php echo isset($paypal_redirectUrl) ? $paypal_redirectUrl: ""; ?>' id="paypal_url">
+    <input type="hidden" value='<?php echo isset($paypal_ka_redirectUrl) ? $paypal_ka_redirectUrl: ""; ?>' id="paypal_ka_url">
 	
 	
 <script>
 	// $('#currencyCode').selectmenu();
 	$('#buyMonth').selectmenu();
 	$('#buyYear').selectmenu();
-
-
-	// $("#currencyCode").selectmenu({
-	// 	    change:function(){
-	// 	    	setNewJaGe($(this).val());
-	// 	    }
-	// });
-
-	// //根据汇率自动设置价格
-	// function setNewJaGe(_str){
-	//     $("#total-price-span").html("&yen;"+jsNewJaGe(_str));
-	// }
-
-	// //根据汇率自动计算价格
-	// function jsNewJaGe(_str){
-	// 	var _jiage = $("#inp_danjia").val();
-	//      var _num = $("#inp_num").val();
-
-	    
-	//     if(_str == "USD"){
-	//     	var _new_jiage = _jiage*_num*6.6;
-	//     }else{
-	//     	var _new_jiage = _jiage*_num;
-	//     }
-
-	//     return _new_jiage.toFixed(0);
-	// }
 
 	$(function(){
 		$('.credits').click(function(e){
@@ -457,6 +408,7 @@
         var vm = new Vue({
             el: '#app', //绑定id盒子
             data: {  //初始化内容值
+                xinyongka: 0,
                 comment_num: 0,
                 comment_but: 1,
                 comment_show: 0,

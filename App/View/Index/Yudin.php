@@ -601,6 +601,7 @@
     	<input type="hidden" value='<?php echo $jiage; ?>' id="jiage" >
     	<input type="hidden" value='<?php echo $jiage; ?>' id="danjia"  >
     	<input type="hidden" value='<?php echo API_URL; ?>' v-model="api_url">
+    	<input type="hidden" value='RMB' id="bizhong">
         <input type="hidden" value='<?php echo date("Y-m-d H:i:s"); ?>' v-model="Datetime">
         <input type="hidden" value='<?php echo isset($_SESSION["api_info"]) ? $_SESSION["api_info"]["token"]: ""; ?>' v-model="Token">
 	</div>
@@ -733,7 +734,8 @@
 
 		$("#selectNumber").selectmenu({
 		    change:function(){
-		    	setNewJaGe($("#nationCode").val());
+		    	//setNewJaGe($("#nationCode").val());
+		    	setNewJaGe($("#bizhong").val());
 		    }
 		});
 
@@ -759,13 +761,9 @@
 		//根据汇率自动计算总价格
 		function jsNewJaGe(_str){
 			var _jiage = $("#jiage").val();
-		     var _num = $("#selectNumber").val();
-
-
+		    var _num = $("#selectNumber").val();
 		    if(_str == "USD"){
 		    	var _new_jiage = _jiage*0.15*_num;
-
-
 		    }else{
 		    	var _new_jiage = _jiage*_num;
 		    }
@@ -779,11 +777,7 @@
 		    var _num   = $("#selectNumber").val();
 		    if(_str == "USD"){
 		    	var _new_jiage = _jiage*0.15;
-		    	//console.log(_new_jiage);
-		    	
-
 		    	var _dan = (_new_jiage.toFixed(0) == 0) ? 1 : _new_jiage.toFixed(0);
-
 		    	$("#danjia").val(_dan);
 		    	return _dan;
 		    }else{
@@ -894,9 +888,10 @@
 	                	// //区号 
 	                	this.$set('info_qh',$("#areaCode").val());
 	                	// //国家码 nationCode
-	                	this.$set('info_gj',$("#nationCode").val());
+	                	// this.$set('info_gj',$("#nationCode").val());
+	                	this.$set('info_gj',"USD");
 	                	//单价
-	                	this.$set('info_danjia',$("#danjia").val());
+	                	this.$set('info_danjia',parseInt($("#danjia").val()));
 
 
 	                	var z= /^[0-9]*$/;
@@ -941,13 +936,13 @@
 	                	};
 
 
-	                	if (this.info_pay == 2 && this.info_gj == "") {
-	                		layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
-	                		return false; 
-	                	}else if(this.info_pay == 3 && this.info_gj == ""){
-	                		layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
-	                		return false; 
-	                	};
+	                	// if (this.info_pay == 2 && this.info_gj == "") {
+	                	// 	layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
+	                	// 	return false; 
+	                	// }else if(this.info_pay == 3 && this.info_gj == ""){
+	                	// 	layer.open({content: '请选择国家码',skin: 'msg',time: 2  });
+	                	// 	return false; 
+	                	// };
 
 	                	// parseInt(setNewJaGe($("#nationCode").val()));
 	                	//debug.log(parseInt(jsNewJaGe($("#nationCode").val())));
@@ -958,7 +953,7 @@
 	                	this.$set('info.numOfMember',parseInt(this.info_num));
 	                	this.$set('info.startDate',parseInt(this.info_time));
 	                	// this.$set('info.totalAmount',parseInt(this.info.groupTour.actualPrice * this.info_num));
-	                	this.$set('info.totalAmount',parseInt(jsNewJaGe($("#nationCode").val())));
+	                	this.$set('info.totalAmount',parseInt(jsNewJaGe($("#bizhong").val())));
 	                	this.$set('info.contactName',this.info_xm);
 	                	this.$set('info.contactTel',this.info_qh+this.info_dh);
 	                	this.$set('info.contactEmail',this.info_yx);
@@ -987,7 +982,8 @@
 								layer.open({content: '对不起,未找到需要的内容',skin: 'msg',time: 2  }); 
 							}else{
 								layer.open({content: '订单创建'+_arr.orderId+'成功,正在跳转',skin: 'msg',time: 2  });
-								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay+"&guojia="+this.info_gj+"&danjia="+this.info_danjia;
+								//location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay+"&guojia="+this.info_gj+"&danjia="+this.info_danjia;
+								location.href = "/index.php?a=Buy&order_id="+_arr.orderId+"&type="+this.info_pay+"&danjia="+this.info_danjia;
 							}
 						}, function(response){
 							// 响应错误回调
@@ -1048,8 +1044,12 @@
 	            watch: { //监控指定值得改变 oldValue 旧值, newValue 新值
 	                info_pay: function(oldValue , newValue){
 	                    if(oldValue == 2 || oldValue == 3){
-	                    	this.$set('guojia',1);
+	                    	$("#bizhong").val("USD");
+	                    	setNewJaGe("USD");
+	                    	this.$set('guojia',0);
 	                    }else{
+	                    	$("#bizhong").val("RMB");
+	                    	setNewJaGe("RMB");
 	                    	this.$set('guojia',0);
 	                    }
 	                }

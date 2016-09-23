@@ -106,20 +106,18 @@ class IndexController extends BaseController {
 
     //支付页面
     public function BuyAction(){
-        $danjia = isset($_GET['danjia']) ? trim($_GET['danjia']) : 0;
+        $danjia       = isset($_GET['danjia']) ? trim($_GET['danjia']) : 0;
         $currencyCode = isset($_GET['guojia']) ? trim($_GET['guojia']) : "RMB";
-        $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
-        $type     = isset($_GET['type']) ? intval($_GET['type']) : 1;
-        $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
-        $openid   = isset($_SESSION["user_info"]["openid"]) ? $_SESSION["user_info"]["openid"]: '';
+        $order_id     = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
+        $type         = isset($_GET['type']) ? intval($_GET['type']) : 1;
+        $token        = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
+        $openid       = isset($_SESSION["user_info"]["openid"]) ? $_SESSION["user_info"]["openid"]: '';
         if(!$order_id){
             die('订单不存在');
         }
 
-        if(!$type == 2 && !$currencyCode){
-            die('缺少参数:国家码');
-        }elseif(!$type == 3 && !$currencyCode){
-            die('缺少参数:国家码');
+        if($type == 2 || $type == 3){
+            $currencyCode =  "USD";
         }
         
         // dump($type);
@@ -143,7 +141,7 @@ class IndexController extends BaseController {
         //检测订单是否存在
         $user_id       = 0;
         $order_url     = API_URL."order/".$order_id;
-        $order_arr = array();
+        $order_arr     = array();
         $order_jsonStr = array();
         $order_res     = Get_Web_Contents($order_url, "GET", "", $header);
         if(FALSE === empty($order_res['Body'])){
@@ -163,7 +161,7 @@ class IndexController extends BaseController {
                     header("Location:http://".$_SERVER['HTTP_HOST']."/index.php?a=BuyOk&order_id=".$order_id);
                 }
             }
-            
+
             $order_arr['danjia'] = $danjia;
             
         }
@@ -185,6 +183,7 @@ class IndexController extends BaseController {
         $paypal_returnCode    = 0;
         $paypal_returnContent = '';
         $paypal_redirectUrl   = '';
+        $paypal_ka_redirectUrl   = '';
         $paypal_url           = '';
         if($type == 2){
             // $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
@@ -198,6 +197,11 @@ class IndexController extends BaseController {
                     $paypal_redirectUrl = $paypal_returnContent['redirectUrl'];
                 }
             }
+        }else if($type == 3){
+            // $paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
+            //$paypal_url     = API_URL."charge/paypal/account/".$user_id."/pay/".$order_id;
+            $paypal_ka_redirectUrl     = API_URL."charge/paypal/cc2/".$user_id."/pay/".$order_id;
+           
         }
 
         //微信支付2维码(pc)
@@ -211,6 +215,7 @@ class IndexController extends BaseController {
         $this->assign('paypal_returnCode', $paypal_returnCode);
         $this->assign('paypal_returnContent', $paypal_returnContent);
         $this->assign('paypal_redirectUrl', $paypal_redirectUrl);
+        $this->assign('paypal_ka_redirectUrl', $paypal_ka_redirectUrl);
         $this->assign('currencyCode', $currencyCode);
         $this->assign('fuhao', $fuhao);
         $this->assign('returnCode', $returnCode);
