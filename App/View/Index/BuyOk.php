@@ -50,7 +50,7 @@
 		    				<img src="./Img/done.png" alt="" width='71' height='80'>
 		    				<div style="margin-top:24px;margin-bottom:10px;" class="font-size-14">
 		    					支付成功，您已经成功付款
-		    					<span class='rgb225'><?php echo isset($order_arr["totalAmount"]) ? $order_arr["totalAmount"]: ""; ?>元</span>！
+		    					<span class='rgb225'><?php echo $fuhao; ?><?php echo isset($order_arr["totalAmount"]) ? $order_arr["totalAmount"]: ""; ?></span>！
 		    				</div>
 		    				<div class="font-size-16 rgb225">
 		    					<span>

@@ -341,6 +341,7 @@ class IndexController extends BaseController {
 
     //支付成功
     public function BuyOkAction(){
+        $currencyCode = isset($_GET['currencyCode']) ? trim($_GET['currencyCode']) : 'RMB';
         $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
         $token    = isset($_SESSION["api_info"]["token"]) ? $_SESSION["api_info"]["token"]: '';
         if(!$order_id){
@@ -370,7 +371,8 @@ class IndexController extends BaseController {
             $order_arr['info_url'] = "http://".$_SERVER['HTTP_HOST']."/index.php?a=Info&id=".$order_arr['groupTourId'];
             //dump($order_arr);
         }
-
+        $fuhao = ($currencyCode == "RMB") ? "&yen;" : "$";
+        $this->assign('fuhao', $fuhao);
         $this->assign('order_arr', $order_arr);
         $this->assign('host_url', "http://".$_SERVER['HTTP_HOST']);
         $this->assign('title', '支付成功页面');
