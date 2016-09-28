@@ -7881,8 +7881,9 @@ $.extend( Datepicker.prototype, {
 	 *					event - if triggered by focus
 	 */
 	_showDatepicker: function( input ) {
-		//获取当前input的宽度
+		//获取当前input的宽度 //**xiujun  2016/9/28****
 		var targetWidth = input.currentTarget.offsetWidth;
+		//*************************************
 		
 		input = input.target || input;
 		if ( input.nodeName.toLowerCase() !== "input" ) { // find from button/image trigger
@@ -7941,6 +7942,7 @@ $.extend( Datepicker.prototype, {
 
 		// fix width for dynamic number of date pickers
 		// and adjust position before showing
+		// xiujun  2019/9/28********************
 		//根据屏幕的宽度获取按钮的宽度
 		var bodyWidth = document.body.clientWidth;
         if(bodyWidth >= 992){//获取大屏幕下按钮的宽度
@@ -7952,6 +7954,7 @@ $.extend( Datepicker.prototype, {
             // $('#ui-datepicker-div').width(690);
             var currectWidth = $('#smallScreen').width();
         }
+        //*************************************************
 
 		offset = $.datepicker._checkOffset( inst, offset, isFixed );
 		inst.dpDiv.css( { position: ( $.datepicker._inDialog && $.blockUI ?
@@ -7995,7 +7998,9 @@ $.extend( Datepicker.prototype, {
 			datepicker_handleMouseover.apply( activeCell.get( 0 ) );
 		}
 
-		inst.dpDiv.removeClass( "ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4" ).width( "" );
+		// inst.dpDiv.removeClass( "ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4" ).width( "" );
+		// xiujun  2016/9/28  solute click prev or next ,width change.
+		inst.dpDiv.removeClass( "ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4" );
 		if ( cols > 1 ) {
 			inst.dpDiv.addClass( "ui-datepicker-multi-" + cols ).css( "width", ( width * cols ) + "em" );
 		}
@@ -9232,7 +9237,8 @@ function datepicker_extendRemove( target, props ) {
    @param  options  string - a command, optionally followed by additional parameters or
 					Object - settings for attaching new datepicker functionality
    @return  jQuery object */
-$.fn.datepicker = function( options ) {//初始化
+$.fn.datepicker = function( options ) {
+	//初始化 //*****xiujun  2016/9/28***********/
 
 	/* Verify an empty collection wasn't passed - Fixes #6976 */
 	if ( !this.length ) {
